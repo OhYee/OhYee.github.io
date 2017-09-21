@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/15/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5882"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-17 21:25:03 21:25:03" datetime="2016-09-17T13:25:03.000Z"  itemprop="datePublished">2016-09-17 21:25:03</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5882.html">HDU 5882.Balanced Game(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Rock-paper-scissors is a zero-sum hand game usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are “rock”, “paper”, and “scissors”. The game has only three possible outcomes other than a tie: a player who decides to play rock will beat another player who has chosen scissors (“rock crushes scissors”) but will lose to one who has played paper (“paper covers rock”); a play of paper will lose to a play of scissors (“scissors cut paper”). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie.  </p>
+<p>Recently, there is a upgraded edition of this game: rock-paper-scissors-Spock-lizard, in which there are totally five shapes. The rule is simple: scissors cuts paper; paper covers rock; rock crushes lizard; lizard poisons Spock; Spock smashes scissors; scissors decapitates lizard; lizard eats paper; paper disproves Spock; Spock vaporizes rock; and as it always has, rock crushes scissors.  </p>
+<p>Both rock-paper-scissors and rock-paper-scissors-Spock-lizard are balanced games. Because there does not exist a strategy which is better than another. In other words, if one chooses shapes randomly, the possibility he or she wins is exactly 50% no matter how the other one plays (if there is a tie, repeat this game until someone wins). Given an integer N, representing the count of shapes in a game. You need to find out if there exist a rule to make this game balanced.  </p>
+    
+
+        <a href="/post/HDU/5882.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5879"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-17 21:05:09 21:05:09" datetime="2016-09-17T13:05:09.000Z"  itemprop="datePublished">2016-09-17 21:05:09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5879.html">HDU 5879.Cure(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer n, we only want to know the sum of 1/k<sup>2</sup> where k from 1 to n.  </p>
+    
+
+        <a href="/post/HDU/5879.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1754"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-14 20:42:58 20:42:58" datetime="2016-09-14T12:42:58.000Z"  itemprop="datePublished">2016-09-14 20:42:58</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1754.html">HDU 1754.I Hate It</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>很多学校流行一种比较的习惯。老师们很喜欢询问，从某某到某某当中，分数最高的是多少。<br>这让很多学生很反感。   </p>
+<p>不管你喜不喜欢，现在需要你做的是，就是按照老师的要求，写一个程序，模拟老师的询问。当然，老师有时候需要更新某位同学的成绩。<br>
+    
+
+        <a href="/post/HDU/1754.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1166"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-13 21:03:30 21:03:30" datetime="2016-09-13T13:03:30.000Z"  itemprop="datePublished">2016-09-13 21:03:30</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1166.html">HDU 1166.敌兵布阵</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>C国的死对头A国这段时间正在进行军事演习，所以C国间谍头子Derek和他手下Tidy又开始忙乎了。A国在海岸线沿直线布置了N个工兵营地,Derek和Tidy的任务就是要监视这些工兵营地的活动情况。由于采取了某种先进的监测手段，所以每个工兵营地的人数C国都掌握的一清二楚,每个工兵营地的人数都有可能发生变动，可能增加或减少若干人手,但这些都逃不过C国的监视。<br>中央情报局要研究敌人究竟演习什么战术,所以Tidy要随时向Derek汇报某一段连续的工兵营地一共有多少人,例如Derek问:“Tidy,马上汇报第3个营地到第10个营地共有多少人!”Tidy就要马上开始计算这一段的总人数并汇报。但敌兵营地的人数经常变动，而Derek每次询问的段都不一样，所以Tidy不得不每次都一个一个营地的去数，很快就精疲力尽了，Derek对Tidy的计算速度越来越不满:”你个死肥仔，算得这么慢，我炒你鱿鱼!”Tidy想：“你自己来算算看，这可真是一项累人的工作!我恨不得你炒我鱿鱼呢!”无奈之下，Tidy只好打电话向计算机专家Windbreaker求救,Windbreaker说：“死肥仔，叫你平时做多点acm题和看多点算法书，现在尝到苦果了吧!”Tidy说：”我知错了。。。”但Windbreaker已经挂掉电话了。Tidy很苦恼，这么算他真的会崩溃的，聪明的读者，你能写个程序帮他完成这项工作吗？不过如果你的程序效率不够高的话，Tidy还是会受到Derek的责骂的.  </p>
+    
+
+        <a href="/post/HDU/1166.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/11624"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 22:09:14 22:09:14" datetime="2016-09-09T14:09:14.000Z"  itemprop="datePublished">2016-09-09 22:09:14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/11624.html">Uva 11624.Fire!</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Joe works in a maze.<br>Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.<br>Help Joe escape the maze.<br>Given Joe’s location in the maze and which squares of the maze are on fire, you must determine whether Joe can exit the maze before the fire reaches him, and how fast he can do it.<br>Joe and the fire each move one square per minute, vertically or horizontally (not diagonally).<br>The fire spreads all four directions from each square that is on fire.<br>Joe may exit the maze from any square that borders the edge of the maze.<br>Neither Joe nor the fire may enter a square that is occupied by a wall.  </p>
+    
+
+        <a href="/post/Uva/11624.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1995"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 22:03:54 22:03:54" datetime="2016-09-09T14:03:54.000Z"  itemprop="datePublished">2016-09-09 22:03:54</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1995.html">POJ 1995.Raising Modulo Numbers</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>People are different. Some secretly read magazines full of interesting girls’ pictures, others create an A-bomb in their cellar, others like using Windows, and some like difficult mathematical games. Latest marketing research shows, that this market segment was so far underestimated and that there is lack of such games. This kind of game was thus included into the KOKODáKH. The rules follow:   </p>
+<p>Each player chooses two numbers Ai and Bi and writes them on a slip of paper. Others cannot see the numbers. In a given moment all players show their numbers to the others. The goal is to determine the sum of all expressions Ai Bi from all players including oneself and determine the remainder after division by a given number M. The winner is the one who first determines the correct result. According to the players’ experience it is possible to increase the difficulty by choosing higher numbers.   </p>
+<p>You should write a program that calculates the result and is able to find out who won the game.   </p>
+    
+
+        <a href="/post/POJ/1995.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raising-Modulo-Numbers/">快速幂取模</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2184"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 21:33:53 21:33:53" datetime="2016-09-09T13:33:53.000Z"  itemprop="datePublished">2016-09-09 21:33:53</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2184.html">POJ 2184.Cow Exhibition</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>“Fat and docile, big and dumb, they look so stupid, they aren’t much<br>fun…”   </p>
+<ul>
+<li>Cows with Guns by Dana Lyons   </li>
+</ul>
+<p>The cows want to prove to the public that they are both smart and fun. In order to do this, Bessie has organized an exhibition that will be put on by the cows. She has given each of the N (1 &lt;= N &lt;= 100) cows a thorough interview and determined two values for each cow: the smartness Si (-1000 &lt;= Si &lt;= 1000) of the cow and the funness Fi (-1000 &lt;= Fi &lt;= 1000) of the cow.   </p>
+<p>Bessie must choose which cows she wants to bring to her exhibition. She believes that the total smartness TS of the group is the sum of the Si’s and, likewise, the total funness TF of the group is the sum of the Fi’s. Bessie wants to maximize the sum of TS and TF, but she also wants both of these values to be non-negative (since she must also show that the cows are well-rounded; a negative TS or TF would ruin this). Help Bessie maximize the sum of TS and TF without letting either of these values become negative.<br>
+    
+
+        <a href="/post/POJ/2184.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PackageProblem/">背包问题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2739"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 21:29:50 21:29:50" datetime="2016-09-09T13:29:50.000Z"  itemprop="datePublished">2016-09-09 21:29:50</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2739.html">POJ 2739.Sum of Consecutive Prime Numbers</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Some positive integers can be represented by a sum of one or more consecutive prime numbers. How many such representations does a given positive integer have  For example, the integer 53 has two representations 5 + 7 + 11 + 13 + 17 and 53. The integer 41 has three representations 2+3+5+7+11+13, 11+13+17, and 41. The integer 3 has only one representation, which is 3. The integer 20 has no such representations. Note that summands must be consecutive prime<br>numbers, so neither 7 + 13 nor 3 + 5 + 5 + 7 is a valid representation for the integer 20.<br>Your mission is to write a program that reports the number of representations for the given positive integer.<br>
+    
+
+        <a href="/post/POJ/2739.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HYSBZ/1303"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 21:12:54 21:12:54" datetime="2016-09-09T13:12:54.000Z"  itemprop="datePublished">2016-09-09 21:12:54</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HYSBZ/1303.html">HYSBZ 1303.中位数图</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>给出1~n的一个排列，统计该排列有多少个长度为奇数的连续子序列的中位数是b。中位数是指把所有元素从小到大排列后，位于中间的数。<br>
+    
+
+        <a href="/post/HYSBZ/1303.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HYSBZ/">HYSBZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">映射(map)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HYSBZ/1002"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-09-09 21:02:57 21:02:57" datetime="2016-09-09T13:02:57.000Z"  itemprop="datePublished">2016-09-09 21:02:57</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HYSBZ/1002.html">HYSBZ 1002.轮状病毒</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>　　轮状病毒有很多变种，所有轮状病毒的变种都是从一个轮状基产生的。一个N轮状基由圆环上N个不同的基原子<br>和圆心处一个核原子构成的，2个原子之间的边表示这2个原子之间的信息通道。如下图所示<br>  <img src="http://www.lydsy.com/JudgeOnline/upload/201604/1%283%29.png" alt=""></p>
+<p>　　N轮状病毒的产生规律是在一个N轮状基中删去若干条边，使得各原子之间有唯一的信息通道，例如共有16个不<br>同的3轮状病毒，如下图所示<br>  <img src="http://www.lydsy.com/JudgeOnline/upload/201604/2%283%29.png" alt=""></p>
+<p>　　现给定n(N&lt;=100)，编程计算有多少个不同的n轮状病毒<br>
+    
+
+        <a href="/post/HYSBZ/1002.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HYSBZ/">HYSBZ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/14/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/16/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/15/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/15/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/15/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/15/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/15/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/15/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Uva 101.The Blocks Problem | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="向量(vector),Uva,链表(list)">
+    <meta name="description" content="题意比较容易理解 《入门经典》上用的是向量，不过觉得用链表更快点~ 于是，就在链表这个大坑中爬不出来了…… 要注意对两种情况的排除，一个是a==b，另一个就是a、b在同一堆 在链表中，要注意什么时候链表到尽头，到底用 temp!=NULL 还是用 temp-&amp;gt;next!=NULL 做循环判断的条件 另外，当链表的节点进行移动操作的时候，要注意移动 temp-&amp;gt;next-&amp;gt;last">
+<meta name="keywords" content="向量(vector),Uva,链表(list)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Uva 101.The Blocks Problem">
+<meta property="og:url" content="https://www.oyohyee.com/post/Uva/101.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题意比较容易理解 《入门经典》上用的是向量，不过觉得用链表更快点~ 于是，就在链表这个大坑中爬不出来了…… 要注意对两种情况的排除，一个是a==b，另一个就是a、b在同一堆 在链表中，要注意什么时候链表到尽头，到底用 temp!=NULL 还是用 temp-&amp;gt;next!=NULL 做循环判断的条件 另外，当链表的节点进行移动操作的时候，要注意移动 temp-&amp;gt;next-&amp;gt;last">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Uva 101.The Blocks Problem">
+<meta name="twitter:description" content="题意比较容易理解 《入门经典》上用的是向量，不过觉得用链表更快点~ 于是，就在链表这个大坑中爬不出来了…… 要注意对两种情况的排除，一个是a==b，另一个就是a、b在同一堆 在链表中，要注意什么时候链表到尽头，到底用 temp!=NULL 还是用 temp-&amp;gt;next!=NULL 做循环判断的条件 另外，当链表的节点进行移动操作的时候，要注意移动 temp-&amp;gt;next-&amp;gt;last">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Uva 101.The Blocks Problem</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">Uva 101.The Blocks Problem</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-02-14T16:37:00.000Z" itemprop="datePublished" class="page-time">
+  2016-02-15 00:37:00
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Uva/101"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Uva 101.The Blocks Problem</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-02-15 00:37:00 00:37:00" datetime="2016-02-14T16:37:00.000Z"  itemprop="datePublished">2016-02-15 00:37:00</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>题意比较容易理解</p>
+<p>《入门经典》上用的是向量，不过觉得用链表更快点~</p>
+<p>于是，就在链表这个大坑中爬不出来了……</p>
+<p>要注意对两种情况的排除，一个是<code>a==b</code>，另一个就是a、b在同一堆</p>
+<p>在链表中，要注意什么时候链表到尽头，到底用 <code>temp!=NULL</code> 还是用 <code>temp-&gt;next!=NULL</code> 做循环判断的条件</p>
+<p>另外，当链表的节点进行移动操作的时候，要注意移动 <code>temp-&gt;next-&gt;last</code> 和 <code>temp-&gt;last-&gt;next</code> （其中还要判断 <code>temp-&gt;last</code> 和 <code>temp-&gt;next</code> 存在与否）</p>
+<p>（要在这里被坑多少次才能记住╮(╯-╰)╭）</p>
+ <a id="more"></a>
+<p>保证这些地方没问题，剩下就对着要求操作就好</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">blocks</span>&#123;</span></div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    blocks *up;</div><div class="line">    blocks *down;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n;</div><div class="line">blocks *b[<span class="number">30</span>],*p[<span class="number">30</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">back</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(b[n]-&gt;up!=<span class="literal">NULL</span>)</div><div class="line">        back(b[n]-&gt;up-&gt;n);</div><div class="line">    <span class="keyword">if</span>(b[n]-&gt;down!=<span class="literal">NULL</span>)</div><div class="line">        b[n]-&gt;down-&gt;up=<span class="literal">NULL</span>;</div><div class="line">    b[n]-&gt;up=b[n]-&gt;down=<span class="literal">NULL</span>;</div><div class="line">    p[n]=b[n];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pr</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"=====================\n"</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d:"</span>,i);</div><div class="line">        blocks *temp=p[i];</div><div class="line">        <span class="keyword">while</span>(temp!=<span class="literal">NULL</span>)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">" %d"</span>,temp-&gt;n);</div><div class="line">            temp=temp-&gt;up;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d: %d %d %d\n"</span>,i,b[i]-&gt;down==<span class="literal">NULL</span>?<span class="number">-1</span>:b[i]-&gt;down-&gt;n,i,b[i]-&gt;up==<span class="literal">NULL</span>?<span class="number">-1</span>:b[i]-&gt;up-&gt;n);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="built_in">printf</span>(<span class="string">"=====================\n"</span>);</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="comment">//freopen("in.txt","r",stdin);</span></div><div class="line">    <span class="comment">//======init======</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++)</div><div class="line">        p[i]=b[i]=<span class="keyword">new</span> blocks&#123;i,<span class="literal">NULL</span>,<span class="literal">NULL</span>&#125;;</div><div class="line">    <span class="comment">//================</span></div><div class="line"></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    </div><div class="line">    <span class="keyword">char</span> com1[<span class="number">5</span>],com2[<span class="number">5</span>];</div><div class="line">    <span class="keyword">int</span> A,B;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d %s %d"</span>,com1,&amp;A,com2,&amp;B);</div><div class="line">        <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(com1,<span class="string">"quit"</span>))<span class="keyword">break</span>;</div><div class="line"></div><div class="line">        <span class="comment">//pr();</span></div><div class="line"></div><div class="line">        <span class="comment">//printf("%s %d %s %d\n",com1,A,com2,B);</span></div><div class="line">        <span class="keyword">if</span>(A==B)<span class="keyword">continue</span>;</div><div class="line">        <span class="keyword">bool</span> can=<span class="literal">true</span>;</div><div class="line">        blocks *t=b[A];</div><div class="line">        <span class="keyword">while</span>(t!=<span class="literal">NULL</span>)&#123;</div><div class="line">            t=t-&gt;up;</div><div class="line">            <span class="keyword">if</span>(t==b[B])</div><div class="line">                can=<span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        t=b[A];</div><div class="line">        <span class="keyword">while</span>(t!=<span class="literal">NULL</span>)&#123;</div><div class="line">            t=t-&gt;down;</div><div class="line">            <span class="keyword">if</span>(t==b[B])</div><div class="line">                can=<span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!can)<span class="keyword">continue</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(!(<span class="built_in">strcmp</span>(com1,<span class="string">"move"</span>)||<span class="built_in">strcmp</span>(com2,<span class="string">"onto"</span>)))&#123;    </div><div class="line">            back(A);</div><div class="line">            <span class="keyword">if</span>(b[B]-&gt;up!=<span class="literal">NULL</span>)</div><div class="line">                back(b[B]-&gt;up-&gt;n);</div><div class="line">            b[B]-&gt;up=b[A];</div><div class="line">            b[A]-&gt;down=b[B];</div><div class="line">            <span class="keyword">if</span>(p[A]==b[A])</div><div class="line">                p[A]=<span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!(<span class="built_in">strcmp</span>(com1,<span class="string">"move"</span>)||<span class="built_in">strcmp</span>(com2,<span class="string">"over"</span>)))&#123;</div><div class="line">            back(A);</div><div class="line">            blocks *temp=b[B];</div><div class="line">            <span class="keyword">while</span>(temp-&gt;up!=<span class="literal">NULL</span>)</div><div class="line">                temp=temp-&gt;up;</div><div class="line">            temp-&gt;up=b[A];</div><div class="line">            b[A]-&gt;down=temp;</div><div class="line">            <span class="keyword">if</span>(p[A]==b[A])</div><div class="line">                p[A]=<span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!(<span class="built_in">strcmp</span>(com1,<span class="string">"pile"</span>)||<span class="built_in">strcmp</span>(com2,<span class="string">"onto"</span>)))&#123;</div><div class="line">            <span class="keyword">if</span>(b[B]-&gt;up!=<span class="literal">NULL</span>)</div><div class="line">                back(b[B]-&gt;up-&gt;n);</div><div class="line">            b[B]-&gt;up=b[A];</div><div class="line">            <span class="keyword">if</span>(b[A]-&gt;down!=<span class="literal">NULL</span>)</div><div class="line">                b[A]-&gt;down-&gt;up=<span class="literal">NULL</span>;</div><div class="line">            b[A]-&gt;down=b[B];</div><div class="line">            <span class="keyword">if</span>(p[A]==b[A])</div><div class="line">                p[A]=<span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(!(<span class="built_in">strcmp</span>(com1,<span class="string">"pile"</span>)||<span class="built_in">strcmp</span>(com2,<span class="string">"over"</span>)))&#123;</div><div class="line">            blocks *temp=b[B];</div><div class="line">            <span class="keyword">while</span>(temp-&gt;up!=<span class="literal">NULL</span>)</div><div class="line">                temp=temp-&gt;up;</div><div class="line">            temp-&gt;up=b[A];</div><div class="line">            <span class="keyword">if</span>(b[A]-&gt;down!=<span class="literal">NULL</span>)</div><div class="line">                b[A]-&gt;down-&gt;up=<span class="literal">NULL</span>;</div><div class="line">            b[A]-&gt;down=temp;</div><div class="line">            <span class="keyword">if</span>(p[A]==b[A])</div><div class="line">                p[A]=<span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d:"</span>,i);</div><div class="line">        blocks *temp=p[i];</div><div class="line">        <span class="keyword">while</span>(temp!=<span class="literal">NULL</span>)&#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">" %d"</span>,temp-&gt;n);</div><div class="line">            temp=temp-&gt;up;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Uva/101.html" target="_blank" rel="external">Uva 101.The Blocks Problem</a><br>文章地址：  <a href="/post/Uva/101.html" target="_blank" rel="external">https://www.oyohyee.com/post/Uva/101.html</a><br>创建时间：  2016-02-15 00:37:00<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">向量(vector)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">链表(list)</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Uva/101.html&title=《Uva 101.The Blocks Problem》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Uva/101.html&title=《Uva 101.The Blocks Problem》 — OhYee's Blog&source=题意比较容易理解
+《入门经典》上用的是向量，不过觉得用链表更快点~
+于是，就在链表这个大坑中爬不出来了……
+要注意对两种情况的排除，一个是a==b，另一个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Uva/101.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Uva 101.The Blocks Problem》 — OhYee's Blog&url=https://www.oyohyee.com/post/Uva/101.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Uva/101.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Uva/10815.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Uva 10815.Andy&#39;s First Dictionary</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Uva/1588.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Uva 1588.Kickdown</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Uva/101.html&title=《Uva 101.The Blocks Problem》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Uva/101.html&title=《Uva 101.The Blocks Problem》 — OhYee's Blog&source=题意比较容易理解
+《入门经典》上用的是向量，不过觉得用链表更快点~
+于是，就在链表这个大坑中爬不出来了……
+要注意对两种情况的排除，一个是a==b，另一个..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Uva/101.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Uva 101.The Blocks Problem》 — OhYee's Blog&url=https://www.oyohyee.com/post/Uva/101.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Uva/101.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Uva/101.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

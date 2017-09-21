@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>博弈 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="博弈,巴什博奕,威佐夫博奕,尼姆博弈,Nim Staircase博奕">
+    <meta name="description" content="巴什博奕只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.若(m+1)%n，则先手必败，否则先手必胜    显然,如果n=m+1,那么由于一次最多只能取m个,所以,无论先取者拿走多少个,后取者都能够一次拿走剩余的物品,后者取胜.因此有取胜的法则：如果n=(m+1)r+s,(r为任意自然数,s≤m),那么先取者要拿走s个物品,如果后取者拿走k(≤m)个,那">
+<meta name="keywords" content="博弈,巴什博奕,威佐夫博奕,尼姆博弈,Nim Staircase博奕">
+<meta property="og:type" content="article">
+<meta property="og:title" content="博弈">
+<meta property="og:url" content="https://www.oyohyee.com/post/Algorithm/Game.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="巴什博奕只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.若(m+1)%n，则先手必败，否则先手必胜    显然,如果n=m+1,那么由于一次最多只能取m个,所以,无论先取者拿走多少个,后取者都能够一次拿走剩余的物品,后者取胜.因此有取胜的法则：如果n=(m+1)r+s,(r为任意自然数,s≤m),那么先取者要拿走s个物品,如果后取者拿走k(≤m)个,那">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博弈">
+<meta name="twitter:description" content="巴什博奕只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.若(m+1)%n，则先手必败，否则先手必胜    显然,如果n=m+1,那么由于一次最多只能取m个,所以,无论先取者拿走多少个,后取者都能够一次拿走剩余的物品,后者取胜.因此有取胜的法则：如果n=(m+1)r+s,(r为任意自然数,s≤m),那么先取者要拿走s个物品,如果后取者拿走k(≤m)个,那">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">博弈</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">博弈</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-06-26T13:19:38.000Z" itemprop="datePublished" class="page-time">
+  2016-06-26 21:19:38
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#巴什博奕"><span class="post-toc-text">巴什博奕</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#威佐夫博奕"><span class="post-toc-text">威佐夫博奕</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#尼姆博弈"><span class="post-toc-text">尼姆博弈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Nim-Staircase博奕"><span class="post-toc-text">Nim Staircase博奕:</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Algorithm/Game"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">博弈</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-26 21:19:38 21:19:38" datetime="2016-06-26T13:19:38.000Z"  itemprop="datePublished">2016-06-26 21:19:38</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="巴什博奕"><a href="#巴什博奕" class="headerlink" title="巴什博奕"></a>巴什博奕</h1><p>只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.<br><strong>若<code>(m+1)%n</code>，则先手必败，否则先手必胜</strong>   </p>
+<p>显然,如果<code>n=m+1</code>,那么由于一次最多只能取m个,所以,无论先取者拿走多少个,后取者都能够一次拿走剩余的物品,后者取胜.<br>因此有取胜的法则：如果<code>n=(m+1)r+s</code>,(r为任意自然数,s≤m),那么先取者要拿走s个物品,如果后取者拿走k(≤m)个,那么先取者再拿走m+1-k个,结果剩下(m+1)(r-1)个,以后保持这样的取法,那么先取者肯定获胜.<br>总之,要保持给对手留下(m+1)的倍数,就能最后获胜.<br><a id="more"></a></p>
+<h1 id="威佐夫博奕"><a href="#威佐夫博奕" class="headerlink" title="威佐夫博奕"></a>威佐夫博奕</h1><p>有两堆各若干个物品,两个人轮流从某一堆或同时从两堆中取同样多的物品,规定每次至少取一个,多者不限,最后取光者得胜.<br><strong>奇异局势下先手必败，非奇异局势下先手必胜。</strong>  </p>
+<p>这种情况下是颇为复杂的.我们用(ak,bk)(ak ≤bk ,k=0,1,2,…,n)表示两堆物品的数量并称其为局势<br>如果甲面对(0,0),那么甲已经输了,这种局势我们称为奇异局势.<br>前几个奇异局势是：(0,0)、(1,2)、(3,5)、(4,7)、(6,10)、(8,13)、(9,15)、(11,18)、(12,20).<br>可以看出,a0=b0=0,ak是未在前面出现过的最小自然数,而bk= ak + k,奇异局势有如下三条性质：  </p>
+<ol>
+<li>任何自然数都包含在一个且仅有一个奇异局势中.<br>由于ak是未在前面出现过的最小自然数,所以有<code>ak &gt; ak-1</code> ,而<code>bk= ak + k &gt; ak-1 + k-1 = bk-1 &gt; ak-1</code> .所以性质1.成立.  </li>
+<li>任意操作都可将奇异局势变为非奇异局势.<br>事实上,若只改变奇异局势(ak,bk)的某一个分量,那么另一个分量不可能在其他奇异局势中,所以必然是非奇异局势.如果使(ak,bk)的两<br>个分量同时减少,则由于其差不变,且不可能是其他奇异局势的差,因此也是非奇异局势.  </li>
+<li>采用适当的方法,可以将非奇异局势变为奇异局势.  </li>
+</ol>
+<p>假设面对的局势是(a,b),若<code>b = a</code>,则同时从两堆中取走a个物体,就变为了奇异局势(0,0)<br>如果<code>a = ak</code>,<code>b &gt; bk</code>,那么,取走<code>b - bk</code>个物体,即变为奇异局势<br>如果<code>a = ak</code>,<code>b &lt; bk</code>,则同时从两堆中拿走<code>ak - ab - ak</code>个物体,变为奇异局势( ab - ak , ab - ak+ b - ak)<br>如果<code>a &gt; ak</code>,<code>b= ak + k</code>,则从第一堆中拿走多余的数量<code>a - ak</code> 即可<br>如果<code>a &lt; ak</code>,<code>b= ak + k</code>,分两种情况,第一种,<code>a=aj (j &lt; k)</code>,从第二堆里面拿走<code>b - bj</code> 即可<br>第二种,<code>a=bj (j &lt; k)</code>,从第二堆里面拿走b - aj 即可. </p>
+<p>从如上性质可知,两个人如果都采用正确操作,那么面对非奇异局势,先拿者必胜；反之,则后拿者取胜.  </p>
+<p>那么任给一个局势(a,b),怎样判断它是不是奇异局势呢？我们有如下公式：<br><strong><code>ak = k(1+√5)/2 (下取整), bk= ak + k (k∈N)</code></strong><br>奇妙的是其中出现了有关黄金分割数的式子：(1+√5)/2 =1.618…,若两堆物品个数分别为x,y(x&lt;y)，则k=y-x，再判断x是否等于<code>[(y-x)*( √5+1)/2]</code>即可得知是否是奇异局势。  </p>
+<h1 id="尼姆博弈"><a href="#尼姆博弈" class="headerlink" title="尼姆博弈"></a>尼姆博弈</h1><p>有三堆各若干个物品,两个人轮流从某一堆取任意多的物品,规定每次至少取一个,多者不限,最后取光者得胜.    </p>
+<p>这种情况最有意思,它与二进制有密切关系,我们用(a,b,c)表示某种局势,首先(0,0,0)显然是奇异局势,无论谁面对奇异局势,都必然失败.<br>第二种奇异局势是(0,n,n),只要与对手拿走一样多的物品,最后都将导致(0,0,0).<br>仔细分析一下,(1,2,3)也是奇异局势,无论对手如何拿,接下来都可以变为(0,n,n)的情形.<br>计算机算法里面有一种叫做按位模2加,也叫做异或的运算,我们用符号xor表示这种运算.这种运算和一般加法不同的一点是1+1=0.<br>先看(1,2,3)的按位模2加的结果：  </p>
+<blockquote>
+<p>1 =二进制01<br>Xor 2 =二进制10<br>Xor 3 =二进制11<br>———————<br>0 =二进制00 </p>
+</blockquote>
+<p>对于奇异局势(0,n,n)也一样,结果也是0.<br>任何奇异局势(a,b,c)都有<code>a xor b xor c =0</code>。该结论可以推广至若干堆，都是成立的<br>如果我们面对的是一个非奇异局势(a,b,c),要如何变为奇异局势呢？<br>假设<code>a &lt; b&lt; c</code>,我们只要将c 变为<code>a xor b</code>,即可,因为有如下的运算<br>结果: <code>a xor b xor (a xor b)=(a xor a) xor (b xor b)=0 xor 0=0</code>.<br>要将<code>c</code> 变为<code>a xor b</code>,只要从<code>c</code>中减去<code>c-(a xor b)</code>即可.  </p>
+<h1 id="Nim-Staircase博奕"><a href="#Nim-Staircase博奕" class="headerlink" title="Nim Staircase博奕:"></a>Nim Staircase博奕:</h1><p>这个问题是尼姆博弈的拓展：<br>游戏开始时有许多硬币任意分布在楼梯上，共n阶楼梯从地面由下向上编号为0到n。<br>游戏者在每次操作时可以将楼梯j(1&lt;=j&lt;=n)上的任意多但至少一个硬币移动到楼梯j-1上。<br>游戏者轮流操作，将最后一枚硬币移至地上（0号）的人获胜。<br>算法：将奇数楼层的状态异或，和为0则先手必败，否则先手必胜。  </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Algorithm/Game.html" target="_blank" rel="external">博弈</a><br>文章地址：  <a href="/post/Algorithm/Game.html" target="_blank" rel="external">https://www.oyohyee.com/post/Algorithm/Game.html</a><br>创建时间：  2016-06-26 21:19:38<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nim-Staircase/">Nim Staircase博奕</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Game/">博弈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wythoff/">威佐夫博奕</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nim/">尼姆博弈</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bash/">巴什博奕</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Game.html&title=《博弈》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Game.html&title=《博弈》 — OhYee's Blog&source=巴什博奕只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.若(m+1)%n，则先手必败，否则先手必胜   
+显..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Game.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《博弈》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Game.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Game.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/1846.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 1846.Brave Game</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/VPS_hexo.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">VPS搭建Git服务器及git pages</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Game.html&title=《博弈》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Game.html&title=《博弈》 — OhYee's Blog&source=巴什博奕只有一堆n个物品,两个人轮流从这堆物品中取物,规定每次至少取一个,最多取m个.最后取光者得胜.若(m+1)%n，则先手必败，否则先手必胜   
+显..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Game.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《博弈》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Game.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Game.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Algorithm/Game.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

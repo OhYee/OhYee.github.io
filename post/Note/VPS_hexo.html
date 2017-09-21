@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>VPS搭建Git服务器及git pages | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="Linux,Hexo,Git,VPS">
+    <meta name="description" content="对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点腾讯云每天中午12点能够在官网上抢学生优惠一个月1元钱拿到 VPS 服务器练手专用">
+<meta name="keywords" content="搭建Hexo,搭建Git服务器,腾讯云,服务器,VPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPS搭建Git服务器及git pages">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/VPS_hexo.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点腾讯云每天中午12点能够在官网上抢学生优惠一个月1元钱拿到 VPS 服务器练手专用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPS搭建Git服务器及git pages">
+<meta name="twitter:description" content="对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点腾讯云每天中午12点能够在官网上抢学生优惠一个月1元钱拿到 VPS 服务器练手专用">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">VPS搭建Git服务器及git pages</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">VPS搭建Git服务器及git pages</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-06-26T10:25:17.000Z" itemprop="datePublished" class="page-time">
+  2016-06-26 18:25:17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Note/VPS_hexo"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">VPS搭建Git服务器及git pages</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-26 18:25:17 18:25:17" datetime="2016-06-26T10:25:17.000Z"  itemprop="datePublished">2016-06-26 18:25:17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点<br>腾讯云每天中午12点能够在官网上抢学生优惠<br>一个月1元钱拿到 VPS 服务器<br>练手专用  </p>
+<a id="more"></a>
+<p>抢到后选择 65 的服务器(一个月),然后用抢到的 64 优惠券购买<br>以后每个月记得去领一次优惠券即可(不用抢)  </p>
+<p>弄好后,选择了 Linux 系统的服务器<br>既然是学习,再用 Windows 就没有意思了嘛~~~   </p>
+<p>使用了 <code>CentOS 7.2 64位</code><br>初始化完成后,只需要 <code>yum install git</code><br>就可以在服务器上安装上 git<br>同理可以安装 <code>python</code> <code>nodejs</code> 等内容<br>安装好 <code>nodejs</code> 后,直接 <code>npm install hexo -g</code><br>就可以安装 hexo<br>不过这个其实没必要,如果文章比较多,其实在服务器上跑生成会被系统强行杀死的  </p>
+<p>不过我们可以模仿 github 那样搭建自己的 gitpages  </p>
+<p>首先解决权限问题, git的操作最好给一个特定的用户<br>我们新建一个 git 用户<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">adduser git</div><div class="line">passwd</div></pre></td></tr></table></figure></p>
+<p>进入用户目录 <code>/home/git</code><br>这里有一个隐藏的文件夹 <code>.ssh</code><br>在这个文件夹里就是我们 <code>ssh</code> 相关的配置文件<br>新建一个 <code>authorized_keys</code> 文件<br>把我们本地的 <code>id_rsa.pub</code> 的内容放进去,这样服务器就会同意我们的电脑通过 ssh 连接进来<br><strong>所有文件的所有者和用户组都应该是 git ,并且权限也要设置好</strong>  </p>
+<p>然后在他的用户目录里新建一个文件夹作为我们的git库<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">mkdir git</div><div class="line"><span class="built_in">cd</span> git</div><div class="line">git init --bare</div></pre></td></tr></table></figure></p>
+<p>这样我们的 git 服务器就搭建好了<br>把本机的远程仓库地址填成 <code>git@[vps地址]:[目录地址(以/home/git为根目录)]</code><br>push 上去就行了  </p>
+<p>那么怎么显示出来呢<br>我们可以再搭建一个 nginx<br>每次推送上去后把文件复制到 nginx 的目录里  </p>
+<p>这就需要 <code>git hooks</code> 来实现了<br>进入 git 服务器的目录里<br>有一个 <code>hooks</code> 目录<br>新建一个 <code>post-receive</code> 文件<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">touch post-receive</div></pre></td></tr></table></figure></p>
+<p>然后内容改为<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">echo</span> BEGIN</div><div class="line"></div><div class="line">rm -rf /home/git/hexo</div><div class="line">git <span class="built_in">clone</span> /home/git/hexo.git /home/git/hexo</div><div class="line">rm /home/git/task/urls.txt</div><div class="line">cp /home/git/hexo/urls.txt /home/git/task/urls.txt</div><div class="line">rm -rf /usr/share/nginx/hexo/*</div><div class="line">mv /home/git/hexo/* /usr/share/nginx/hexo</div><div class="line"></div><div class="line"><span class="built_in">echo</span> BLOG FINISH</div><div class="line"></div><div class="line">git push -u origin master -f</div><div class="line"></div><div class="line"><span class="built_in">echo</span> FINISH</div></pre></td></tr></table></figure></p>
+<p>自己改为自己对应的目录  </p>
+<p>解释下内容 <code>#!/bin/bash</code> 告诉系统这个以 bash 形式运行文件<br><code>rm -rf /home/git/hexo</code><br><code>git clone /home/git/hexo.git /home/git/hexo</code><br>删除并重新 clone 出博客(必须clone在git有权限操作的目录里)  </p>
+<p><code>rm /home/git/task/urls.txt</code><br><code>cp /home/git/hexo/urls.txt /home/git/task/urls.txt</code><br>复制一份生成的所有文章的链接的文件(用于提交到百度站长,可以不要这两行)  </p>
+<p><code>rm -rf /usr/share/nginx/hexo/*</code><br><code>mv /home/git/hexo/* /usr/share/nginx/hexo</code><br>删除 nginx 的网站目录下的文件,并将新的内容移动过去(git需要该目录的权限)  </p>
+<p>这样就完成了我们自己的 git pages 的搭建    </p>
+<p><code>git push -u origin master -f</code><br>这个可以顺便把我们的博客推送到 <code>github</code> 和 <code>Coding</code><br>在 git 目录里设置下 remote 即可  </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/VPS_hexo.html" target="_blank" rel="external">VPS搭建Git服务器及git pages</a><br>文章地址：  <a href="/post/Note/VPS_hexo.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/VPS_hexo.html</a><br>创建时间：  2016-06-26 18:25:17<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/VPS_hexo.html&title=《VPS搭建Git服务器及git pages》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/VPS_hexo.html&title=《VPS搭建Git服务器及git pages》 — OhYee's Blog&source=对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点腾讯云每天中午12点能够在官网上抢学生优惠一个月1元钱拿到 VPS 服务器练手专用  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/VPS_hexo.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VPS搭建Git服务器及git pages》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/VPS_hexo.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/VPS_hexo.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Algorithm/Game.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">博弈</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/UrlJump.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">域名跳转</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/VPS_hexo.html&title=《VPS搭建Git服务器及git pages》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/VPS_hexo.html&title=《VPS搭建Git服务器及git pages》 — OhYee's Blog&source=对比了以下腾讯云和阿里云,觉得个人更喜欢腾讯云一点腾讯云每天中午12点能够在官网上抢学生优惠一个月1元钱拿到 VPS 服务器练手专用  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/VPS_hexo.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VPS搭建Git服务器及git pages》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/VPS_hexo.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/VPS_hexo.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/VPS_hexo.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

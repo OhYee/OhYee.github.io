@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>VS Code 便携环境配置 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="Hexo,vscode,Python,MinGW">
+    <meta name="description" content="关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python支持 node.jsHexoGitPythonMinGW 在 Hexo + C++ 便携套装 里,介绍了将 VS Code portable 化的基础思路经过改进,将该功能改的更加完美   Github">
+<meta name="keywords" content="portable,Hexo,U盘,U盘写Hexo博客,U盘编译C&#x2F;C++,U盘编译Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS Code 便携环境配置">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/vscode.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python支持 node.jsHexoGitPythonMinGW 在 Hexo + C++ 便携套装 里,介绍了将 VS Code portable 化的基础思路经过改进,将该功能改的更加完美   Github">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VS Code 便携环境配置">
+<meta name="twitter:description" content="关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python支持 node.jsHexoGitPythonMinGW 在 Hexo + C++ 便携套装 里,介绍了将 VS Code portable 化的基础思路经过改进,将该功能改的更加完美   Github">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">VS Code 便携环境配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">VS Code 便携环境配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-12-10T07:08:26.000Z" itemprop="datePublished" class="page-time">
+  2016-12-10 15:08:26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备工作"><span class="post-toc-text">准备工作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取需要的文件"><span class="post-toc-text">获取需要的文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录结构"><span class="post-toc-text">目录结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#具体操作"><span class="post-toc-text">具体操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo"><span class="post-toc-text">Hexo</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译"><span class="post-toc-text">编译</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Git"><span class="post-toc-text">Git</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/vscode"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">VS Code 便携环境配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-12-10 15:08:26 15:08:26" datetime="2016-12-10T07:08:26.000Z"  itemprop="datePublished">2016-12-10 15:08:26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python<br>支持 <span class="label label-green">node.js</span><span class="label label-sky">Hexo</span><span class="label label-red">Git</span><span class="label label-blue">Python</span><span class="label label-orange">MinGW</span></p>
+<p>在 <a href="/post/Note/Portable.html">Hexo + C++ 便携套装</a> 里,介绍了将 VS Code portable 化的基础思路<br>经过改进,将该功能改的更加完美  </p>
+<p><a href="https://github.com/OhYee/Portable" target="_blank" rel="external">Github</a></p>
+<a id="more"></a>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>由于需要的文件过大,不提供直接下载,请根据思路自行配置自己需要的部分  </p>
+<h2 id="获取需要的文件"><a href="#获取需要的文件" class="headerlink" title="获取需要的文件"></a>获取需要的文件</h2><p>首先,可以得知,类似 Git、MinGW 安装后,都是通过加入到环境变量里后,通过命令行调用的,因此我们完全可以通过将U盘路径加入到命令行里来实现在U盘配置自己的环境<br>从各个官网获取需要的程序,正常安装,然后将安装文件夹整个拷贝到U盘里,卸载电脑上的程序,我们就获得了文件的主体<br>(当然,如果能够直接下载 <code>zip</code> 更好,不过有个功能不太全)  </p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>取得需要的文件后,目录如下:  </p>
+<blockquote>
+<ul>
+<li>Portable //主目录<ul>
+<li>Code //代码文件夹,一般可以将该文件夹整个备份到git上<ul>
+<li>Blog //博客文件夹<ul>
+<li>node_modules //hexo 主文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Support //需要加到环境变量里的文件<ul>
+<li>Git //用来给VS Code提供git 同时Hexo也用得到</li>
+<li>nodejs //Hexo需要</li>
+<li>MinGW //编译C/C++需要</li>
+<li>Python //写Python需要</li>
+</ul>
+</li>
+<li>ssh //备份的ssh,用来在其他电脑上连接git</li>
+<li>VS Code //编辑器<ul>
+<li>resources<ul>
+<li>app<ul>
+<li>extensions //VS Code 插件文件夹</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h1><p><span class="label label-sky">Hexo</span>的配置需要<span class="label label-green">node.js</span>和<span class="label label-red">Git</span><br>编译C/C++需要<span class="label label-orange">MinGW</span></p>
+<p>关于配置环境方面,各个部分是一样的,只举一种例子.<br>以 Hexo 为例,按照上面的部分下载完成后,放到该放的地方上.  </p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>在 <code>Portable\Code\Blog</code> 文件夹里初始化 Hexo (如果没有安装 Hexo 组件,安装到这个文件夹里)<br>或者将自己已经有的博客文件拷贝进来也行  </p>
+<p>在博客主目录下写文件 <code>portable\run.bat</code><br><figure class="highlight bat"><figcaption><span>run.bat</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\git\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\git\bin\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\nodejs\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\node_modules\npm\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\node_modules\npm\bin\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\MinGW\bin\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\MinGW\lib\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\MinGW\include\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\Python\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Support\cmder\</div><div class="line"></div><div class="line"><span class="built_in">cd</span> VS Code</div><div class="line"><span class="built_in">start</span> Code.exe ../Code</div><div class="line"><span class="keyword">exit</span></div></pre></td></tr></table></figure></p>
+<p>这样u盘里的文件对于 VS Code 就被加到环境变量里了(仅对于VSCode和从VSCode启动的程序)<br>那么,理论上而言,剩下的就和正常的一样了<br><kbd>Ctrl + `</kbd>调用VS Code里的控制台,通过这个控制台来写hexo的那些命令,或者通过这个控制台启动外部的控制台也行  </p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译需要安装相应的插件,先在VS Code里下好插件,到<code>{USER}\.vscode\extensions</code>里将插件移动到 <code>\portable\VS Code\resources\app\extensions</code>即可(插件列表里会消失,不过不影响使用)  </p>
+<p>Python的不需要配置<br>C/C++需要配置下  </p>
+<p>我这里用了两个不同的C/C++编译方式,使用VS Code的Debug和自己写的bat<br>在 <code>tasks.json</code> 里写了多个不同指令的任务,目测没有bug<br>以下给出配置   </p>
+<figure class="highlight"><figcaption><span>launch.json</span></figcaption><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">    <span class="attr">"configurations"</span>: [</div><div class="line">        &#123;</div><div class="line">            "name": "C++ Launch (GDB)",                 // 配置名称，将会在启动配置的下拉菜单中显示</div><div class="line">            "type": "cppdbg",                           // 配置类型，这里只能为cppdbg</div><div class="line">            "request": "launch",                        // 请求配置类型，可以为launch（启动）或attach（附加）</div><div class="line">            "launchOptionType": "Local",                // 调试器启动类型，这里只能为Local</div><div class="line">            "targetArchitecture": "x86",                // 生成目标架构，一般为x86或x64，可以为x86, arm, arm64, mips, x64, amd64, x86_64</div><div class="line">            "program": "$&#123;file&#125;.exe",                   // 将要进行调试的程序的路径</div><div class="line">            "miDebuggerPath":"$&#123;cwd&#125;\\..\\support\\MinGW\\bin\\gdb.exe", // miDebugger的路径，注意这里要与MinGw的路径对应</div><div class="line">            "args": [],                                 // 程序调试时传递给程序的命令行参数，一般设为空即可</div><div class="line">            "stopAtEntry": false,                       // 设为true时程序将暂停在程序入口处，一般设置为false</div><div class="line">            "cwd": "$&#123;workspaceRoot&#125;",                  // 调试程序时的工作目录，一般为$&#123;workspaceRoot&#125;即代码所在目录</div><div class="line">            "externalConsole": true,                    // 调试时是否显示控制台窗口，一般设置为true显示控制台</div><div class="line">            "preLaunchTask": "g++"　　                  // 调试会话开始前执行的任务，一般为编译程序，c++为g++, c为gcc</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"name"</span>: <span class="string">"Python"</span>,</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"python"</span>,</div><div class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">            <span class="attr">"stopOnEntry"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;file&#125;"</span>,</div><div class="line">            <span class="attr">"debugOptions"</span>: [</div><div class="line">                <span class="string">"WaitOnAbnormalExit"</span>,</div><div class="line">                <span class="string">"WaitOnNormalExit"</span>,</div><div class="line">                <span class="string">"RedirectOutput"</span></div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"name"</span>: <span class="string">"Python Console App"</span>,</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"python"</span>,</div><div class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">            <span class="attr">"stopOnEntry"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;file&#125;"</span>,</div><div class="line">            <span class="attr">"externalConsole"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"debugOptions"</span>: [</div><div class="line">                <span class="string">"WaitOnAbnormalExit"</span>,</div><div class="line">                <span class="string">"WaitOnNormalExit"</span></div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"name"</span>: <span class="string">"Django"</span>,</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"python"</span>,</div><div class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">            <span class="attr">"stopOnEntry"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/manage.py"</span>,</div><div class="line">            <span class="attr">"args"</span>: [</div><div class="line">                <span class="string">"runserver"</span>,</div><div class="line">                <span class="string">"--noreload"</span></div><div class="line">            ],</div><div class="line">            <span class="attr">"debugOptions"</span>: [</div><div class="line">                <span class="string">"WaitOnAbnormalExit"</span>,</div><div class="line">                <span class="string">"WaitOnNormalExit"</span>,</div><div class="line">                <span class="string">"RedirectOutput"</span>,</div><div class="line">                <span class="string">"DjangoDebugging"</span></div><div class="line">            ]</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"name"</span>: <span class="string">"Watson"</span>,</div><div class="line">            <span class="attr">"type"</span>: <span class="string">"python"</span>,</div><div class="line">            <span class="attr">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">            <span class="attr">"stopOnEntry"</span>: <span class="literal">true</span>,</div><div class="line">            <span class="attr">"program"</span>: <span class="string">"$&#123;workspaceRoot&#125;/console.py"</span>,</div><div class="line">            <span class="attr">"args"</span>: [</div><div class="line">                <span class="string">"dev"</span>,</div><div class="line">                <span class="string">"runserver"</span>,</div><div class="line">                <span class="string">"--noreload=True"</span></div><div class="line">            ],</div><div class="line">            <span class="attr">"debugOptions"</span>: [</div><div class="line">                <span class="string">"WaitOnAbnormalExit"</span>,</div><div class="line">                <span class="string">"WaitOnNormalExit"</span>,</div><div class="line">                <span class="string">"RedirectOutput"</span></div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>tasks.json</span></figcaption><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"version"</span>: <span class="string">"0.1.0"</span>,</div><div class="line">    "command": " ",//需要多个指令 因此留空 以下面的参数为指令</div><div class="line">    "isShellCommand": true,</div><div class="line">    "showOutput": "always",</div><div class="line">    "echoCommand": false,</div><div class="line">    "suppressTaskName": true,</div><div class="line">    "tasks": [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"g++"</span>,</div><div class="line">            //"command": "g++",</div><div class="line">            "args": ["g++","-g","$&#123;file&#125;","-o","$&#123;file&#125;.exe"],    // 编译命令参数</div><div class="line">            "problemMatcher": &#123;</div><div class="line">                "owner": "cpp",</div><div class="line">                "fileLocation": ["relative", "$&#123;workspaceRoot&#125;"],</div><div class="line">                "pattern": &#123;</div><div class="line">                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",</div><div class="line">                    "file": 1,</div><div class="line">                    "line": 2,</div><div class="line">                    "column": 3,</div><div class="line">                    "severity": 4,</div><div class="line">                    "message": 5</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">         &#125;,</div><div class="line">         &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"compile"</span>,</div><div class="line">            //"command": "compile.bat",</div><div class="line">            "args": ["compile.bat","$&#123;file&#125;"],    // 编译命令参数</div><div class="line">            "problemMatcher": &#123;</div><div class="line">                "owner": "cpp",</div><div class="line">                "fileLocation": ["relative", "$&#123;workspaceRoot&#125;"],</div><div class="line">                "pattern": &#123;</div><div class="line">                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",</div><div class="line">                    "file": 1,</div><div class="line">                    "line": 2,</div><div class="line">                    "column": 3,</div><div class="line">                    "severity": 4,</div><div class="line">                    "message": 5</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"taskName"</span>: <span class="string">"echo"</span>,</div><div class="line">            <span class="attr">"args"</span>: [<span class="string">"echo"</span>,<span class="string">"$&#123;workspaceRoot&#125;/.vscode/.clang-format"</span>]    // 编译命令参数</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面两个是我自己写的通过bat编译,运行完会自己暂停,并且会自动删除生成的exe<br>放在 <code>code</code> 文件夹里</p>
+<figure class="highlight bat"><figcaption><span>compile.bat</span></figcaption><table><tr><td class="code"><pre><div class="line">@<span class="built_in">Echo</span> off</div><div class="line"></div><div class="line"><span class="built_in">echo</span> Begin</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\..\Support\MinGW\bin\;<span class="variable">%cd%</span>\..\Support\MinGW\lib\;<span class="variable">%cd%</span>\..\Support\MinGW\include\</div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="keyword">exist</span> %<span class="number">1</span>.exe <span class="built_in">del</span> %<span class="number">1</span>.exe </div><div class="line"></div><div class="line">g++ -g -Wall -std=c++<span class="number">11</span> %<span class="number">1</span> -o %<span class="number">1</span>.exe </div><div class="line"></div><div class="line">::<span class="keyword">if</span> <span class="keyword">exist</span> %<span class="number">1</span>.exe %<span class="number">1</span>.exe</div><div class="line"></div><div class="line"><span class="keyword">if</span> <span class="keyword">exist</span> %<span class="number">1</span>.exe  <span class="built_in">start</span> run.bat %<span class="number">1</span> /B /c</div><div class="line"></div><div class="line"><span class="built_in">echo</span> Finished</div></pre></td></tr></table></figure>
+<figure class="highlight bat"><figcaption><span>run.bat</span></figcaption><table><tr><td class="code"><pre><div class="line">@<span class="built_in">Echo</span> off</div><div class="line">%<span class="number">1</span>.exe</div><div class="line"><span class="built_in">pause</span></div><div class="line"><span class="built_in">del</span> %<span class="number">1</span>.exe </div><div class="line"><span class="keyword">exit</span></div></pre></td></tr></table></figure>
+<p>另外 <code>.vscode</code> 里的 <code>setting.json</code> 是对该工作区有效的,因此相当于我们直接把配置文件放到了U盘里<br>不过键盘映射必须要在 <code>{USER}\.vscode</code> 目录<br>可以自己写一个bat自动拷贝键盘映射文件<br>另外ssh文件也可以这样实现  </p>
+<p>放在<code>portable</code>文件夹里</p>
+<p>如下<br><figure class="highlight bat"><figcaption><span>keybindings_copy.bat</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%cd%</span>\Code\.vscode\keybindings.json <span class="variable">%USERPROFILE%</span>\AppData\Roaming\Code\User\keybindings.json</div><div class="line"><span class="keyword">exit</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight bat"><figcaption><span>keybindings_delete.bat</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%USERPROFILE%</span>\AppData\Roaming\Code\User\keybindings.json <span class="variable">%cd%</span>\Code\.vscode\keybindings.json</div><div class="line"><span class="built_in">del</span> <span class="variable">%USERPROFILE%</span>\AppData\Roaming\Code\User\keybindings.json</div><div class="line"><span class="keyword">exit</span></div></pre></td></tr></table></figure>
+<figure class="highlight bat"><figcaption><span>ssh_backup.bat</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa  <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.backup</div><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub  <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub.backup</div><div class="line"></div><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%cd%</span>\ssh\id_rsa <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa</div><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%cd%</span>\ssh\id_rsa.pub <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub</div></pre></td></tr></table></figure>
+<figure class="highlight bat"><figcaption><span>ssh_del.bat</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.backup <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa</div><div class="line"><span class="built_in">copy</span> /D /Y <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub.backup <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub </div><div class="line"></div><div class="line"><span class="built_in">del</span> <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.backup</div><div class="line"><span class="built_in">del</span> <span class="variable">%USERPROFILE%</span>\.ssh\id_rsa.pub.backup</div></pre></td></tr></table></figure>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>在有些电脑上,Git可能会由于ssh证书的问题无法连接    </p>
+<p>提示 <code>error setting certificate verify locations</code> </p>
+<p>可以使用 <code>git config --system http.sslverify false</code> 解决  </p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/vscode.html" target="_blank" rel="external">VS Code 便携环境配置</a><br>文章地址：  <a href="/post/Note/vscode.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/vscode.html</a><br>创建时间：  2016-12-10 15:08:26<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MinGW/">MinGW</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/vscode.html&title=《VS Code 便携环境配置》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/vscode.html&title=《VS Code 便携环境配置》 — OhYee's Blog&source=关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python支持 node.jsHexoGitPythonMinGW
+在 Hexo + ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/vscode.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VS Code 便携环境配置》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/vscode.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/vscode.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/5982.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 5982.Relic Discovery(2016 CCPC 青岛 A)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/New_function.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">给 Hexo 加上 bootstrap 的一些特效 &amp;amp;&amp;amp; jquery 实现隐藏功能</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/vscode.html&title=《VS Code 便携环境配置》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/vscode.html&title=《VS Code 便携环境配置》 — OhYee's Blog&source=关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python支持 node.jsHexoGitPythonMinGW
+在 Hexo + ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/vscode.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《VS Code 便携环境配置》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/vscode.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/vscode.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/vscode.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

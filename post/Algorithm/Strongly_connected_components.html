@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>强连通分量缩点 — Kosaraju | Tarjan | Gabow | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="图论,强连通分量,kosaraju,tarjan,gabow">
+    <meta name="description" content="强连通分量如果两个点能够互相到达,那么说明两个点在一个 强连通分量 (成 环 )里其概念与 并查集 相似   不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里而强连通分量操作的是无向图,需要考虑边的方向   如图,最左侧的分支不是一个强连通分量,而右两个是    在许多图的题目里,需要对节点进行 强连通分量缩点 从而简化后续操作的复杂度缩点后,新的图是一个 有向无环图(DAG) ,">
+<meta name="keywords" content="图论,强连通分量,kosaraju,tarjan,gabow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强连通分量缩点 — Kosaraju | Tarjan | Gabow">
+<meta property="og:url" content="https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="强连通分量如果两个点能够互相到达,那么说明两个点在一个 强连通分量 (成 环 )里其概念与 并查集 相似   不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里而强连通分量操作的是无向图,需要考虑边的方向   如图,最左侧的分支不是一个强连通分量,而右两个是    在许多图的题目里,需要对节点进行 强连通分量缩点 从而简化后续操作的复杂度缩点后,新的图是一个 有向无环图(DAG) ,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/strongly_connected_components_1.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/strongly_connected_components_2.png">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强连通分量缩点 — Kosaraju | Tarjan | Gabow">
+<meta name="twitter:description" content="强连通分量如果两个点能够互相到达,那么说明两个点在一个 强连通分量 (成 环 )里其概念与 并查集 相似   不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里而强连通分量操作的是无向图,需要考虑边的方向   如图,最左侧的分支不是一个强连通分量,而右两个是    在许多图的题目里,需要对节点进行 强连通分量缩点 从而简化后续操作的复杂度缩点后,新的图是一个 有向无环图(DAG) ,">
+<meta name="twitter:image" content="https://www.oyohyee.com/post/img/strongly_connected_components_1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">强连通分量缩点 — Kosaraju | Tarjan | Gabow</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">强连通分量缩点 — Kosaraju | Tarjan | Gabow</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-11-05T17:01:07.000Z" itemprop="datePublished" class="page-time">
+  2016-11-06 01:01:07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#强连通分量"><span class="post-toc-text">强连通分量</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Kosaraju"><span class="post-toc-text">Kosaraju</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Tarjan"><span class="post-toc-text">Tarjan</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Gabow"><span class="post-toc-text">Gabow</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Algorithm/Strongly_connected_components"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">强连通分量缩点 — Kosaraju | Tarjan | Gabow</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-11-06 01:01:07 01:01:07" datetime="2016-11-05T17:01:07.000Z"  itemprop="datePublished">2016-11-06 01:01:07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="强连通分量"><a href="#强连通分量" class="headerlink" title="强连通分量"></a>强连通分量</h1><p>如果两个点能够互相到达,那么说明两个点在一个 <strong>强连通分量</strong> (成 <strong>环</strong> )里<br>其概念与 <a href="/post/Algorithm/Union_Find.html"><strong>并查集</strong></a> 相似  </p>
+<p>不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里<br>而强连通分量操作的是无向图,需要考虑边的方向  </p>
+<p>如图,最左侧的分支不是一个强连通分量,而右两个是  </p>
+<p><img src="/post/img/strongly_connected_components_1.png" alt="Strongly_connected_components"></p>
+<p>在许多图的题目里,需要对节点进行 <strong>强连通分量缩点</strong> 从而简化后续操作的复杂度<br>缩点后,新的图是一个 <strong>有向无环图(DAG)</strong> ,因此可以使用其他算法进行其他的操作  </p>
+<p>强连通分量的算法有 kosaraju tarjan gabow  </p>
+<p>找了模板题 <a href="/post/HDU/1269.html"><strong>HDU 1269.迷宫城堡</strong></a> 测试写的模板有没有问题</p>
+<a id="more"></a>
+<h1 id="Kosaraju"><a href="#Kosaraju" class="headerlink" title="Kosaraju"></a>Kosaraju</h1><p>Kosaraju 采用两次 DFS 及一次对逆图的操作从而求解的   </p>
+<p>首先 DFS 遍历所有节点,当到头后,将节点入栈,返回 DFS<br>遍历完后在逆图(所有边反向)里按照栈的顺序进行 DFS ,将所有能访问到的点删除,加入到当前连通分量里<br>直到所有点都被删除  </p>
+<p>由于强连通是环,无论图的边如何反向,应该都是能够互相访问的,而不在环里的点是无法访问到的.<br>要考虑的额外情况就是逆图里是否会有一个点能访问到和它不是强连通的点<br>假设存在这种情况,那么有以下条件:</p>
+<ol>
+<li>这两个点单向连通(不连通逆图无法访问)</li>
+<li>单向连通的子节点后入栈(这样能在父节点被删除前访问到父节点)</li>
+</ol>
+<p>如果两个节点单向连通,有两种情况: </p>
+<ol>
+<li>先访问到父节点<br>父节点能遍历到子节点,父节点会后入栈</li>
+<li>先访问子节点<br>子节点在第一次遍历时,无法遍历到父节点,子节点先入栈,同上 </li>
+</ol>
+<p>因此,该算法可以实现强连通分量缩点的功能  </p>
+<p>步骤如下:</p>
+<ol>
+<li>DFS 遍历所有节点,当到达终点后入栈</li>
+<li>在逆图里按照栈的顺序 DFS 所有节点,将所有能够访问到的点连为一个强连通分量并从图里删除</li>
+<li>重复 2 直到所有点被删除  </li>
+</ol>
+<p>代码如下:</p>
+<figure class="highlight cpp"><figcaption><span>Kosaraju</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">//Kosaraju</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">100005</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> u,v;</div><div class="line">    Edge():u(<span class="number">0</span>),v(<span class="number">0</span>) &#123;&#125;</div><div class="line">    Edge(<span class="keyword">int</span> a,<span class="keyword">int</span> b):u(a),v(b) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">int</span> pos;</div><div class="line">Edge edge[maxm];</div><div class="line"><span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; L[maxn];</div><div class="line"><span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; L2[maxn];</div><div class="line"></div><div class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</div><div class="line"><span class="keyword">bool</span> vis[maxn];</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; SCC[maxn];<span class="comment">//得到的强连通分量链表</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span> </span>&#123;</div><div class="line">    edge[pos] = Edge(u,v);</div><div class="line">    L[u].push_back(pos);</div><div class="line">    L2[v].push_back(pos);<span class="comment">//逆图</span></div><div class="line"></div><div class="line">    pos++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS1</span><span class="params">(<span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(!vis[t]) &#123;</div><div class="line">        vis[t] = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = L[t].begin();i != L[t].end();i++)</div><div class="line">            DFS1(edge[*i].v);</div><div class="line">        s.push(t);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS2</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(vis[t]) &#123;</div><div class="line">        vis[t] = <span class="literal">false</span>;</div><div class="line">        SCC[p].push_back(t);</div><div class="line">        <span class="keyword">for</span>(<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator i = L2[t].begin();i != L2[t].end();i++)</div><div class="line">            DFS2(p,edge[*i].u);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Kosaraju</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="comment">//第一次DFS</span></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</div><div class="line">        DFS1(i);</div><div class="line"></div><div class="line">    <span class="comment">//第二次DFS</span></div><div class="line">    <span class="keyword">int</span> p = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(!s.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> t = s.top();</div><div class="line">        s.pop();</div><div class="line">        <span class="built_in">list</span>&lt; <span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; &gt;::iterator it;</div><div class="line">        <span class="keyword">if</span>(vis[t])</div><div class="line">            DFS2(p++,t);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Tarjan"><a href="#Tarjan" class="headerlink" title="Tarjan"></a>Tarjan</h1><p>Tarjan 是求强连通分量的一种非常常用的方法,其依据是 DFS 的遍历的顺序  </p>
+<p>不难得出,一个含环有向图,从一个节点开始遍历,环必然存在在第一个被遍历的环的子树上<br>如最前面的图里,每一个环都存在于一个子树中<br>而环的这棵树的最大的不同就是他能够回到已经访问过的节点上  </p>
+<p>首先看一颗有向的树,首先对树进行遍历,并且记录下访问该节点(u)的时间(次序)<br>将节点(u)压入栈内,然后开始遍历它的子节点(v)<br>找到该节点(u)到树根上尽可能上的节点(更早遍历)<br>(下面所有重新标记节点的行为都是为了这一步)  </p>
+<p>有以下情况:</p>
+<ul>
+<li>子节点(v)已访问过,并且在栈里<br>非常显然,该节点(u)可以回到他的某一祖宗(v)处,从祖宗节点(v)到该节点(u)中间的所有节点可以连成环<br>将该节点(u)的访问时间标记为 <strong>重新标记为该环最小的时间(缩点)</strong></li>
+<li>子节点(v)已访问过,不在栈里<br>无法连成环,一个节点的两棵子树间的单向边(图中 3 和 4 的关系)</li>
+<li>子节点(v)未访问过<br>继续 DFS 遍历该子节点(v)<br>遍历完该子节点(v)的所有子节点后,尝试<strong>缩点</strong><br>将该节点(u)的时间标记 <strong>重新标记为该节点(u)与子节点(v)时间标记的最小值</strong><br>(如果需要修改就证明它的 <strong>某个后代节点和它的祖宗节点有连接</strong> )</li>
+</ul>
+<p>遍历完该节点(u)的子节点,就可以判断该节点是否在环里了<br>如果该节点的标记被修改过,那么显然这个节点不可能是含环子树最顶部的节点<br>而如果没有被修改过,那么就说明这个节点是环顶部的节点(有可能只有它一个,单独的强连通分量)<br>由于 DFS 在树上有着天然的顺序,因此栈顶一直到该节点中间所有的节点都在这个环里<br>直接记录即可  </p>
+<p>其中需要考虑的特殊情况有如图的两种情况<br><img width="30%" height="30%" src="/post/img/strongly_connected_components_2.png" align="right"></p>
+<ul>
+<li>2,3之间是双向箭头(互相指向)<br>根据上面的思路,这时两个点已经缩成一个点, <strong>3 不会出栈(时间标记改变)</strong>  </li>
+<li>2,3之间是单向箭头<br>不存在环的关系,因此不会改变时间节点,<strong>3 访问后出栈</strong>  </li>
+</ul>
+<p>这样,无论如何,都不会影响后面的结果,不过 4 和 1,2 等祖宗节点是否成环,都不会影响结果<br>因此,该算法成立  </p>
+<p>最后要考虑的就是所有节点分成了多棵树的情况,遍历下所有点全部进行 DFS 即可(已经访问过自然不用再管了)  </p>
+<figure class="highlight cpp"><figcaption><span>Tarjan</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">//Tarjan 返回强连通分量个数</span></div><div class="line"><span class="comment">//节点从0开始,记得初始化变量</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> u,v;</div><div class="line">    Edge():u(<span class="number">0</span>),v(<span class="number">0</span>) &#123;&#125;</div><div class="line">    Edge(<span class="keyword">int</span> a,<span class="keyword">int</span> b):u(a),v(b) &#123;&#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">int</span> pos;</div><div class="line">Edge edge[maxm];</div><div class="line"><span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt; L[maxn];</div><div class="line"></div><div class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; s;</div><div class="line"><span class="keyword">bool</span> inStack[maxn];</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; SCC[maxn];<span class="comment">//得到的强连通分量链表</span></div><div class="line"><span class="keyword">int</span> cnt,Index;</div><div class="line"><span class="keyword">int</span> DFN[maxn],Low[maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v)</span> </span>&#123;</div><div class="line">    edge[pos] = Edge(u,v);</div><div class="line">    L[u].push_back(pos);</div><div class="line">    pos++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> u)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(DFN[u] != <span class="number">-1</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    DFN[u] = Low[u] = ++Index;</div><div class="line">    s.push(u);</div><div class="line">    inStack[u] = <span class="literal">true</span>;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;::iterator it = L[u].begin();it != L[u].end();it++) &#123;</div><div class="line">        <span class="keyword">int</span> v = edge[*it].v;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(DFN[v] == <span class="number">-1</span>) &#123;</div><div class="line">            tarjan(v);</div><div class="line">            Low[u] = min(Low[u],Low[v]);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(inStack[v]) &#123;</div><div class="line">            Low[u] = min(Low[u],DFN[v]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(DFN[u] == Low[u]) &#123;</div><div class="line">        <span class="keyword">int</span> v = s.top();</div><div class="line">        s.pop();</div><div class="line">        inStack[v] = <span class="literal">false</span>;</div><div class="line"></div><div class="line">        SCC[cnt++].push_back(v);</div><div class="line"></div><div class="line">        <span class="keyword">while</span>(u != v) &#123;</div><div class="line">            v = s.top();</div><div class="line">            s.pop();</div><div class="line">            inStack[v] = <span class="literal">false</span>;</div><div class="line"></div><div class="line">            SCC[cnt - <span class="number">1</span>].push_back(v);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Tarjan</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    cnt = <span class="number">0</span>;</div><div class="line">    Index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(!s.empty())s.pop();</div><div class="line">    <span class="built_in">memset</span>(inStack,<span class="literal">false</span>,<span class="keyword">sizeof</span>(inStack));</div><div class="line">    <span class="built_in">memset</span>(DFN,<span class="number">-1</span>,<span class="keyword">sizeof</span>(DFN));</div><div class="line">    <span class="built_in">memset</span>(Low,<span class="number">-1</span>,<span class="keyword">sizeof</span>(Low));</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</div><div class="line">        tarjan(i);</div><div class="line">    <span class="keyword">return</span> cnt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Gabow"><a href="#Gabow" class="headerlink" title="Gabow"></a>Gabow</h1><p>Gabow 算法可以理解成是 Tarjan 算法的改良,将 stack 改成数组,其他思路一样<br>只错了常量的时间,不再看了</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Algorithm/Strongly_connected_components.html" target="_blank" rel="external">强连通分量缩点 — Kosaraju | Tarjan | Gabow</a><br>文章地址：  <a href="/post/Algorithm/Strongly_connected_components.html" target="_blank" rel="external">https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html</a><br>创建时间：  2016-11-06 01:01:07<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gabow/">gabow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kosaraju/">kosaraju</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&title=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&title=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&source=强连通分量如果两个点能够互相到达,那么说明两个点在一个 强连通分量 (成 环 )里其概念与 并查集 相似  
+不同点在于并查集为无向图,直接遍历,只要能访..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/1269.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 1269.迷宫城堡</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/5934.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 5934.Bomb(2016 CCPC 杭州 B)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&title=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&title=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&source=强连通分量如果两个点能够互相到达,那么说明两个点在一个 强连通分量 (成 环 )里其概念与 并查集 相似  
+不同点在于并查集为无向图,直接遍历,只要能访..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《强连通分量缩点 — Kosaraju | Tarjan | Gabow》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Algorithm/Strongly_connected_components.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

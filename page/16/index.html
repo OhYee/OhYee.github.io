@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/16/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-Study/2016_08_28-2016_08_30"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-31 12:59:10 12:59:10" datetime="2016-08-31T04:59:10.000Z"  itemprop="datePublished">2016-08-31 12:59:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Study/2016_08_28-2016_08_30.html">2016-08-28 ~ 2016-08-30 学习报告</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>题目： </p>
+<ul>
+<li><a href="/post/Uva/11210.html">Uva 11210.Chinese Mahjong</a></li>
+<li><a href="/post/Uva/11384.html">Uva 11384.Help is needed for Dexter</a></li>
+<li><a href="/post/Codeforces/711A.html">Codeforces 711A.Bus to Udayland</a></li>
+<li><a href="/post/Codeforces/711B.html">Codeforces 711B.Chris and Magic Square</a></li>
+<li><a href="/post/Codeforces/711C.html">Codeforces 711C.Coloring Trees</a>
+    
+
+        <a href="/post/Study/2016_08_28-2016_08_30.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Study/">学习报告</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Project/ACM2016_08_31"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-30 19:23:35 19:23:35" datetime="2016-08-30T11:23:35.000Z"  itemprop="datePublished">2016-08-30 19:23:35</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Project/ACM2016_08_31.html">ACM 2016级新生赛题解</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>本次比赛共 <code>9</code> 题<br>主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型<br>主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔  </p>
+<p>题解比较详细,前几题应该零基础的同学也能看懂</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">题目名称</th>
+<th style="text-align:center">OJ编号</th>
+<th>考察点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">A+B Problem</td>
+<td style="text-align:center">POJ 1000</td>
+<td>基本的输入输出</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">素数判定</td>
+<td style="text-align:center">HDU 2012</td>
+<td>素数判定、循环、函数</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">As Easy As A+B</td>
+<td style="text-align:center">HDU 1040</td>
+<td>给定组数的输入、排序算法</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">Launch of Collider</td>
+<td style="text-align:center">Codeforces 699A</td>
+<td>思维</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">King Moves</td>
+<td style="text-align:center">Codeforces 710A</td>
+<td>判断、循环</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">最小公倍数</td>
+<td style="text-align:center">HDU 1108</td>
+<td>EOF结束的输入、欧几里得算法</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">Catch That Cow</td>
+<td style="text-align:center">HDU 2717</td>
+<td>BFS</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">命运</td>
+<td style="text-align:center">HDU 2571</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">狼抓兔子</td>
+<td style="text-align:center">BZOJ 1001</td>
+<td>网络流</td>
+</tr>
+</tbody>
+</table>
+    
+
+        <a href="/post/Project/ACM2016_08_31.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Codeforces/711C"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-29 22:56:59 22:56:59" datetime="2016-08-29T14:56:59.000Z"  itemprop="datePublished">2016-08-29 22:56:59</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Codeforces/711C.html">Codeforces 711C.Coloring Trees</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>ZS the Coder and Chris the Baboon has arrived at Udayland! They walked in the park where n trees grow. They decided to be naughty and color the trees in the park. The trees are numbered with integers from 1 to n from left to right.  </p>
+<p>Initially, tree i has color ci. ZS the Coder and Chris the Baboon recognizes only m different colors, so 0 ≤ ci ≤ m, where ci = 0 means that tree i is uncolored.  </p>
+<p>ZS the Coder and Chris the Baboon decides to color only the uncolored trees, i.e. the trees with ci = 0. They can color each of them them in any of the m colors from 1 to m. Coloring the i-th tree with color j requires exactly pi, j litres of paint.  </p>
+<p>The two friends define the beauty of a coloring of the trees as the minimum number of contiguous groups (each group contains some subsegment of trees) you can split all the n trees into so that each group contains trees of the same color. For example, if the colors of the trees from left to right are 2, 1, 1, 1, 3, 2, 2, 3, 1, 3, the beauty of the coloring is 7, since we can partition the trees into 7 contiguous groups of the same color : {2}, {1, 1, 1}, {3}, {2, 2}, {3}, {1}, {3}.  </p>
+<p>ZS the Coder and Chris the Baboon wants to color all uncolored trees so that the beauty of the coloring is exactly k. They need your help to determine the minimum amount of paint (in litres) needed to finish the job.  </p>
+<p>Please note that the friends can’t color the trees that are already colored.  </p>
+    
+
+        <a href="/post/Codeforces/711C.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeforces/">Codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Codeforces/711B"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-29 22:42:01 22:42:01" datetime="2016-08-29T14:42:01.000Z"  itemprop="datePublished">2016-08-29 22:42:01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Codeforces/711B.html">Codeforces 711B.Chris and Magic Square</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>ZS the Coder and Chris the Baboon arrived at the entrance of Udayland. There is a n × n magic grid on the entrance which is filled with integers. Chris noticed that exactly one of the cells in the grid is empty, and to enter Udayland, they need to fill a positive integer into the empty cell.  </p>
+<p>Chris tried filling in random numbers but it didn’t work. ZS the Coder realizes that they need to fill in a positive integer such that the numbers in the grid form a magic square. This means that he has to fill in a positive integer so that the sum of the numbers in each row of the grid (), each column of the grid (), and the two long diagonals of the grid (the main diagonal —  and the secondary diagonal — ) are equal.  </p>
+<p>Chris doesn’t know what number to fill in. Can you help Chris find the correct positive integer to fill in or determine that it is impossible   </p>
+    
+
+        <a href="/post/Codeforces/711B.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeforces/">Codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Codeforces/711A"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-29 22:17:39 22:17:39" datetime="2016-08-29T14:17:39.000Z"  itemprop="datePublished">2016-08-29 22:17:39</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Codeforces/711A.html">Codeforces 711A.Bus to Udayland</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>ZS the Coder and Chris the Baboon are travelling to Udayland! To get there, they have to get on the special IOI bus. The IOI bus has n rows of seats. There are 4 seats in each row, and the seats are separated into pairs by a walkway. When ZS and Chris came, some places in the bus was already occupied.  </p>
+<p>ZS and Chris are good friends. They insist to get a pair of neighbouring empty seats. Two seats are considered neighbouring if they are in the same row and in the same pair. Given the configuration of the bus, can you help ZS and Chris determine where they should sit   </p>
+    
+
+        <a href="/post/Codeforces/711A.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeforces/">Codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Writing/Microphone_cleaning"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-29 18:50:43 18:50:43" datetime="2016-08-29T10:50:43.000Z"  itemprop="datePublished">2016-08-29 18:50:43</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Writing/Microphone_cleaning.html">麦克风清灰</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>第一次见手机话筒堵了没声的…………</p>
+<p>打电话没声……急忙换耳机打,打完拿录音机测试发现有问题 </p>
+<ul>
+<li>敲击手机有震动声音记录</li>
+<li>说话没声</li>
+</ul>
+<p>看下面录音口和除噪口,<strong>堵死了!!!</strong><br>尴尬清了半天灰好了……</p>
+<p>设计问题！！！<br>绝对是设计问题！！！</p>
+<p>看了下别的手机,口比这大得多。这么小铁定要堵啊…………</p>
+<p>【图 按顺序是 耳机口 除噪口 充电口 话筒】<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/post/img/Microphone_cleaning.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+
+    
+
+        <a href="/post/Writing/Microphone_cleaning.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C5/">C5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SAMSUNG/">三星(SAMSUNG)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/11384"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-28 15:36:16 15:36:16" datetime="2016-08-28T07:36:16.000Z"  itemprop="datePublished">2016-08-28 15:36:16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/11384.html">Uva 11384.Help is needed for Dexter</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Dexter is tired of Dee Dee. So he decided to keep Dee Dee busy in a game.<br>The game he planned for her is quite easy to play but not easy to win at least not for Dee Dee.<br>But Dexter does not have time to spend on this silly task, so he wants your help.  </p>
+<p>There will be a button, when it will be pushed a random number N will be chosen by computer.  </p>
+<p>Then on screen there will be numbers from 1 to N.<br>Dee Dee can choose any number of numbers from the numbers on the screen, and then she will command computer to subtract a positive number chosen by her (not necessarily on screen) from the selected numbers.<br>Her objective will be to make all the numbers 0.  </p>
+<p>For example if N = 3, then on screen there will be 3 numbers on screen: 1, 2, 3.<br>Say she now selects 1 and 2.<br>Commands to subtract 1, then the numbers on the screen will be: 0, 1, 3.<br>Then she selects 1 and 3 and commands to subtract 1.<br>Now the numbers are 0, 0, 2.<br>Now she subtracts 2 from 2 and all the numbers become 0.  </p>
+<p>Dexter is not so dumb to understand that this can be done very easily, so to make a twist he will give a limit L for each N and surely L will be as minimum as possible so that it is still possible to win within L moves.<br>But Dexter does not have time to think how to determine L for each N, so he asks you to write a code which will take N as
+    
+
+        <a href="/post/Uva/11384.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/11210"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-28 15:02:25 15:02:25" datetime="2016-08-28T07:02:25.000Z"  itemprop="datePublished">2016-08-28 15:02:25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/11210.html">Uva 11210.Chinese Mahjong</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Mahjong ( ) is a game of Chinese origin usually played by four persons with tiles resembling dominoes<br>and bearing various designs, which are drawn and discarded until one player wins with a hand of four<br>combinations of three tiles each and a pair of matching tiles.<br>A set of Mahjong tiles will usually differ from place to place. It usually has at least 136 tiles, most<br>commonly 144, although sets originating from America or Japan will have more. The 136-tile Mahjong<br>includes:<br>Dots: named as each tile consists of a number of circles. Each circle is said to represent copper<br>(tong) coins with a square hole in the middle. In this problem, they’re represented by 1T, 2T, 3T, 4T,<br>5T, 6T, 7T, 8T and 9T.<br>Bams: named as each tile (except the 1 Bamboo) consists of a number of bamboo sticks. Each<br>stick is said to represent a string (suo) that holds a hundred coins. In this problem, they’re represented<br>by 1S, 2S, 3S, 4S, 5S, 6S, 7S, 8S and 9S.<br>Craks: named as each tile represents ten thousand (wan) coins, or one hundred strings of one<br>hundred coins. In this problem, they’re represented by 1W, 2W, 3W, 4W, 5W, 6W, 7W, 8W and 9W.<br>Wind tiles: East, South, West, and North. In this problem, they’re represented by DONG, NAN,<br>XI, BEI.<br>Dragon tiles: red, green, and white. The term dragon tile is a western convention introduced by<br>Joseph Park Babcock in his 1920 book introducing Mahjong to America. Originally, these tiles are<br>said to have something to do with the Chinese Imperial Examination. The red tile means you pass the<br>examination and thus will be appointed a government official. The green tile means, consequently you<br>will become financially well off. The white tile (a clean board) means since you are now doing well you<br>should act like a good, incorrupt official. In this problem, they’re represented by ZHONG, FA, BAI.<br>There are 9   3 + 4 + 3 = 34 kinds, with exactly 4 tiles of each kind, so there are 136 tiles in total.<br>To who may be interested, the 144-tile Mahjong also includes:<br>Flower tiles: typically optional components to a set of mahjong tiles, often contain artwork on<br>their tiles. There are exactly one tile of each kind, so 136+8=144 tiles in total. In this problem, we<br>don t consider these tiles.<br>Chinese Mahjong is very complicated. However, we only need to know very few of the rules in order<br>to solve this problem. A meld is a certain set of tiles in one’s hand. There are three kinds of melds<br>you need to know (to who knows Mahjong already, kong is not considered):<br>Pong: A set of three identical titles. Example: , .<br>Chow: A set of three suited tiles in sequence. All three tiles must be of the same suites. Sequences<br>of higher length are not permissible (unless it forms more than one meld). Obviously, wind tiles and<br>dragon tiles can never be involved in chows. Example: , .<br>Eye: The pair, while not a meld, is the final component to the standard hand. It consists of any<br>two identical tiles.<br>A player wins the round by creating a standard mahjong hand. That means, the hand consists of<br>an eye and several (possible zero) pongs and chows. Note that each title can be involved in exactly one<br>eye/pong/chow.<br>When a hand is one tile short of wining, the hand is said to be a ready hand, or more figuratively,<br>’on the pot’. The player holding a ready hand is said to be waiting for certain tiles. For example<br>is waiting for , and .<br>To who knows more about Mahjong: don’t consider special winning hands such as ‘ ’.<br>
+    
+
+        <a href="/post/Uva/11210.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Study/2016_08_25-2016_08_27"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-28 12:59:10 12:59:10" datetime="2016-08-28T04:59:10.000Z"  itemprop="datePublished">2016-08-28 12:59:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Study/2016_08_25-2016_08_27.html">2016-08-25 ~ 2016-08-27 学习报告</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>题目： </p>
+<ul>
+<li><a href="/post/Uva/1030.html">Uva 1030.Image Is Everything</a></li>
+<li><a href="/post/Uva/11464.html">Uva 11464.Even Parity</a></li>
+<li><a href="/post/Uva/1352.html">Uva 1352.Colored Cubes</a></li>
+<li><a href="/post/HDU/5078.html">HDU 5078.Osu(2014 鞍山赛区现场赛 I)</a></li>
+<li><a href="/post/HDU/5074.html">HDU 5074.Hatsune Miku(2014 鞍山赛区现场赛 E)</a></li>
+<li><a href="/post/HDU/5073.html">HDU 5073.Galaxy(2014 鞍山赛区现场赛 D)</a>
+    
+
+        <a href="/post/Study/2016_08_25-2016_08_27.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Study/">学习报告</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5073"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-27 19:52:56 19:52:56" datetime="2016-08-27T11:52:56.000Z"  itemprop="datePublished">2016-08-27 19:52:56</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5073.html">HDU 5073.Galaxy(2014 鞍山赛区现场赛 D)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Good news for us: to release the financial pressure, the government started selling galaxies and we can buy them from now on! The first one who bought a galaxy was Tianming Yun and he gave it to Xin Cheng as a present.   </p>
+<p>To be fashionable, DRD also bought himself a galaxy. He named it Rho Galaxy. There are n stars in Rho Galaxy, and they have the same weight, namely one unit weight, and a negligible volume. They initially lie in a line rotating around their center of mass.   </p>
+<p>Everything runs well except one thing. DRD thinks that the galaxy rotates too slow. As we know, to increase the angular speed with the same angular momentum, we have to decrease the moment of inertia.   </p>
+<p>The moment of inertia I of a set of n stars can be calculated with the formula   </p>
+<p>where w i is the weight of star i, d i is the distance form star i to the mass of center.   </p>
+<p>As DRD’s friend, ATM, who bought M78 Galaxy, wants to help him. ATM creates some black holes and white holes so that he can transport stars in a negligible time. After transportation, the n stars will also rotate around their new center of mass. Due to financial pressure, ATM can only transport at most k stars. Since volumes of the stars are negligible, two or more stars can be transported to the same position.   </p>
+<p>Now, you are supposed to calculate the minimum moment of inertia after transportation.<br>
+    
+
+        <a href="/post/HDU/5073.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/15/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/17/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/16/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/16/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/16/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/16/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/16/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/16/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 4652.Dice | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,HDU,概率dp">
+    <meta name="description" content="题目点击显/隐题目 You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each quer">
+<meta name="keywords" content="动态规划,HDU,概率dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 4652.Dice">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/4652.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each quer">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-20T10:37:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 4652.Dice">
+<meta name="twitter:description" content="题目点击显/隐题目 You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each quer">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 4652.Dice</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 4652.Dice</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-09-08T14:58:01.000Z" itemprop="datePublished" class="page-time">
+  2017-09-08 22:58:01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/4652"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 4652.Dice</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-09-08 22:58:01 22:58:01" datetime="2017-09-08T14:58:01.000Z"  itemprop="datePublished">2017-09-08 22:58:01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each query has one of the following form:<br> <ul><li>0 m n: ask for the expected number of tosses until the last n times results are all same.</li><li>1 m n: ask for the expected number of tosses until the last n consecutive results are pairwise different.</li></ul><br><br></div><div class="part" title="Input"><br>The first line contains a number T.(1≤T≤100) The next T line each line contains a query as we mentioned above. (1≤m,n≤10<sup>6</sup>) For second kind query, we guarantee n≤m. And in order to avoid potential precision issue, we guarantee the result for our query will not exceeding 10<sup>9</sup> in this problem.<br><br></div><div class="part" title="Output"><br>For each query, output the corresponding result. The answer will be considered correct if the absolute or relative error doesn’t exceed 10<sup>-6</sup>.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>6<br>0 6 1<br>0 6 3<br>0 6 5<br>1 6 2<br>1 6 4<br>1 6 6<br>10<br>1 4534 25<br>1 1232 24<br>1 3213 15<br>1 4343 24<br>1 4343 9<br>1 65467 123<br>1 43434 100<br>1 34344 9<br>1 10001 15<br>1 1000000 2000<br><br></div><div class="output part" title="Sample Output"><br>1.000000000<br>43.000000000<br>1555.000000000<br>2.200000000<br>7.600000000<br>83.200000000<br>25.586315824<br>26.015990037<br>15.176341160<br>24.541045769<br>9.027721917<br>127.908330426<br>103.975455253<br>9.003495515<br>15.056204472<br>4731.706620396<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><blockquote>
+<p>求m面骰子投出连续n次相同/不相同的数学期望  </p>
+</blockquote>
+<p>根据<strong>正向推概率,逆向推期望</strong>的原则来看,我们应该采取从后往前推得形式来计算这道题  </p>
+<p>首先先来分析dp的意义<br>对于第一种情况而言,需要求连续n次相同的期望<br>如果用<code>dp[i]</code>表示<code>i</code>个相同的期望<br>对于任意一种情况,都有对于<code>i</code>有<code>1/m</code>的概率和前一数字相同,也有<code>(m-1)/m</code>的概率和前一数字不同<br>也即: <code>dp[i]</code>可以转移至<code>dp[1]</code>和<code>dp[i+1]</code><br>该函数无后效性,并且我们只能得到 <code>dp[i+1]=(1/m)*dp[i]</code> 和 <code>dp[1] += ((m-1)/m)*dp[i]</code> 两个式子<br>因此,应该换一种含义,使<code>dp</code>可以逆向推出答案  </p>
+<p>用<code>dp[i]</code>表示已经有<code>i</code>个连续,到<code>n</code>个连续的期望<br>那么很显然 <code>dp[n] = 0</code><br>并且<code>dp[0] = dp[1] + 1</code> (对于<code>0</code>个相同,显然随便投一个数字都可以满足要求)<br>而且根据含义,有 $dp[i] = 1 + \frac{1}{m} \times dp[i+1] + \frac{m-1}{m} \times dp[1]$  </p>
+<p>剩下就是数学化简过程了<br>$
+\begin{align*}
+dp[i] &= 1 + \frac{1}{m} \times dp[i+1] + \frac{m-1}{m} \times dp[1] \\
+dp[i] - dp[1] &= 1 + \frac{1}{m} \times (dp[i+1] - dp[1]) \\
+dp[i] - dp[1] &= m \times (dp[i-1] - dp[1] - 1)  \\
+令 a_i &= dp[i]-dp[1]  \\
+a_i &= m \times a_{i-1} - m  \\
+a_i &= m^2 \times a_{i-2} - m^2 - m \\
+&…… \\
+a_i &= m^{i-1} \times a_1 - \frac{m^i-m}{1-m} \\
+dp[i] - dp[1] &= - \frac{m-m^i}{1-m}  \\
+dp[i] &= dp[1] + \frac{m^i-m}{1-m}  \\
+\\
+dp[1] &= dp[n] - \frac{m^n-m}{1-m} \\
+dp[0] &= dp[n] - \frac{m^n-m}{1-m} + 1  \\
+dp[0] &s= \frac{m^n-m}{m-1} + 1
+\end{align*}
+$</p>
+<p>也即,对于第一种情况,答案就是 $\frac{m^n-m}{m-1} + 1$  </p>
+<p>第二种情况同理<br>按照相同的概念可以推出<br>$
+\begin{align*}
+dp[0] &= 1 + dp[1] \\
+dp[i] &= \frac {\sum_{k=1}^{i}dp[k]}{m} + \frac{m-i}{m}\times dp[i+1] \\
+dp[i-1] &= \frac {\sum_{k=1}^{i-1}dp[k]}{m} + \frac{m-i+1}{m} \times dp[i] \\
+则 dp[i] - dp[i-1] &= \frac{1}{m} \times dp[i] + \frac{m-i}{m}\times dp[i+1] - \frac{m-i+1}{m} \times dp[i]) \\
+dp[i] - dp[i-1] &= \frac{m-i}{m}\times (dp[i+1] - dp[i]) \\
+dp[i] - dp[i-1] &= \frac{m}{m-i+1} \times (dp[i-1]-dp[i-2])  \\
+dp[i-1] - dp[i] &= \frac{m}{m-i+1} \times (dp[i-2]-dp[i-1])  \\
+\\
+dp[0] - dp[1] &= 1 \\
+dp[1] - dp[2] &= \frac{m}{m-1} \times 1 \\
+dp[2] - dp[3] &= \frac{m}{m-2} \times \frac{m}{m-1} \times 1 \\
+&……\\
+dp[n-1] - dp[n] &= \prod_{j=0}^{n-1} \frac{m}{m-j} \\
+
+\therefore dp[0] - dp[n] &= \sum_{i=0}^{n-1} \prod_{j=0}^{i} \frac{m}{m-j} \\
+dp[0] &= \sum_{i=0}^{n-1} \prod_{j=0}^{i} \frac{m}{m-j}  
+\end{align*}
+$</p>
+<p>最后要计算的就是 $\sum_{i=0}^{n-1} \prod_{j=0}^{i} \frac{m}{m-j}$<br><code>O(n)</code>的时间可以得到答案  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Dice</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">pow</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1.0</span>;</div><div class="line">    <span class="keyword">double</span> ans = <span class="built_in">pow</span>(a, n &gt;&gt; <span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span> ans * ans * (n &amp; <span class="number">1</span> ? a : <span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">calc1</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123; <span class="keyword">return</span> (<span class="built_in">pow</span>(m, n) - m) / (m - <span class="number">1</span>) + <span class="number">1</span>; &#125;</div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">calc2</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</div><div class="line">    <span class="keyword">double</span> sum = <span class="number">0.0</span>;</div><div class="line">    <span class="keyword">double</span> p = <span class="number">1.0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</div><div class="line">        p *= (<span class="keyword">double</span>)m / (m - i);</div><div class="line">        sum += p;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="keyword">int</span> c, n, m;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T) != EOF) &#123;</div><div class="line">        <span class="keyword">while</span> (T--) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;c, &amp;m, &amp;n);</div><div class="line">            <span class="keyword">double</span> (*calc)(<span class="keyword">int</span>, <span class="keyword">int</span>) = (!c ? &amp;calc1 : &amp;calc2);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%.16f\n"</span>, calc(n, m));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/4652.html" target="_blank" rel="external">HDU 4652.Dice</a><br>文章地址：  <a href="/post/HDU/4652.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/4652.html</a><br>创建时间：  2017-09-08 22:58:01<br>更新时间：  2017-09-20 18:37:02
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Probability-DP/">概率dp</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/4652.html&title=《HDU 4652.Dice》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/4652.html&title=《HDU 4652.Dice》 — OhYee's Blog&source=题目点击显/隐题目
+You have a dice with m faces, each face contains a distinct number...." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/4652.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 4652.Dice》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/4652.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/4652.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/POJ/2318.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">POJ 2318.TOYS</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/svgfont.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">把svg图片转换为图标</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/4652.html&title=《HDU 4652.Dice》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/4652.html&title=《HDU 4652.Dice》 — OhYee's Blog&source=题目点击显/隐题目
+You have a dice with m faces, each face contains a distinct number...." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/4652.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 4652.Dice》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/4652.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/4652.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/4652.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

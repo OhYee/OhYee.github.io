@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/17/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5074"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-27 17:35:56 17:35:56" datetime="2016-08-27T09:35:56.000Z"  itemprop="datePublished">2016-08-27 17:35:56</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5074.html">HDU 5074.Hatsune Miku(2014 鞍山赛区现场赛 E)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Hatsune Miku is a popular virtual singer. It is very popular in both Japan and China. Basically it is a computer software that allows you to compose a song on your own using the vocal package.   </p>
+<p>Today you want to compose a song, which is just a sequence of notes. There are only m different notes provided in the package. And you want to make a song with n notes.   </p>
+<p>Also, you know that there is a system to evaluate the beautifulness of a song. For each two consecutive notes a and b, if b comes after a, then the beautifulness for these two notes is evaluated as score(a, b).   </p>
+<p>So the total beautifulness for a song consisting of notes a 1, a 2, . . . , a n, is simply the sum of score(a i, a i+1) for 1 ≤ i ≤ n - 1.   </p>
+<p>Now, you find that at some positions, the notes have to be some specific ones, but at other positions you can decide what notes to use. You want to maximize your song’s beautifulness. What is the maximum beautifulness you can achieve<br>
+    
+
+        <a href="/post/HDU/5074.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5078"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-27 14:03:33 14:03:33" datetime="2016-08-27T06:03:33.000Z"  itemprop="datePublished">2016-08-27 14:03:33</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5078.html">HDU 5078.Osu(2014 鞍山赛区现场赛 I)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Osu! is a very popular music game. Basically, it is a game about clicking. Some points will appear on the screen at some time, and you have to click them at a correct time.   </p>
+<p>Now, you want to write an algorithm to estimate how diffecult a game is.   </p>
+<p>To simplify the things, in a game consisting of N points, point i will occur at time t i at place (x i, y i), and you should click it exactly at t i at (x i, y i). That means you should move your cursor from point i to point i+1. This movement is called a jump, and the difficulty of a jump is just the distance between point i and point i+1 divided by the time between t i and t i+1. And the difficulty of a game is simply the difficulty of the most difficult jump in the game.   </p>
+<p>Now, given a description of a game, please calculate its difficulty.<br>
+    
+
+        <a href="/post/HDU/5078.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/1352"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-26 21:30:36 21:30:36" datetime="2016-08-26T13:30:36.000Z"  itemprop="datePublished">2016-08-26 21:30:36</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/1352.html">Uva 1352.Colored Cubes</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><a href="http://acm.hust.edu.cn/vjudge/problem/41536" target="_blank" rel="external">图比较多,看原题吧</a>  </p>
+<blockquote>
+<blockquote>
+<p>There are several colored cubes.<br>All of them are of the same size but they may be colored differently.  </p>
+<p>Each face of these cubes has a single color.<br>Colors of distinct faces of a cube may or may not be the same.  </p>
+<p>Two cubes are said to be identically colored if some suitable rotations of one of the cubes give identical looks to both of the cubes.<br>For example, two cubes shown in Figure 2 are identically colored.  </p>
+<p>A set of cubes is said to be identically colored if every pair of them are identically colored.  </p>
+<p>A cube and its mirror image are not necessarily identically colored.<br>For example, two cubes shown in Figure 3 are not identically colored.  </p>
+<p>You can make a given set of cubes identically colored by repainting some of the faces, whatever colors the faces may have.<br>In Figure 4, repainting four faces makes the three cubes identically colored and repainting fewer faces will never do.  </p>
+<p>Your task is to write a program to calculate the minimum number of faces that needs to be repainted for a given set of cubes to become identically colored.  </p>
+    
+
+        <a href="/post/Uva/1352.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">映射(map)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/11464"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-26 15:16:29 15:16:29" datetime="2016-08-26T07:16:29.000Z"  itemprop="datePublished">2016-08-26 15:16:29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/11464.html">Uva 11464.Even Parity</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>We have a grid of size N × N.<br>Each cell of the grid initially contains a zero(0) or a one(1).<br>The parity of a cell is the number of 1s surrounding that cell.<br>A cell is surrounded by at most 4 cells (top, bottom, left, right).  </p>
+<p>Suppose we have a grid of size 4 × 4:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/post/img/uva11464.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>For this problem, you have to change some of the 0s to 1s so that the parity of every cell becomes even.<br>We are interested in the minimum number of transformations of 0 to 1 that is needed to achieve the desired requirement.  </p>
+    
+
+        <a href="/post/Uva/11464.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bit/">位运算</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Study/2016_08_22-2016_08_24"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-25 12:59:10 12:59:10" datetime="2016-08-25T04:59:10.000Z"  itemprop="datePublished">2016-08-25 12:59:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Study/2016_08_22-2016_08_24.html">2016-08-22 ~ 2016-08-24 学习报告</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>题目： </p>
+<ul>
+<li><a href="/post/Uva/1388.html">Uva 1388.Graveyard</a></li>
+<li><a href="/post/Uva/10881.html">Uva 10881.Piotr’s Ants</a>
+    
+
+        <a href="/post/Study/2016_08_22-2016_08_24.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Study/">学习报告</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/1030"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-25 12:26:48 12:26:48" datetime="2016-08-25T04:26:48.000Z"  itemprop="datePublished">2016-08-25 12:26:48</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/1030.html">Uva 1030.Image Is Everything</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Your new company is building a robot that can hold small lightweight objects.<br>The robot will have the intelligence to determine if an object is light enough to hold.<br>It does this by taking pictures of the object from the 6 cardinal directions, and then inferring an upper limit on the object’s weight based on those images.<br>You must write a program to do that for the robot.<br>You can assume that each object is formed from an N × N × N lattice of cubes, some of which may be missing.<br>Each 1 × 1 × 1 cube weighs 1 gram, and each cube is painted a single solid color.<br>The object is not necessarily connected.  </p>
+    
+
+        <a href="/post/Uva/1030.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/10881"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-23 16:05:00 16:05:00" datetime="2016-08-23T08:05:00.000Z"  itemprop="datePublished">2016-08-23 16:05:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/10881.html">Uva 10881.Piotr&#39;s Ants</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Piotr likes playing with ants.<br>He has n of them on a horizontal pole L cm long. Each ant is facing either left or right and walks at a constant speed of 1 cm/s.<br>When two ants bump into each other, they both turn around (instantaneously) and start walking in opposite directions.<br>Piotr knows where each of the ants starts and which direction it is facing and wants to calculate where the ants will end up T seconds from now.<br>
+    
+
+        <a href="/post/Uva/10881.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/1388"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-22 19:21:00 19:21:00" datetime="2016-08-22T11:21:00.000Z"  itemprop="datePublished">2016-08-22 19:21:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/1388.html">Uva 1388.Graveyard</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Programming contests became so popular in the year 2397 that the governor of New Earck — the largest human-inhabited planet of the galaxy — opened a special Alley of Contestant Memories (ACM) at the local graveyard.<br>The ACM encircles a green park, and holds the holographic statues of famous contestants placed equidistantly along the park perimeter.<br>The alley has to be renewed from time to time when a new group of memorials arrives.<br>When new memorials are added, the exact place for each can be selected arbitrarily along the ACM, but the equidistant disposition must be maintained by moving some of the old statues along the alley.<br>Surprisingly, humans are still quite superstitious in 24th century:<br>the graveyard keepers believe the holograms are holding dead people souls, and thus always try to renew the ACM with minimal possible movements of existing statues (besides, the holographic equipment is very heavy). Statues are<br>moved along the park perimeter. Your work is to find a renewal plan which minimizes the sum of travel distances of all statues. Installation of a new hologram adds no distance penalty, so choose the places for newcomers wisely!<br>
+    
+
+        <a href="/post/Uva/1388.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Study/2016_08_19-2016_08_21"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-22 12:59:10 12:59:10" datetime="2016-08-22T04:59:10.000Z"  itemprop="datePublished">2016-08-22 12:59:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Study/2016_08_19-2016_08_21.html">2016-08-19 ~ 2016-08-21 学习报告</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>题目： </p>
+<ul>
+<li><a href="/post/Uva/10125.html">Uva 10125.Sumsets</a><br><a href="/post/POJ/2549.html">POJ 2549.Sumsets</a></li>
+<li><a href="/post/Uva/11584.html">Uva 11584.Partitioning by Palindromes</a></li>
+<li><a href="/post/POJ/2342.html">POJ 2342.Anniversary party</a></li>
+<li><a href="/post/Uva/11292.html">Uva 11292.Dragon of Loowater</a></li>
+<li><a href="/post/Codeforces/707A.html">Codeforces 707A.Brain’s Photos</a></li>
+<li><a href="/post/Codeforces/707B.html">Codeforces 707B.Bakery</a></li>
+<li><a href="/post/Codeforces/707C.html">Codeforces 707C.Pythagorean Triples</a></li>
+<li><a href="/post/Uva/11729.html">Uva 11729.Commando War</a></li>
+<li><a href="/post/Uva/11300.html">Uva 11300.Spreading the Wealth</a>
+    
+
+        <a href="/post/Study/2016_08_19-2016_08_21.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Study/">学习报告</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/11300"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-21 17:18:16 17:18:16" datetime="2016-08-21T09:18:16.000Z"  itemprop="datePublished">2016-08-21 17:18:16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/11300.html">Uva 11300.Spreading the Wealth</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>A Communist regime is trying to redistribute wealth in a village.<br>They have have decided to sit everyone around a circular table.<br>First, everyone has converted all of their properties to coins of equal value, such that the total number of coins is divisible by the number of people in the village.<br>Finally, each person gives a number of coins to the person on his right and a number coins to the person on his left, such that in the end, everyone has the same number of coins.<br>Given the number of coins of each person, compute the minimum number of coins that must be transferred using this method so that everyone has the same number of coins.<br>
+    
+
+        <a href="/post/Uva/11300.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/White-book/">算法竞赛入门经典</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/16/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/18/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/17/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/17/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/17/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/17/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/17/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/17/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

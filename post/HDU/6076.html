@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 6076.Security Check | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,HDU,暴力">
+    <meta name="description" content="题目点击显/隐题目   In airport of Bytetown, there are two long queues waiting for security check. Checking a person needs one minute, and two queues can be checked at the same time. Two teams $A$ and $B$ are">
+<meta name="keywords" content="动态规划,HDU,暴力">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 6076.Security Check">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/6076.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目   In airport of Bytetown, there are two long queues waiting for security check. Checking a person needs one minute, and two queues can be checked at the same time. Two teams $A$ and $B$ are">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 6076.Security Check">
+<meta name="twitter:description" content="题目点击显/隐题目   In airport of Bytetown, there are two long queues waiting for security check. Checking a person needs one minute, and two queues can be checked at the same time. Two teams $A$ and $B$ are">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 6076.Security Check</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 6076.Security Check</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-07T16:58:13.000Z" itemprop="datePublished" class="page-time">
+  2017-08-08 00:58:13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#暴力思路"><span class="post-toc-text">暴力思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题解的思路"><span class="post-toc-text">题解的思路</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#暴力思路-1"><span class="post-toc-text">暴力思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题解思路"><span class="post-toc-text">题解思路</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/6076"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 6076.Security Check</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-08 00:58:13 00:58:13" datetime="2017-08-07T16:58:13.000Z"  itemprop="datePublished">2017-08-08 00:58:13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>  In airport of Bytetown, there are two long queues waiting for security check. Checking a person needs one minute, and two queues can be checked at the same time.<br><br> Two teams $A$ and $B$ are going to travel by plane. Each team has $n$ players, ranked from $1$ to $n$ according to their average performance. No two players in the same team share the same rank. Team $A$ is waiting in queue $1$ while team $B$ is waiting in queue $2$. Nobody else is waiting for security check.<br><br> Little Q is the policeman who manages two queues. Every time he can check one person from one queue, or check one each person from both queues at the same time. He can’t change the order of the queue, because that will make someone unhappy. Besides, if two players $A_i$ and $B_j$ are being checked at the same time, satisfying $|A_i-B_j|\leq k$, they will make a lot of noise because their rank are almost the same. Little Q should never let that happen.<br><br> Please write a program to help Little Q find the best way costing the minimum time.<br><br></div><div class="part" title="Input"><br>The first line of the input contains an integer $T(1\leq T\leq15)$, denoting the number of test cases.<br><br>In each test case, there are $2$ integers $n,k(1\leq n\leq 60000,1\leq k\leq 10)$ in the first line, denoting the number of players in a team and the parameter $k$.<br><br>In the next line, there are $n$ distinct integers $A_1,A_2,…,A_n(1\leq A_i\leq n)$, denoting the queue $1$ from front to rear.<br><br>Then in the next line, there are $n$ distinct integers $B_1,B_2,…,B_n(1\leq B_i\leq n)$, denoting the queue $2$ from front to rear.<br><br></div><div class="part" title="Output"><br>For each test case, print a single line containing an integer, denoting the minimum time to check all people.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1<br>4 2<br>2 3 1 4<br>1 2 4 3<br></div><div class="output part" title="Sample Output"><br>7<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="暴力思路"><a href="#暴力思路" class="headerlink" title="暴力思路"></a>暴力思路</h2><p>很显然,用动态规划的思想,有如下递推式<br><code>dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1</code><br>其中 <code>dp[i][j]</code> 表示第一队前 <code>i</code> 个人和第二队前 <code>j</code> 个人,最小的检查时间  </p>
+<p>然后就会发现一个问题, <code>n</code> 最大能达到 <code>60000</code> 空间时间都会超过限制  </p>
+<p>首先来解决存储的问题<br>很容易发现,这道题有个很关键的地方: <strong>k最大只到10</strong>  </p>
+<p>又因为每个数字在每个队伍里只出现一次,那么可以得知只有极少数的人没有办法一起检查<br>也即只有极少数的 <code>dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + 1</code> 操作<br>而大多数都是取 <code>dp[i][j] = dp[i-1][j-1] + 1</code>  </p>
+<p>那么就可以单独考虑两种情况<br>针对前一种情况,可以用记忆化搜索来做<br>这里有一个非常好的转换:  </p>
+<blockquote>
+<p>直接存储 <code>dp[i][j]</code> 显然是存不下的,但是我们可以发现,当前的前提是 <code>abs(a[i]-b[j]) &lt;= k</code>  (需要特别注<strong>差值是指权值而不是位置</strong>)<br>而 <code>k</code> 又是一个非常小的数字<br>我们完全可以只记录 <code>i</code> 和 <code>a[i]-a[j]+k</code> 这样我们只需要一个 <code>60000*20</code> 的数组<br>(这里 <code>+k</code> 是为了保证为正数)  </p>
+</blockquote>
+<p>这样,就能在 <code>O(nk)</code> 的时间处理好这一部分了  </p>
+<p>然后来看另一部分<br>可以知道这一部分就是 <code>dp[i][j] = dp[i-1][j-1] + 1</code><br>看上去是 <code>O(n<sup>2</sup>)</code> 的操作,但是可以发现,它只需要取自己左上的数,也即不考虑差值小于 <code>k</code> 的情况下可以在 <code>O(n)</code> 的时间内找出答案<br>而差值不小于 <code>k</code> 的情况我们已经计算完毕了<br>因此完全可以用递归求出这一部分的内容(可以证明没有存在多次计算同一状态)  </p>
+<hr>
+<h2 id="题解的思路"><a href="#题解的思路" class="headerlink" title="题解的思路"></a>题解的思路</h2><p>关于题解的解法,前一部分是一样的<br>不一样的是后一部分<br>思路也比较独特   </p>
+<blockquote>
+<p><code>(i,j)</code>表示第一队第<code>i</code>个人和第二队第<code>j</code>个人,当发现他们的差值大于<code>k</code>时<br>我们可以给他们连一条线(表示一起检查),然后把线向左平移,直到线两端的人差值小于等于<code>k</code><br>此时记两个人的位置为<code>(a,b)</code><br>然后这两个线中间的位置显然是可以一起检查<br>那么 <code>dp[i][j] = dp[a][b] + i - a</code>  </p>
+</blockquote>
+<p>问题就转换成如何找到最近的符合要求的平行线段了<br>很明显,平行意味着 <code>i-j</code> 相等<br>那么可以在读入的时候先预处理所有的线段间距<br>由于只需要找间距小于等于 <code>k</code> 的,因此我们只需要对每一个 <code>i</code> 枚举 <code>k</code> 即可<br>然后将数据存入 <code>vector</code> 二分查找即可  </p>
+<p>这里需要注意的是<br><code>lower_bound()</code> 找的是第一个小于等于的位置,与我们的要求不符<br>我们应该让 <code>vector</code> 递增记录,然后给 <code>lower_bound()</code> 传入一个 <code>max()</code> 的比较函数  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="暴力思路-1"><a href="#暴力思路-1" class="headerlink" title="暴力思路"></a>暴力思路</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Security Check 暴力</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60005</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxk = <span class="number">11</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> queue_a[maxn], queue_b[maxn];</div><div class="line"><span class="keyword">int</span> DP[maxn][maxk &lt;&lt; <span class="number">2</span>];</div><div class="line"><span class="keyword">int</span> n, k;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123; <span class="built_in">memset</span>(DP, <span class="number">-1</span>, <span class="keyword">sizeof</span>(DP)); &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> apos, <span class="keyword">int</span> bpos)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> RETURN = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span> (!apos || !bpos) &#123;</div><div class="line">        RETURN = apos | bpos;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">abs</span>(queue_a[apos] - queue_b[bpos]) &lt;= k) &#123;</div><div class="line">            <span class="comment">//暴力</span></div><div class="line">            <span class="keyword">int</span> &amp;dp = DP[apos][queue_a[apos] - queue_b[bpos] + k];</div><div class="line">            <span class="keyword">if</span> (dp == <span class="number">-1</span>)</div><div class="line">                dp = min(dfs(apos - <span class="number">1</span>, bpos), dfs(apos, bpos - <span class="number">1</span>)) + <span class="number">1</span>;</div><div class="line">            RETURN = dp;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            RETURN = dfs(apos - <span class="number">1</span>, bpos - <span class="number">1</span>) + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> RETURN;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</div><div class="line"></div><div class="line">        init();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;queue_a[i]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;queue_b[i]);</div><div class="line"></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dfs(n, n));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="题解思路"><a href="#题解思路" class="headerlink" title="题解思路"></a>题解思路</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Security Check 题解思路</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">60005</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxk = <span class="number">15</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> queue_a[maxn], queue_b[maxn];</div><div class="line"><span class="keyword">int</span> bposList[maxn];</div><div class="line"></div><div class="line"><span class="keyword">int</span> DP[maxn][maxk &lt;&lt; <span class="number">2</span>];</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; DisList[maxn &lt;&lt; <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="keyword">int</span> n, k;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b; &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(DP, <span class="number">-1</span>, <span class="keyword">sizeof</span>(DP));</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n &lt;&lt; <span class="number">2</span>; ++i)</div><div class="line">        DisList[i].clear();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> apos, <span class="keyword">int</span> bpos, <span class="keyword">int</span> deep)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> RETURN = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span> (!apos || !bpos) &#123;</div><div class="line">        RETURN = apos | bpos;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">abs</span>(queue_a[apos] - queue_b[bpos]) &lt;= k) &#123;</div><div class="line">            <span class="comment">//暴力</span></div><div class="line">            <span class="keyword">int</span> &amp;dp = DP[apos][queue_a[apos] - queue_b[bpos] + k];</div><div class="line">            <span class="keyword">if</span> (dp == <span class="number">-1</span>) &#123;</div><div class="line">                dp = min(dfs(apos - <span class="number">1</span>, bpos, deep + <span class="number">1</span>),</div><div class="line">                         dfs(apos, bpos - <span class="number">1</span>, deep + <span class="number">1</span>)) +</div><div class="line">                     <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">            RETURN = dp;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">int</span> dis = apos - bpos + n;</div><div class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;List = DisList[dis];</div><div class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it =</div><div class="line">                lower_bound(List.begin(), List.end(), apos, cmp);</div><div class="line">            <span class="keyword">if</span> (it == List.end() || *it == apos) &#123;</div><div class="line">                RETURN = max(apos, bpos);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">int</span> lastapos = *it;</div><div class="line">                RETURN = dfs(lastapos, bpos - apos + lastapos, deep + <span class="number">1</span>) +</div><div class="line">                         apos - lastapos;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> RETURN;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">return</span> a &gt; b ? a : b; &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// freopen("out.txt", "w", stdout);</span></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</div><div class="line"></div><div class="line">        init();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;queue_a[i]);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;queue_b[i]);</div><div class="line">            bposList[queue_b[i]] = i;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> apos = n; apos &gt;= <span class="number">1</span>; --apos) &#123;</div><div class="line">            <span class="keyword">int</span> a = queue_a[apos];</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> b = a - k; b &lt;= a + k; ++b) &#123;</div><div class="line">                <span class="keyword">int</span> bpos = bposList[b];</div><div class="line">                <span class="keyword">int</span> dis = apos - bpos + n;</div><div class="line">                DisList[dis].push_back(apos);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, dfs(n, n, <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/6076.html" target="_blank" rel="external">HDU 6076.Security Check</a><br>文章地址：  <a href="/post/HDU/6076.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/6076.html</a><br>创建时间：  2017-08-08 00:58:13<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6076.html&title=《HDU 6076.Security Check》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6076.html&title=《HDU 6076.Security Check》 — OhYee's Blog&source=题目点击显/隐题目
+  In airport of Bytetown, there are two long queues waiting for sec..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6076.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6076.Security Check》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6076.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6076.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/SGU/495.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SGU 495.Kids and Prizes</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/POJ/2151.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">POJ 2151.Check the difficulty of problems</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6076.html&title=《HDU 6076.Security Check》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6076.html&title=《HDU 6076.Security Check》 — OhYee's Blog&source=题目点击显/隐题目
+  In airport of Bytetown, there are two long queues waiting for sec..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6076.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6076.Security Check》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6076.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6076.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/6076.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

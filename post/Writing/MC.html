@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Minecraft 服务器联机 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="Minecraft">
+    <meta name="description" content="联机真的是挺麻烦的~记录下过程,同时也作为服务器的进服指南~">
+<meta name="keywords" content="Minecraft">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Minecraft 服务器联机">
+<meta property="og:url" content="https://www.oyohyee.com/post/Writing/MC.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="联机真的是挺麻烦的~记录下过程,同时也作为服务器的进服指南~">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc.jpeg">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_1.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_5.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_6.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_7.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_2.jpg">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_3.png">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/mc_4.jpg">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Minecraft 服务器联机">
+<meta name="twitter:description" content="联机真的是挺麻烦的~记录下过程,同时也作为服务器的进服指南~">
+<meta name="twitter:image" content="https://www.oyohyee.com/post/img/mc.jpeg">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Minecraft 服务器联机</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">Minecraft 服务器联机</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-12T05:00:46.000Z" itemprop="datePublished" class="page-time">
+  2016-07-12 13:00:46
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#获得账号"><span class="post-toc-text">获得账号</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进入游戏"><span class="post-toc-text">进入游戏</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#联机"><span class="post-toc-text">联机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#局域网联机"><span class="post-toc-text">局域网联机</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务器联机"><span class="post-toc-text">服务器联机</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#进入我的服务器"><span class="post-toc-text">进入我的服务器</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Writing/MC"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Minecraft 服务器联机</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-12 13:00:46 13:00:46" datetime="2016-07-12T05:00:46.000Z"  itemprop="datePublished">2016-07-12 13:00:46</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><img src="/post/img/mc.jpeg" width="100%" height="100%" alt="LOVELIVE! SUNSHINE" align="center"></p>
+<p>联机真的是挺麻烦的~<br>记录下过程,同时也作为服务器的进服指南~  </p>
+<a id="more"></a>
+<h1 id="获得账号"><a href="#获得账号" class="headerlink" title="获得账号"></a>获得账号</h1><ol>
+<li>进入 <a href="https://www.minecraft.net/zh-hans/" target="_blank" rel="external"><strong>Minecraft官网</strong></a>    </li>
+<li>注册   </li>
+<li>支付宝付款  </li>
+</ol>
+<p>OK~   </p>
+<h1 id="进入游戏"><a href="#进入游戏" class="headerlink" title="进入游戏"></a>进入游戏</h1><p>由于国内 MC 的火爆,有许多非官方启动器有各种 Mod 的强力整合<br>例如 <a href="http://www.mcelf.com/" target="_blank" rel="external">MinecraftElf</a>  (<a href="http://pan.baidu.com/s/1ge2Cw3T" target="_blank" rel="external">百度云下载</a>)  </p>
+<p>运行后可以一键下载各种整合包  </p>
+<p>运行时会自动安装 Java   </p>
+<h1 id="联机"><a href="#联机" class="headerlink" title="联机"></a>联机</h1><p>Minecraft 的精髓在于<strong>红石</strong>与<strong>联机</strong><br>联机有两种方法</p>
+<ul>
+<li>局域网联机</li>
+<li>服务器联机</li>
+</ul>
+<h2 id="局域网联机"><a href="#局域网联机" class="headerlink" title="局域网联机"></a>局域网联机</h2><p>如果本身就处在局域网中,一个玩家新建一个世界后,点击 <code>esc</code> 选择 <code>对局域网开放</code><br><img src="/post/img/mc_1.png" alt="局域网联机">   </p>
+<p>其他同局域网的直接点多人游戏,就能看到好友的世界了  </p>
+<p>联在同个世界有以下方法  </p>
+<ul>
+<li>在同一个网吧中</li>
+<li>wifi共享连接</li>
+<li>Hamachi</li>
+</ul>
+<p>远程局域网联机最好的办法应该是使用 Hamachi<br>然而 Hamachi 被墙掉了~<br>联机变得非常麻烦  </p>
+<h2 id="服务器联机"><a href="#服务器联机" class="headerlink" title="服务器联机"></a>服务器联机</h2><p>搜索一下可以找到很多 Minecraft 开服器<br>如果有电脑是通过路由器连接网络的话,可以直接在路由器设置端口映射<br>否则就需要一些软件来设置了<br>常见的有 花生壳、nat123  </p>
+<p>花生壳的经过测试可以看到服务器,但是进不去<br>用 nat123 可以进服务器<br>不过域名比较难记<br>想要绑定自己的域名还需要充值一次  </p>
+<p>以下内容请<strong>确保</strong>有<strong>基本的端口常识</strong>和<strong>自行百度的能力</strong><br>仅仅提供一个大致流程  </p>
+<ol>
+<li><p>在<a href="http://www.mcbbs.net/forum.php?mod=forumdisplay&amp;fid=176" target="_blank" rel="external"><strong>&gt;网上&lt;</strong></a>找到要开的服务器的服务端包  </p>
+</li>
+<li><p>随便找个<a href="http://pan.baidu.com/s/1mh9TN3i" target="_blank" rel="external"><strong>&gt;开服器&lt;</strong></a>   </p>
+</li>
+<li><p>将服务器放到服务端的文件夹内<br>自动搜索运行目录,保存<br><img src="/post/img/mc_5.png" alt=""></p>
+</li>
+<li><p>在文件配置等地方设置好参数<br>记下 <strong>服务器端口号</strong> <code>25565</code> (可以是自己设置的其他的)   </p>
+</li>
+<li><p>然后映射端口  </p>
+<ul>
+<li><p>如果有路由器的话,直接在路由器控制面板映射本地端口就行  </p>
+</li>
+<li><p>否则,下载并安装 <a href="http://pan.baidu.com/s/1qYEL6Sc" target="_blank" rel="external">nat123</a>  </p>
+<ul>
+<li><p>新建映射 全端口映射 或者 非网站映射   </p>
+<ul>
+<li><p>全端口映射<br>  全端口映射需要别人也下载 <code>nat123</code> 才行,参照下面的部分<br>  如图设置即可<br>  外网域名我绑定到了自己的域名上,他给的实在太难记<br>  <img src="/post/img/mc_6.png" alt=""></p>
+</li>
+<li><p>非网站映射<br>  非网站映射别人直接填服务器地址就能登陆,不过貌似有限速<br>  映射后搭网站能正常访问,进服务器能搜到但是很难进去<br>  同上<br>  <img src="/post/img/mc_7.png" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>剩下的就是开服了~<br>本机的话直接 <code>127.0.0.1</code> 可以无延迟进服务器,不过为了测试是否开服成功,最好还是用下面的方法,“正常”进一下服务器  </p>
+</li>
+<li><p><del>分布式服务器</del><br><strong><span style="color:RED">这样做是不对的！！ GitHub是用来同步代码的！！！不是让你弄游戏的！！！</span></strong><br><del>自己的电脑自然不能24小时开着</del><br><del>由于每次改变的只有地图,如果别人开这个服务器的话,只需要同步一下地图文件就行了</del><br><del>要说同步,自然是 Git 了</del><br><del>在 GitHub 新建代码仓库,在服务器的文件夹 <code>git init</code> 然后 <code>push</code> 到仓库里</del><br><del>这样每次开服前 <code>pull</code> 下,结束后 <code>push</code> 下</del><br><del>哪个小伙伴想玩就可以随时开服了</del>  </p>
+</li>
+</ol>
+<h1 id="进入我的服务器"><a href="#进入我的服务器" class="headerlink" title="进入我的服务器"></a>进入我的服务器</h1><p><strong><span style="color:RED">私人服务器,外人还是不要进了</span></strong><br>点击链接加入群【我的世界与你的世界】：<a href="http://jq.qq.com/?_wv=1027&amp;k=2GEB1RI" target="_blank" rel="external">http://jq.qq.com/?_wv=1027&amp;k=2GEB1RI</a></p>
+<p>连接服务器有两种方法</p>
+<ul>
+<li>mc.oyohyee.com:15661</li>
+<li>local.oyohyee.com</li>
+</ul>
+<p>第一种方法直接输入即可,不过由于会很慢<br>第二种方法需要额外安装软件  </p>
+<p>下面是第二种方法的具体情况  </p>
+<ol>
+<li><p>下载并安装 <a href="http://pan.baidu.com/s/1qYEL6Sc" target="_blank" rel="external">nat123</a>  </p>
+</li>
+<li><p>忽略登陆窗口  </p>
+</li>
+<li><p>进入安装目录,找到 <code>nat123visitor.exe</code><br><img src="/post/img/mc_2.jpg" alt=""></p>
+</li>
+<li><p>打开后输入<br>域名: <code>local.oyohyee.com</code><br>端口: <code>25565</code></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/post/img/mc_3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+<li><p>最后多人游戏服务器地址填 <code>local.oyohyee.com</code> 即可<br><img src="/post/img/mc_4.jpg" alt=""></p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Writing/MC.html" target="_blank" rel="external">Minecraft 服务器联机</a><br>文章地址：  <a href="/post/Writing/MC.html" target="_blank" rel="external">https://www.oyohyee.com/post/Writing/MC.html</a><br>创建时间：  2016-07-12 13:00:46<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Minecraft/">Minecraft</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Writing/MC.html&title=《Minecraft 服务器联机》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Writing/MC.html&title=《Minecraft 服务器联机》 — OhYee's Blog&source=
+联机真的是挺麻烦的~记录下过程,同时也作为服务器的进服指南~  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Writing/MC.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Minecraft 服务器联机》 — OhYee's Blog&url=https://www.oyohyee.com/post/Writing/MC.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Writing/MC.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/2571.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 2571.命运</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Algorithm/MIS.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">最大上升子序列(最大递增子段和)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Writing/MC.html&title=《Minecraft 服务器联机》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Writing/MC.html&title=《Minecraft 服务器联机》 — OhYee's Blog&source=
+联机真的是挺麻烦的~记录下过程,同时也作为服务器的进服指南~  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Writing/MC.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Minecraft 服务器联机》 — OhYee's Blog&url=https://www.oyohyee.com/post/Writing/MC.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Writing/MC.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Writing/MC.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

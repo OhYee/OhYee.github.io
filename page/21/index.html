@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/21/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Segment_tree"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-11 21:49:23 21:49:23" datetime="2016-08-11T13:49:23.000Z"  itemprop="datePublished">2016-08-11 21:49:23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Segment_tree.html">线段树</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote><p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。<br>使用线段树可以快速的查找某一个节点在若干条线段中出现的次数，时间复杂度为O(logN）。而未优化的空间复杂度为2N，因此有时需要离散化让空间压缩。  </p>
+<footer><strong>百度百科</strong><cite><a href="http://baike.baidu.com/view/670683.htm" target="_blank" rel="external">线段树</a></cite></footer></blockquote>
+    
+
+        <a href="/post/Algorithm/Segment_tree.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recursion/">递归与分治</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/RMQ"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-11 21:37:00 21:37:00" datetime="2016-08-11T13:37:00.000Z"  itemprop="datePublished">2016-08-11 21:37:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/RMQ.html">RMQ问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote><p>RMQ ( Range Minimum / Maximum Query )问题是指：</p>
+<blockquote>
+<p>对于长度为 <code>n</code> 的数列 A ，回答若干询问 <code>RMQ(A,i,j)</code> ( <code>i,j&lt;=n</code> )，返回数列 A 中下标在 <code>i</code> , <code>j</code> 里的最小(大)值<br>也就是说，RMQ 问题是指求区间最值的问题  </p>
+</blockquote>
+<footer><strong>百度百科</strong><cite><a href="http://baike.baidu.com/view/1536346.htm" target="_blank" rel="external">RMQ 问题</a></cite></footer></blockquote>
+    
+
+        <a href="/post/Algorithm/RMQ.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMQ/">RMQ问题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ST/">ST算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/351"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-11 13:12:21 13:12:21" datetime="2016-08-11T05:12:21.000Z"  itemprop="datePublished">2016-08-11 13:12:21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/351.html">AOJ 351.求最值之差</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>给出N个数，求第a个数到第b个数之间最大的数减去最小的数的结果  </p>
+    
+
+        <a href="/post/AOJ/351.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMQ/">RMQ问题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ST/">ST算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/ST"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-10 20:43:08 20:43:08" datetime="2016-08-10T12:43:08.000Z"  itemprop="datePublished">2016-08-10 20:43:08</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/ST.html">ST算法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>ST 算法是一种高效求解 <a href="/post/Algorithm/RMQ.html"><strong>&gt;RMQ 问题&lt;</strong></a> 的算法  </p>
+<p>其预处理时间复杂度为 <code>O(nlogn)</code> 查询时间复杂度为 <code>O(1)</code>  </p>
+<p>在进行大量数据的查询时,是一种非常好的算法  </p>
+<p>其思路是类似采用 <strong>二分</strong> 的思路对各个区间进行预处理<br>在查询时(查询 <code>(a,d)</code> )通过查询 <code>[a,c)</code> 和 <code>[b,d)</code> <code>(a&lt;=b&lt;=c&lt;=d)</code> 来获取结果  </p>
+    
+
+        <a href="/post/Algorithm/ST.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RMQ/">RMQ问题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ST/">ST算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/363"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-10 15:53:42 15:53:42" datetime="2016-08-10T07:53:42.000Z"  itemprop="datePublished">2016-08-10 15:53:42</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/363.html">AOJ 363.取数字问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>定的M*N的矩阵，其中的每个元素都是-10到10之间的整数，你的任务是从左上角（1，1），走到右下角（M,N），每一步只能向下或者向右，你所经过的方格里面的数字都必须被选取，请找出一条最合适的路，使得在路上被选取的数字之和是尽可能小的正整数。  </p>
+    
+
+        <a href="/post/AOJ/363.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/400"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-10 15:00:52 15:00:52" datetime="2016-08-10T07:00:52.000Z"  itemprop="datePublished">2016-08-10 15:00:52</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/400.html">AOJ 400.Subset Sums</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>For many sets of consecutive integers from 1 through N (1 &lt;= N &lt;= 39), one can partition the set into two sets whose sums are identical.   </p>
+<p>For example, if N=3, one can partition the set {1, 2, 3} in one way so that the sums of both subsets are identical:   </p>
+<p>{3} and {1,2}<br>This counts as a single partitioning (i.e., reversing the order counts as the same partitioning and thus does not increase the count of partitions).   </p>
+<p>If N=7, there are four ways to partition the set {1, 2, 3, … 7} so that each partition has the same sum:   </p>
+<p>{1,6,7} and {2,3,4,5}<br>{2,5,7} and {1,3,4,6}<br>{3,4,7} and {1,2,5,6}<br>{1,2,4,7} and {3,5,6}<br>Given N, your program should print the number of ways a set containing the integers from 1 through N can be partitioned into two sets whose sums are identical. Print 0 if there are no such ways.   </p>
+<p>Your program must calculate the answer, not look it up from a table.   </p>
+    
+
+        <a href="/post/AOJ/400.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PackageProblem/">背包问题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Study/2016_08_07-2016_08_09"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-10 12:30:10 12:30:10" datetime="2016-08-10T04:30:10.000Z"  itemprop="datePublished">2016-08-10 12:30:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Study/2016_08_07-2016_08_09.html">2016-08-07 ~ 2016-08-09 学习报告</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>题目： </p>
+<ul>
+<li><a href="/post/HDU/5112.html">HDU 5112.A Curious Matt</a></li>
+<li><a href="/post/HDU/5119.html">HDU 5119.Happy Matt Friends</a></li>
+<li><a href="/post/HDU/5120.html">HDU 5120.Intersection</a></li>
+<li><a href="/post/HDU/5122.html">HDU 5122.K.Bro Sorting</a></li>
+<li><a href="/post/HDU/1502.html">HDU 1502.Regular Words</a></li>
+<li><a href="/post/HDU/1025.html">HDU 1025.Constructing Roads In JGShining’s Kingdom</a></li>
+<li><a href="/post/HDU/3008.html">HDU 3008.Warcraft</a></li>
+<li><a href="/post/HDU/1074.html">HDU 1074.Doing Homework</a></li>
+<li><a href="/post/HDU/1224.html">HDU 1224.Free DIY Tour</a></li>
+<li><a href="/post/HDU/1227.html">HDU 1227.Fast Food</a>
+    
+
+        <a href="/post/Study/2016_08_07-2016_08_09.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Study/">学习报告</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Project/dp46"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-09 12:28:20 12:28:20" datetime="2016-08-09T04:28:20.000Z"  itemprop="datePublished">2016-08-09 12:28:20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Project/dp46.html">DP46</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>46道动态规划题</p>
+<p>VJudge专题</p>
+<ul>
+<li><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=120123#overview" target="_blank" rel="external">DP46(上)</a></p>
+</li>
+<li><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=120124#overview" target="_blank" rel="external">DP46(下)</a></p>
+</li>
+</ul>
+    
+
+        <a href="/post/Project/dp46.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1227"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-09 12:10:29 12:10:29" datetime="2016-08-09T04:10:29.000Z"  itemprop="datePublished">2016-08-09 12:10:29</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1227.html">HDU 1227.Fast Food</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>The fastfood chain McBurger owns several restaurants along a highway. Recently, they have decided to build several depots along the highway, each one located at a restaurant and supplying several of the restaurants with the needed ingredients. Naturally, these depots should be placed so that the average distance between a restaurant and its assigned depot is minimized. You are to write a program that computes the optimal positions and assignments of the depots.   </p>
+<p>To make this more precise, the management of McBurger has issued the following specification: You will be given the positions of n restaurants along the highway as n integers d1 &lt; d2 &lt; … &lt; dn (these are the distances measured from the company’s headquarter, which happens to be at the same highway). Furthermore, a number k (k &lt;= n) will be given, the number of depots to be built.   </p>
+<p>The k depots will be built at the locations of k different restaurants. Each restaurant will be assigned to the closest depot, from which it will then receive its supplies. To minimize shipping costs, the total distance sum, defined as   </p>
+<p>must be as small as possible.   </p>
+<p>Write a program that computes the positions of the k depots, such that the total distance sum is minimized.<br>
+    
+
+        <a href="/post/HDU/1227.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1224"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-08-09 11:17:23 11:17:23" datetime="2016-08-09T03:17:23.000Z"  itemprop="datePublished">2016-08-09 11:17:23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1224.html">HDU 1224.Free DIY Tour</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Weiwei is a software engineer of ShiningSoft. He has just excellently fulfilled a software project with his fellow workers. His boss is so satisfied with their job that he decide to provide them a free tour around the world. It’s a good chance to relax themselves. To most of them, it’s the first time to go abroad so they decide to make a collective tour.   </p>
+<p>The tour company shows them a new kind of tour circuit - DIY circuit. Each circuit contains some cities which can be selected by tourists themselves. According to the company’s statistic, each city has its own interesting point. For instance, Paris has its interesting point of 90, New York has its interesting point of 70, ect. Not any two cities in the world have straight flight so the tour company provide a map to tell its tourists whether they can got a straight flight between any two cities on the map. In order to fly back, the company has made it impossible to make a circle-flight on the half way, using the cities on the map. That is, they marked each city on the map with one number, a city with higher number has no straight flight to a city with lower number.   </p>
+<p>Note: Weiwei always starts from Hangzhou(in this problem, we assume Hangzhou is always the first city and also the last city, so we mark Hangzhou both 1 and N+1), and its interesting point is always 0.   </p>
+<p>Now as the leader of the team, Weiwei wants to make a tour as interesting as possible. If you were Weiwei, how did you DIY it<br>
+    
+
+        <a href="/post/HDU/1224.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/20/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/22/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/21/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/21/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/21/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/21/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/21/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/21/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

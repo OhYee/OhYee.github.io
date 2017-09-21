@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 1502.Regular Words | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,HDU,高精度算法,打表">
+    <meta name="description" content="题目 Description Consider words of length 3n over alphabet {A, B, C} . Denote the number of occurences of A in a word a as A(a) , analogously let the number of occurences of B be denoted as B(a), and th">
+<meta name="keywords" content="动态规划,HDU,高精度算法,打表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 1502.Regular Words">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/1502.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目 Description Consider words of length 3n over alphabet {A, B, C} . Denote the number of occurences of A in a word a as A(a) , analogously let the number of occurences of B be denoted as B(a), and th">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 1502.Regular Words">
+<meta name="twitter:description" content="题目 Description Consider words of length 3n over alphabet {A, B, C} . Denote the number of occurences of A in a word a as A(a) , analogously let the number of occurences of B be denoted as B(a), and th">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 1502.Regular Words</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 1502.Regular Words</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-08T02:15:08.000Z" itemprop="datePublished" class="page-time">
+  2016-08-08 10:15:08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-text">Description</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-text">Sample Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-text">Sample Output</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/1502"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 1502.Regular Words</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-08 10:15:08 10:15:08" datetime="2016-08-08T02:15:08.000Z"  itemprop="datePublished">2016-08-08 10:15:08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Consider words of length 3n over alphabet {A, B, C} . Denote the number of occurences of A in a word a as A(a) , analogously let the number of occurences of B be denoted as B(a), and the number of occurenced of C as C(a) .   </p>
+<p>Let us call the word w regular if the following conditions are satisfied:   </p>
+<p>A(w)=B(w)=C(w) ;<br>if c is a prefix of w , then A(c)&gt;= B(c) &gt;= C(c) .<br>For example, if n = 2 there are 5 regular words: AABBCC , AABCBC , ABABCC , ABACBC and ABCABC .   </p>
+<p>Regular words in some sense generalize regular brackets sequences (if we consider two-letter alphabet and put similar conditions on regular words, they represent regular brackets sequences).   </p>
+<p>Given n , find the number of regular words.<br><a id="more"></a>  </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>There are mutiple cases in the input file.   </p>
+<p>Each case contains n (0 &lt;= n &lt;= 60 ).   </p>
+<p>There is an empty line after each case.  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>Output the number of regular words of length 3n .   </p>
+<p>There should be am empty line after each case.  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>2  </p>
+<p>3  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>5  </p>
+<p>42  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>求 <code>n</code> 个以 “ABC” 为顺序的字符串,能拼成的字符串个数<br>对于一个已知的字符串,新的字符可以插到其任意一个字符后形成新的字符串<br><code>dp[i][j][k]</code> 表示有 <code>i</code> 个 <code>A</code> <code>j</code> 个 <code>B</code> <code>k</code> 个 <code>C</code> 的字符串个数<br><code>dp[i][j][k] = dp[i-1][j][k] + dp[i][j-1][k] + dp[i][j][k-1]</code><br>要保证字符串格式正确,必须有 <code>i &gt;= j &gt;= k</code>  </p>
+<p>数比较大,需要<strong>高精度算法</strong>来运算<br>由于只有60组数据,可以打表输出  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><figcaption><span>Regular Words</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">Blog:http://www.oyohyee.com/</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="built_in">string</span> dp[<span class="number">65</span>] = &#123;<span class="string">"1"</span>,<span class="string">"1"</span>,<span class="string">"5"</span>,<span class="string">"42"</span>,<span class="string">"462"</span>,<span class="string">"6006"</span>,<span class="string">"87516"</span>,<span class="string">"1385670"</span>,<span class="string">"23371634"</span>,<span class="string">"414315330"</span>,<span class="string">"7646001090"</span>,<span class="string">"145862174640"</span>,<span class="string">"2861142656400"</span>,<span class="string">"57468093927120"</span>,<span class="string">"1178095925505960"</span>,<span class="string">"24584089974896430"</span>,<span class="string">"521086299271824330"</span>,<span class="string">"11198784501894470250"</span>,<span class="string">"243661974372798631650"</span>,<span class="string">"5360563436201569896300"</span>,<span class="string">"119115896614816702500900"</span>,<span class="string">"2670926804331443293626900"</span>,<span class="string">"60386171228363065768956000"</span>,<span class="string">"1375596980582110638216817680"</span>,<span class="string">"31554078431506568639711925552"</span>,<span class="string">"728440733705121725605657358256"</span>,<span class="string">"16916012593818937850175820875056"</span>,<span class="string">"394984727560107218767652172156480"</span>,<span class="string">"9269882950945137003216002357575872"</span>,<span class="string">"218589820552932101591964442689934272"</span>,<span class="string">"5177405669064206309480641678873685136"</span>,<span class="string">"123139887106265725065261170839575261246"</span>,<span class="string">"2940211742938376804365727956142799686970"</span>,<span class="string">"70461309651358512358741033490151564263034"</span>,<span class="string">"1694426732092192797198296281548882854896770"</span>,<span class="string">"40879953049935966764838175153044218787509460"</span>,<span class="string">"989318124094680800242093703952690318964293660"</span>,<span class="string">"24011992526103689868224096174884123328708261100"</span>,<span class="string">"584414956558400574946623386902564355477176447080"</span>,<span class="string">"14261150342358043298392602404780869211095488665940"</span>,<span class="string">"348876433985002864104580005170614922408018905657020"</span>,<span class="string">"8555006509113973886896694412506009110609925390878620"</span>,<span class="string">"210257823823361408953856390159370731312558948560177500"</span>,<span class="string">"5178713915261459187808923452167773648813573133021584000"</span>,<span class="string">"127816663734641521693312994768720558317819058630953008000"</span>,<span class="string">"3160890723051037742300958639363743464856851891194511344000"</span>,<span class="string">"78316111638147520232116305011469771592038383559489541704000"</span>,<span class="string">"1943917771018304520047172570820410402016667020494472553010000"</span>,<span class="string">"48334523581589010102952513742546024844918906756931542442556400"</span>,<span class="string">"1203813957908516875152358489329058054078745007110871474716375280"</span>,<span class="string">"30029983483935083858438698423851117882968874317657169412268673840"</span>,<span class="string">"750270153399794678576435057573545926324276055884108148422050727840"</span>,<span class="string">"18772482769028405636917719941593858764528793976890630506115671775200"</span>,<span class="string">"470373947038907707302405010980987131831213397364392909428995307126880"</span>,<span class="string">"11802109943885320655951253002795677125946808879324767545672973160638080"</span>,<span class="string">"296516920131524804299707608337156053506400465189952712435084509896783040"</span>,<span class="string">"7459203321130790040650176332416188852363369960068846727881499803410725440"</span>,<span class="string">"187875141510304732204453155491218970539216498205240765481036372897711988800"</span>,<span class="string">"4737637890492057297860769571861620074038072983555206964113320603342642320960"</span>,<span class="string">"119605940186192921945993199027326146131452990076639651225155962772912609414400"</span>,<span class="string">"3022912056752362939484322031260179006906680462576858197252183463144268821651200"</span>&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) == EOF)</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; dp[n]&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span>(Do());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/1502.html" target="_blank" rel="external">HDU 1502.Regular Words</a><br>文章地址：  <a href="/post/HDU/1502.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/1502.html</a><br>创建时间：  2016-08-08 10:15:08<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/1502.html&title=《HDU 1502.Regular Words》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/1502.html&title=《HDU 1502.Regular Words》 — OhYee's Blog&source=题目
+Description
+Consider words of length 3n over alphabet {A, B, C} . Denote t..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/1502.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 1502.Regular Words》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/1502.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/1502.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/1025.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 1025.Constructing Roads In JGShining&#39;s Kingdom</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/5122.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 5122.K.Bro Sorting</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/1502.html&title=《HDU 1502.Regular Words》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/1502.html&title=《HDU 1502.Regular Words》 — OhYee's Blog&source=题目
+Description
+Consider words of length 3n over alphabet {A, B, C} . Denote t..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/1502.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 1502.Regular Words》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/1502.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/1502.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/1502.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

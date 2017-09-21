@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>STL笔记 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="栈(stack),队列(queue),向量(vector),映射(map),集合(set)">
+    <meta name="description" content="STL方面的笔记以下为vector queue map set stack的基本用法可编译结合注释查看">
+<meta name="keywords" content="栈(stack),队列(queue),向量(vector),映射(map),集合(set)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STL笔记">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/STLNote.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="STL方面的笔记以下为vector queue map set stack的基本用法可编译结合注释查看">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="STL笔记">
+<meta name="twitter:description" content="STL方面的笔记以下为vector queue map set stack的基本用法可编译结合注释查看">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">STL笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">STL笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-07-27T09:22:00.000Z" itemprop="datePublished" class="page-time">
+  2015-07-27 17:22:00
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#STL方面的笔记"><span class="post-toc-text">STL方面的笔记</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/STLNote"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">STL笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-07-27 17:22:00 17:22:00" datetime="2015-07-27T09:22:00.000Z"  itemprop="datePublished">2015-07-27 17:22:00</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="STL方面的笔记"><a href="#STL方面的笔记" class="headerlink" title="STL方面的笔记"></a>STL方面的笔记</h2><p>以下为vector queue map set stack的基本用法<br>可编译结合注释查看</p>
+<a id="more"></a>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"vector功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vec;<span class="comment">//声明名称为vec的整数型向量</span></div><div class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it_vec;<span class="comment">//迭代器</span></div><div class="line">    vec.clear();<span class="comment">//清空</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"插入数据"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    vec.push_back(<span class="number">1</span>);<span class="comment">//在末尾插入</span></div><div class="line">    vec.push_back(<span class="number">3</span>);</div><div class="line">    it_vec=vec.end();<span class="comment">//指向vec的末尾</span></div><div class="line">    it_vec--;<span class="comment">//向前移动一位（既1和3的中间）</span></div><div class="line">    vec.insert(it_vec,<span class="number">2</span>);<span class="comment">//在此处插入2</span></div><div class="line">    REP(vec.size())<span class="built_in">cout</span>&lt;&lt;vec[o]&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//访问数据</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"清除第一个数据后输出"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    vec.erase(vec.begin());</div><div class="line">    it_vec=vec.begin();</div><div class="line">    REP(vec.size())&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*it_vec&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//访问数据</span></div><div class="line">        it_vec++;<span class="comment">//向后一位</span></div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#####################################"</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"map功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; m;<span class="comment">//声明 key的类型为string value类型为int型vector 的 映射m</span></div><div class="line">    <span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;::iterator it_map;<span class="comment">//迭代器</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"插入数据"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    m.insert(pair&lt;<span class="built_in">string</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;(<span class="string">"aaa"</span>,vec));</div><div class="line">    it_map=m.find(<span class="string">"aaa"</span>);<span class="comment">//或者指定key的位置（迭代器）</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"key:"</span>&lt;&lt;it_map-&gt;first&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"value:"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    REP(vec.size())<span class="built_in">cout</span>&lt;&lt;<span class="string">"   "</span>&lt;&lt;vec[o]&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"查找一个不存在的数据 find()会返回map的末尾"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    it_map=m.find(<span class="string">"Niconiconi~"</span>);</div><div class="line">    <span class="keyword">if</span>(it_map==m.end())<span class="built_in">cout</span>&lt;&lt;<span class="string">"No Niconiconi~"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#####################################"</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"set功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;<span class="comment">//声明一个整数型集合</span></div><div class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it_set;<span class="comment">//迭代器</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"倒叙插入数据并且有重复的4"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    s.insert(<span class="number">5</span>);</div><div class="line">    s.insert(<span class="number">4</span>);</div><div class="line">    s.insert(<span class="number">4</span>);</div><div class="line">    s.insert(<span class="number">2</span>);</div><div class="line">    s.insert(<span class="number">1</span>);</div><div class="line">    it_set=s.begin();</div><div class="line">    <span class="keyword">while</span>(it_set!=s.end())&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;*it_set&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        it_set++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"输出时4自动保留一个，并且数据由小到大输出"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#####################################"</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"queue功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt; q;<span class="comment">//声明一个字符串型队列 q</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"按顺序插入"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    q.push(<span class="string">"L"</span>);</div><div class="line">    q.push(<span class="string">"O"</span>);</div><div class="line">    q.push(<span class="string">"V"</span>);</div><div class="line">    q.push(<span class="string">"E"</span>);</div><div class="line">    q.push(<span class="string">"L"</span>);</div><div class="line">    q.push(<span class="string">"I"</span>);</div><div class="line">    q.push(<span class="string">"V"</span>);</div><div class="line">    q.push(<span class="string">"E"</span>);</div><div class="line">    q.push(<span class="string">"!"</span>);</div><div class="line">    <span class="keyword">while</span>(!q.empty())&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;q.front();</div><div class="line">        q.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"先入队的先出来"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"#################################"</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"priority_queue功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    priority_queue&lt;<span class="built_in">string</span>&gt; pq;<span class="comment">//声明priority_queue一个字符串型优先队列</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"乱序插入具有可比较大小的数据"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    pq.push(<span class="string">"B"</span>);</div><div class="line">    pq.push(<span class="string">"A"</span>);</div><div class="line">    pq.push(<span class="string">"C"</span>);</div><div class="line">    <span class="keyword">while</span>(!pq.empty())&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;pq.top();</div><div class="line">        pq.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"权值大的先出来"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"###############################"</span>&lt;&lt;<span class="built_in">endl</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"stack功能"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">stack</span>&lt;<span class="built_in">string</span>&gt; sta;<span class="comment">//声明一个字符串类型的栈</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"倒序插入数据"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    sta.push(<span class="string">"+"</span>);</div><div class="line">    sta.push(<span class="string">"+"</span>);</div><div class="line">    sta.push(<span class="string">"C"</span>);</div><div class="line">        <span class="keyword">while</span>(!sta.empty())&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;sta.top();</div><div class="line">        sta.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"先进入的后出来"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译结果<br>    vector功能<br>    插入数据<br>    1<br>    2<br>    3<br>    清除第一个数据后输出<br>    2<br>    3</p>
+<pre><code>#
+map功能 
+插入数据 
+key:aaa 
+value: 
+2 
+3 
+查找一个不存在的数据 find()会返回map的末尾 
+No Niconiconi~
+
+#
+set功能 
+倒叙插入数据并且有重复的4 
+1 
+2 
+4 
+5 
+输出时4自动保留一个，并且数据由小到大输出
+
+#
+queue功能 
+按顺序插入 
+LOVELIVE! 
+先入队的先出来
+
+#
+priority_queue功能 
+乱序插入具有可比较大小的数据 
+CBA 
+权值大的先出来
+
+#
+stack功能 
+倒序插入数据 
+C++ 
+先进入的后出来
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/STLNote.html" target="_blank" rel="external">STL笔记</a><br>文章地址：  <a href="/post/Note/STLNote.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/STLNote.html</a><br>创建时间：  2015-07-27 17:22:00<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">向量(vector)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">映射(map)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stack/">栈(stack)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Set/">集合(set)</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/STLNote.html&title=《STL笔记》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/STLNote.html&title=《STL笔记》 — OhYee's Blog&source=STL方面的笔记以下为vector queue map set stack的基本用法可编译结合注释查看" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/STLNote.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STL笔记》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/STLNote.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/STLNote.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Algorithm/Graph.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">图论相关算法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/ACM.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ACM进阶计划</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/STLNote.html&title=《STL笔记》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/STLNote.html&title=《STL笔记》 — OhYee's Blog&source=STL方面的笔记以下为vector queue map set stack的基本用法可编译结合注释查看" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/STLNote.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《STL笔记》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/STLNote.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/STLNote.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/STLNote.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

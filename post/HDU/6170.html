@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 6170.Two strings | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,HDU,正则表达式">
+    <meta name="description" content="题目点击显/隐题目   Giving two strings and you should judge if they are matched. The first string contains lowercase letters and uppercase letters. The second string contains lowercase letters, uppercase lett">
+<meta name="keywords" content="动态规划,HDU,正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 6170.Two strings">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/6170.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目   Giving two strings and you should judge if they are matched. The first string contains lowercase letters and uppercase letters. The second string contains lowercase letters, uppercase lett">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.oyohyee.com/post/img/hdu6170_1.png">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 6170.Two strings">
+<meta name="twitter:description" content="题目点击显/隐题目   Giving two strings and you should judge if they are matched. The first string contains lowercase letters and uppercase letters. The second string contains lowercase letters, uppercase lett">
+<meta name="twitter:image" content="https://www.oyohyee.com/post/img/hdu6170_1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 6170.Two strings</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 6170.Two strings</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-22T15:07:09.000Z" itemprop="datePublished" class="page-time">
+  2017-08-22 23:07:09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式"><span class="post-toc-text">正则表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态规划"><span class="post-toc-text">动态规划</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#正则表达式-1"><span class="post-toc-text">正则表达式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态规划-1"><span class="post-toc-text">动态规划</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/6170"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 6170.Two strings</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-22 23:07:09 23:07:09" datetime="2017-08-22T15:07:09.000Z"  itemprop="datePublished">2017-08-22 23:07:09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>  Giving two strings and you should judge if they are matched.<br> The first string contains lowercase letters and uppercase letters.<br> The second string contains lowercase letters, uppercase letters, and special symbols: “.” and “*”.<br> . can match any letter, and <em> means the front character can appear any times. For example, “a.b” can match “acb” or “abb”, “a\</em>” can match “a”, “aa” and even empty string. ( “*” will not appear in the front of the string, and there will not be two consecutive “*”.<br><br></div><div class="part" title="Input"><br>The first line contains an integer T implying the number of test cases. (T≤15)<br>For each test case, there are two lines implying the two strings (The length of the two strings is less than 2500).<br><br></div><div class="part" title="Output"><br>For each test case, print “yes” if the two strings are matched, otherwise print “no”.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>aa<br>a*<br>abb<br>a.*<br>abb<br>aab<br><br></div><div class="output part" title="Sample Output"><br>yes<br>yes<br>no<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>基本上可以在读题都一半的时候确定是<strong>正则表达式</strong>的问题<br>通常来说,这种问题一半会使用AC自动机来解答,不过其实可以试一下C++11的正则表达式库的  </p>
+<p>首先确定题意的时候可以发现,这里和标准的正则表达式语句存在一些不同<br><code>.*</code> 在标准的正则表达式中是匹配任意字符串,而这里是匹配任意的连续字符串<br>相当于 <code>(.)?\1*</code>  </p>
+<p>当然,还需要考虑<code>*</code>可以匹配<code>0</code>次,但是这是正则表达式本身就有的语法<br>因此,简单思路就是先把 <code>.*</code> 替换成 <code>(.)?\1*</code> (在源码里要写成<code>(.)?\\1*</code>)<br>然后直接匹配即可<br>相应部分的代码如下<br>具体实现代码见<a href="/post/HDU/6170.html#正则表达式-1">正则表达式源码</a></p>
+<p>需要特别注意的是,虽然同样是无脑用库,但是<strong>Java会超时</strong><br>另外C++11的Regex库存在的bug比较多,只有比较简单的匹配才能放心使用<br>比如<code>aba</code>匹配<code>abababa</code>是无法得到3的,无法使用类似这样的<code>(?=(aba))</code>零宽断言语法来实现(其他语言可以)  </p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>按照动态规划的思路,很容易得到<code>dp[i][j]</code>表示字符串a的前<code>i</code>个字符和字符串<code>b</code>的前<code>j</code>的字符能否匹配<br>假如我们要匹配 <code>aaaaaa</code> 和 <code>ab*a*</code>  </p>
+<p><img src="/post/img/hdu6170_1.png" alt=""></p>
+<p>对于第一个位置(最左上角),显然当两者相等的时候为<code>true</code><br>其同一行已经没有能够匹配的了<br>第二行可以发现<code>b</code>不等于<code>a</code>全部都是<code>false</code><br>第三行的<code>*</code>可以将上一行的<code>b</code>匹配<code>0</code>次,这时,当前位置能否匹配成功取决于它上面的上面是否能匹配<br>第四行有<code>a</code>和<code>a</code>相同,位置能否匹配取决于其左上角的能否匹配<br>第五行的<code>*</code>可以匹配任意长度,匹配两个时候相当于该位置取决于上面能否匹配;匹配更多个的时候相当于只要其对应的<code>a</code>中的字符和它左面的相同,就可以将左面能否匹配的状态传递过来  </p>
+<p>另外,<code>.</code>可以看作一个普通字符,只是能和所有的字符都匹配<br>综上所述,总共只包含很少的状态转移条件  </p>
+<ul>
+<li>串内容相同(或者存在’.’或者为第一个位置):<br><code>dp[i][j] |= dp[i-1][j-1]</code>  </li>
+<li>匹配到<code>*</code>:<br><code>dp[i][j] |= dp[i][j-2] | dp[i][j-1]</code></li>
+<li>匹配到<code>*</code>,并且当前位置和其左面的字符相同:<br><code>dp[i][j] |= dp[i-1][j]</code></li>
+</ul>
+<p>这样就可以写出基本的dp框架了<br>然后就会发现我们<strong>漏掉了一个特殊情况</strong><br><code>bbbbbb</code>匹配<code>a*b*</code><br>由于开始位置匹配失败,导致后面所有位置都无法为<code>true</code><br>只有<code>b[1]==&#39;*&#39;</code>的时候才会导致这个错误<br>相当于特殊情况下的状态转移1<br>其条件如下: 串内容相同或者存在<code>.</code>,同时<code>i=0</code>,<code>b[1]=&#39;*&#39;</code>  </p>
+<p>这样就可以写出完整的状态转移方程了</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="正则表达式-1"><a href="#正则表达式-1" class="headerlink" title="正则表达式"></a>正则表达式</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Two strings</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;regex&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">string_replace</span><span class="params">(<span class="built_in">string</span> &amp;s1, <span class="keyword">const</span> <span class="built_in">string</span> &amp;s2, <span class="keyword">const</span> <span class="built_in">string</span> &amp;s3)</span> </span>&#123;</div><div class="line">    <span class="built_in">string</span>::size_type pos = <span class="number">0</span>;</div><div class="line">    <span class="built_in">string</span>::size_type a = s2.size();</div><div class="line">    <span class="built_in">string</span>::size_type b = s3.size();</div><div class="line">    <span class="keyword">while</span> ((pos = s1.find(s2, pos)) != <span class="built_in">string</span>::npos) &#123;</div><div class="line">        s1.replace(pos, a, s3);</div><div class="line">        pos += b;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">string</span> text, re;</div><div class="line"></div><div class="line">        <span class="built_in">cin</span> &gt;&gt; text &gt;&gt; re;</div><div class="line">        <span class="comment">//cout &lt;&lt; text &lt;&lt; endl &lt;&lt; re &lt;&lt; endl;</span></div><div class="line">        string_replace(re, <span class="string">".*"</span>, <span class="string">"(.)?\\1*"</span>);</div><div class="line">        <span class="comment">// cout &lt;&lt; text &lt;&lt;" "&lt;&lt; re &lt;&lt; endl;</span></div><div class="line"></div><div class="line">        <span class="function">regex <span class="title">e</span><span class="params">(re)</span></span>;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; (regex_match(text, e) ? <span class="string">"yes"</span> : <span class="string">"no"</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="动态规划-1"><a href="#动态规划-1" class="headerlink" title="动态规划"></a>动态规划</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Two strings</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">3505</span>;</div><div class="line"></div><div class="line"><span class="keyword">char</span> a[maxn], b[maxn];</div><div class="line"><span class="keyword">bool</span> dp[maxn][maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line"></div><div class="line">    <span class="comment">// scanf("%d", &amp;T);</span></div><div class="line">    <span class="comment">// getchar();</span></div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</div><div class="line">        <span class="comment">// scanf("\n%[^\n]\n%[^\n]", a, b);</span></div><div class="line">        <span class="comment">// fgets(a,maxn,stdin);</span></div><div class="line">        <span class="comment">// fgets(b,maxn,stdin);</span></div><div class="line"></div><div class="line">        <span class="built_in">memset</span>(dp, <span class="literal">false</span>, <span class="keyword">sizeof</span>(dp));</div><div class="line"></div><div class="line">        <span class="comment">// printf("%d\na:%s\nb:%s\n",T, a, b);</span></div><div class="line">        <span class="keyword">int</span> n = <span class="built_in">strlen</span>(a);</div><div class="line">        <span class="keyword">int</span> m = <span class="built_in">strlen</span>(b);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j) &#123;</div><div class="line">                <span class="comment">// 第一个位置</span></div><div class="line">                <span class="keyword">if</span> ((a[i] == b[j] || b[j] == <span class="string">'.'</span>) &amp;&amp; i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)</div><div class="line">                    dp[i][j] |= <span class="literal">true</span>;</div><div class="line">                <span class="comment">// 从左上角转移过来</span></div><div class="line">                <span class="keyword">if</span> ((a[i] == b[j] || b[j] == <span class="string">'.'</span>) &amp;&amp; i &gt; <span class="number">0</span> &amp;&amp; j &gt; <span class="number">0</span>)</div><div class="line">                    dp[i][j] |= dp[i - <span class="number">1</span>][j - <span class="number">1</span>];</div><div class="line">                <span class="comment">// 特判</span></div><div class="line">                <span class="keyword">if</span> ((a[i] == b[j] || b[j] == <span class="string">'.'</span>) &amp;&amp; b[<span class="number">1</span>] == <span class="string">'*'</span> &amp;&amp; i == <span class="number">0</span>)</div><div class="line">                    dp[i][j] = <span class="literal">true</span>;</div><div class="line">                <span class="comment">// * 匹配</span></div><div class="line">                <span class="comment">// 从上面的上面转移过来（匹配0个）</span></div><div class="line">                <span class="comment">//从上面转移过来（匹配1个）</span></div><div class="line">                <span class="keyword">if</span> (b[j] == <span class="string">'*'</span>)</div><div class="line">                    dp[i][j] |= (j &gt;= <span class="number">2</span> ? dp[i][j - <span class="number">2</span>] : <span class="number">0</span>) |</div><div class="line">                                (j &gt;= <span class="number">1</span> ? dp[i][j - <span class="number">1</span>] : <span class="number">0</span>);</div><div class="line">                <span class="comment">// 从左面转移过来（*往后续）</span></div><div class="line">                <span class="keyword">if</span> (b[j] == <span class="string">'*'</span> &amp;&amp; i &gt;= <span class="number">1</span> &amp;&amp; a[i - <span class="number">1</span>] == a[i])</div><div class="line">                    dp[i][j] |= dp[i - <span class="number">1</span>][j];</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        <span class="comment">// for (int i = 0; i &lt; n; ++i) &#123;</span></div><div class="line">        <span class="comment">//     for (int j = 0; j &lt; m; ++j)</span></div><div class="line">        <span class="comment">//         printf("%d ", dp[i][j]);</span></div><div class="line">        <span class="comment">//     printf("\n");</span></div><div class="line">        <span class="comment">// &#125;</span></div><div class="line">        <span class="comment">// printf("%s\n", (dp[n - 1][m - 1] ? "yes" : "no"));</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; (dp[n - <span class="number">1</span>][m - <span class="number">1</span>] ? <span class="string">"yes"</span> : <span class="string">"no"</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/6170.html" target="_blank" rel="external">HDU 6170.Two strings</a><br>文章地址：  <a href="/post/HDU/6170.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/6170.html</a><br>创建时间：  2017-08-22 23:07:09<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegEx/">正则表达式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6170.html&title=《HDU 6170.Two strings》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6170.html&title=《HDU 6170.Two strings》 — OhYee's Blog&source=题目点击显/隐题目
+  Giving two strings and you should judge if they are matched. The ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6170.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6170.Two strings》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6170.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6170.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/6154.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 6154.CaoHaha&#39;s staff</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/1686.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 1686.Oulipo</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6170.html&title=《HDU 6170.Two strings》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6170.html&title=《HDU 6170.Two strings》 — OhYee's Blog&source=题目点击显/隐题目
+  Giving two strings and you should judge if they are matched. The ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6170.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6170.Two strings》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6170.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6170.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/6170.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

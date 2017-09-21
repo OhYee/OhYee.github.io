@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>使用V2ray科学上网 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="科学上网,v2ray">
+    <meta name="description" content="近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR国家开始严打各种VPN服务而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)   因此需要搞一个VPN来科学上网">
+<meta name="keywords" content="v2ray,科学上网,ss,ssr,shadowsocks,shadowsocksR,VPN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用V2ray科学上网">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/V2ray.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR国家开始严打各种VPN服务而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)   因此需要搞一个VPN来科学上网">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用V2ray科学上网">
+<meta name="twitter:description" content="近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR国家开始严打各种VPN服务而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)   因此需要搞一个VPN来科学上网">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用V2ray科学上网</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">使用V2ray科学上网</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-11T13:41:36.000Z" itemprop="datePublished" class="page-time">
+  2017-08-11 21:41:36
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#购买VPN"><span class="post-toc-text">购买VPN</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装V2ray"><span class="post-toc-text">安装V2ray</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#连接"><span class="post-toc-text">连接</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-text">问题</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/V2ray"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用V2ray科学上网</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-11 21:41:36 21:41:36" datetime="2017-08-11T13:41:36.000Z"  itemprop="datePublished">2017-08-11 21:41:36</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR<br>国家开始严打各种VPN服务<br>而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)  </p>
+<p>因此需要搞一个VPN来科学上网  </p>
+<a id="more"></a>
+<p>近一段国家监控的就是之前号称防止个人信息泄露的VPN,通过算法”识别”是否访问了不应该访问的东西<br>虽然国家不可能去管我们搜一些技术性的东西,但是还是需要一个加密的算法来对抗破解  </p>
+<p>一般个人搭VPN随便找一个国外的VPS就行了,反正自己用的也不过,自然是选便宜的了  </p>
+<h1 id="购买VPN"><a href="#购买VPN" class="headerlink" title="购买VPN"></a>购买VPN</h1><p>经过挑选选择了搬瓦工的<a href="https://bwh1.net/cart.php?a=confproduct&amp;i=0" target="_blank" rel="external">中国直连服务器</a></p>
+<blockquote>
+<p>SPECIAL 10G KVM PROMO V3 - LOS ANGELES - CHINA DIRECT ROUTE<br>SSD: 10 GB RAID-10<br>RAM: 512 MB<br>CPU: 1x Intel Xeon<br>Transfer: 1000 GB/mo<br>Link speed: 1 Gigabit<br> <br><br>Location: Los Angeles (no other locations available on this plan)<br>Direct route via China Telecom and China Unicom<br> <br><br>VPS technology: KVM/KiwiVM<br>OS: 32 or 64 bit Centos, Debian, Ubuntu<br>Instant OS reload<br>IPv4: 1 dedicated address<br>IPv6 support: <strong>No</strong><br>Full root access<br>Instant RDNS update from control panel<br>No contract, anytime cancellation<br>Strictly self-managed, no support<br>99.5% uptime guarantee<br> <br></p>
+<p>\$2.99 USD Monthly<br>\$6.99 USD Quarterly<br>\$11.99 USD Semi-Annually<br>\$19.99 USD Annually</p>
+</blockquote>
+<p>总体来说刚刚好,价格非常便宜,只搭VPN也足够了  </p>
+<p>直接使用支付宝购买即可<br>买完之后进入后台即可  </p>
+<p>在后台最下面三项就是一键安装VPN、一键安装SS、一键安装SSR<br>支付宝支付+一键科学上网可见搬瓦工这是有着预谋啊  </p>
+<h1 id="安装V2ray"><a href="#安装V2ray" class="headerlink" title="安装V2ray"></a>安装V2ray</h1><p>不过这些现在已经没有人维护了,还是换一个更有前途的吧<br>这里推荐使用<a href="https://github.com/v2ray" target="_blank" rel="external">V2ray</a>  </p>
+<p>它支持SS和SSR的协议<br>而且有人在持续维护<br>这就足够了  </p>
+<p>跟着<a href="https://www.v2ray.com/" target="_blank" rel="external">官方文档</a>安装即可<br>当然,也有更为<a href="https://toutyrater.github.io" target="_blank" rel="external">容易理解的版本</a>  </p>
+<p>首先要先重装系统到 Ubuntu ,搬瓦工默认的 CentOS 6 刚好不支持V2ray  </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">bash &lt;(curl -L -s https://install.direct/go.sh)</div></pre></td></tr></table></figure>
+<p>管理员权限下运行上面的指令即可  </p>
+<p>然后就可以正常使用了,下面是开启的指令<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service v2ray start</div></pre></td></tr></table></figure></p>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p>然后用桌面的客户端 <a href="https://github.com/v2ray/v2rayN" target="_blank" rel="external">V2rayN</a><br>连接填好自己的服务器,填好地址即可<br>端口按照自己喜欢的来,其他的都可以不管  </p>
+<p>确定后右键选择<span class="label label-sky">导出所选服务器为服务端配置</span></p>
+<p>然后用任意方式把到处的文件替换掉服务器的<code>/etc/v2ray/config.json</code><br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">service v2ray restart</div></pre></td></tr></table></figure></p>
+<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><p>如果没问题的话,现在右键服务器测试延迟应该可以看到一个延迟的值了<br>然后进入系统设置开全局代理就行了  </p>
+<ul>
+<li>ip: <code>127.0.0.1</code>  </li>
+<li>端口: <code>1080</code>  </li>
+</ul>
+<p>这个可以在V2rayN的参数设置那里更改(或者更改运行目录下的<code>config.json</code>)  </p>
+<p>如果只想对浏览器翻墙的话,可以不使用全局代理<br>使用类似<strong>SwitchyOmega</strong>这样的插件,设置<code>proxy</code>模式,填好ip和端口即可   </p>
+<p>手机端的话推荐<a href="https://github.com/vav88/v2rayNG" target="_blank" rel="external">V2rayNG</a><br>可以直接在电脑上选择分享配置,手机扫二维码导入  </p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>虽然能正常访问谷歌,但是速度有点慢,可以用一些黑科技来解决这个问题,有空去搞一下</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/V2ray.html" target="_blank" rel="external">使用V2ray科学上网</a><br>文章地址：  <a href="/post/Note/V2ray.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/V2ray.html</a><br>创建时间：  2017-08-11 21:41:36<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/v2ray/">v2ray</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">科学上网</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/V2ray.html&title=《使用V2ray科学上网》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/V2ray.html&title=《使用V2ray科学上网》 — OhYee's Blog&source=近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR国家开始严打各种VPN服务而近一段写安卓又需要大量使用墙外的资源(有时候githu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/V2ray.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用V2ray科学上网》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/V2ray.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/V2ray.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/hihocoder/1069.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hihocoder 1069.最近公共祖先·三</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/git_rm_cached.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Git取消文件追踪</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/V2ray.html&title=《使用V2ray科学上网》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/V2ray.html&title=《使用V2ray科学上网》 — OhYee's Blog&source=近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR国家开始严打各种VPN服务而近一段写安卓又需要大量使用墙外的资源(有时候githu..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/V2ray.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用V2ray科学上网》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/V2ray.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/V2ray.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/V2ray.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

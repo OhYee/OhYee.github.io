@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>康托（逆）展开 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="康托">
+    <meta name="description" content="康托展开 X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0! 其中，a[i]为整数，并且X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0!。这就是康托展开。康托展开可用代码实现。 ——百度百科  这个东西，我们高三的时候称作OhYee第一定理（还有第二第三）。当时做排列组合做到疯的时候推出来的。然而我们数学老">
+<meta name="keywords" content="康托">
+<meta property="og:type" content="article">
+<meta property="og:title" content="康托（逆）展开">
+<meta property="og:url" content="https://www.oyohyee.com/post/Algorithm/Contour.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="康托展开 X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0! 其中，a[i]为整数，并且X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0!。这就是康托展开。康托展开可用代码实现。 ——百度百科  这个东西，我们高三的时候称作OhYee第一定理（还有第二第三）。当时做排列组合做到疯的时候推出来的。然而我们数学老">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="康托（逆）展开">
+<meta name="twitter:description" content="康托展开 X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0! 其中，a[i]为整数，并且X=a[n](n-1)!+a[n-1](n-2)!+…+a[i](i-1)!+…+a[1]0!。这就是康托展开。康托展开可用代码实现。 ——百度百科  这个东西，我们高三的时候称作OhYee第一定理（还有第二第三）。当时做排列组合做到疯的时候推出来的。然而我们数学老">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">康托（逆）展开</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">康托（逆）展开</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-06T03:34:00.000Z" itemprop="datePublished" class="page-time">
+  2015-08-06 11:34:00
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#含义"><span class="post-toc-text">含义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原理"><span class="post-toc-text">原理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#例子"><span class="post-toc-text">例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逆着来一遍"><span class="post-toc-text">逆着来一遍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Algorithm/Contour"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">康托（逆）展开</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-06 11:34:00 11:34:00" datetime="2015-08-06T03:34:00.000Z"  itemprop="datePublished">2015-08-06 11:34:00</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>康托展开 X=a[n]<em>(n-1)!+a[n-1]</em>(n-2)!+…+a[i]<em>(i-1)!+…+a[1]</em>0! 其中，a[i]为整数，并且X=a[n]<em>(n-1)!+a[n-1]</em>(n-2)!+…+a[i]<em>(i-1)!+…+a[1]</em>0!。这就是康托展开。康托展开可用代码实现。</p>
+<p>——百度百科</p>
+</blockquote>
+<p><del>这个东西，我们高三的时候称作OhYee第一定理（还有第二第三）。当时做排列组合做到疯的时候推出来的。然而我们数学老师觉得没什么琴里用→_→</del></p>
+<p>对于八数码问题，在储存时有一个问题，就是八数码共有9！=362800种可能，但是如果用9维数组，包含了99=387420489项，显然造成了极大地浪费。</p>
+<p>当然，我们可以采用哈希表来进行映射，而哈希函数便可以使用康托展开<del>（OhYee第一定理）</del>。</p>
+<p><del>当年我可是在有OhYee第一定理的情况下做过八数码的，可惜当时竟然没有想到用OhYee第一定理。。。</del></p>
+<p>嗯嗯，我们就不管是康托展开，还是康托逆展开了，反正都是OhYee定理的内容23333333333</p>
+<hr>
+<h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><blockquote>
+<p>对于｛1，2，3，4｝其排列有：1234，1243，1324，1342，1423，1432，2134，2143，2314，2341，2413，2431，3124，3142，3214，3241，3412，3421，4123，4132，4213，4231，4312，4321共24种。</p>
+</blockquote>
+<p>这样我们就可以按照从小到大的顺序，给他们编上号，就有了一个映射关系</p>
+<p><br></p>
+<table style="border-color:000000; border-width: 0px; float: left; height: 88px; width: 538px;" border="0"><br><tbody><br><tr><br><td style="border: 1px solid000000; text-align: left;">1</td><br><td style="border: 1px solid000000;">2</td><br><td style="border: 1px solid000000;">3</td><br><td style="border: 1px solid000000;">4</td><br><td style="border: 1px solid000000;">5</td><br><td style="border: 1px solid000000;">6</td><br><td style="border: 1px solid000000;">7</td><br><td style="border: 1px solid000000;">8</td><br><td style="border: 1px solid000000;">9</td><br><td style="border: 1px solid000000;">10</td><br><td style="border: 1px solid000000;">11</td><br><td style="border: 1px solid000000;">12</td><br></tr><br><tr><br><td style="border: 1px solid000000;">1234</td><br><td style="border: 1px solid000000;">1243</td><br><td style="border: 1px solid000000;">1324</td><br><td style="border: 1px solid000000;">1342</td><br><td style="border: 1px solid000000;">1423</td><br><td style="border: 1px solid000000;">1432</td><br><td style="border: 1px solid000000;">2134</td><br><td style="border: 1px solid000000;">2143</td><br><td style="border: 1px solid000000;">2314</td><br><td style="border: 1px solid000000;">2341</td><br><td style="border: 1px solid000000;">2413</td><br><td style="border: 1px solid000000;">2431</td><br></tr><br><tr><br><td style="border: 1px solid000000;">13</td><br><td style="border: 1px solid000000;">14</td><br><td style="border: 1px solid000000;">15</td><br><td style="border: 1px solid000000;">16</td><br><td style="border: 1px solid000000;">17</td><br><td style="border: 1px solid000000;">18</td><br><td style="border: 1px solid000000;">19</td><br><td style="border: 1px solid000000;">20</td><br><td style="border: 1px solid000000;">21</td><br><td style="border: 1px solid000000;">22</td><br><td style="border: 1px solid000000;">23</td><br><td style="border: 1px solid000000;">24</td><br></tr><br><tr><br><td style="border: 1px solid000000;">3124</td><br><td style="border: 1px solid000000;">3142</td><br><td style="border: 1px solid000000;">3214</td><br><td style="border: 1px solid000000;">3241</td><br><td style="border: 1px solid000000;">3412</td><br><td style="border: 1px solid000000;">3421</td><br><td style="border: 1px solid000000;">4123</td><br><td style="border: 1px solid000000;">4132</td><br><td style="border: 1px solid000000;">4213</td><br><td style="border: 1px solid000000;">4231</td><br><td style="border: 1px solid000000;">4312</td><br><td style="border: 1px solid000000;">4321</td><br></tr><br></tbody><br></table>
+
+<p><br></p>
+<p>这样将序号和数字的映射就是康托（逆）展开</p>
+<hr>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>由上面｛1，2，3，4｝的例子很容易发现，从小到大排列，有着一定的规律。</p>
+<p>以每个数开头的，分别占据了总数（4!）的1/4，即3！。</p>
+<p>第一个以1开头的在0×3！+1=1</p>
+<p>第一个以2开头的在1×3！+1=7</p>
+<p>……</p>
+<p>也就是说N个数全排列，第一个数是x的数出现在(x-1)×(N-1)!+1处。</p>
+<p>第一个数确定后，我们再看第二个数。假如第一个数是2，那么还有{1，3，4}三个数。</p>
+<p>令1=1，2=3，3=4，我们便可看成{1，2，3}三个数的排列</p>
+<p>假如是那么第一个2便在1×2!+1=3</p>
+<p>再映射回去，也就是第二个是3的在第3个，对照上表看，在第一个是2的数中第二个是3的第一个数就是第3个</p>
+<p>就这样，不断类比下去，就可以得到一个数在其排列中的位置。这就是OhYee第一定理</p>
+<p>ps:最后的+1只需要加一次</p>
+<hr>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>假如我们想要计算在{1，2，3，4}的全排列中，2413的位置</p>
+<p>首先有对2，比2小的有1，共1个。1×3！=6</p>
+<p>此时剩下1，3，4。</p>
+<p>然后对4，比4小的有1，3，共2个。2×2！=4</p>
+<p>此时剩下1，3。</p>
+<p>然后对1，比1小的有0个。0×1！=0</p>
+<p>此时剩下3，比3小的有0个。0×0！=0</p>
+<p>所以，2413的位置是6+4+0+0+1=11</p>
+<hr>
+<h2 id="逆着来一遍"><a href="#逆着来一遍" class="headerlink" title="逆着来一遍"></a>逆着来一遍</h2><p>排列中，第11个是什么呢~</p>
+<p>首先划分区间3！=6，也就是6个一组（以相同的数字开头）</p>
+<p>这样11-6=5&lt;=6 在第2区间。第一个数是2</p>
+<p>再往下划分区间2！=2</p>
+<p>5-2=3　　3-2=1&lt;=2在第3区间。第二个数是4</p>
+<p>再往下划分1！=1</p>
+<p>1&lt;=1在第一区间。第三个数是1</p>
+<p>再往下划分0！=1</p>
+<p>1&lt;=1在第一区间。第四个数是3</p>
+<p>所以，第11个数是2413</p>
+<p> 根据上面的分析，我们需要不断插入删除数字，需要用链表来记录还存在的数</p>
+<p>用指针弄一个链表（输出了中间运算过程）</p>
+<p><strong>链表</strong><br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">linked_list</span>&#123;</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">link</span>&#123;</span></div><div class="line">        <span class="keyword">int</span> num;</div><div class="line">        link *next;</div><div class="line">    &#125;;</div><div class="line">    link *head;</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    linked_list()&#123;</div><div class="line">        head=<span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">        link *it;</div><div class="line">        <span class="keyword">if</span>(head==<span class="literal">NULL</span>)&#123;</div><div class="line">            head=<span class="keyword">new</span> link;</div><div class="line">            it=head;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            it=head;</div><div class="line">            <span class="keyword">while</span>((it-&gt;next)!=<span class="literal">NULL</span>)&#123;</div><div class="line">                it=it-&gt;next;</div><div class="line">            &#125;</div><div class="line">            it-&gt;next=<span class="keyword">new</span> link;</div><div class="line">            it=it-&gt;next;</div><div class="line">        &#125;</div><div class="line">        it-&gt;num=n;</div><div class="line">        it-&gt;next=<span class="literal">NULL</span>;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"add "</span>&lt;&lt;n&lt;&lt;<span class="string">"  ("</span>&lt;&lt;it&lt;&lt;<span class="string">")"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Del</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">        link *it=head;</div><div class="line">        <span class="keyword">if</span>(it-&gt;num==n)&#123;</div><div class="line">            head=it-&gt;next;</div><div class="line">            <span class="keyword">delete</span>(it);</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"delete "</span>&lt;&lt;n&lt;&lt;<span class="string">"   ("</span>&lt;&lt;it&lt;&lt;<span class="string">")\n"</span>;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">while</span>(it-&gt;next-&gt;num!=n)&#123;</div><div class="line">            it= it-&gt;next;</div><div class="line">            <span class="keyword">if</span>(it-&gt;next==<span class="literal">NULL</span>)<span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        link *temp=it-&gt;next;</div><div class="line">        it-&gt;next=it-&gt;next-&gt;next;</div><div class="line">        <span class="keyword">delete</span>(temp);</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"delete "</span>&lt;&lt;n&lt;&lt;<span class="string">"   ("</span>&lt;&lt;temp&lt;&lt;<span class="string">")\n"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">        link *it=head;</div><div class="line">        <span class="keyword">int</span> cnt=<span class="number">0</span>;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"begin "</span>;</div><div class="line">        <span class="keyword">while</span>(it-&gt;num!=n)&#123;</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"----&gt;"</span>&lt;&lt;it&lt;&lt;<span class="string">"("</span>&lt;&lt; it-&gt;num &lt;&lt;<span class="string">") "</span>;</div><div class="line">            it=it-&gt;next;</div><div class="line">            cnt++;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">return</span> cnt;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">get2</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">        link *it=head;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"begin "</span>;</div><div class="line">        <span class="keyword">while</span>(n&gt;<span class="number">1</span>)&#123;</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"----&gt;"</span>&lt;&lt;it&lt;&lt;<span class="string">"("</span>&lt;&lt; it-&gt;num &lt;&lt;<span class="string">") "</span>;</div><div class="line">            it=it-&gt;next;</div><div class="line">            n--;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"----&gt;"</span>&lt;&lt;it&lt;&lt;<span class="string">"("</span>&lt;&lt; it-&gt;num &lt;&lt;<span class="string">") "</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">return</span> it-&gt;num;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>其中Add()是向链表最后插入，Del()是删除存储制定数据的节点，get()是获取指定数据前面的节点数，get2()是获取指定节点存储的数</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> factorial[]=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">24</span>,<span class="number">120</span>,<span class="number">720</span>,<span class="number">5040</span>,<span class="number">40320</span>&#125;;<span class="comment">//n!</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">KT</span><span class="params">(<span class="keyword">int</span> N,<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> ans=<span class="number">1</span>;</div><div class="line">    linked_list L;</div><div class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; S;</div><div class="line">    <span class="keyword">while</span>(x)&#123;</div><div class="line">        S.push(x%<span class="number">10</span>);</div><div class="line">        x/=<span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    REP(N)&#123;</div><div class="line">        L.Add(o+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    REP(N)&#123;</div><div class="line">        <span class="keyword">int</span> a=L.get(S.top());</div><div class="line">        L.Del(S.top());</div><div class="line">        S.pop();</div><div class="line">        ans+=a*factorial[N-o<span class="number">-1</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">KTN</span><span class="params">(<span class="keyword">int</span> N,<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</div><div class="line">    linked_list L;</div><div class="line">    REP(N)&#123;</div><div class="line">        L.Add(o+<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    REP(N)&#123;</div><div class="line">        ans*=<span class="number">10</span>;</div><div class="line">        <span class="keyword">int</span> t=<span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span>(n&gt;factorial[N-o<span class="number">-1</span>])&#123;</div><div class="line">            n-=factorial[N-o<span class="number">-1</span>];</div><div class="line">            t++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> temp=L.get2(t);</div><div class="line">        ans+=temp;</div><div class="line">        L.Del(temp);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Algorithm/Contour.html" target="_blank" rel="external">康托（逆）展开</a><br>文章地址：  <a href="/post/Algorithm/Contour.html" target="_blank" rel="external">https://www.oyohyee.com/post/Algorithm/Contour.html</a><br>创建时间：  2015-08-06 11:34:00<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Contour/">康托</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Contour.html&title=《康托（逆）展开》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Contour.html&title=《康托（逆）展开》 — OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Contour.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《康托（逆）展开》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Contour.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Contour.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Writing/Music_Player.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">主流播放器的强行联网对比</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Algorithm/High_precision.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">高精度算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Algorithm/Contour.html&title=《康托（逆）展开》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Algorithm/Contour.html&title=《康托（逆）展开》 — OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Algorithm/Contour.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《康托（逆）展开》 — OhYee's Blog&url=https://www.oyohyee.com/post/Algorithm/Contour.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Algorithm/Contour.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Algorithm/Contour.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

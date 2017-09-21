@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 5983.Pocket Cube(2016 CCPC 青岛 B) | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="HDU,模拟,CCPC">
+    <meta name="description" content="题目 点击显/隐题目                   The Pocket Cube, also known as the Mini Cube or the Ice Cube, is the 2 × 2 × 2 equivalence of a Rubik’s Cube.The cube consists of 8 pieces, all corners.Each piece is label">
+<meta name="keywords" content="HDU,模拟,CCPC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 5983.Pocket Cube(2016 CCPC 青岛 B)">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/5983.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目 点击显/隐题目                   The Pocket Cube, also known as the Mini Cube or the Ice Cube, is the 2 × 2 × 2 equivalence of a Rubik’s Cube.The cube consists of 8 pieces, all corners.Each piece is label">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 5983.Pocket Cube(2016 CCPC 青岛 B)">
+<meta name="twitter:description" content="题目 点击显/隐题目                   The Pocket Cube, also known as the Mini Cube or the Ice Cube, is the 2 × 2 × 2 equivalence of a Rubik’s Cube.The cube consists of 8 pieces, all corners.Each piece is label">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 5983.Pocket Cube(2016 CCPC 青岛 B)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 5983.Pocket Cube(2016 CCPC 青岛 B)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-13T13:46:54.000Z" itemprop="datePublished" class="page-time">
+  2017-01-13 21:46:54
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/5983"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 5983.Pocket Cube(2016 CCPC 青岛 B)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-13 21:46:54 21:46:54" datetime="2017-01-13T13:46:54.000Z"  itemprop="datePublished">2017-01-13 21:46:54</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>The Pocket Cube, also known as the Mini Cube or the Ice Cube, is the 2 × 2 × 2 equivalence of a Rubik’s Cube.<br>The cube consists of 8 pieces, all corners.<br>Each piece is labeled by a three dimensional coordinate (h, k, l) where h, k, l ∈ {0, 1}. Each of the six faces owns four small faces filled with a positive integer.<br>For each step, you can choose a certain face and turn the face ninety degrees clockwise or counterclockwise.<br>You should judge that if one can restore the pocket cube in one step. We say a pocket cube has been restored if each face owns four same integers.  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>The first line of input contains one integer N(N ≤ 30) which is the number of test cases.<br>For each test case, the first line describes the top face of the pocket cube, which is the common 2 × 2 face of pieces<br>labelled by (0, 0, 1),(0, 1, 1),(1, 0, 1),(1, 1, 1). Four integers are given corresponding to the above pieces.<br>The second line describes the front face, the common face of (1, 0, 1),(1, 1, 1),(1, 0, 0),(1, 1, 0). Four integers are<br>given corresponding to the above pieces.<br>The third line describes the bottom face, the common face of (1, 0, 0),(1, 1, 0),(0, 0, 0),(0, 1, 0). Four integers are<br>given corresponding to the above pieces.<br>The fourth line describes the back face, the common face of (0, 0, 0),(0, 1, 0),(0, 0, 1),(0, 1, 1). Four integers are<br>given corresponding to the above pieces.<br>The fifth line describes the left face, the common face of (0, 0, 0),(0, 0, 1),(1, 0, 0),(1, 0, 1). Four integers are given<br>corresponding to the above pieces.<br>The six line describes the right face, the common face of (0, 1, 1),(0, 1, 0),(1, 1, 1),(1, 1, 0). Four integers are given<br>corresponding to the above pieces.<br>In other words, each test case contains 24 integers a, b, c to x. You can flat the surface to get the surface development<br>as follows.  </p>
+<pre><code>+ - + - + - + - + - + - +  
+| q | r | a | b | u | v |  
++ - + - + - + - + - + - +  
+| s | t | c | d | w | x |  
++ - + - + - + - + - + - +  
+        | e | f |  
+        + - + - +  
+        | g | h |  
+        + - + - +  
+        | i | j |  
+        + - + - +  
+        | k | l |  
+        + - + - +  
+        | m | n |  
+        + - + - +  
+        | o | p |  
+        + - + - +  
+</code></pre>
+        </div>
+        <div class="part" title="Output">
+
+<p>For each test case, output YES if can be restored in one step, otherwise output NO.  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>4<br>1 1 1 1<br>2 2 2 2<br>3 3 3 3<br>4 4 4 4<br>5 5 5 5<br>6 6 6 6<br>6 6 6 6<br>1 1 1 1<br>2 2 2 2<br>3 3 3 3<br>5 5 5 5<br>4 4 4 4<br>1 4 1 4<br>2 1 2 1<br>3 2 3 2<br>4 3 4 3<br>5 5 5 5<br>6 6 6 6<br>1 3 1 3<br>2 4 2 4<br>3 1 3 1<br>4 2 4 2<br>5 5 5 5<br>6 6 6 6  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>YES<br>YES<br>YES<br>NO  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>题意很容易理解,就是对一个二阶魔方,判断其是否能在一步内还原.<br>如果会还原三阶魔方,应该很容易就能理解.<br>经过分析,其实只有7种情况<br>1种是初始情况就是还原的,另外对于每一面分别向两个方向转一次.  </p>
+<p>比较稳妥的写法是直接把转后的位置顺序写出来,然后按照这个顺序查询是否存在不合法的情况.<br>(一定要注意不要写错!!!)</p>
+<p><strong>另外,需要额外注意,必须要满足6种颜色每种颜色4个</strong>  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold"><figure class="highlight cpp"><figcaption><span>Pocket Cube</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*//</span></div><div class="line"><span class="comment">#define debug</span></div><div class="line"><span class="comment">#include &lt;ctime&gt;</span></div><div class="line"><span class="comment">//*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> cube[<span class="number">24</span>];</div><div class="line"></div><div class="line"><span class="keyword">int</span> <span class="built_in">list</span>[<span class="number">7</span>][<span class="number">24</span>] = &#123;</div><div class="line">    &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>&#125;,</div><div class="line">    &#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">11</span>,<span class="number">8</span>,<span class="number">13</span>,<span class="number">10</span>,<span class="number">15</span>,<span class="number">12</span>,<span class="number">1</span>,<span class="number">14</span>,<span class="number">3</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">22</span>,<span class="number">20</span>,<span class="number">23</span>,<span class="number">21</span>&#125;,</div><div class="line">    &#123;<span class="number">0</span>,<span class="number">13</span>,<span class="number">2</span>,<span class="number">15</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">10</span>,<span class="number">7</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">14</span>,<span class="number">11</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">21</span>,<span class="number">23</span>,<span class="number">20</span>,<span class="number">22</span>&#125;,</div><div class="line">    &#123;<span class="number">20</span>,<span class="number">21</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">22</span>,<span class="number">23</span>&#125;,</div><div class="line">    &#123;<span class="number">16</span>,<span class="number">17</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">22</span>,<span class="number">23</span>&#125;,</div><div class="line">    &#123;<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">22</span>,<span class="number">20</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">19</span>,<span class="number">17</span>,<span class="number">16</span>,<span class="number">4</span>,<span class="number">18</span>,<span class="number">5</span>,<span class="number">14</span>,<span class="number">21</span>,<span class="number">15</span>,<span class="number">23</span>&#125;,</div><div class="line">    &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">20</span>,<span class="number">22</span>,<span class="number">16</span>,<span class="number">15</span>,<span class="number">18</span>,<span class="number">14</span>,<span class="number">4</span>,<span class="number">21</span>,<span class="number">5</span>,<span class="number">23</span>&#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">int</span> check[<span class="number">24</span>]=&#123;<span class="number">16</span>,<span class="number">17</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>&#125;;</div><div class="line"></div><div class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; m;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</div><div class="line">    m.clear();</div><div class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> num[<span class="number">24</span>];</div><div class="line">    <span class="built_in">memset</span>(num, <span class="number">0</span>, <span class="keyword">sizeof</span>(num));</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++)&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</div><div class="line">            <span class="keyword">int</span> t;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; t;</div><div class="line">            cube[i * <span class="number">4</span> + j] = t;</div><div class="line">            <span class="keyword">if</span> (!m.count(t))</div><div class="line">                m.insert(make_pair(t, pos++));</div><div class="line">            num[m[t]]++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// cout&lt;&lt;"Cube:"&lt;&lt;endl;</span></div><div class="line">    <span class="comment">// for(int i=0;i&lt;24;i++)</span></div><div class="line">    <span class="comment">//     cout&lt;&lt;cube[i]&lt;&lt;" ";</span></div><div class="line">    <span class="comment">// cout&lt;&lt;endl;</span></div><div class="line">    </div><div class="line">    <span class="comment">//必须是6种颜色,并且每种4个</span></div><div class="line">    </div><div class="line">    <span class="keyword">bool</span> ok = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span> &amp;&amp; ok; i++)</div><div class="line">        <span class="keyword">if</span> (num[i] != <span class="number">4</span>)</div><div class="line">            ok = <span class="literal">false</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (ok) &#123;</div><div class="line">        ok = <span class="literal">false</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span> &amp;&amp; !ok; i++) &#123;</div><div class="line">            <span class="comment">//分别按照7种情况判断是否能够还原</span></div><div class="line"></div><div class="line">            <span class="comment">// cout &lt;&lt; "Case" &lt;&lt; i &lt;&lt; endl;</span></div><div class="line">            <span class="comment">// for(int j=0;j&lt;6;j++)</span></div><div class="line">            <span class="comment">//     printf("%3d",cube[list[i][check[j]]]);</span></div><div class="line">            <span class="comment">// cout&lt;&lt;endl;</span></div><div class="line">            <span class="comment">// for(int j=6;j&lt;12;j++)</span></div><div class="line">            <span class="comment">//     printf("%3d",cube[list[i][check[j]]]);</span></div><div class="line">            <span class="comment">// cout&lt;&lt;endl;</span></div><div class="line">            <span class="comment">// for(int j=0;j&lt;6;j++)</span></div><div class="line">            <span class="comment">//     printf("      %3d%3d\n",cube[list[i][check[12+j*2]]],cube[list[i][check[12+j*2+1]]]);</span></div><div class="line">            <span class="comment">// cout&lt;&lt;endl;</span></div><div class="line">            </div><div class="line"></div><div class="line">            <span class="keyword">bool</span> flag = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">6</span> &amp;&amp; flag; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">0</span>]] != cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">1</span>]] ||</div><div class="line">                    cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">0</span>]] != cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">2</span>]] ||</div><div class="line">                    cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">0</span>]] != cube[<span class="built_in">list</span>[i][<span class="number">4</span> * j + <span class="number">3</span>]])</div><div class="line">                    flag = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (flag)</div><div class="line">                ok = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; (ok ? <span class="string">"YES"</span> : <span class="string">"NO"</span>) &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    <span class="keyword">int</span> START = clock();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">while</span> (T--)</div><div class="line">        solve();</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Time:%.3f s.\n"</span>, <span class="keyword">double</span>(clock() - START) / CLOCKS_PER_SEC);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/5983.html" target="_blank" rel="external">HDU 5983.Pocket Cube(2016 CCPC 青岛 B)</a><br>文章地址：  <a href="/post/HDU/5983.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/5983.html</a><br>创建时间：  2017-01-13 21:46:54<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/5983.html&title=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/5983.html&title=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&source=题目
+点击显/隐题目
+       
+        
+
+The Pocket Cube, also known as the Mini Cube or ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/5983.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/5983.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/5983.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/5984.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 5984.Pocky(2016 CCPC 青岛 C)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Algorithm/Genetic_Algorithm.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">遗传算法解决TSP问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/5983.html&title=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/5983.html&title=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&source=题目
+点击显/隐题目
+       
+        
+
+The Pocket Cube, also known as the Mini Cube or ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/5983.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 5983.Pocket Cube(2016 CCPC 青岛 B)》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/5983.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/5983.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/5983.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

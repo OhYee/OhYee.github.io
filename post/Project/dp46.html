@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>DP46 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划">
+    <meta name="description" content="46道动态规划题 VJudge专题  DP46(上)  DP46(下)">
+<meta name="keywords" content="动态规划">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DP46">
+<meta property="og:url" content="https://www.oyohyee.com/post/Project/dp46.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="46道动态规划题 VJudge专题  DP46(上)  DP46(下)">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DP46">
+<meta name="twitter:description" content="46道动态规划题 VJudge专题  DP46(上)  DP46(下)">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">DP46</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">DP46</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-09T04:28:20.000Z" itemprop="datePublished" class="page-time">
+  2016-08-09 12:28:20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-Project/dp46"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">DP46</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-09 12:28:20 12:28:20" datetime="2016-08-09T04:28:20.000Z"  itemprop="datePublished">2016-08-09 12:28:20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>46道动态规划题</p>
+<p>VJudge专题</p>
+<ul>
+<li><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=120123#overview" target="_blank" rel="external">DP46(上)</a></p>
+</li>
+<li><p><a href="http://acm.hust.edu.cn/vjudge/contest/view.action?cid=120124#overview" target="_blank" rel="external">DP46(下)</a></p>
+</li>
+</ul>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">OJ</th>
+<th style="text-align:center">题号</th>
+<th style="text-align:center">题目</th>
+<th style="text-align:center">题解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2955</td>
+<td style="text-align:center">Robberies</td>
+<td style="text-align:center"><a href="/post/HDU/2955.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1864</td>
+<td style="text-align:center">最大报销额</td>
+<td style="text-align:center"><a href="/post/HDU/1864.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1231</td>
+<td style="text-align:center">最大连续子序列</td>
+<td style="text-align:center"><a href="/post/HDU/1231.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1003</td>
+<td style="text-align:center">Max Sum</td>
+<td style="text-align:center"><a href="/post/HDU/1003.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1506</td>
+<td style="text-align:center">Largest Rectangle in a Histogram</td>
+<td style="text-align:center"><a href="/post/HDU/1506.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1505</td>
+<td style="text-align:center">City Game</td>
+<td style="text-align:center"><a href="/post/HDU/1505.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2602</td>
+<td style="text-align:center">Bone Collector</td>
+<td style="text-align:center"><a href="/post/HDU/2602.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1087</td>
+<td style="text-align:center">Super Jumping! Jumping! Jumping!</td>
+<td style="text-align:center"><a href="/post/HDU/1087.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2571</td>
+<td style="text-align:center">命运</td>
+<td style="text-align:center"><a href="/post/HDU/2571.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1069</td>
+<td style="text-align:center">Monkey and Banana</td>
+<td style="text-align:center"><a href="/post/HDU/1069.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1171</td>
+<td style="text-align:center">Big Event in HDU</td>
+<td style="text-align:center"><a href="/post/HDU/1171.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2084</td>
+<td style="text-align:center">数塔</td>
+<td style="text-align:center"><a href="/post/HDU/2084.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1176</td>
+<td style="text-align:center">免费馅饼</td>
+<td style="text-align:center"><a href="/post/HDU/1176.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1203</td>
+<td style="text-align:center">I NEED A OFFER!</td>
+<td style="text-align:center"><a href="/post/HDU/1203.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2159</td>
+<td style="text-align:center">FATE</td>
+<td style="text-align:center"><a href="/post/HDU/2159.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2577</td>
+<td style="text-align:center">How to Type</td>
+<td style="text-align:center"><a href="/post/HDU/2577.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2844</td>
+<td style="text-align:center">HDU 2844.Coins</td>
+<td style="text-align:center"><a href="/post/HDU/2844.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2845</td>
+<td style="text-align:center">Beans</td>
+<td style="text-align:center"><a href="/post/HDU/2845.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2870</td>
+<td style="text-align:center">Largest Submatrix</td>
+<td style="text-align:center"><a href="/post/HDU/2870.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2830</td>
+<td style="text-align:center">Matrix Swapping II</td>
+<td style="text-align:center"><a href="/post/HDU/2830.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1257</td>
+<td style="text-align:center">最少拦截系统</td>
+<td style="text-align:center"><a href="/post/HDU/1257.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1159</td>
+<td style="text-align:center">Common Subsequence</td>
+<td style="text-align:center"><a href="/post/HDU/1159.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1421</td>
+<td style="text-align:center">搬寝室</td>
+<td style="text-align:center"><a href="/post/HDU/1421.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1058</td>
+<td style="text-align:center">Humble Numbers</td>
+<td style="text-align:center"><a href="/post/HDU/1058.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1789</td>
+<td style="text-align:center">Doing Homework again</td>
+<td style="text-align:center"><a href="/post/HDU/1789.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1978</td>
+<td style="text-align:center">How many ways</td>
+<td style="text-align:center"><a href="/post/HDU/1978.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2191</td>
+<td style="text-align:center">悼念512汶川大地震遇难同胞——珍惜现在，感恩生活</td>
+<td style="text-align:center"><a href="/post/HDU/2191.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">27</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1114</td>
+<td style="text-align:center">Piggy-Bank</td>
+<td style="text-align:center"><a href="/post/HDU/1114.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">28</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1024</td>
+<td style="text-align:center">Max Sum Plus Plus</td>
+<td style="text-align:center"><a href="/post/HDU/1024.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">29</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1106</td>
+<td style="text-align:center">FatMouse’s Speed</td>
+<td style="text-align:center"><a href="/post/HDU/1106.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">30</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1025</td>
+<td style="text-align:center">Constructing Roads In JGShining’s Kingdom</td>
+<td style="text-align:center"><a href="/post/HDU/1025.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">31</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1078</td>
+<td style="text-align:center">FatMouse and Cheese</td>
+<td style="text-align:center"><a href="/post/HDU/1078.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1081</td>
+<td style="text-align:center">To The Max</td>
+<td style="text-align:center"><a href="/post/HDU/1081.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">33</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">2059</td>
+<td style="text-align:center">龟兔赛跑</td>
+<td style="text-align:center"><a href="/post/HDU/2059.hmtl">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">34</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1158</td>
+<td style="text-align:center">Employment Planning</td>
+<td style="text-align:center"><a href="/post/HDU/1158.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">35</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1059</td>
+<td style="text-align:center">Dividing</td>
+<td style="text-align:center"><a href="/post/HDU/1059.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">36</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1080</td>
+<td style="text-align:center">Human Gene Functions</td>
+<td style="text-align:center"><a href="/post/HDU/1080.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">37</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1074</td>
+<td style="text-align:center">Doing Homework</td>
+<td style="text-align:center"><a href="/post/HDU/1074.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">38</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1224</td>
+<td style="text-align:center">Free DIY Tour</td>
+<td style="text-align:center"><a href="/post/HDU/1224.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">39</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1422</td>
+<td style="text-align:center">重温世界杯</td>
+<td style="text-align:center"><a href="/post/HDU/1422.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">40</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1300</td>
+<td style="text-align:center">Pearls</td>
+<td style="text-align:center"><a href="/post/HDU/1300.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">41</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1501</td>
+<td style="text-align:center">Zipper</td>
+<td style="text-align:center"><a href="/post/HDU/1501.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">42</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1227</td>
+<td style="text-align:center">Fast Food</td>
+<td style="text-align:center"><a href="/post/HDU/1227.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">43</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">3008</td>
+<td style="text-align:center">Warcraft</td>
+<td style="text-align:center"><a href="/post/HDU/3008.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">44</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1502</td>
+<td style="text-align:center">Regular Words</td>
+<td style="text-align:center"><a href="/post/HDU/1502.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">45</td>
+<td style="text-align:center">HDU</td>
+<td style="text-align:center">1503</td>
+<td style="text-align:center">Advanced Fruits</td>
+<td style="text-align:center"><a href="/post/HDU/1503.html">题解</a></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Project/dp46.html" target="_blank" rel="external">DP46</a><br>文章地址：  <a href="/post/Project/dp46.html" target="_blank" rel="external">https://www.oyohyee.com/post/Project/dp46.html</a><br>创建时间：  2016-08-09 12:28:20<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Project/dp46.html&title=《DP46》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Project/dp46.html&title=《DP46》 — OhYee's Blog&source=46道动态规划题
+VJudge专题
+
+DP46(上)
+
+DP46(下)
+
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Project/dp46.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DP46》 — OhYee's Blog&url=https://www.oyohyee.com/post/Project/dp46.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Project/dp46.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Study/2016_08_07-2016_08_09.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2016-08-07 ~ 2016-08-09 学习报告</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/1227.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 1227.Fast Food</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Project/dp46.html&title=《DP46》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Project/dp46.html&title=《DP46》 — OhYee's Blog&source=46道动态规划题
+VJudge专题
+
+DP46(上)
+
+DP46(下)
+
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Project/dp46.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《DP46》 — OhYee's Blog&url=https://www.oyohyee.com/post/Project/dp46.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Project/dp46.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Project/dp46.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

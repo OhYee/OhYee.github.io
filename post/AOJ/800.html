@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AOJ 800.热身之开关灯 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="AOJ,打表,模拟">
+    <meta name="description" content="题目 Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submission: 224Submission Accepted: 86   Description 吃完草莓以后，机房的小伙伴们要开始做些运动。在ACM实验室里有N盏灯编号为1到N，起初都是开着的，从第一盏灯开始，凡是编号是一的倍数的灯的开关都要被按一">
+<meta name="keywords" content="AOJ,打表,模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOJ 800.热身之开关灯">
+<meta property="og:url" content="https://www.oyohyee.com/post/AOJ/800.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目 Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submission: 224Submission Accepted: 86   Description 吃完草莓以后，机房的小伙伴们要开始做些运动。在ACM实验室里有N盏灯编号为1到N，起初都是开着的，从第一盏灯开始，凡是编号是一的倍数的灯的开关都要被按一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOJ 800.热身之开关灯">
+<meta name="twitter:description" content="题目 Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submission: 224Submission Accepted: 86   Description 吃完草莓以后，机房的小伙伴们要开始做些运动。在ACM实验室里有N盏灯编号为1到N，起初都是开着的，从第一盏灯开始，凡是编号是一的倍数的灯的开关都要被按一">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AOJ 800.热身之开关灯</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">AOJ 800.热身之开关灯</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-03-23T15:45:00.000Z" itemprop="datePublished" class="page-time">
+  2016-03-23 23:45:00
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-text">Description</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-text">Sample Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-text">Sample Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hint"><span class="post-toc-text">Hint</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AOJ/800"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AOJ 800.热身之开关灯</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-03-23 23:45:00 23:45:00" datetime="2016-03-23T15:45:00.000Z"  itemprop="datePublished">2016-03-23 23:45:00</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>224</code><br>Submission Accepted: <code>86</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>吃完草莓以后，机房的小伙伴们要开始做些运动。在ACM实验室里有N盏灯编号为1到N，起初都是开着的，从第一盏灯开始，凡是编号是一的倍数的灯的开关都要被按一遍（亮的变成暗的，暗的变成亮的），<br>然后到第二盏灯，凡是编号是二的倍数的灯的开关都要被按一遍，一直到第N盏灯，凡是编号是N的倍数的灯都要被按一遍。那么问题来了，在灯质量比较好的情况下，最后还有多少盏灯是亮着的。<br> <a id="more"></a></p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>题目包括多组输入<br>只有一行，这一行只有一个数N，1&lt;=N&lt;=1000  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>输出一行，这一行也只有一个数，就是亮着灯的个数  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>3  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>2  </p>
+</blockquote>
+<h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h2><blockquote>
+<p>经过第一个灯的时候1，2,3号灯都按了依次，经过第二个灯的时候，2号灯按了一次，经过第三个灯的时候，3号灯按了一次，最后只有2，3灯还亮着。  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>强行模拟即可，且数据量较小，可打表</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"> </div><div class="line"><span class="keyword">int</span> ans[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">20</span>,</div><div class="line"><span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">24</span>,<span class="number">25</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">30</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">32</span>,<span class="number">33</span>,<span class="number">34</span>,<span class="number">35</span>,<span class="number">36</span>,<span class="number">37</span>,<span class="number">38</span>,<span class="number">39</span>,<span class="number">40</span>,<span class="number">41</span>,<span class="number">42</span>,<span class="number">42</span>,<span class="number">43</span>,</div><div class="line"><span class="number">44</span>,<span class="number">45</span>,<span class="number">46</span>,<span class="number">47</span>,<span class="number">48</span>,<span class="number">49</span>,<span class="number">50</span>,<span class="number">51</span>,<span class="number">52</span>,<span class="number">53</span>,<span class="number">54</span>,<span class="number">55</span>,<span class="number">56</span>,<span class="number">56</span>,<span class="number">57</span>,<span class="number">58</span>,<span class="number">59</span>,<span class="number">60</span>,<span class="number">61</span>,<span class="number">62</span>,<span class="number">63</span>,<span class="number">64</span>,<span class="number">65</span>,<span class="number">66</span>,<span class="number">67</span>,</div><div class="line"><span class="number">68</span>,<span class="number">69</span>,<span class="number">70</span>,<span class="number">71</span>,<span class="number">72</span>,<span class="number">72</span>,<span class="number">73</span>,<span class="number">74</span>,<span class="number">75</span>,<span class="number">76</span>,<span class="number">77</span>,<span class="number">78</span>,<span class="number">79</span>,<span class="number">80</span>,<span class="number">81</span>,<span class="number">82</span>,<span class="number">83</span>,<span class="number">84</span>,<span class="number">85</span>,<span class="number">86</span>,<span class="number">87</span>,<span class="number">88</span>,<span class="number">89</span>,<span class="number">90</span>,<span class="number">90</span>,</div><div class="line"><span class="number">91</span>,<span class="number">92</span>,<span class="number">93</span>,<span class="number">94</span>,<span class="number">95</span>,<span class="number">96</span>,<span class="number">97</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>,<span class="number">101</span>,<span class="number">102</span>,<span class="number">103</span>,<span class="number">104</span>,<span class="number">105</span>,<span class="number">106</span>,<span class="number">107</span>,<span class="number">108</span>,<span class="number">109</span>,<span class="number">110</span>,<span class="number">110</span>,</div><div class="line"><span class="number">111</span>,<span class="number">112</span>,<span class="number">113</span>,<span class="number">114</span>,<span class="number">115</span>,<span class="number">116</span>,<span class="number">117</span>,<span class="number">118</span>,<span class="number">119</span>,<span class="number">120</span>,<span class="number">121</span>,<span class="number">122</span>,<span class="number">123</span>,<span class="number">124</span>,<span class="number">125</span>,<span class="number">126</span>,<span class="number">127</span>,<span class="number">128</span>,<span class="number">129</span>,</div><div class="line"><span class="number">130</span>,<span class="number">131</span>,<span class="number">132</span>,<span class="number">132</span>,<span class="number">133</span>,<span class="number">134</span>,<span class="number">135</span>,<span class="number">136</span>,<span class="number">137</span>,<span class="number">138</span>,<span class="number">139</span>,<span class="number">140</span>,<span class="number">141</span>,<span class="number">142</span>,<span class="number">143</span>,<span class="number">144</span>,<span class="number">145</span>,<span class="number">146</span>,<span class="number">147</span>,</div><div class="line"><span class="number">148</span>,<span class="number">149</span>,<span class="number">150</span>,<span class="number">151</span>,<span class="number">152</span>,<span class="number">153</span>,<span class="number">154</span>,<span class="number">155</span>,<span class="number">156</span>,<span class="number">156</span>,<span class="number">157</span>,<span class="number">158</span>,<span class="number">159</span>,<span class="number">160</span>,<span class="number">161</span>,<span class="number">162</span>,<span class="number">163</span>,<span class="number">164</span>,<span class="number">165</span>,</div><div class="line"><span class="number">166</span>,<span class="number">167</span>,<span class="number">168</span>,<span class="number">169</span>,<span class="number">170</span>,<span class="number">171</span>,<span class="number">172</span>,<span class="number">173</span>,<span class="number">174</span>,<span class="number">175</span>,<span class="number">176</span>,<span class="number">177</span>,<span class="number">178</span>,<span class="number">179</span>,<span class="number">180</span>,<span class="number">181</span>,<span class="number">182</span>,<span class="number">182</span>,<span class="number">183</span>,</div><div class="line"><span class="number">184</span>,<span class="number">185</span>,<span class="number">186</span>,<span class="number">187</span>,<span class="number">188</span>,<span class="number">189</span>,<span class="number">190</span>,<span class="number">191</span>,<span class="number">192</span>,<span class="number">193</span>,<span class="number">194</span>,<span class="number">195</span>,<span class="number">196</span>,<span class="number">197</span>,<span class="number">198</span>,<span class="number">199</span>,<span class="number">200</span>,<span class="number">201</span>,<span class="number">202</span>,</div><div class="line"><span class="number">203</span>,<span class="number">204</span>,<span class="number">205</span>,<span class="number">206</span>,<span class="number">207</span>,<span class="number">208</span>,<span class="number">209</span>,<span class="number">210</span>,<span class="number">210</span>,<span class="number">211</span>,<span class="number">212</span>,<span class="number">213</span>,<span class="number">214</span>,<span class="number">215</span>,<span class="number">216</span>,<span class="number">217</span>,<span class="number">218</span>,<span class="number">219</span>,<span class="number">220</span>,</div><div class="line"><span class="number">221</span>,<span class="number">222</span>,<span class="number">223</span>,<span class="number">224</span>,<span class="number">225</span>,<span class="number">226</span>,<span class="number">227</span>,<span class="number">228</span>,<span class="number">229</span>,<span class="number">230</span>,<span class="number">231</span>,<span class="number">232</span>,<span class="number">233</span>,<span class="number">234</span>,<span class="number">235</span>,<span class="number">236</span>,<span class="number">237</span>,<span class="number">238</span>,<span class="number">239</span>,</div><div class="line"><span class="number">240</span>,<span class="number">240</span>,<span class="number">241</span>,<span class="number">242</span>,<span class="number">243</span>,<span class="number">244</span>,<span class="number">245</span>,<span class="number">246</span>,<span class="number">247</span>,<span class="number">248</span>,<span class="number">249</span>,<span class="number">250</span>,<span class="number">251</span>,<span class="number">252</span>,<span class="number">253</span>,<span class="number">254</span>,<span class="number">255</span>,<span class="number">256</span>,<span class="number">257</span>,</div><div class="line"><span class="number">258</span>,<span class="number">259</span>,<span class="number">260</span>,<span class="number">261</span>,<span class="number">262</span>,<span class="number">263</span>,<span class="number">264</span>,<span class="number">265</span>,<span class="number">266</span>,<span class="number">267</span>,<span class="number">268</span>,<span class="number">269</span>,<span class="number">270</span>,<span class="number">271</span>,<span class="number">272</span>,<span class="number">272</span>,<span class="number">273</span>,<span class="number">274</span>,<span class="number">275</span>,</div><div class="line"><span class="number">276</span>,<span class="number">277</span>,<span class="number">278</span>,<span class="number">279</span>,<span class="number">280</span>,<span class="number">281</span>,<span class="number">282</span>,<span class="number">283</span>,<span class="number">284</span>,<span class="number">285</span>,<span class="number">286</span>,<span class="number">287</span>,<span class="number">288</span>,<span class="number">289</span>,<span class="number">290</span>,<span class="number">291</span>,<span class="number">292</span>,<span class="number">293</span>,<span class="number">294</span>,</div><div class="line"><span class="number">295</span>,<span class="number">296</span>,<span class="number">297</span>,<span class="number">298</span>,<span class="number">299</span>,<span class="number">300</span>,<span class="number">301</span>,<span class="number">302</span>,<span class="number">303</span>,<span class="number">304</span>,<span class="number">305</span>,<span class="number">306</span>,<span class="number">306</span>,<span class="number">307</span>,<span class="number">308</span>,<span class="number">309</span>,<span class="number">310</span>,<span class="number">311</span>,<span class="number">312</span>,</div><div class="line"><span class="number">313</span>,<span class="number">314</span>,<span class="number">315</span>,<span class="number">316</span>,<span class="number">317</span>,<span class="number">318</span>,<span class="number">319</span>,<span class="number">320</span>,<span class="number">321</span>,<span class="number">322</span>,<span class="number">323</span>,<span class="number">324</span>,<span class="number">325</span>,<span class="number">326</span>,<span class="number">327</span>,<span class="number">328</span>,<span class="number">329</span>,<span class="number">330</span>,<span class="number">331</span>,</div><div class="line"><span class="number">332</span>,<span class="number">333</span>,<span class="number">334</span>,<span class="number">335</span>,<span class="number">336</span>,<span class="number">337</span>,<span class="number">338</span>,<span class="number">339</span>,<span class="number">340</span>,<span class="number">341</span>,<span class="number">342</span>,<span class="number">342</span>,<span class="number">343</span>,<span class="number">344</span>,<span class="number">345</span>,<span class="number">346</span>,<span class="number">347</span>,<span class="number">348</span>,<span class="number">349</span>,</div><div class="line"><span class="number">350</span>,<span class="number">351</span>,<span class="number">352</span>,<span class="number">353</span>,<span class="number">354</span>,<span class="number">355</span>,<span class="number">356</span>,<span class="number">357</span>,<span class="number">358</span>,<span class="number">359</span>,<span class="number">360</span>,<span class="number">361</span>,<span class="number">362</span>,<span class="number">363</span>,<span class="number">364</span>,<span class="number">365</span>,<span class="number">366</span>,<span class="number">367</span>,<span class="number">368</span>,</div><div class="line"><span class="number">369</span>,<span class="number">370</span>,<span class="number">371</span>,<span class="number">372</span>,<span class="number">373</span>,<span class="number">374</span>,<span class="number">375</span>,<span class="number">376</span>,<span class="number">377</span>,<span class="number">378</span>,<span class="number">379</span>,<span class="number">380</span>,<span class="number">380</span>,<span class="number">381</span>,<span class="number">382</span>,<span class="number">383</span>,<span class="number">384</span>,<span class="number">385</span>,<span class="number">386</span>,</div><div class="line"><span class="number">387</span>,<span class="number">388</span>,<span class="number">389</span>,<span class="number">390</span>,<span class="number">391</span>,<span class="number">392</span>,<span class="number">393</span>,<span class="number">394</span>,<span class="number">395</span>,<span class="number">396</span>,<span class="number">397</span>,<span class="number">398</span>,<span class="number">399</span>,<span class="number">400</span>,<span class="number">401</span>,<span class="number">402</span>,<span class="number">403</span>,<span class="number">404</span>,<span class="number">405</span>,</div><div class="line"><span class="number">406</span>,<span class="number">407</span>,<span class="number">408</span>,<span class="number">409</span>,<span class="number">410</span>,<span class="number">411</span>,<span class="number">412</span>,<span class="number">413</span>,<span class="number">414</span>,<span class="number">415</span>,<span class="number">416</span>,<span class="number">417</span>,<span class="number">418</span>,<span class="number">419</span>,<span class="number">420</span>,<span class="number">420</span>,<span class="number">421</span>,<span class="number">422</span>,<span class="number">423</span>,</div><div class="line"><span class="number">424</span>,<span class="number">425</span>,<span class="number">426</span>,<span class="number">427</span>,<span class="number">428</span>,<span class="number">429</span>,<span class="number">430</span>,<span class="number">431</span>,<span class="number">432</span>,<span class="number">433</span>,<span class="number">434</span>,<span class="number">435</span>,<span class="number">436</span>,<span class="number">437</span>,<span class="number">438</span>,<span class="number">439</span>,<span class="number">440</span>,<span class="number">441</span>,<span class="number">442</span>,</div><div class="line"><span class="number">443</span>,<span class="number">444</span>,<span class="number">445</span>,<span class="number">446</span>,<span class="number">447</span>,<span class="number">448</span>,<span class="number">449</span>,<span class="number">450</span>,<span class="number">451</span>,<span class="number">452</span>,<span class="number">453</span>,<span class="number">454</span>,<span class="number">455</span>,<span class="number">456</span>,<span class="number">457</span>,<span class="number">458</span>,<span class="number">459</span>,<span class="number">460</span>,<span class="number">461</span>,</div><div class="line"><span class="number">462</span>,<span class="number">462</span>,<span class="number">463</span>,<span class="number">464</span>,<span class="number">465</span>,<span class="number">466</span>,<span class="number">467</span>,<span class="number">468</span>,<span class="number">469</span>,<span class="number">470</span>,<span class="number">471</span>,<span class="number">472</span>,<span class="number">473</span>,<span class="number">474</span>,<span class="number">475</span>,<span class="number">476</span>,<span class="number">477</span>,<span class="number">478</span>,<span class="number">479</span>,</div><div class="line"><span class="number">480</span>,<span class="number">481</span>,<span class="number">482</span>,<span class="number">483</span>,<span class="number">484</span>,<span class="number">485</span>,<span class="number">486</span>,<span class="number">487</span>,<span class="number">488</span>,<span class="number">489</span>,<span class="number">490</span>,<span class="number">491</span>,<span class="number">492</span>,<span class="number">493</span>,<span class="number">494</span>,<span class="number">495</span>,<span class="number">496</span>,<span class="number">497</span>,<span class="number">498</span>,</div><div class="line"><span class="number">499</span>,<span class="number">500</span>,<span class="number">501</span>,<span class="number">502</span>,<span class="number">503</span>,<span class="number">504</span>,<span class="number">505</span>,<span class="number">506</span>,<span class="number">506</span>,<span class="number">507</span>,<span class="number">508</span>,<span class="number">509</span>,<span class="number">510</span>,<span class="number">511</span>,<span class="number">512</span>,<span class="number">513</span>,<span class="number">514</span>,<span class="number">515</span>,<span class="number">516</span>,</div><div class="line"><span class="number">517</span>,<span class="number">518</span>,<span class="number">519</span>,<span class="number">520</span>,<span class="number">521</span>,<span class="number">522</span>,<span class="number">523</span>,<span class="number">524</span>,<span class="number">525</span>,<span class="number">526</span>,<span class="number">527</span>,<span class="number">528</span>,<span class="number">529</span>,<span class="number">530</span>,<span class="number">531</span>,<span class="number">532</span>,<span class="number">533</span>,<span class="number">534</span>,<span class="number">535</span>,</div><div class="line"><span class="number">536</span>,<span class="number">537</span>,<span class="number">538</span>,<span class="number">539</span>,<span class="number">540</span>,<span class="number">541</span>,<span class="number">542</span>,<span class="number">543</span>,<span class="number">544</span>,<span class="number">545</span>,<span class="number">546</span>,<span class="number">547</span>,<span class="number">548</span>,<span class="number">549</span>,<span class="number">550</span>,<span class="number">551</span>,<span class="number">552</span>,<span class="number">552</span>,<span class="number">553</span>,</div><div class="line"><span class="number">554</span>,<span class="number">555</span>,<span class="number">556</span>,<span class="number">557</span>,<span class="number">558</span>,<span class="number">559</span>,<span class="number">560</span>,<span class="number">561</span>,<span class="number">562</span>,<span class="number">563</span>,<span class="number">564</span>,<span class="number">565</span>,<span class="number">566</span>,<span class="number">567</span>,<span class="number">568</span>,<span class="number">569</span>,<span class="number">570</span>,<span class="number">571</span>,<span class="number">572</span>,</div><div class="line"><span class="number">573</span>,<span class="number">574</span>,<span class="number">575</span>,<span class="number">576</span>,<span class="number">577</span>,<span class="number">578</span>,<span class="number">579</span>,<span class="number">580</span>,<span class="number">581</span>,<span class="number">582</span>,<span class="number">583</span>,<span class="number">584</span>,<span class="number">585</span>,<span class="number">586</span>,<span class="number">587</span>,<span class="number">588</span>,<span class="number">589</span>,<span class="number">590</span>,<span class="number">591</span>,</div><div class="line"><span class="number">592</span>,<span class="number">593</span>,<span class="number">594</span>,<span class="number">595</span>,<span class="number">596</span>,<span class="number">597</span>,<span class="number">598</span>,<span class="number">599</span>,<span class="number">600</span>,<span class="number">600</span>,<span class="number">601</span>,<span class="number">602</span>,<span class="number">603</span>,<span class="number">604</span>,<span class="number">605</span>,<span class="number">606</span>,<span class="number">607</span>,<span class="number">608</span>,<span class="number">609</span>,</div><div class="line"><span class="number">610</span>,<span class="number">611</span>,<span class="number">612</span>,<span class="number">613</span>,<span class="number">614</span>,<span class="number">615</span>,<span class="number">616</span>,<span class="number">617</span>,<span class="number">618</span>,<span class="number">619</span>,<span class="number">620</span>,<span class="number">621</span>,<span class="number">622</span>,<span class="number">623</span>,<span class="number">624</span>,<span class="number">625</span>,<span class="number">626</span>,<span class="number">627</span>,<span class="number">628</span>,</div><div class="line"><span class="number">629</span>,<span class="number">630</span>,<span class="number">631</span>,<span class="number">632</span>,<span class="number">633</span>,<span class="number">634</span>,<span class="number">635</span>,<span class="number">636</span>,<span class="number">637</span>,<span class="number">638</span>,<span class="number">639</span>,<span class="number">640</span>,<span class="number">641</span>,<span class="number">642</span>,<span class="number">643</span>,<span class="number">644</span>,<span class="number">645</span>,<span class="number">646</span>,<span class="number">647</span>,</div><div class="line"><span class="number">648</span>,<span class="number">649</span>,<span class="number">650</span>,<span class="number">650</span>,<span class="number">651</span>,<span class="number">652</span>,<span class="number">653</span>,<span class="number">654</span>,<span class="number">655</span>,<span class="number">656</span>,<span class="number">657</span>,<span class="number">658</span>,<span class="number">659</span>,<span class="number">660</span>,<span class="number">661</span>,<span class="number">662</span>,<span class="number">663</span>,<span class="number">664</span>,<span class="number">665</span>,</div><div class="line"><span class="number">666</span>,<span class="number">667</span>,<span class="number">668</span>,<span class="number">669</span>,<span class="number">670</span>,<span class="number">671</span>,<span class="number">672</span>,<span class="number">673</span>,<span class="number">674</span>,<span class="number">675</span>,<span class="number">676</span>,<span class="number">677</span>,<span class="number">678</span>,<span class="number">679</span>,<span class="number">680</span>,<span class="number">681</span>,<span class="number">682</span>,<span class="number">683</span>,<span class="number">684</span>,</div><div class="line"><span class="number">685</span>,<span class="number">686</span>,<span class="number">687</span>,<span class="number">688</span>,<span class="number">689</span>,<span class="number">690</span>,<span class="number">691</span>,<span class="number">692</span>,<span class="number">693</span>,<span class="number">694</span>,<span class="number">695</span>,<span class="number">696</span>,<span class="number">697</span>,<span class="number">698</span>,<span class="number">699</span>,<span class="number">700</span>,<span class="number">701</span>,<span class="number">702</span>,<span class="number">702</span>,</div><div class="line"><span class="number">703</span>,<span class="number">704</span>,<span class="number">705</span>,<span class="number">706</span>,<span class="number">707</span>,<span class="number">708</span>,<span class="number">709</span>,<span class="number">710</span>,<span class="number">711</span>,<span class="number">712</span>,<span class="number">713</span>,<span class="number">714</span>,<span class="number">715</span>,<span class="number">716</span>,<span class="number">717</span>,<span class="number">718</span>,<span class="number">719</span>,<span class="number">720</span>,<span class="number">721</span>,</div><div class="line"><span class="number">722</span>,<span class="number">723</span>,<span class="number">724</span>,<span class="number">725</span>,<span class="number">726</span>,<span class="number">727</span>,<span class="number">728</span>,<span class="number">729</span>,<span class="number">730</span>,<span class="number">731</span>,<span class="number">732</span>,<span class="number">733</span>,<span class="number">734</span>,<span class="number">735</span>,<span class="number">736</span>,<span class="number">737</span>,<span class="number">738</span>,<span class="number">739</span>,<span class="number">740</span>,</div><div class="line"><span class="number">741</span>,<span class="number">742</span>,<span class="number">743</span>,<span class="number">744</span>,<span class="number">745</span>,<span class="number">746</span>,<span class="number">747</span>,<span class="number">748</span>,<span class="number">749</span>,<span class="number">750</span>,<span class="number">751</span>,<span class="number">752</span>,<span class="number">753</span>,<span class="number">754</span>,<span class="number">755</span>,<span class="number">756</span>,<span class="number">756</span>,<span class="number">757</span>,<span class="number">758</span>,</div><div class="line"><span class="number">759</span>,<span class="number">760</span>,<span class="number">761</span>,<span class="number">762</span>,<span class="number">763</span>,<span class="number">764</span>,<span class="number">765</span>,<span class="number">766</span>,<span class="number">767</span>,<span class="number">768</span>,<span class="number">769</span>,<span class="number">770</span>,<span class="number">771</span>,<span class="number">772</span>,<span class="number">773</span>,<span class="number">774</span>,<span class="number">775</span>,<span class="number">776</span>,<span class="number">777</span>,</div><div class="line"><span class="number">778</span>,<span class="number">779</span>,<span class="number">780</span>,<span class="number">781</span>,<span class="number">782</span>,<span class="number">783</span>,<span class="number">784</span>,<span class="number">785</span>,<span class="number">786</span>,<span class="number">787</span>,<span class="number">788</span>,<span class="number">789</span>,<span class="number">790</span>,<span class="number">791</span>,<span class="number">792</span>,<span class="number">793</span>,<span class="number">794</span>,<span class="number">795</span>,<span class="number">796</span>,</div><div class="line"><span class="number">797</span>,<span class="number">798</span>,<span class="number">799</span>,<span class="number">800</span>,<span class="number">801</span>,<span class="number">802</span>,<span class="number">803</span>,<span class="number">804</span>,<span class="number">805</span>,<span class="number">806</span>,<span class="number">807</span>,<span class="number">808</span>,<span class="number">809</span>,<span class="number">810</span>,<span class="number">811</span>,<span class="number">812</span>,<span class="number">812</span>,<span class="number">813</span>,<span class="number">814</span>,</div><div class="line"><span class="number">815</span>,<span class="number">816</span>,<span class="number">817</span>,<span class="number">818</span>,<span class="number">819</span>,<span class="number">820</span>,<span class="number">821</span>,<span class="number">822</span>,<span class="number">823</span>,<span class="number">824</span>,<span class="number">825</span>,<span class="number">826</span>,<span class="number">827</span>,<span class="number">828</span>,<span class="number">829</span>,<span class="number">830</span>,<span class="number">831</span>,<span class="number">832</span>,<span class="number">833</span>,</div><div class="line"><span class="number">834</span>,<span class="number">835</span>,<span class="number">836</span>,<span class="number">837</span>,<span class="number">838</span>,<span class="number">839</span>,<span class="number">840</span>,<span class="number">841</span>,<span class="number">842</span>,<span class="number">843</span>,<span class="number">844</span>,<span class="number">845</span>,<span class="number">846</span>,<span class="number">847</span>,<span class="number">848</span>,<span class="number">849</span>,<span class="number">850</span>,<span class="number">851</span>,<span class="number">852</span>,</div><div class="line"><span class="number">853</span>,<span class="number">854</span>,<span class="number">855</span>,<span class="number">856</span>,<span class="number">857</span>,<span class="number">858</span>,<span class="number">859</span>,<span class="number">860</span>,<span class="number">861</span>,<span class="number">862</span>,<span class="number">863</span>,<span class="number">864</span>,<span class="number">865</span>,<span class="number">866</span>,<span class="number">867</span>,<span class="number">868</span>,<span class="number">869</span>,<span class="number">870</span>,<span class="number">870</span>,</div><div class="line"><span class="number">871</span>,<span class="number">872</span>,<span class="number">873</span>,<span class="number">874</span>,<span class="number">875</span>,<span class="number">876</span>,<span class="number">877</span>,<span class="number">878</span>,<span class="number">879</span>,<span class="number">880</span>,<span class="number">881</span>,<span class="number">882</span>,<span class="number">883</span>,<span class="number">884</span>,<span class="number">885</span>,<span class="number">886</span>,<span class="number">887</span>,<span class="number">888</span>,<span class="number">889</span>,</div><div class="line"><span class="number">890</span>,<span class="number">891</span>,<span class="number">892</span>,<span class="number">893</span>,<span class="number">894</span>,<span class="number">895</span>,<span class="number">896</span>,<span class="number">897</span>,<span class="number">898</span>,<span class="number">899</span>,<span class="number">900</span>,<span class="number">901</span>,<span class="number">902</span>,<span class="number">903</span>,<span class="number">904</span>,<span class="number">905</span>,<span class="number">906</span>,<span class="number">907</span>,<span class="number">908</span>,</div><div class="line"><span class="number">909</span>,<span class="number">910</span>,<span class="number">911</span>,<span class="number">912</span>,<span class="number">913</span>,<span class="number">914</span>,<span class="number">915</span>,<span class="number">916</span>,<span class="number">917</span>,<span class="number">918</span>,<span class="number">919</span>,<span class="number">920</span>,<span class="number">921</span>,<span class="number">922</span>,<span class="number">923</span>,<span class="number">924</span>,<span class="number">925</span>,<span class="number">926</span>,<span class="number">927</span>,</div><div class="line"><span class="number">928</span>,<span class="number">929</span>,<span class="number">930</span>,<span class="number">930</span>,<span class="number">931</span>,<span class="number">932</span>,<span class="number">933</span>,<span class="number">934</span>,<span class="number">935</span>,<span class="number">936</span>,<span class="number">937</span>,<span class="number">938</span>,<span class="number">939</span>,<span class="number">940</span>,<span class="number">941</span>,<span class="number">942</span>,<span class="number">943</span>,<span class="number">944</span>,<span class="number">945</span>,</div><div class="line"><span class="number">946</span>,<span class="number">947</span>,<span class="number">948</span>,<span class="number">949</span>,<span class="number">950</span>,<span class="number">951</span>,<span class="number">952</span>,<span class="number">953</span>,<span class="number">954</span>,<span class="number">955</span>,<span class="number">956</span>,<span class="number">957</span>,<span class="number">958</span>,<span class="number">959</span>,<span class="number">960</span>,<span class="number">961</span>,<span class="number">962</span>,<span class="number">963</span>,<span class="number">964</span>,</div><div class="line"><span class="number">965</span>,<span class="number">966</span>,<span class="number">967</span>,<span class="number">968</span>,<span class="number">969</span>,<span class="number">970</span>,<span class="number">971</span>,<span class="number">972</span>,<span class="number">973</span>,<span class="number">974</span>&#125;;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">a</span><span class="params">(<span class="keyword">int</span> N)</span> </span>&#123;</div><div class="line">    <span class="keyword">bool</span> light[<span class="number">1010</span>] = &#123;<span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= N;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i;j &lt;= N;j += i)</div><div class="line">            light[j] = !light[j];</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">    REP(N) &#123;</div><div class="line">        <span class="keyword">if</span>(!light[o + <span class="number">1</span>])</div><div class="line">            cnt++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cnt;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> N;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N) != EOF)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans[N]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/AOJ/800.html" target="_blank" rel="external">AOJ 800.热身之开关灯</a><br>文章地址：  <a href="/post/AOJ/800.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/800.html</a><br>创建时间：  2016-03-23 23:45:00<br>更新时间：  2017-08-25 20:31:42
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/800.html&title=《AOJ 800.热身之开关灯》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/800.html&title=《AOJ 800.热身之开关灯》 — OhYee's Blog&source=题目
+Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submis..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/800.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 800.热身之开关灯》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/800.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/800.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/AOJ/796.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AOJ 796.数三角形</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/AOJ/801.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AOJ 801.热身之蘸酱吃</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/800.html&title=《AOJ 800.热身之开关灯》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/800.html&title=《AOJ 800.热身之开关灯》 — OhYee's Blog&source=题目
+Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submis..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/800.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 800.热身之开关灯》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/800.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/800.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/AOJ/800.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/2/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/912"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-30 00:10:10 00:10:10" datetime="2017-08-29T16:10:10.000Z"  itemprop="datePublished">2017-08-30 00:10:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/912.html">AOJ 912.蕊蕊的后宫团</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>蕊蕊有n部喜欢的番剧，每部番剧里面有m个妹子，每个妹子都有一个颜值。现在蕊蕊想从每部番剧里挑出一个妹子，总共挑出n个妹子，组成后宫团，后宫团的颜值是里面n个妹子的颜值和。显然，蕊蕊一共可以组成m^n个后宫团，现在她想知道这m^n个后宫团中，颜值和第K大的总颜值是多少。<br>若K&gt;m^n，输出0<br><br>蕊蕊一共可以组成3^2=9个后宫团，总颜值分别是：<br>1+2=3,1+2=3,1+5=6<br>4+2=6,4+2=6,4+5=9<br>3+2=5,3+2=5,3+5=8<br>其中第4大的是6<br><br></div><div class="part" title="Input"><br>第一行三个整数n,m,k(1&lt;=n&lt;=1000,1&lt;=m&lt;=500,1&lt;=k&lt;=1000)。<br>接下来n行，每一行表示一部番剧的信息。每行m个整数，表示该番剧里m个妹子的颜值a(1&lt;=a&lt;=100000)。<br><br></div><div class="part" title="Output"><br>输出一个整数，表示颜值和第K大的后宫团总颜值。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2 3 4<br>1 4 3<br>2 2 5<br><br></div><div class="output part" title="Sample Output"><br>6<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/912.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Multiway-merge/">多路归并</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/2586"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-30 00:06:13 00:06:13" datetime="2017-08-29T16:06:13.000Z"  itemprop="datePublished">2017-08-30 00:06:13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/2586.html">HDU 2586.How far away?</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>There are n houses in the village and some bidirectional roads connecting them. Every day peole always like to ask like this “How far is it if I want to go from house A to house B”? Usually it hard to answer. But luckily int this village the answer is always unique, since the roads are built in the way that there is a unique simple path(“simple” means you can’t visit a place twice) between every two houses. Yout task is to answer all these curious people.<br><br></div><div class="part" title="Input"><br>First line is a single integer T(T&lt;=10), indicating the number of test cases.<br><br>For each test case,in the first line there are two numbers n(2&lt;=n&lt;=40000) and m (1&lt;=m&lt;=200),the number of houses and the number of queries. The following n-1 lines each consisting three numbers i,j,k, separated bu a single space, meaning that there is a road connecting house i and house j,with length k(0&lt;k&lt;=40000).The houses are labeled from 1 to n.<br><br>Next m lines each has distinct integers i and j, you areato answer the distance between house i and house j.<br><br></div><div class="part" title="Output"><br>For each test case,output m lines. Each line represents the answer of the query. Output a bland line after each test case.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2<br>3 2<br>1 2 10<br>3 1 15<br>1 2<br>2 3<br>2 2<br>1 2 100<br>1 2<br>2 1<br><br></div><div class="output part" title="Sample Output"><br>10<br>25<br>100<br>100<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/2586.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/LCA"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-29 23:14:00 23:14:00" datetime="2017-08-29T15:14:00.000Z"  itemprop="datePublished">2017-08-29 23:14:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/LCA.html">倍增最近公共祖先(LCA)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote>
+<p>对于有根树T的两个结点u、v，最近公共祖先LCA(T,u,v)表示一个结点x，满足x是u、v的祖先且x的深度尽可能大。</p>
+</blockquote>
+<p>在树上,两点之间的最短路就是公共祖先分别到两个节点的路径,因此最近公共祖先非常重要<br>
+    
+
+        <a href="/post/Algorithm/LCA.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/905"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-29 23:06:46 23:06:46" datetime="2017-08-29T15:06:46.000Z"  itemprop="datePublished">2017-08-29 23:06:46</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/905.html">AOJ 905.Ohyee的考验</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一个n个点m条边的连通无向图（无重边、无自环），点的编号为1~n。每条边都有一个正的边权，并且每条边边权互不相同（即数据保证该图的最小生成树唯一）。<br>如果只是求最小生成树，那么Ohyee觉得太简单了，于是他决定考考你。<br>对于每条边(u,v)都进行询问：<br>——如果该边在最小生成树上，那么输出“Ohyee”；<br>——如果该边不在最小生成树上，那么输出最小生成树上u,v两点路径中边权的最小值。<br>原图最小生成树中的边是(1,2,2) (2,3,5) (4,1,3)<br>对于输入的第三条边(3,4,7)，树上3-&gt;4的路径是3-&gt;2-&gt;1-&gt;4，边权分别是5,2,3，最小值是2。<br><br></div><div class="part" title="Input"><br>第一行输入两个整数n,m(2&lt;=n&lt;=100000,n-1&lt;=m&lt;=200000)<br>接下来m行，每行输入三个整数u,v,w。u,v表示该边连接点的编号，w是边权。<br>(1&lt;=w&lt;=1000000000)<br><br></div><div class="part" title="Output"><br>输出一共m行，按照输入的边的顺序回答每条边的询问。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4 4<br>1 2 2<br>2 3 5<br>3 4 7<br>4 1 3<br><br></div><div class="output part" title="Sample Output"><br>Ohyee<br>Ohyee<br>2<br>Ohyee<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/905.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kruskal/">Kruskal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">最小生成树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/911"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-29 15:26:16 15:26:16" datetime="2017-08-29T07:26:16.000Z"  itemprop="datePublished">2017-08-29 15:26:16</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/911.html">AOJ 911.组队分配</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一个n个节点n-1条边组成的树。<br>每个点看成一个人，连接u和v的边看成是“中意关系”，即u和v两个人都想和对方组队。每个人希望组队的对象有可能有多个。<br>一支队伍由且仅由两个人组成，并且如果u和v组队了，那么u、v将不能和其他人再组成一支队。<br>现在问你，这n个人最多能组成多少支队伍。（允许某些人组不了队）<br>一种可行的组队方案：<br>1与3组队<br>4与5组队<br>最多组成2支队<br><br></div><div class="part" title="Input"><br>第一行输入一个整数n,m(1&lt;=n&lt;=200000)<br>接下来n-1行，每行两个整数u,v，表示u和v两个人都想和对方组队。<br>数据保证是一个合法的树。<br><br></div><div class="part" title="Output"><br>输出一个整数，表示最多能组成多少支队伍。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>1 2<br>1 3<br>2 4<br>4 5<br><br></div><div class="output part" title="Sample Output"><br>2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/911.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree-dp/">树形dp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/907"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-25 17:37:09 17:37:09" datetime="2017-08-25T09:37:09.000Z"  itemprop="datePublished">2017-08-25 17:37:09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/907.html">AOJ 907.进制转换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。<br>数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。<br>对于样例2：<br>196=3<em>50^1 + 46</em>50^0<br><br></div><div class="part" title="Input"><br>第一行一个十进制正整数a(a&lt;=10^3000)。<br>第二行一个正整数d(2&lt;=d&lt;=100)<br><br></div><div class="part" title="Output"><br>将数字a转换成d进制从高位到低位依次输出（不要前导0），中间用空格隔开。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>样例一：<br>53<br>2<br>样例二：<br>196<br>50<br><br></div><div class="output part" title="Sample Output"><br>样例一：<br>1<br>1<br>0<br>1<br>0<br>1<br>样例二：<br>3<br>46<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/907.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6154"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-25 16:57:20 16:57:20" datetime="2017-08-25T08:57:20.000Z"  itemprop="datePublished">2017-08-25 16:57:20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6154.html">HDU 6154.CaoHaha&#39;s staff</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>“You shall not pass!”<br><br>After shouted out that,the Force Staff appered in CaoHaha’s hand.<br><br>As we all know,the Force Staff is a staff with infinity power.If you can use it skillful,it may help you to do whatever you want.<br><br>But now,his new owner,CaoHaha,is a sorcerers apprentice.He can only use that staff to send things to other place.<br><br>Today,Dreamwyy come to CaoHaha.Requesting him send a toy to his new girl friend.It was so far that Dreamwyy can only resort to CaoHaha.<br><br>The first step to send something is draw a Magic array on a Magic place.The magic place looks like a coordinate system,and each time you can draw a segments either on cell sides or on cell diagonals.In additional,you need 1 minutes to draw a segments.<br><br>If you want to send something ,you need to draw a Magic array which is not smaller than the that.You can make it any deformation,so what really matters is the size of the object.<br><br>CaoHaha want to help dreamwyy but his time is valuable(to learn to be just like you),so he want to draw least segments.However,because of his bad math,he needs your help.<br><br></div><div class="part" title="Input"><br>The first line contains one integer T(T&lt;=300).The number of toys.<br><br>Then T lines each contains one intetger S.The size of the toy(N&lt;=1e9).<br><br></div><div class="part" title="Output"><br>Out put T integer in each line ,the least time CaoHaha can send the toy.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>1<br>2<br>3<br>4<br>5<br><br></div><div class="output part" title="Sample Output"><br>4<br>4<br>6<br>6<br>7<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/6154.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recurrence/">递推</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6170"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-22 23:07:09 23:07:09" datetime="2017-08-22T15:07:09.000Z"  itemprop="datePublished">2017-08-22 23:07:09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6170.html">HDU 6170.Two strings</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>  Giving two strings and you should judge if they are matched.<br> The first string contains lowercase letters and uppercase letters.<br> The second string contains lowercase letters, uppercase letters, and special symbols: “.” and “*”.<br> . can match any letter, and <em> means the front character can appear any times. For example, “a.b” can match “acb” or “abb”, “a\</em>” can match “a”, “aa” and even empty string. ( “*” will not appear in the front of the string, and there will not be two consecutive “*”.<br><br></div><div class="part" title="Input"><br>The first line contains an integer T implying the number of test cases. (T≤15)<br>For each test case, there are two lines implying the two strings (The length of the two strings is less than 2500).<br><br></div><div class="part" title="Output"><br>For each test case, print “yes” if the two strings are matched, otherwise print “no”.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>aa<br>a*<br>abb<br>a.*<br>abb<br>aab<br><br></div><div class="output part" title="Sample Output"><br>yes<br>yes<br>no<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/6170.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RegEx/">正则表达式</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1686"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-22 20:53:39 20:53:39" datetime="2017-08-22T12:53:39.000Z"  itemprop="datePublished">2017-08-22 20:53:39</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1686.html">HDU 1686.Oulipo</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>The French author Georges Perec (1936–1982) once wrote a book, La disparition, without the letter ‘e’. He was a member of the Oulipo group. A quote from the book:<br><br> Tout avait Pair normal, mais tout s’affirmait faux. Tout avait Fair normal, d’abord, puis surgissait l’inhumain, l’affolant. Il aurait voulu savoir où s’articulait l’association qui l’unissait au roman : stir son tapis, assaillant à tout instant son imagination, l’intuition d’un tabou, la vision d’un mal obscur, d’un quoi vacant, d’un non-dit : la vision, l’avision d’un oubli commandant tout, où s’abolissait la raison : tout avait l’air normal mais…<br><br> Perec would probably have scored high (or rather, low) in the following contest. People are asked to write a perhaps even meaningful text on some subject with as few occurrences of a given “word” as possible. Our task is to provide the jury with a program that counts these occurrences, in order to obtain a ranking of the competitors. These competitors often write very long texts with nonsense meaning; a sequence of 500,000 consecutive ‘T’s is not unusual. And they never use spaces.<br><br> So we want to quickly find out how often a word, i.e., a given string, occurs in a text. More formally: given the alphabet {‘A’, ‘B’, ‘C’, …, ‘Z’} and two finite strings over that alphabet, a word W and a text T, count the number of occurrences of W in T. All the consecutive characters of W must exactly match consecutive characters of T. Occurrences may overlap.<br><br></div><div class="part" title="Input"><br>The first line of the input file contains a single number: the number of test cases to follow. Each test case has the following format:<br><br>One line with the word W, a string over {‘A’, ‘B’, ‘C’, …, ‘Z’}, with 1 ≤ |W| ≤ 10,000 (here |W| denotes the length of the string W).<br>One line with the text T, a string over {‘A’, ‘B’, ‘C’, …, ‘Z’}, with |W| ≤ |T| ≤ 1,000,000.<br><br></div><div class="part" title="Output"><br>For every test case in the input file, the output should contain a single number, on a single line: the number of occurrences of the word W in the text T.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>BAPC<br>BAPC<br>AZA<br>AZAZAZA<br>VERDI<br>AVERDXIVYERDIAN<br><br></div><div class="output part" title="Sample Output"><br>1<br>3<br>0<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/1686.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/">KMP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/902"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-22 00:44:48 00:44:48" datetime="2017-08-21T16:44:48.000Z"  itemprop="datePublished">2017-08-22 00:44:48</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/902.html">AOJ 902.最讨厌的“2”</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一个长度为n的数组a。现有m组操作。<br>操作1：将区间[l,r]内的所有数字都整除2。<br>操作2：输出区间[l,r]内所有数字的和。<br><br></div><div class="part" title="Input"><br>第一行输入两个整数n,m(1&lt;=n&lt;=200000,1&lt;=m&lt;=200000)<br>第二行n个整数，表示数组a (0&lt;=a[i]&lt;=10^9)<br>接下来m行，每行三个整数op,l,r<br>——若op=1，表示操作1，将[l,r]内所有数字整除2<br>——若op=2，表示操作2，输出[l,r]内所有数字的和<br><br></div><div class="part" title="Output"><br>对于所有的操作2，输出结果。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5 5<br>3 4 9 2 7<br>2 3 4<br>1 4 5<br>2 1 5<br>1 3 4<br>2 3 5<br><br></div><div class="output part" title="Sample Output"><br>11<br>20<br>7<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/902.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/2/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/2/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/2/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/2/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/2/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/2/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>标签: 京胜杯 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/tags/JingShengBei/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">标签: 京胜杯</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header tags-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">标签: 京胜杯</h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+<div class="tabs-bar container">
+    <nav class="tags-list">
+        <a href="/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
+            ">全部</a>
+        
+
+            <a href="/tags/Dp/" style="-webkit-order:77;order:77" class="tags-list-item waves-effect waves-button waves-light">动态规划</a>
+
+        
+
+            <a href="/tags/AOJ/" style="-webkit-order:78;order:78" class="tags-list-item waves-effect waves-button waves-light">AOJ</a>
+
+        
+
+            <a href="/tags/HDU/" style="-webkit-order:79;order:79" class="tags-list-item waves-effect waves-button waves-light">HDU</a>
+
+        
+
+            <a href="/tags/Network-Flow/" style="-webkit-order:80;order:80" class="tags-list-item waves-effect waves-button waves-light">网络流</a>
+
+        
+
+            <a href="/tags/server/" style="-webkit-order:81;order:81" class="tags-list-item waves-effect waves-button waves-light">服务器</a>
+
+        
+
+            <a href="/tags/Linux/" style="-webkit-order:82;order:82" class="tags-list-item waves-effect waves-button waves-light">Linux</a>
+
+        
+
+            <a href="/tags/Math/" style="-webkit-order:83;order:83" class="tags-list-item waves-effect waves-button waves-light">数学</a>
+
+        
+
+            <a href="/tags/geometry/" style="-webkit-order:84;order:84" class="tags-list-item waves-effect waves-button waves-light">计算几何</a>
+
+        
+
+            <a href="/tags/Congruence/" style="-webkit-order:85;order:85" class="tags-list-item waves-effect waves-button waves-light">同余</a>
+
+        
+
+            <a href="/tags/Contour/" style="-webkit-order:86;order:86" class="tags-list-item waves-effect waves-button waves-light">康托</a>
+
+        
+
+            <a href="/tags/Dijkstra/" style="-webkit-order:87;order:87" class="tags-list-item waves-effect waves-button waves-light">Dijkstra</a>
+
+        
+
+            <a href="/tags/Shortest-Path/" style="-webkit-order:88;order:88" class="tags-list-item waves-effect waves-button waves-light">最短路</a>
+
+        
+
+            <a href="/tags/Graph/" style="-webkit-order:89;order:89" class="tags-list-item waves-effect waves-button waves-light">图论</a>
+
+        
+
+            <a href="/tags/Euclid/" style="-webkit-order:90;order:90" class="tags-list-item waves-effect waves-button waves-light">欧几里得算法</a>
+
+        
+
+            <a href="/tags/gcd/" style="-webkit-order:91;order:91" class="tags-list-item waves-effect waves-button waves-light">辗转相除法</a>
+
+        
+
+            <a href="/tags/Game/" style="-webkit-order:92;order:92" class="tags-list-item waves-effect waves-button waves-light">博弈</a>
+
+        
+
+            <a href="/tags/Bash/" style="-webkit-order:93;order:93" class="tags-list-item waves-effect waves-button waves-light">巴什博奕</a>
+
+        
+
+            <a href="/tags/Wythoff/" style="-webkit-order:94;order:94" class="tags-list-item waves-effect waves-button waves-light">威佐夫博奕</a>
+
+        
+
+            <a href="/tags/Nim/" style="-webkit-order:95;order:95" class="tags-list-item waves-effect waves-button waves-light">尼姆博弈</a>
+
+        
+
+            <a href="/tags/Nim-Staircase/" style="-webkit-order:96;order:96" class="tags-list-item waves-effect waves-button waves-light">Nim Staircase博奕</a>
+
+        
+
+            <a href="/tags/Genetic-Algorithm/" style="-webkit-order:97;order:97" class="tags-list-item waves-effect waves-button waves-light">遗传算法</a>
+
+        
+
+            <a href="/tags/TSP/" style="-webkit-order:98;order:98" class="tags-list-item waves-effect waves-button waves-light">TSP</a>
+
+        
+
+            <a href="/tags/High-precision/" style="-webkit-order:99;order:99" class="tags-list-item waves-effect waves-button waves-light">高精度算法</a>
+
+        
+
+            <a href="/tags/KMP/" style="-webkit-order:100;order:100" class="tags-list-item waves-effect waves-button waves-light">KMP</a>
+
+        
+
+            <a href="/tags/LCA/" style="-webkit-order:101;order:101" class="tags-list-item waves-effect waves-button waves-light">最近公共祖先</a>
+
+        
+
+            <a href="/tags/Tree/" style="-webkit-order:102;order:102" class="tags-list-item waves-effect waves-button waves-light">树</a>
+
+        
+
+            <a href="/tags/LCS/" style="-webkit-order:103;order:103" class="tags-list-item waves-effect waves-button waves-light">最长公共子序列</a>
+
+        
+
+            <a href="/tags/MIS/" style="-webkit-order:104;order:104" class="tags-list-item waves-effect waves-button waves-light">最大上升子序列</a>
+
+        
+
+            <a href="/tags/LIS/" style="-webkit-order:105;order:105" class="tags-list-item waves-effect waves-button waves-light">最长上升子序列</a>
+
+        
+
+            <a href="/tags/Division/" style="-webkit-order:106;order:106" class="tags-list-item waves-effect waves-button waves-light">二分</a>
+
+        
+
+            <a href="/tags/Prime/" style="-webkit-order:107;order:107" class="tags-list-item waves-effect waves-button waves-light">质数</a>
+
+        
+
+            <a href="/tags/Miller-rabin/" style="-webkit-order:108;order:108" class="tags-list-item waves-effect waves-button waves-light">Miller_rabin</a>
+
+        
+
+            <a href="/tags/MST/" style="-webkit-order:109;order:109" class="tags-list-item waves-effect waves-button waves-light">最小生成树</a>
+
+        
+
+            <a href="/tags/Kruskal/" style="-webkit-order:110;order:110" class="tags-list-item waves-effect waves-button waves-light">Kruskal</a>
+
+        
+
+            <a href="/tags/Prim/" style="-webkit-order:111;order:111" class="tags-list-item waves-effect waves-button waves-light">Prim</a>
+
+        
+
+            <a href="/tags/MUS/" style="-webkit-order:112;order:112" class="tags-list-item waves-effect waves-button waves-light">最大不连续子序列</a>
+
+        
+
+            <a href="/tags/PackageProblem/" style="-webkit-order:113;order:113" class="tags-list-item waves-effect waves-button waves-light">背包问题</a>
+
+        
+
+            <a href="/tags/Max-Rectangle/" style="-webkit-order:114;order:114" class="tags-list-item waves-effect waves-button waves-light">最大矩形</a>
+
+        
+
+            <a href="/tags/RMQ/" style="-webkit-order:115;order:115" class="tags-list-item waves-effect waves-button waves-light">RMQ问题</a>
+
+        
+
+            <a href="/tags/ST/" style="-webkit-order:116;order:116" class="tags-list-item waves-effect waves-button waves-light">ST算法</a>
+
+        
+
+            <a href="/tags/Segment-tree/" style="-webkit-order:117;order:117" class="tags-list-item waves-effect waves-button waves-light">线段树</a>
+
+        
+
+            <a href="/tags/Raising-Modulo-Numbers/" style="-webkit-order:118;order:118" class="tags-list-item waves-effect waves-button waves-light">快速幂取模</a>
+
+        
+
+            <a href="/tags/Recursion/" style="-webkit-order:119;order:119" class="tags-list-item waves-effect waves-button waves-light">递归与分治</a>
+
+        
+
+            <a href="/tags/BFS/" style="-webkit-order:120;order:120" class="tags-list-item waves-effect waves-button waves-light">BFS</a>
+
+        
+
+            <a href="/tags/DFS/" style="-webkit-order:121;order:121" class="tags-list-item waves-effect waves-button waves-light">DFS</a>
+
+        
+
+            <a href="/tags/A/" style="-webkit-order:122;order:122" class="tags-list-item waves-effect waves-button waves-light">A*</a>
+
+        
+
+            <a href="/tags/IDA/" style="-webkit-order:123;order:123" class="tags-list-item waves-effect waves-button waves-light">IDA*</a>
+
+        
+
+            <a href="/tags/Bellman-Ford/" style="-webkit-order:124;order:124" class="tags-list-item waves-effect waves-button waves-light">Bellman-Ford</a>
+
+        
+
+            <a href="/tags/SPFA/" style="-webkit-order:125;order:125" class="tags-list-item waves-effect waves-button waves-light">SPFA</a>
+
+        
+
+            <a href="/tags/Floyd/" style="-webkit-order:126;order:126" class="tags-list-item waves-effect waves-button waves-light">Floyd</a>
+
+        
+
+            <a href="/tags/Iteration/" style="-webkit-order:127;order:127" class="tags-list-item waves-effect waves-button waves-light">迭代加深</a>
+
+        
+
+            <a href="/tags/Sort/" style="-webkit-order:128;order:128" class="tags-list-item waves-effect waves-button waves-light">排序</a>
+
+        
+
+            <a href="/tags/Strongly-connected-components/" style="-webkit-order:129;order:129" class="tags-list-item waves-effect waves-button waves-light">强连通分量</a>
+
+        
+
+            <a href="/tags/kosaraju/" style="-webkit-order:130;order:130" class="tags-list-item waves-effect waves-button waves-light">kosaraju</a>
+
+        
+
+            <a href="/tags/tarjan/" style="-webkit-order:131;order:131" class="tags-list-item waves-effect waves-button waves-light">tarjan</a>
+
+        
+
+            <a href="/tags/gabow/" style="-webkit-order:132;order:132" class="tags-list-item waves-effect waves-button waves-light">gabow</a>
+
+        
+
+            <a href="/tags/Union-Find/" style="-webkit-order:133;order:133" class="tags-list-item waves-effect waves-button waves-light">并查集</a>
+
+        
+
+            <a href="/tags/Ugly-number/" style="-webkit-order:134;order:134" class="tags-list-item waves-effect waves-button waves-light">丑数</a>
+
+        
+
+            <a href="/tags/TopoSort/" style="-webkit-order:135;order:135" class="tags-list-item waves-effect waves-button waves-light">拓扑排序</a>
+
+        
+
+            <a href="/tags/Stack/" style="-webkit-order:136;order:136" class="tags-list-item waves-effect waves-button waves-light">栈(stack)</a>
+
+        
+
+            <a href="/tags/COGS/" style="-webkit-order:137;order:137" class="tags-list-item waves-effect waves-button waves-light">COGS</a>
+
+        
+
+            <a href="/tags/List/" style="-webkit-order:138;order:138" class="tags-list-item waves-effect waves-button waves-light">打表</a>
+
+        
+
+            <a href="/tags/Greed/" style="-webkit-order:139;order:139" class="tags-list-item waves-effect waves-button waves-light">贪心算法</a>
+
+        
+
+            <a href="/tags/Simulation/" style="-webkit-order:140;order:140" class="tags-list-item waves-effect waves-button waves-light">模拟</a>
+
+        
+
+            <a href="/tags/double/" style="-webkit-order:141;order:141" class="tags-list-item waves-effect waves-button waves-light">double</a>
+
+        
+
+            <a href="/tags/Recurrence/" style="-webkit-order:142;order:142" class="tags-list-item waves-effect waves-button waves-light">递推</a>
+
+        
+
+            <a href="/tags/Memory-Search/" style="-webkit-order:143;order:143" class="tags-list-item waves-effect waves-button waves-light">记忆化搜索</a>
+
+        
+
+            <a href="/tags/Queue/" style="-webkit-order:144;order:144" class="tags-list-item waves-effect waves-button waves-light">队列(queue)</a>
+
+        
+
+            <a href="/tags/Violence/" style="-webkit-order:145;order:145" class="tags-list-item waves-effect waves-button waves-light">暴力</a>
+
+        
+
+            <a href="/tags/Tree-dp/" style="-webkit-order:146;order:146" class="tags-list-item waves-effect waves-button waves-light">树形dp</a>
+
+        
+
+            <a href="/tags/ASP/" style="-webkit-order:147;order:147" class="tags-list-item waves-effect waves-button waves-light">全排列</a>
+
+        
+
+            <a href="/tags/MCS/" style="-webkit-order:148;order:148" class="tags-list-item waves-effect waves-button waves-light">最大连续子序列</a>
+
+        
+
+            <a href="/tags/set/" style="-webkit-order:149;order:149" class="tags-list-item waves-effect waves-button waves-light">set</a>
+
+        
+
+            <a href="/tags/enum/" style="-webkit-order:150;order:150" class="tags-list-item waves-effect waves-button waves-light">枚举</a>
+
+        
+
+            <a href="/tags/Pruning/" style="-webkit-order:151;order:151" class="tags-list-item waves-effect waves-button waves-light">剪枝</a>
+
+        
+
+            <a href="/tags/Bit/" style="-webkit-order:152;order:152" class="tags-list-item waves-effect waves-button waves-light">位运算</a>
+
+        
+
+            <a href="/tags/LOVELIVE/" style="-webkit-order:153;order:153" class="tags-list-item waves-effect waves-button waves-light">LOVELIVE</a>
+
+        
+
+            <a href="/tags/Vector/" style="-webkit-order:154;order:154" class="tags-list-item waves-effect waves-button waves-light">向量(vector)</a>
+
+        
+
+            <a href="/tags/Multiway-merge/" style="-webkit-order:155;order:155" class="tags-list-item waves-effect waves-button waves-light">多路归并</a>
+
+        
+
+            <a href="/tags/Codeforces/" style="-webkit-order:156;order:156" class="tags-list-item waves-effect waves-button waves-light">Codeforces</a>
+
+        
+
+            <a href="/tags/Probability-DP/" style="-webkit-order:157;order:157" class="tags-list-item waves-effect waves-button waves-light">概率dp</a>
+
+        
+
+            <a href="/tags/String/" style="-webkit-order:158;order:158" class="tags-list-item waves-effect waves-button waves-light">字符串(string)</a>
+
+        
+
+            <a href="/tags/HFUT/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">HFUT</a>
+
+        
+
+            <a href="/tags/JingShengBei/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">京胜杯</a>
+
+        
+
+            <a href="/tags/SEO/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">SEO</a>
+
+        
+
+            <a href="/tags/Tools/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">工具</a>
+
+        
+
+            <a href="/tags/Hexo/" style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">Hexo</a>
+
+        
+
+            <a href="/tags/E/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">易语言</a>
+
+        
+
+            <a href="/tags/Qt/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">Qt</a>
+
+        
+
+            <a href="/tags/Electrica/" style="-webkit-order:7;order:7" class="tags-list-item waves-effect waves-button waves-light">电工电子基础技能</a>
+
+        
+
+            <a href="/tags/Android/" style="-webkit-order:8;order:8" class="tags-list-item waves-effect waves-button waves-light">Android</a>
+
+        
+
+            <a href="/tags/Javascript/" style="-webkit-order:9;order:9" class="tags-list-item waves-effect waves-button waves-light">javascript</a>
+
+        
+
+            <a href="/tags/jquery/" style="-webkit-order:10;order:10" class="tags-list-item waves-effect waves-button waves-light">jquery</a>
+
+        
+
+            <a href="/tags/CSS/" style="-webkit-order:11;order:11" class="tags-list-item waves-effect waves-button waves-light">CSS</a>
+
+        
+
+            <a href="/tags/bootstrap/" style="-webkit-order:12;order:12" class="tags-list-item waves-effect waves-button waves-light">bootstrap</a>
+
+        
+
+            <a href="/tags/portable/" style="-webkit-order:13;order:13" class="tags-list-item waves-effect waves-button waves-light">portable</a>
+
+        
+
+            <a href="/tags/Git/" style="-webkit-order:14;order:14" class="tags-list-item waves-effect waves-button waves-light">Git</a>
+
+        
+
+            <a href="/tags/nodejs/" style="-webkit-order:15;order:15" class="tags-list-item waves-effect waves-button waves-light">nodejs</a>
+
+        
+
+            <a href="/tags/vscode/" style="-webkit-order:16;order:16" class="tags-list-item waves-effect waves-button waves-light">vscode</a>
+
+        
+
+            <a href="/tags/SQL/" style="-webkit-order:17;order:17" class="tags-list-item waves-effect waves-button waves-light">SQL</a>
+
+        
+
+            <a href="/tags/Database/" style="-webkit-order:18;order:18" class="tags-list-item waves-effect waves-button waves-light">数据库</a>
+
+        
+
+            <a href="/tags/Map/" style="-webkit-order:19;order:19" class="tags-list-item waves-effect waves-button waves-light">映射(map)</a>
+
+        
+
+            <a href="/tags/Set/" style="-webkit-order:20;order:20" class="tags-list-item waves-effect waves-button waves-light">集合(set)</a>
+
+        
+
+            <a href="/tags/Termux/" style="-webkit-order:21;order:21" class="tags-list-item waves-effect waves-button waves-light">Termux</a>
+
+        
+
+            <a href="/tags/Ubuntu/" style="-webkit-order:22;order:22" class="tags-list-item waves-effect waves-button waves-light">Ubuntu</a>
+
+        
+
+            <a href="/tags/VPS/" style="-webkit-order:23;order:23" class="tags-list-item waves-effect waves-button waves-light">VPS</a>
+
+        
+
+            <a href="/tags/VPN/" style="-webkit-order:24;order:24" class="tags-list-item waves-effect waves-button waves-light">科学上网</a>
+
+        
+
+            <a href="/tags/v2ray/" style="-webkit-order:25;order:25" class="tags-list-item waves-effect waves-button waves-light">v2ray</a>
+
+        
+
+            <a href="/tags/spfk/" style="-webkit-order:26;order:26" class="tags-list-item waves-effect waves-button waves-light">spfk</a>
+
+        
+
+            <a href="/tags/IO/" style="-webkit-order:27;order:27" class="tags-list-item waves-effect waves-button waves-light">读入输出</a>
+
+        
+
+            <a href="/tags/Photoshop/" style="-webkit-order:28;order:28" class="tags-list-item waves-effect waves-button waves-light">Photoshop</a>
+
+        
+
+            <a href="/tags/Python/" style="-webkit-order:29;order:29" class="tags-list-item waves-effect waves-button waves-light">Python</a>
+
+        
+
+            <a href="/tags/Sublime/" style="-webkit-order:30;order:30" class="tags-list-item waves-effect waves-button waves-light">Sublime</a>
+
+        
+
+            <a href="/tags/C/" style="-webkit-order:31;order:31" class="tags-list-item waves-effect waves-button waves-light">C++</a>
+
+        
+
+            <a href="/tags/HYSBZ/" style="-webkit-order:32;order:32" class="tags-list-item waves-effect waves-button waves-light">HYSBZ</a>
+
+        
+
+            <a href="/tags/Java/" style="-webkit-order:33;order:33" class="tags-list-item waves-effect waves-button waves-light">Java</a>
+
+        
+
+            <a href="/tags/the-one/" style="-webkit-order:34;order:34" class="tags-list-item waves-effect waves-button waves-light">the-one</a>
+
+        
+
+            <a href="/tags/DTN/" style="-webkit-order:35;order:35" class="tags-list-item waves-effect waves-button waves-light">DTN</a>
+
+        
+
+            <a href="/tags/MinGW/" style="-webkit-order:36;order:36" class="tags-list-item waves-effect waves-button waves-light">MinGW</a>
+
+        
+
+            <a href="/tags/State-compression/" style="-webkit-order:37;order:37" class="tags-list-item waves-effect waves-button waves-light">状态压缩</a>
+
+        
+
+            <a href="/tags/State-compression-DP/" style="-webkit-order:38;order:38" class="tags-list-item waves-effect waves-button waves-light">状压dp</a>
+
+        
+
+            <a href="/tags/Maxflow-Minimalcut/" style="-webkit-order:39;order:39" class="tags-list-item waves-effect waves-button waves-light">最大流最小割</a>
+
+        
+
+            <a href="/tags/Dinic/" style="-webkit-order:40;order:40" class="tags-list-item waves-effect waves-button waves-light">Dinic</a>
+
+        
+
+            <a href="/tags/Memory/" style="-webkit-order:41;order:41" class="tags-list-item waves-effect waves-button waves-light">动态内存</a>
+
+        
+
+            <a href="/tags/Bipartite-Matching/" style="-webkit-order:42;order:42" class="tags-list-item waves-effect waves-button waves-light">二分图匹配</a>
+
+        
+
+            <a href="/tags/Hungary/" style="-webkit-order:43;order:43" class="tags-list-item waves-effect waves-button waves-light">匈牙利算法</a>
+
+        
+
+            <a href="/tags/Digital-DP/" style="-webkit-order:44;order:44" class="tags-list-item waves-effect waves-button waves-light">数位dp</a>
+
+        
+
+            <a href="/tags/including-excluding-principle/" style="-webkit-order:45;order:45" class="tags-list-item waves-effect waves-button waves-light">容斥原理</a>
+
+        
+
+            <a href="/tags/CCPC/" style="-webkit-order:46;order:46" class="tags-list-item waves-effect waves-button waves-light">CCPC</a>
+
+        
+
+            <a href="/tags/bitset/" style="-webkit-order:47;order:47" class="tags-list-item waves-effect waves-button waves-light">bitset</a>
+
+        
+
+            <a href="/tags/Midway-encounter-method/" style="-webkit-order:48;order:48" class="tags-list-item waves-effect waves-button waves-light">中途相遇法</a>
+
+        
+
+            <a href="/tags/Search/" style="-webkit-order:49;order:49" class="tags-list-item waves-effect waves-button waves-light">搜索</a>
+
+        
+
+            <a href="/tags/RegEx/" style="-webkit-order:50;order:50" class="tags-list-item waves-effect waves-button waves-light">正则表达式</a>
+
+        
+
+            <a href="/tags/POJ/" style="-webkit-order:51;order:51" class="tags-list-item waves-effect waves-button waves-light">POJ</a>
+
+        
+
+            <a href="/tags/Trie/" style="-webkit-order:52;order:52" class="tags-list-item waves-effect waves-button waves-light">Trie树</a>
+
+        
+
+            <a href="/tags/Havel-Hakimi/" style="-webkit-order:53;order:53" class="tags-list-item waves-effect waves-button waves-light">Havel-Hakimi定理</a>
+
+        
+
+            <a href="/tags/Convex-Hull/" style="-webkit-order:54;order:54" class="tags-list-item waves-effect waves-button waves-light">凸包</a>
+
+        
+
+            <a href="/tags/Inverse-number/" style="-webkit-order:55;order:55" class="tags-list-item waves-effect waves-button waves-light">逆序数</a>
+
+        
+
+            <a href="/tags/Hash/" style="-webkit-order:56;order:56" class="tags-list-item waves-effect waves-button waves-light">哈希(hash)</a>
+
+        
+
+            <a href="/tags/Joseph-problem/" style="-webkit-order:57;order:57" class="tags-list-item waves-effect waves-button waves-light">约瑟夫环问题</a>
+
+        
+
+            <a href="/tags/Matrix/" style="-webkit-order:58;order:58" class="tags-list-item waves-effect waves-button waves-light">矩阵</a>
+
+        
+
+            <a href="/tags/PowMatrix/" style="-webkit-order:59;order:59" class="tags-list-item waves-effect waves-button waves-light">快速矩阵幂</a>
+
+        
+
+            <a href="/tags/Study/" style="-webkit-order:60;order:60" class="tags-list-item waves-effect waves-button waves-light">学习报告</a>
+
+        
+
+            <a href="/tags/SGU/" style="-webkit-order:61;order:61" class="tags-list-item waves-effect waves-button waves-light">SGU</a>
+
+        
+
+            <a href="/tags/Uva/" style="-webkit-order:62;order:62" class="tags-list-item waves-effect waves-button waves-light">Uva</a>
+
+        
+
+            <a href="/tags/List/" style="-webkit-order:63;order:63" class="tags-list-item waves-effect waves-button waves-light">链表(list)</a>
+
+        
+
+            <a href="/tags/White-book/" style="-webkit-order:64;order:64" class="tags-list-item waves-effect waves-button waves-light">算法竞赛入门经典</a>
+
+        
+
+            <a href="/tags/Minecraft/" style="-webkit-order:65;order:65" class="tags-list-item waves-effect waves-button waves-light">Minecraft</a>
+
+        
+
+            <a href="/tags/WOW/" style="-webkit-order:66;order:66" class="tags-list-item waves-effect waves-button waves-light">魔兽</a>
+
+        
+
+            <a href="/tags/Film-Reviem/" style="-webkit-order:67;order:67" class="tags-list-item waves-effect waves-button waves-light">影评</a>
+
+        
+
+            <a href="/tags/blizzard/" style="-webkit-order:68;order:68" class="tags-list-item waves-effect waves-button waves-light">暴雪</a>
+
+        
+
+            <a href="/tags/Overwatch/" style="-webkit-order:69;order:69" class="tags-list-item waves-effect waves-button waves-light">守望先锋</a>
+
+        
+
+            <a href="/tags/SAMSUNG/" style="-webkit-order:70;order:70" class="tags-list-item waves-effect waves-button waves-light">三星(SAMSUNG)</a>
+
+        
+
+            <a href="/tags/C5/" style="-webkit-order:71;order:71" class="tags-list-item waves-effect waves-button waves-light">C5</a>
+
+        
+
+            <a href="/tags/DIY/" style="-webkit-order:72;order:72" class="tags-list-item waves-effect waves-button waves-light">DIY</a>
+
+        
+
+            <a href="/tags/ZOJ/" style="-webkit-order:73;order:73" class="tags-list-item waves-effect waves-button waves-light">ZOJ</a>
+
+        
+
+            <a href="/tags/hihocoder/" style="-webkit-order:74;order:74" class="tags-list-item waves-effect waves-button waves-light">hihocoder</a>
+
+        
+
+            <a href="/tags/root/" style="-webkit-order:75;order:75" class="tags-list-item waves-effect waves-button waves-light">root</a>
+
+        
+
+            <a href="/tags/socket/" style="-webkit-order:76;order:76" class="tags-list-item waves-effect waves-button waves-light">socket</a>
+
+        
+    </nav>
+    <!-- PC show more-->
+    <div class="tags-list-more">
+        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
+    </div>
+</div>
+
+
+
+</header>
+
+
+    <div class="container body-wrap fade">
+        
+            
+            
+            <h5>该标签文章数: 8</h5>
+            <div class="waterfall">
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-06-09 00:42:17 00:42:17" datetime="2016-06-08T16:42:17.000Z"  itemprop="datePublished">2016-06-09 00:42:17</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1362.html">HFUT 1362.恶魔a+b(安徽省2016“京胜杯”程序设计大赛 I)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-06-08 15:31:34 15:31:34" datetime="2016-06-08T07:31:34.000Z"  itemprop="datePublished">2016-06-08 15:31:34</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Project/JingShengBei.html">安徽省2016“京胜杯”程序设计大赛(ACM安徽省省赛)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-06-07 17:07:37 17:07:37" datetime="2016-06-07T09:07:37.000Z"  itemprop="datePublished">2016-06-07 17:07:37</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1359.html">HFUT 1359.吃在工大(安徽省2016“京胜杯”程序设计大赛 F)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TopoSort/">拓扑排序</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sort/">排序</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-06-07 01:56:02 01:56:02" datetime="2016-06-06T17:56:02.000Z"  itemprop="datePublished">2016-06-07 01:56:02</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1358.html">HFUT 1358.箭无虚发(安徽省2016“京胜杯”程序设计大赛 C)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-05-30 20:05:00 20:05:00" datetime="2016-05-30T12:05:00.000Z"  itemprop="datePublished">2016-05-30 20:05:00</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1357.html">HFUT 1357.梯田AGAIN(安徽省2016“京胜杯”程序设计大赛 D)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-05-30 19:45:00 19:45:00" datetime="2016-05-30T11:45:00.000Z"  itemprop="datePublished">2016-05-30 19:45:00</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1355.html">HFUT 1355.阵前第一功(安徽省2016“京胜杯”程序设计大赛 B)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-05-30 01:36:00 01:36:00" datetime="2016-05-29T17:36:00.000Z"  itemprop="datePublished">2016-05-30 01:36:00</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1356.html">HFUT 1356.转啊转(安徽省2016“京胜杯”程序设计大赛 E)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+                <div class="waterfall-item">
+  <article class="article-card archive-article">
+    <div class="post-meta">
+      <time class="post-time" title="2016-05-30 00:17:00 00:17:00" datetime="2016-05-29T16:17:00.000Z"  itemprop="datePublished">2016-05-30 00:17:00</time>
+
+      
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1354.html">HFUT 1354.砝码称重(安徽省2016“京胜杯”程序设计大赛 A)</a>
+    </h3>
+  
+
+
+
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li></ul>
+
+    </div>
+    
+  </article>
+</div>
+
+            
+            </div>
+        
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/tags/JingShengBei/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/tags/JingShengBei/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/tags/JingShengBei/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/tags/JingShengBei/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/tags/JingShengBei/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/tags/JingShengBei/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

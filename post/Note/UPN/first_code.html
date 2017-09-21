@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>UPN第一个样例 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="Linux,socket">
+    <meta name="description" content="一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验">
+<meta name="keywords" content="Linux,socket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UPN第一个样例">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/UPN/first_code.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UPN第一个样例">
+<meta name="twitter:description" content="一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">UPN第一个样例</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">UPN第一个样例</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-05T08:55:09.000Z" itemprop="datePublished" class="page-time">
+  2017-07-05 16:55:09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/UPN/">UNIX网络编程</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数定义"><span class="post-toc-text">函数定义</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建"><span class="post-toc-text">创建</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#绑定"><span class="post-toc-text">绑定</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#接收"><span class="post-toc-text">接收</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#发送"><span class="post-toc-text">发送</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#接收连接请求"><span class="post-toc-text">接收连接请求</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#服务端"><span class="post-toc-text">服务端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#客户端"><span class="post-toc-text">客户端</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/UPN/first_code"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">UPN第一个样例</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-05 16:55:09 16:55:09" datetime="2017-07-05T08:55:09.000Z"  itemprop="datePublished">2017-07-05 16:55:09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/UPN/">UNIX网络编程</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验  </p>
+<a id="more"></a>
+<p>由于官方代码大量使用 <code>upn.h</code> 头文件，经常会导致不知道函数从何而来<br>因此建议还是自己徒手编译  </p>
+<p>本样例需要用到的头文件如下(包括简单的说明):</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;  //inet_ntop()、inet_ntoa()等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory.h&gt;     //memset</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt; //struct sockaddr_in、PROTO_ICMP、INADDR_ANY等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;      //printf</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;     //exit</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt; //socket、bind、connect、struct sockaddr</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;  //类型定义</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;       //time</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;     //read</span></span></div></pre></td></tr></table></figure>
+<p>本样例由两部分组成:服务端和用户端<br>尽管按照书上有 <code>206.168.112.96</code> 这个IP地址，不过在我的测试中并不能成功连接<br>因此，可以使用P5的代码实现客户端，用P10的代码实现服务端  </p>
+<p>由于服务端需要监听端口，因此该部分<span style="color:red"><strong>需要root权限</strong></span>  </p>
+<p>另外，服务端和客户端都应该是 <code>htons(13)</code>  (<code>htons</code>和<code>htonl</code>存在区别)</p>
+<p>设计到的几个函数定义如下</p>
+<h1 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a>函数定义</h1><blockquote>
+<p><a href="http://baike.baidu.com/item/socket/281150" target="_blank" rel="external">百度百科-socket</a><br><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐</div></div><div class="fold">
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><ul>
+<li>函数原型：<br><code>int socket(int domain, int type, int protocol);</code></li>
+<li>参数说明：<ul>
+<li>domain：协议域，又称协议族（family）。常用的协议族有AF_INET、AF_INET6、AF_LOCAL（或称AF_UNIX，Unix域Socket）、AF_ROUTE等。协议族决定了socket的地址类型，在通信中必须采用对应的地址，如AF_INET决定了要用ipv4地址（32位的）与端口号（16位的）的组合、AF_UNIX决定了要用一个绝对路径名作为地址。</li>
+<li>type：指定Socket类型。常用的socket类型有SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等。流式Socket（SOCK_STREAM）是一种面向连接的Socket，针对于面向连接的TCP服务应用。数据报式Socket（SOCK_DGRAM）是一种无连接的Socket，对应于无连接的UDP服务应用。</li>
+<li>protocol：指定协议。常用协议有IPPROTO_TCP、IPPROTO_UDP、IPPROTO_STCP、IPPROTO_TIPC等，分别对应TCP传输协议、UDP传输协议、STCP传输协议、TIPC传输协议。</li>
+</ul>
+</li>
+<li>注意：<ol>
+<li>type和protocol不可以随意组合，如SOCK_STREAM不可以跟IPPROTO_UDP组合。当第三个参数为0时，会自动选择第二个参数类型对应的默认协议。</li>
+<li>WindowsSocket下protocol参数中不存在IPPROTO_STCP</li>
+</ol>
+</li>
+<li>返回值：<br>  如果调用成功就返回新创建的套接字的描述符，如果失败就返回INVALID_SOCKET（Linux下失败返回-1）。<br>  套接字描述符是一个整数类型的值。<br>  每个进程的进程空间里都有一个套接字描述符表，该表中存放着套接字描述符和套接字数据结构的对应关系。该表中有一个字段存放新创建的套接字的描述符，另一个字段存放套接字数据结构的地址，因此根据套接字描述符就可以找到其对应的套接字数据结构。<br>  每个进程在自己的进程空间里都有一个套接字描述符表但是套接字数据结构都是在操作系统的内核缓冲里。</li>
+</ul>
+<h2 id="绑定"><a href="#绑定" class="headerlink" title="绑定"></a>绑定</h2><ul>
+<li>函数原型：<br>  <code>int bind(SOCKET socket, const struct sockaddr* address, socklen_t address_len);</code></li>
+<li>参数说明：<ul>
+<li>socket：是一个套接字描述符。</li>
+<li>address：是一个sockaddr结构指针，该结构中包含了要结合的地址和端口号。</li>
+<li>address_len：确定address缓冲区的长度。</li>
+</ul>
+</li>
+<li>返回值：<br>  如果函数执行成功，返回值为0，否则为SOCKET_ERROR。</li>
+</ul>
+<h2 id="接收"><a href="#接收" class="headerlink" title="接收"></a>接收</h2><ul>
+<li>函数原型：<br>  <code>int recv(SOCKET socket, char FAR* buf, int len, int flags);</code></li>
+<li>参数说明：<ul>
+<li>socket：一个标识已连接套接口的描述字。</li>
+<li>buf：用于接收数据的缓冲区。</li>
+<li>len：缓冲区长度。</li>
+<li>flags：指定调用方式。取值：MSG_PEEK 查看当前数据，数据将被复制到缓冲区中，但并不从输入队列中删除；MSG_OOB 处理带外数据。</li>
+</ul>
+</li>
+<li>返回值：<br>若无错误发生，recv()返回读入的字节数。如果连接已中止，返回0。否则的话，返回SOCKET_ERROR错误，应用程序可通过WSAGetLastError()获取相应错误代码。</li>
+</ul>
+<ul>
+<li>函数原型：<br>  <code>ssize_t recvfrom(int sockfd, void buf, int len, unsigned int flags, struct socketaddr* from, socket_t* fromlen);</code></li>
+<li>参数说明：<ul>
+<li>sockfd：标识一个已连接套接口的描述字。</li>
+<li>buf：接收数据缓冲区。</li>
+<li>len：缓冲区长度。</li>
+<li>flags：调用操作方式。是以下一个或者多个标志的组合体，可通过or操作连在一起：<ol>
+<li>MSG_DONTWAIT：操作不会被阻塞；</li>
+<li>MSG_ERRQUEUE： 指示应该从套接字的错误队列上接收错误值，依据不同的协议，错误值以某种辅佐性消息的方式传递进来，使用者应该提供足够大的缓冲区。导致错误的原封包通过msg_iovec作为一般的数据来传递。导致错误的数据报原目标地址作为msg_name被提供。错误以sock_extended_err结构形态被使用。</li>
+<li>MSG_PEEK：指示数据接收后，在接收队列中保留原数据，不将其删除，随后的读操作还可以接收相同的数据。</li>
+<li>MSG_TRUNC：返回封包的实际长度，即使它比所提供的缓冲区更长， 只对packet套接字有效。</li>
+<li>MSG_WAITALL：要求阻塞操作，直到请求得到完整的满足。然而，如果捕捉到信号，错误或者连接断开发生，或者下次被接收的数据类型不同，仍会返回少于请求量的数据。</li>
+<li>MSG_EOR：指示记录的结束，返回的数据完成一个记录。</li>
+<li>MSG_CTRUNC：指明由于缓冲区空间不足，一些控制数据已被丢弃。</li>
+<li>MSG_OOB：指示接收到out-of-band数据(即需要优先处理的数据)。</li>
+<li>MSG_ERRQUEUE：指示除了来自套接字错误队列的错误外，没有接收到其它数据。</li>
+</ol>
+</li>
+<li>from：（可选）指针，指向装有源地址的缓冲区。</li>
+<li>fromlen：（可选）指针，指向from缓冲区长度值。<h2 id="发送"><a href="#发送" class="headerlink" title="发送"></a>发送</h2></li>
+</ul>
+</li>
+<li>函数原型：<br>  <code>int sendto( SOCKET s, const char FAR* buf, int size, int flags, const struct sockaddr FAR* to, int tolen);</code></li>
+<li>参数说明：<ul>
+<li>s：套接字</li>
+<li>buf：待发送数据的缓冲区</li>
+<li>size：缓冲区长度</li>
+<li>flags：调用方式标志位, 一般为0, 改变Flags，将会改变Sendto发送的形式</li>
+<li>addr：（可选）指针，指向目的套接字的地址</li>
+<li>tolen：addr所指地址的长度</li>
+</ul>
+</li>
+<li>返回值：<br>  如果成功，则返回发送的字节数，失败则返回SOCKET_ERROR。</li>
+</ul>
+<h2 id="接收连接请求"><a href="#接收连接请求" class="headerlink" title="接收连接请求"></a>接收连接请求</h2><ul>
+<li>函数原型：<br>  <code>int accept( int fd, struct socketaddr* addr, socklen_t* len);</code></li>
+<li>参数说明：<ul>
+<li>fd：套接字描述符。</li>
+<li>addr：返回连接着的地址</li>
+<li>len：接收返回地址的缓冲区长度</li>
+</ul>
+</li>
+<li>返回值：<br>  成功返回客户端的文件描述符，失败返回-1。</li>
+</ul>
+
+</div></div></p>
+</blockquote>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击现/隐代码</div></div><div class="fold">
+<figure class="highlight c"><figcaption><span>服务端(需要管理员权限)</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;  //inet_ntop()、inet_ntoa()等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory.h&gt;     //memset</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt; //struct sockaddr_in、PROTO_ICMP、INADDR_ANY等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;      //printf</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;     //exit</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt; //socket、bind、connect、struct sockaddr</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;  //类型定义</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;       //time</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;     //read</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXLINE 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LISTENQ 1024</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> bzero(a, b) memset(a, 0, b)</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">err</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *_information)</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\r\n"</span>, _information);</div><div class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> listenfd, connfd;</div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line">    <span class="keyword">char</span> buff[MAXLINE];</div><div class="line">    <span class="keyword">time_t</span> ticks;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> ((listenfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>)) == <span class="number">-1</span>)</div><div class="line">        err(<span class="string">"socket error."</span>);</div><div class="line"></div><div class="line">    bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">    servaddr.sin_family = AF_INET;</div><div class="line">    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line">    servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (bind(listenfd, (struct sockaddr *)&amp;servaddr, <span class="keyword">sizeof</span>(servaddr)) == <span class="number">-1</span>)</div><div class="line">        err(<span class="string">"bind error."</span>);</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (listen(listenfd, LISTENQ) == <span class="number">-1</span>)</div><div class="line">        err(<span class="string">"Listen error."</span>);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> ((connfd = accept(listenfd, (struct sockaddr *)<span class="literal">NULL</span>, <span class="literal">NULL</span>)) == <span class="number">-1</span>)</div><div class="line">            err(<span class="string">"accept error."</span>);</div><div class="line"></div><div class="line">        ticks = time(<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">        <span class="built_in">snprintf</span>(buff, <span class="keyword">sizeof</span>(buff), <span class="string">"%.24s\r\n"</span>, ctime(&amp;ticks));</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (write(connfd, buff, <span class="built_in">strlen</span>(buff)) == <span class="number">-1</span>)</div><div class="line">            err(<span class="string">"write error."</span>);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (close(connfd) == <span class="number">-1</span>)</div><div class="line">            err(<span class="string">"close error."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击现/隐代码</div></div><div class="fold">
+<figure class="highlight c"><figcaption><span>客户端</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;  //inet_ntop()、inet_ntoa()等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory.h&gt;     //memset</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt; //struct sockaddr_in、PROTO_ICMP、INADDR_ANY等</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;      //printf</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;     //exit</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt; //socket、bind、connect、struct sockaddr</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;  //类型定义</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;       //time</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;     //read</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXLINE 100</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> bzero(a, b) memset(a, 0, b)</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">err</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *_information)</span> </span>&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\r\n"</span>, _information);</div><div class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> sockfd, n;</div><div class="line">    <span class="keyword">char</span> recvline[MAXLINE + <span class="number">1</span>];</div><div class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line"></div><div class="line">    <span class="comment">//判断参数数目</span></div><div class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>)</div><div class="line">        err(<span class="string">"usage: a.out &lt;IPaddress&gt;"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//创建socket</span></div><div class="line">    <span class="keyword">if</span> ((sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>)) &lt; <span class="number">0</span>)</div><div class="line">        err(<span class="string">"socket error"</span>);</div><div class="line"></div><div class="line">    bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line"></div><div class="line">    servaddr.sin_family = AF_INET;</div><div class="line">    servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line"></div><div class="line">    <span class="comment">//转换地址</span></div><div class="line">    <span class="keyword">if</span> (inet_pton(AF_INET, argv[<span class="number">1</span>], &amp;servaddr.sin_addr) &lt;= <span class="number">0</span>)</div><div class="line">        err(<span class="string">"inet_pton error"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//连接</span></div><div class="line">    <span class="keyword">if</span> (connect(sockfd, (struct sockaddr *)&amp;servaddr, <span class="keyword">sizeof</span>(servaddr)) &lt; <span class="number">0</span>)</div><div class="line">        err(<span class="string">"connect error"</span>);</div><div class="line"></div><div class="line">    <span class="comment">//读取</span></div><div class="line">    <span class="keyword">while</span> ((n = read(sockfd, recvline, MAXLINE)) &gt; <span class="number">0</span>) &#123;</div><div class="line">        recvline[n] = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">fputs</span>(recvline, <span class="built_in">stdout</span>) == EOF)</div><div class="line">            err(<span class="string">"fputs error"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">        err(<span class="string">"read error"</span>);</div><div class="line"></div><div class="line">    <span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/UPN/first_code.html" target="_blank" rel="external">UPN第一个样例</a><br>文章地址：  <a href="/post/Note/UPN/first_code.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/UPN/first_code.html</a><br>创建时间：  2017-07-05 16:55:09<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socket/">socket</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/UPN/first_code.html&title=《UPN第一个样例》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/UPN/first_code.html&title=《UPN第一个样例》 — OhYee's Blog&source=一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/UPN/first_code.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UPN第一个样例》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/UPN/first_code.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/UPN/first_code.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Note/the-one.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">The-One 仿真软件修改</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Codeforces/820B.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Codeforces 820B.Mister B and Angle in Polygon</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/UPN/first_code.html&title=《UPN第一个样例》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/UPN/first_code.html&title=《UPN第一个样例》 — OhYee's Blog&source=一般情况下第一个样例都应该是简单并且容易让人产生兴趣的，但是UPN的第一个样例对于没有写过的人而言是第一个考验  " data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/UPN/first_code.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《UPN第一个样例》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/UPN/first_code.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/UPN/first_code.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/UPN/first_code.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

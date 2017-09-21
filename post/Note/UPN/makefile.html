@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>如何写好Makefile | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="Linux">
+    <meta name="description" content="对于一个项目而言,整体源码必然是分布在众多文件夹中的那么就出现了我们写简单的单个 cpp 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪些文件需要重新编译?   Makefile就是一个帮你处理这些功能的文件,在 *nix 环境下,有 make 命令来读取 Makefile 文件并进行相应的操作">
+<meta name="keywords" content="makefile,make">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何写好Makefile">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/UPN/makefile.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="对于一个项目而言,整体源码必然是分布在众多文件夹中的那么就出现了我们写简单的单个 cpp 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪些文件需要重新编译?   Makefile就是一个帮你处理这些功能的文件,在 *nix 环境下,有 make 命令来读取 Makefile 文件并进行相应的操作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何写好Makefile">
+<meta name="twitter:description" content="对于一个项目而言,整体源码必然是分布在众多文件夹中的那么就出现了我们写简单的单个 cpp 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪些文件需要重新编译?   Makefile就是一个帮你处理这些功能的文件,在 *nix 环境下,有 make 命令来读取 Makefile 文件并进行相应的操作">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">如何写好Makefile</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">如何写好Makefile</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-25T16:18:21.000Z" itemprop="datePublished" class="page-time">
+  2017-06-26 00:18:21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/UPN/">UNIX网络编程</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#编译和链接"><span class="post-toc-text">编译和链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编译"><span class="post-toc-text">编译</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#链接"><span class="post-toc-text">链接</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库"><span class="post-toc-text">库</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Makefile的使用"><span class="post-toc-text">Makefile的使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考目录"><span class="post-toc-text">参考目录</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/UPN/makefile"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">如何写好Makefile</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-06-26 00:18:21 00:18:21" datetime="2017-06-25T16:18:21.000Z"  itemprop="datePublished">2017-06-26 00:18:21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/UPN/">UNIX网络编程</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>对于一个项目而言,整体源码必然是分布在众多文件夹中的<br>那么就出现了我们写简单的单个 <code>cpp</code> 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪些文件需要重新编译?  </p>
+<p>Makefile就是一个帮你处理这些功能的文件,在 *nix 环境下,有 <code>make</code> 命令来读取 <code>Makefile</code> 文件并进行相应的操作   </p>
+<a id="more"></a>
+<h1 id="编译和链接"><a href="#编译和链接" class="headerlink" title="编译和链接"></a>编译和链接</h1><p>首先,需要知道的是把源码编程我们能执行的二进制文件,有两步重要的操作: <strong>编译(compile)</strong>和<strong>链接(link)</strong>  </p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译是针对每一个文件,把他们转换成二进制文件. 这是单纯的翻译过程,只要源码语法正确,就可以正常编译出中间文件(目标文件)<br>对于每一个源码文件,编译后都会产生一个中间文件(<code>.o</code>或是<code>.obj</code>)  </p>
+<p>该部分对应了 <code>g++</code> 的 <code>g++ -c &lt;SourceCodeFilename&gt;</code></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>编译过后我们有了能够被执行的二进制文件,那么问题来了: 一个条例清晰的文件,可能其函数声明和定义并不在一个文件里,如何找到各个部分之间的关系就是链接部分要解决的问题了  </p>
+<p>该部分对应了 <code>g++</code> 的 <code>g++ &lt;ObjectFilename&gt; -o &lt;OutputFilename&gt;</code></p>
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><p>项目比较大的时候,自然不可能改一下就重新整体编译一次,那么就有了库(library)<br>将一些目标文件(Object)打包成库文件,然后链接的时候直接链接库文件和改动部分的目标文件即可<br>库文件在 Windows 下为 <code>.lib</code> 在UNIX下是 <code>.a</code></p>
+<h1 id="Makefile的使用"><a href="#Makefile的使用" class="headerlink" title="Makefile的使用"></a>Makefile的使用</h1><p>首先我们要明白Makefile需要做什么: </p>
+<ol>
+<li>如果这个工程没有编译过,那么所有C文件都要编译并被链接</li>
+<li>如果这个工程的某几个C文件被修改,那么我们只编译被修改的C文件,并链接目标程序</li>
+<li>如果这个工程的头文件被改变了,那么我们需要编译引用了这几个头文件的C文件,并链接目标程序</li>
+</ol>
+<p>举例一个makefile的例子如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">test:   a.o b.o c.o d.o /</div><div class="line">    A.o B.o C.o D.o</div><div class="line">    cc -o test a.o b.o c.o d.o /</div><div class="line">    A.o B.o C.o D.o</div><div class="line"></div><div class="line">a.o:     a.c F.h</div><div class="line">    cc -c a.c</div><div class="line">b.o:     b.c F.h c.h</div><div class="line">    cc -c b.c</div><div class="line">c.o:     c.c F.h c.h</div><div class="line">    cc -c c.c</div><div class="line">d.o:     d.c F.h E.h</div><div class="line">    cc -c d.c</div><div class="line">A.o:     A.c F.h E.h</div><div class="line">    cc -c A.c</div><div class="line">B.o:     B.c F.h E.h</div><div class="line">    cc -c B.c</div><div class="line">C.o:     C.c F.h E.h c.h</div><div class="line">    cc -c C.c</div><div class="line">D.o:     D.c F.h</div><div class="line">    cc -c D.c</div><div class="line"></div><div class="line">clean:  </div><div class="line">    rm edit a.o b.o c.o d.o /</div><div class="line">    A.o B.o C.o D.o</div></pre></td></tr></table></figure></p>
+<p>很容易可以看出来大概的含义:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[要生成的文件]:   [生成该文件所依赖的文件列表]</div><div class="line">    [生成该文件的命令行]</div></pre></td></tr></table></figure></p>
+<p>其中,如果需要换行,就在末尾加 <code>\</code> </p>
+<p>再正式一下,就是<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;target&gt;:   &lt;prerequisites&gt;</div><div class="line">    &lt;command&gt;</div></pre></td></tr></table></figure></p>
+<p>target是一个目标文件,可以是Object File,也可以是执行文件<br>还可以是一个标签（Label）</p>
+<p>prerequisites就是,要生成那个target所需要的文件或是目标</p>
+<p>command也就是make需要执行的命令（任意的Shell命令）<br>需要注意的是,如同缩进一样,command部分必须由<kbd>tab</kbd>开头</p>
+<p>当没有依赖文件的时候,这一条就会被识别为标签,例如上面的 <code>clean</code><br>当运行 <code>make clean</code> 时,就会清空所有生成的中间文件和最终输出文件  </p>
+<p>这样,对于上面的文件,<code>make</code> 命令会以第一个目标文件为最终输出,按照修改时间检查所有目标文件和依赖文件,如果依赖文件更新或者目标文件不存在就会运行相应的命令生成目标文件,最终得到一个输出文件  </p>
+<p>当文件大量重复时,就可以使用变量了<br><code>v = a.o b.o</code><br>使用时用 <code>$(v)</code> 就可以代替 <code>a.o b.o</code> 了  </p>
+<p>而根据习惯,我们生成的中间文件一般是与源文件同名的,也就是说 <code>a.o</code> 时通过 <code>a.c</code> 生成的<br>并且对应的编译指令也是可以推测出的  </p>
+<p>那么完全可以简化成<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[中间文件]: [对应的头文件]</div></pre></td></tr></table></figure></p>
+<p>这样只要对应的头文件或者源文件有改动,中间文件就会自动通过相应的编译指令生成<br>这叫做make的<strong>隐晦规则</strong>  </p>
+<p>对于清理命令,也有更为严谨的写法<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">.PHONY : clean</div><div class="line">clean :</div><div class="line">-rm edit $(objects)</div></pre></td></tr></table></figure></p>
+<p><code>.PHONY</code> 说明 <code>clean</code> 是一个伪目标<br>而 <code>rm</code> 前面的 <code>-</code> 则告诉系统,当 <code>rm</code> 无视可能会出错的情况继续执行后面的(比如删除一个不存在的文件)  </p>
+<p>这时,clean即使是伪目标,也可以写依赖项了<br>比如我的默认操作是生成许多文件,就可以写成<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">all: a b c d</div><div class="line">.PHONY all</div><div class="line"></div><div class="line">a: ……</div><div class="line">……</div></pre></td></tr></table></figure></p>
+<p>如果项目中存在多个makefile时,可以使用<code>include</code>来引用其它的makefile文件<br>如果需要忽略报错,可以使用<code>-include</code>或<code>sinclude</code>  </p>
+<p>当文件夹比较多时,就需要让makefile自己去找你要编译的文件到底在哪个文件夹里了  </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">VPATH = src:../headers</div><div class="line"></div><div class="line">vpath %.c src</div><div class="line">vpath %.h ../headers</div></pre></td></tr></table></figure>
+<p>前者是搜索目录先从当前目录开始,然后是<code>src</code>,最后是<code>../headers</code>(使用<code>:</code>分割)<br>后者则是针对不同的文件,进行不同的搜索目录(<code>vpath</code>用小写)</p>
+<h1 id="参考目录"><a href="#参考目录" class="headerlink" title="参考目录"></a>参考目录</h1><p><a href="http://blog.csdn.net/liang13664759/article/details/1771246" target="_blank" rel="external">Linux makefile 教程 非常详细，且易懂</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/UPN/makefile.html" target="_blank" rel="external">如何写好Makefile</a><br>文章地址：  <a href="/post/Note/UPN/makefile.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/UPN/makefile.html</a><br>创建时间：  2017-06-26 00:18:21<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/UPN/makefile.html&title=《如何写好Makefile》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/UPN/makefile.html&title=《如何写好Makefile》 — OhYee's Blog&source=对于一个项目而言,整体源码必然是分布在众多文件夹中的那么就出现了我们写简单的单个 cpp 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/UPN/makefile.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何写好Makefile》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/UPN/makefile.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/UPN/makefile.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Codeforces/820A.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Codeforces 820A.Mister B and Book Reading</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/licss.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">自定义 li 前面的图标</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/UPN/makefile.html&title=《如何写好Makefile》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/UPN/makefile.html&title=《如何写好Makefile》 — OhYee's Blog&source=对于一个项目而言,整体源码必然是分布在众多文件夹中的那么就出现了我们写简单的单个 cpp 文件不会遇到的问题: 哪些文件需要先编译?哪些文件需要后编译?哪..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/UPN/makefile.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何写好Makefile》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/UPN/makefile.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/UPN/makefile.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/UPN/makefile.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>ACM 2016级新生赛题解 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="本次比赛共 9 题主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔   题解比较详细,前几题应该零基础的同学也能看懂    序号 题目名称 OJ编号 考察点     A A+B Problem POJ 1000 基本的输入输出   B 素数判定 HDU 2012 素数判定、循环、函数   C As Easy As A+B">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ACM 2016级新生赛题解">
+<meta property="og:url" content="https://www.oyohyee.com/post/Project/ACM2016_08_31.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="本次比赛共 9 题主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔   题解比较详细,前几题应该零基础的同学也能看懂    序号 题目名称 OJ编号 考察点     A A+B Problem POJ 1000 基本的输入输出   B 素数判定 HDU 2012 素数判定、循环、函数   C As Easy As A+B">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ACM 2016级新生赛题解">
+<meta name="twitter:description" content="本次比赛共 9 题主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔   题解比较详细,前几题应该零基础的同学也能看懂    序号 题目名称 OJ编号 考察点     A A+B Problem POJ 1000 基本的输入输出   B 素数判定 HDU 2012 素数判定、循环、函数   C As Easy As A+B">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">ACM 2016级新生赛题解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">ACM 2016级新生赛题解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-08-30T11:23:35.000Z" itemprop="datePublished" class="page-time">
+  2016-08-30 19:23:35
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何读题"><span class="post-toc-text">如何读题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何理解OJ的返回信息"><span class="post-toc-text">如何理解OJ的返回信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#A-B-Problem"><span class="post-toc-text">A+B Problem</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#素数判定"><span class="post-toc-text">素数判定</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#As-Easy-As-A-B"><span class="post-toc-text">As Easy As A+B</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Launch-of-Collider"><span class="post-toc-text">Launch of Collider</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#King-Moves"><span class="post-toc-text">King Moves</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最小公倍数"><span class="post-toc-text">最小公倍数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Catch-That-Cow"><span class="post-toc-text">Catch That Cow</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#命运"><span class="post-toc-text">命运</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#狼抓兔子"><span class="post-toc-text">狼抓兔子</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Project/ACM2016_08_31"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">ACM 2016级新生赛题解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-08-30 19:23:35 19:23:35" datetime="2016-08-30T11:23:35.000Z"  itemprop="datePublished">2016-08-30 19:23:35</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>本次比赛共 <code>9</code> 题<br>主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型<br>主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔  </p>
+<p>题解比较详细,前几题应该零基础的同学也能看懂</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">题目名称</th>
+<th style="text-align:center">OJ编号</th>
+<th>考察点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">A+B Problem</td>
+<td style="text-align:center">POJ 1000</td>
+<td>基本的输入输出</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">素数判定</td>
+<td style="text-align:center">HDU 2012</td>
+<td>素数判定、循环、函数</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">As Easy As A+B</td>
+<td style="text-align:center">HDU 1040</td>
+<td>给定组数的输入、排序算法</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">Launch of Collider</td>
+<td style="text-align:center">Codeforces 699A</td>
+<td>思维</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">King Moves</td>
+<td style="text-align:center">Codeforces 710A</td>
+<td>判断、循环</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">最小公倍数</td>
+<td style="text-align:center">HDU 1108</td>
+<td>EOF结束的输入、欧几里得算法</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">Catch That Cow</td>
+<td style="text-align:center">HDU 2717</td>
+<td>BFS</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">命运</td>
+<td style="text-align:center">HDU 2571</td>
+<td>动态规划</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">狼抓兔子</td>
+<td style="text-align:center">BZOJ 1001</td>
+<td>网络流</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h1 id="如何读题"><a href="#如何读题" class="headerlink" title="如何读题"></a>如何读题</h1><blockquote>
+
+<link href="/css/vj.css" rel="stylesheet" type="text/css">
+
+<div class="problem_title">
+    Description
+</div>
+<div class="problem_des">
+    Calculate a+b
+</div>
+<div class="problem_title">
+    Input
+</div>
+<div class="problem_des">
+    Two integer a,b (0&lt;=a,b&lt;=10)  
+</div>
+<div class="problem_title">
+    Output
+</div>
+<div class="problem_des">
+    Output a+b
+</div>
+<div class="problem_title">
+    Sample Input
+</div>
+<div class="problem_des">
+    1 2
+</div>
+<div class="problem_title">
+    Sample Output
+</div>
+<div class="problem_des">
+    3
+</div>
+
+</blockquote>
+<p>这是一个标准的 ACM题目,题目首先有一些信息:</p>
+<blockquote>
+<p><strong>Time Limit:</strong> <code>1000MS</code><br><strong>Memory Limit:</strong> <code>10000KB</code><br><strong>64bit IO Format:</strong> <code>%lld &amp; %llu</code>  </p>
+</blockquote>
+<p>这些信息告诉了,运算这道题我们所拥有的运算资源: <strong>共有 <code>1s</code> 的时间,并且内存被限制在 <code>10M</code> 以内</strong>  </p>
+<ul>
+<li>时间限制,要求我们不要进行无用的运算,并且尽可能选取时间复杂度较低的算法  </li>
+<li>内存限制,要求我们不要随便大范围申请内存,尽可能重复使用变量,并且舍弃不需要保存的信息  </li>
+</ul>
+<p>接下来是题面<br>(容易出现问题的地方使用 <strong>粗体</strong> 显示)</p>
+<ul>
+<li>题目背景(<strong>Description</strong>)<br>这里会有题目的一些介绍,可能有废话,也有可能有运算方法  </li>
+<li>输入说明(<strong>Input</strong>)<br>这里会讲解输入的格式<ul>
+<li>是否是<strong>多组数据</strong></li>
+<li>数据的类型是整数还是浮点数(小数)  </li>
+<li>整数可能达到的最值<ul>
+<li>如果最大是100000,一些时间复杂度比较高的算法可能就不能用了  </li>
+<li>如果最大值超过 <code>2<sup>31</sup></code>, <code>int</code> 就不能正常存储数据了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>输出说明(<strong>Output</strong>)<br>这里会说明输出的格式  <ul>
+<li>如果有多组数据,<strong>两组数据间是不是输出空行</strong>  </li>
+<li>输出前是否要加类似 <code>&quot;#Case 1:&quot;</code> 的前缀  </li>
+<li><strong>输出字符串是 <code>yes</code> 还是 <code>Yes</code> 还是 <code>YES</code></strong></li>
+</ul>
+</li>
+<li>样例输入(<strong>Sample Input</strong>)<br>这里会给出几组符合题意的输入样例<ul>
+<li>输入重定向到文件输入,也即最后会有一个隐藏的 <code>EOF</code> (文件尾),在多组数据输入时,可以用来判断是否读入结束</li>
+</ul>
+</li>
+<li>样例输出(<strong>Sample Output</strong>)<br>这里给出上面样例输入对应的结果,你的程序运算的结果必须与此处<strong>完全相同</strong><ul>
+<li>输出不能有任何多余字符、空行、空格</li>
+<li>即使输出与样例一样,也<strong>不证明你的程序能够 <code>Accepted</code> !!!</strong>  </li>
+</ul>
+</li>
+<li>提示(<strong>Hint</strong>)<br>如果题目比较难以理解,这里可能会有一些提示与样例数据的解释 </li>
+</ul>
+<h1 id="如何理解OJ的返回信息"><a href="#如何理解OJ的返回信息" class="headerlink" title="如何理解OJ的返回信息"></a>如何理解OJ的返回信息</h1><p>对于所有OJ可能返回的信息有以下几种(经常出现的已 <strong>加粗</strong>)</p>
+<ul>
+<li><span style="color: green"><strong>Accepted</strong></span><ul>
+<li>含义: 通过</li>
+<li>解释: 这个代表你的程序通过了所有测试数据<br> 这是苦逼一天、一周甚至更久后,最让人激动的字符<br> (即使通过了所有数据,仍然有可能不是最完美)</li>
+</ul>
+</li>
+<li><span style="color: green">Pretest Passed</span><ul>
+<li>含义: 暂时通过</li>
+<li>解释: 这个只出现在 Codeforces 上,证明你的程序通过了当前所有的数据,但是可能会死在终测时的极端数据上</li>
+</ul>
+</li>
+<li><span style="color: red"><strong>Wrong Answer</strong></span><ul>
+<li>含义: 答案错误</li>
+<li>解释: 你的程序输出和测试数据的输出不同</li>
+<li>解决办法: 重新读题,重新考虑输出的格式、算法、是否有没有考虑到的情况</li>
+</ul>
+</li>
+<li><span style="color: blue"><strong>Presentation Error</strong></span><ul>
+<li>含义: 输出格式错误</li>
+<li>解释: 你的程序输出格式与测试数据不一样</li>
+<li>解决办法: 仔细检查空格、换行,重新读题,离成功只差一步</li>
+</ul>
+</li>
+<li><span style="color: blue">Compilation Error</span><ul>
+<li>含义: 编译错误</li>
+<li>解释: 语法问题,自己反思吧</li>
+<li>解决办法: 对照返回的信息改下</li>
+</ul>
+</li>
+<li><span style="color: blue"><strong>Runtime Error</strong></span><ul>
+<li>含义: 程序运行时出错</li>
+<li>解释: 可能是由于数组溢出,栈溢出,除以0等情况造成</li>
+<li>解决办法: <ul>
+<li>检查数组是否开的过小</li>
+<li>检查是否有意料外的数组访问</li>
+<li>检查在最坏情况下的递归层次</li>
+<li>检查除法的除数有没有可能是0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span style="color: blue"><strong>Time Limit Exceeded</strong></span><ul>
+<li>含义: 超过时间限制</li>
+<li>解释: 程序没有在规定的时间内运行完毕(不代表输出结果是对的)</li>
+<li>解决办法: <ul>
+<li>查找是否存在死循环</li>
+<li>换用更好的算法</li>
+<li>删去一些不必要的操作</li>
+<li>检查数组是否开的太小(个别OJ不报 RE 报 TLE )</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span style="color: blue">Memory Limit Exceeded</span><ul>
+<li>含义: 超过内存限制</li>
+<li>解释: 程序申请的内存过多</li>
+<li>解决办法: <ul>
+<li>压缩使用的数组,尽量重复数组</li>
+<li>不要保存没必要存下来的数据</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="A-B-Problem"><a href="#A-B-Problem" class="headerlink" title="A+B Problem"></a>A+B Problem</h1><blockquote>
+
+<div class="problem_title">
+    Description
+</div>
+<div class="problem_des">
+    计算 a+b 的值
+</div>
+<div class="problem_title">
+    Input
+</div>
+<div class="problem_des">
+    两个整数 a 和 b a,b∈[1,10]  
+</div>
+<div class="problem_title">
+    Output
+</div>
+<div class="problem_des">
+    输出 a+b 的值
+</div>
+<div class="problem_title">
+    Sample Input
+</div>
+<div class="problem_des">
+    1 2
+</div>
+<div class="problem_title">
+    Sample Output
+</div>
+<div class="problem_des">
+    3
+</div>
+
+</blockquote>
+<p>这是ACM的经典入门题目,计算两个数的和<br>这道题一般学过编程的都能过  </p>
+<p>直接读入两个数字,然后输出和即可<br>不牵扯大数,多组数据等任何问题  </p>
+<figure class="highlight cpp"><figcaption><span>A+B Problem C语言版本</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a+b);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><figcaption><span>A+B Problem C++版本</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; a + b;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="素数判定"><a href="#素数判定" class="headerlink" title="素数判定"></a>素数判定</h1><p>题目中文,略  </p>
+<p>首先先看输入输出,样例中有两行  </p>
+<blockquote>
+<p>0 1<br>0 0</p>
+</blockquote>
+<p>这两行代表的意思分别是</p>
+<ul>
+<li>数据输入 0 1,计算 n ∈ [0,1] 是否表达式的所有值都为素数</li>
+<li>数据输入 0 0,表示输入结束,不处理该组数据,结束程序  </li>
+</ul>
+<p>输入有一行</p>
+<blockquote>
+<p>OK</p>
+</blockquote>
+<p>输出说明中有<strong>每组输出占一行</strong>,这句的意思是,每组数据都要占据<strong>单独的一行</strong>,也即每次输出完,要<strong>换行</strong><br>对于样例的输出,应该是 <code>printf(&quot;OK\n&quot;);</code> 而不是 <code>printf(&quot;OK&quot;);</code> 虽然看上去,两组结果一样,但是对于电脑来说,文件的行数是不一样的  </p>
+<p>其他需要注意的就是 <code>OK</code> 和 <code>Sorry</code> 的拼法,注意大小写,注意没有 <code>.</code>  </p>
+<p>明白输入输出后,就可以开始做题了  </p>
+<p>题目要求的是 <code>n^2+n+41</code> 在 <code>[-39,50]</code> 的某个子集中是否结果全部是素数<br>画图像可以得知,在这个区域里,表达式的值域为 <code>[41,2591]</code><br>也即我们需要判断 <code>[41,2591]</code> 里的一些数是否为整数  </p>
+<p>首先写一个函数 <code>int isPrime(int n)</code> 判断一个数是否位素数,如果是返回 <code>1</code> ,如果不是返回 <code>0</code><br>(如果是 C++ ,可以使用 <code>bool</code> )  </p>
+<p>然后我们来看程序主体,由于题目是多组输入,因此我们需要不断读入数据,可以使用 <code>while</code><br>每次我们读入 <code>x</code> 和 <code>y</code> , 然后判断他们是否 <em>都为0</em>,如果是,跳出<br>则可以使用<strong>逗号表达式</strong>,从左向右运算,返回最后一个表达式的结果<br><code>while(scanf(&quot;%d%d&quot;,&amp;x,&amp;y),!(x==0&amp;&amp;y==0))</code>  </p>
+<p>这样只要输入的是需要运算的数据,程序就会进行 <code>while</code> 的操作  </p>
+<p>对于这道题,需要的操作就是一个一个算 <code>n^2+n+41</code> 的值是不是素数<br>如果发现有一个不是素数,就已经确定答案了,因此可以直接跳出循环(节省时间)  </p>
+<figure class="highlight cpp"><figcaption><span>运算部分</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> AllPrime = <span class="number">1</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=y;i++)</div><div class="line">    <span class="keyword">if</span>(isPrime(i*i+i+<span class="number">41</span>)==<span class="number">0</span>)&#123;</div><div class="line">        AllPrime = <span class="number">0</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>函数主体部分已经完成,然后是 <code>isPrime()</code> 函数的写法<br>在这里有两种方法</p>
+<ul>
+<li>暴力模拟法,一个数一个数除,看是否存在除了 1 和 本身之外的因子  </li>
+<li>筛法求素数,打表,这是一个基础算法,具体看<br><a href="http://www.oyohyee.com/post/Algorithm/Prime.html#Eratosthenes筛法"><strong>筛法求素数 http://www.oyohyee.com/post/Algorithm/Prime.html#Eratosthenes筛法</strong></a></li>
+</ul>
+<p>以下是能够AC的代码<br><figure class="highlight cpp"><figcaption><span>素数判定</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> Prime = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="built_in">sqrt</span>(n);i++)&#123;</div><div class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;<span class="comment">//能整除,存在因子</span></div><div class="line">            Prime = <span class="number">0</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> Prime;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y),!(x==<span class="number">0</span>&amp;&amp;y==<span class="number">0</span>))&#123;</div><div class="line">        <span class="keyword">int</span> AllPrime = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=y;i++)</div><div class="line">            <span class="keyword">if</span>(isPrime(i*i+i+<span class="number">41</span>)==<span class="number">0</span>)&#123;</div><div class="line">                AllPrime = <span class="number">0</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span>(AllPrime==<span class="number">1</span>)</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"OK\n"</span>);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Sorry\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="As-Easy-As-A-B"><a href="#As-Easy-As-A-B" class="headerlink" title="As Easy As A+B"></a>As Easy As A+B</h1><p>给出题目翻译</p>
+<blockquote>
+
+<div class="problem_title">
+    Description
+</div>
+<div class="problem_des">
+    这几天,我一直在想一个问题,如何出一道像 A+B 一样简单的题目<br>
+    很显然,这是非常难的,不过熬了几夜后,我最终解决了<br>
+    给你一些整数,你的任务是对这些数按照升序排序<br>
+    很简单吧,加油！
+</div>
+<div class="problem_title">
+    Input
+</div>
+<div class="problem_des">
+    输入包括多组数据<br>
+    第一行有一个整数 T 代表数据组数<br>
+    接下来有 T 组数据 <br>
+    每组数据开始是一个整数 N (1<=n<=1000 需要排序的数的数目)<br="">
+    紧接着是 N 个整数<br>
+    可以确定所有数都在 32位系统下 int 能够存储的范围内 
+</=n<=1000></div>
+<div class="problem_title">
+    Output
+</div>
+<div class="problem_des">
+    对于每组数据,在一行内输出排序后的结果
+</div>
+<div class="problem_title">
+    Sample Input
+</div>
+<div class="problem_des">
+    2<br>
+    3 2 1 3<br>
+    9 1 4 7 2 5 8 3 6 9
+</div>
+<div class="problem_title">
+    Sample Output
+</div>
+<div class="problem_des">
+    1 2 3<br>
+1 2 3 4 5 6 7 8 9
+</div>
+
+</blockquote>
+<p>排序问题,你要做的是对 N 个数排序<br>排序使用任意一种排序算法都行<br><a href="http://www.oyohyee.com/post/Algorithm/Sort.html"><strong>排序算法 http://www.oyohyee.com/post/Algorithm/Sort.html</strong></a><br>这里的除了睡眠排序外的任何一种都能满足你的要求  </p>
+<p>当然,STL自带的 <code>sort</code> 是最好的选择  </p>
+<p>如果想要自己写排序函数,上面的链接中有详细的代码  </p>
+<p>这道题的输入是ACM中的一种新的读入方式,先给出题目组数<br>很直观,读入后直接循环T遍即可</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> T;</div><div class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line"><span class="keyword">while</span>(T--)&#123;</div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然是可以用C语言写的,不过为了更方便调用sort使用了C++<br>因为两种语言混合是一种很不好的习惯  </p>
+<p>另外,在比赛中开数组的时候,通常会开稍微大一点,一般为需要的数组 +5 +10<br>由于<strong>数组的长度必须是常数</strong>,因此应该用常数变量来输入  </p>
+<figure class="highlight cpp"><figcaption><span>As Easy As A+B</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1000</span> + <span class="number">5</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> a[maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--) &#123;</div><div class="line">        <span class="keyword">int</span> n;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</div><div class="line">        sort(a,a + n);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;n;i++) &#123;</div><div class="line">            <span class="keyword">if</span>(i)</div><div class="line">                <span class="built_in">printf</span>(<span class="string">" "</span>);</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,a[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Launch-of-Collider"><a href="#Launch-of-Collider" class="headerlink" title="Launch of Collider"></a>Launch of Collider</h1><blockquote>
+
+<div class="problem_title">
+    Description
+</div>
+<div class="problem_des">
+    新的粒子碰撞机快要建成了,有 n 个粒子在碰撞机的直线轨道上<br>
+    每两个粒子的位置都不重合,坐标表示的是粒子到碰撞机的中心的距离,并且全部都是偶数<br>
+    你已经知道了每个粒子的运动方向——开启机器后会向左或向右以 `1m/ms` 的速度运动<br>
+    碰撞机足够大,保证粒子不会跑出机器<br>
+    写一个程序判断粒子第一次碰撞的时间
+</div>
+<div class="problem_title">
+    Input
+</div>
+<div class="problem_des">
+    第一行包括一个数 n (1 ≤ n ≤ 200 000) —— 粒子的数目<br>
+    第二行有 n 个字符(L 或 R)表示粒子的方向向左或向右
+    第三行有 n 个递增的整数(0 ≤ x<sub>i</sub> ≤ 10<sup>9</sup>),表示粒子的初始位置  
+</div>
+<div class="problem_title">
+    Output
+</div>
+<div class="problem_des">
+    在一行中输出粒子第一次碰撞的时间,如果不会碰撞,输出 -1
+</div>
+
+</blockquote>
+<p>由于每个粒子的速度都一样,因此想要碰撞必须有两个粒子向对而行  </p>
+<p>要算出来所有最近的向右粒子和它右边第一个向左的粒子的最短距离  </p>
+<p>因此每次找到 <code>R</code> 记录下它的位置,找到 <code>L</code> 算与上一个 <code>R</code> 的距离<br>将距离最小的记录下来,答案就是这个距离除以 <code>2</code> (相对运动,相对速度为 <code>2</code>)  </p>
+<p>下面代码  </p>
+<figure class="highlight cpp"><figcaption><span>Launch of Collider</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200005</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> x[maxn];</div><div class="line"><span class="keyword">char</span> d[maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a &lt; b ? a : b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,d);</div><div class="line">    <span class="keyword">int</span> last = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">int</span> dis = <span class="number">-1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++) &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x[i]);</div><div class="line">        <span class="keyword">if</span>(d[i] == <span class="string">'L'</span>)</div><div class="line">            <span class="keyword">if</span>(last != <span class="number">-1</span>)</div><div class="line">                <span class="keyword">if</span>(dis == <span class="number">-1</span>)</div><div class="line">                    dis = x[i] - x[last];</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    dis = min(dis,x[i] - x[last]);</div><div class="line">        <span class="keyword">if</span>(d[i] == <span class="string">'R'</span>)</div><div class="line">            last = i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dis == <span class="number">-1</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dis / <span class="number">2</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="King-Moves"><a href="#King-Moves" class="headerlink" title="King Moves"></a>King Moves</h1><p>题目不多翻译,就是求国际象棋里王在当前位置能走的方案数<br>(王能向周围八方向移动)  </p>
+<p>也即判断八方向在棋盘内的方格数  </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> delta[<span class="number">8</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>,<span class="number">-1</span>&#125;,&#123;<span class="number">-1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">-1</span>,<span class="number">1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">-1</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">-1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">char</span> s[<span class="number">2</span>+<span class="number">5</span>];</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</div><div class="line">    <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">8</span>;i++) &#123;</div><div class="line">        <span class="keyword">char</span> xx = s[<span class="number">0</span>] + delta[i][<span class="number">0</span>];</div><div class="line">        <span class="keyword">char</span> yy = s[<span class="number">1</span>] + delta[i][<span class="number">1</span>];</div><div class="line">        <span class="keyword">if</span>(xx &gt;= <span class="string">'a'</span>&amp;&amp;xx &lt;= <span class="string">'h'</span>&amp;&amp;yy &gt;= <span class="string">'1'</span>&amp;&amp;yy &lt;= <span class="string">'8'</span>)</div><div class="line">            num++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,num);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h1><p>求两个数的最小公倍数  </p>
+<p>也即求两个数的乘积除以最大公约数  </p>
+<p>求最大公约数使用 <strong>欧几里得算法</strong>  </p>
+<p>具体算法说明参照<br><a href="http://www.oyohyee.com/post/Algorithm/Euclid.html"><strong>欧几里得算法 http://www.oyohyee.com/post/Algorithm/Euclid.html</strong></a>  </p>
+<p>本题的输入为 <code>EOF</code> 结束<br>这是一种非常常见的输入方式,可以循环读入数据,如果读入失败则证明文件结束<br><code>scanf()</code> 的返回值表示读入成功的数据个数<br>读入失败, <code>scanf()</code> 会返回 <strong>EOF</strong> (-1)<br>因此只需要 <code>while(~scanf())</code> 即可  </p>
+<p>代码<br><figure class="highlight cpp"><figcaption><span>最小公倍数</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b,a%b);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> a,b;</div><div class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b)) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a / gcd(a,b) * b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="Catch-That-Cow"><a href="#Catch-That-Cow" class="headerlink" title="Catch That Cow"></a>Catch That Cow</h1><blockquote>
+
+<div class="problem_title">
+    Description
+</div>
+<div class="problem_des">
+    FJ 家的牛跑了,需要立即抓回来,他开始站在点 N (0 ≤ N ≤ 100,000) ,而牛停留在点 K (0 ≤ K ≤ 100,000)<br>
+    FJ 有两种移动方式  
+    - 移动到当前位置(X)的上一位置(X-1)和下一位置(X+1)
+    - 移动道当前位置(X)乘2(2X)
+    如果牛不动,FJ需要移动多少次才能抓住牛呢?
+</div>
+<div class="problem_title">
+    Input
+</div>
+<div class="problem_des">
+    两个整数 N K
+</div>
+<div class="problem_title">
+    Output
+</div>
+<div class="problem_des">
+    输出最少移动的距离
+</div>
+
+</blockquote>
+<p>BFS求最短路问题,两种拓展结点的方式,第一次到达K时移动的距离就是最短距离  </p>
+<p>由于移动方式只有 +1 -1 *2 因此如果 起点大于终点，直接相减即可</p>
+<p>直接贴之前自己写的代码了,哪看不懂可以直接问</p>
+<figure class="highlight cpp"><figcaption><span>Catch That Cow</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">//DEBUG MODE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug 0</span></div><div class="line"><span class="comment">//循环</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100005</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> v)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(s == v)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span>(s &gt; v)</div><div class="line">        <span class="keyword">return</span> s - v;</div><div class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</div><div class="line">    <span class="keyword">bool</span> visited[maxn];</div><div class="line">    <span class="built_in">memset</span>(visited,<span class="literal">false</span>,<span class="keyword">sizeof</span>(visited));</div><div class="line">    <span class="keyword">int</span> dis[maxn];</div><div class="line">    <span class="built_in">memset</span>(dis,<span class="number">0</span>,<span class="keyword">sizeof</span>(dis));</div><div class="line">    Q.push(s);</div><div class="line">    visited[s] = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> th = Q.front();</div><div class="line">        Q.pop();</div><div class="line">        <span class="comment">//达到终点</span></div><div class="line">        <span class="keyword">if</span>(th == v)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="comment">//拓展节点</span></div><div class="line">       define push \</div><div class="line">        <span class="keyword">if</span>(next &gt; maxn || next &lt;= <span class="number">0</span>) \</div><div class="line">            <span class="keyword">continue</span>;\</div><div class="line">        <span class="keyword">if</span>(!visited[next]) &#123;\</div><div class="line">            Q.push(next);\</div><div class="line">            visited[next] = <span class="literal">true</span>;\</div><div class="line">            dis[next] = dis[th] + <span class="number">1</span>;\</div><div class="line">        &#125;\</div><div class="line">        <span class="keyword">int</span> next;</div><div class="line">        next = th + <span class="number">1</span>;</div><div class="line">        push;</div><div class="line">        next = th - <span class="number">1</span>;</div><div class="line">        push;</div><div class="line">        next = th * <span class="number">2</span>;</div><div class="line">        push;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(dis[v])</div><div class="line">        <span class="keyword">return</span> dis[v];</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> s,v;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;s,&amp;v)==EOF)</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,BFS(s,v));</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span>(Do());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="命运"><a href="#命运" class="headerlink" title="命运"></a>命运</h1><p>动态规划问题<br>对于 <code>(x,y)</code> 可以由以下点到达</p>
+<ul>
+<li><code>(x-1,y)</code></li>
+<li><code>(x,y-1)</code></li>
+<li><code>(x,k)</code> 其中 <code>k</code> 是 <code>y</code> 的因数</li>
+</ul>
+<p>那么,有<br><code>dp[i][j] = max{ dp[i-1][j] , dp[i][j-1] , dp[i][k] } + Map[i][j]</code><br>( <code>k</code> 是 <code>y</code> 的因数, <code>Map[i][j]</code> 是 <code>(i,j)</code> 的权值)  </p>
+<p>对于 <code>i == 1</code> 的情况需要特别处理  </p>
+<blockquote>
+<p>3 5<br>-1 -1 -1 -1 -1<br>-1 -1 -1 -1 -1<br>-1 -1 -1 -1 -1  </p>
+</blockquote>
+<p>应该输出 <code>-4</code> 而不是 <code>-3</code>  </p>
+<figure class="highlight cpp"><figcaption><span>dp部分</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++) &#123;</div><div class="line">        <span class="keyword">if</span>(i == <span class="number">1</span>)</div><div class="line">            <span class="keyword">if</span>(j == <span class="number">1</span>)</div><div class="line">                dp[i][j] = Map[i][j];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                dp[i][j] = dp[<span class="number">1</span>][<span class="number">1</span>] + Map[i][j];</div><div class="line">        <span class="keyword">else</span></div><div class="line">            dp[i][j] = dp[i - <span class="number">1</span>][j] + Map[i][j];</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>;k &lt; j;k++)</div><div class="line">            <span class="keyword">if</span>(j % k == <span class="number">0</span> || k == j - <span class="number">1</span>)</div><div class="line">                dp[i][j] = max(dp[i][j],dp[i][k] + Map[i][j]);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>之前写过直接贴代码,哪看不懂可以直接问  </p>
+<figure class="highlight cpp"><figcaption><span>命运</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">25</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">1005</span>;</div><div class="line"><span class="keyword">int</span> Map[maxn][maxm];</div><div class="line"><span class="keyword">int</span> dp[maxn][maxm];</div><div class="line"><span class="function"><span class="keyword">void</span>  <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n,m;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++)</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;Map[i][j]);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++) &#123;</div><div class="line">            <span class="keyword">if</span>(i == <span class="number">1</span>)</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">1</span>)</div><div class="line">                    dp[i][j] = Map[i][j];</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    dp[i][j] = dp[<span class="number">1</span>][<span class="number">1</span>] + Map[i][j];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                dp[i][j] = dp[i - <span class="number">1</span>][j] + Map[i][j];</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">1</span>;k &lt; j;k++)</div><div class="line">                <span class="keyword">if</span>(j % k == <span class="number">0</span> || k == j - <span class="number">1</span>)</div><div class="line">                    dp[i][j] = max(dp[i][j],dp[i][k] + Map[i][j]);</div><div class="line">        &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][m]);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)</div><div class="line">        Do();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="狼抓兔子"><a href="#狼抓兔子" class="headerlink" title="狼抓兔子"></a>狼抓兔子</h1><p>题目中文的没有什么好说。<br>这道题目是关于最小割的一道题目。 </p>
+<p>最小割的经典算法是根据最大流最小割定理，将最小割化成最大流然后用 dinic 算法求解<br>不过这题比较特殊，即使转换成最大流求最小割依旧不可能通过。<br>因为时间和空间的双重限制，所以这道题的解法需要利用这个图的特殊性质。<br>给出的图是一个平面图无疑，那么利用平面图的特殊性质解决这个问题会简单很多。 将<br>平面图转换成其对偶图，然后计算新的源点到新的汇点的最短路径即可得出结果。 </p>
+<p>以下是代码：<br><figure class="highlight cpp"><figcaption><span>狼抓兔子</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> v,cap,nxt;</div><div class="line"></div><div class="line">    node(<span class="keyword">int</span> a = <span class="number">0</span>,<span class="keyword">int</span> b = <span class="number">0</span>,<span class="keyword">int</span> c = <span class="number">0</span>) &#123;</div><div class="line">        v = a;</div><div class="line">        cap = b;</div><div class="line">        nxt = c;</div><div class="line">    &#125;</div><div class="line">&#125;Edge;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2100005</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxm = <span class="number">6100005</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> inf = <span class="number">0x3f3f3f3f</span>;</div><div class="line"></div><div class="line">Edge edge[maxm];</div><div class="line"></div><div class="line"><span class="keyword">int</span> tot,head[maxn];</div><div class="line"><span class="keyword">int</span> vis[maxn],dis[maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> cap)</span> </span>&#123;</div><div class="line">    edge[tot] = Edge(v,cap,head[u]);</div><div class="line">    head[u] = tot++;</div><div class="line">    edge[tot] = Edge(u,cap,head[v]);</div><div class="line">    head[v] = tot++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    Edge e;</div><div class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</div><div class="line">    <span class="keyword">while</span>(!q.empty()) q.pop();</div><div class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</div><div class="line">    <span class="built_in">memset</span>(dis,<span class="number">0x3f</span>,<span class="keyword">sizeof</span>(dis));</div><div class="line">    dis[s] = <span class="number">0</span>;</div><div class="line">    vis[s] = <span class="number">1</span>;</div><div class="line">    q.push(s);</div><div class="line">    <span class="keyword">while</span>(!q.empty()) &#123;</div><div class="line">        x = q.front();</div><div class="line">        q.pop();</div><div class="line">        vis[x] = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[x];~i;i = edge[i].nxt) &#123;</div><div class="line">            e = edge[i];</div><div class="line">            <span class="keyword">if</span>(dis[x] + e.cap &lt; dis[e.v]) &#123;</div><div class="line">                dis[e.v] = dis[x] + e.cap;</div><div class="line">                <span class="keyword">if</span>(!vis[e.v]) &#123;</div><div class="line">                    vis[e.v] = <span class="number">1</span>;</div><div class="line">                    q.push(e.v);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">return</span> dis[t];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n,m,u,v,cap;</div><div class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m)) &#123;</div><div class="line">        <span class="keyword">if</span>(n == <span class="number">1</span> || m == <span class="number">1</span>) &#123;</div><div class="line">            <span class="keyword">if</span>(n &gt; m) swap(n,m);</div><div class="line">            <span class="keyword">int</span> ans = inf;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>,a;i &lt; m;++i) &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</div><div class="line">                ans = min(ans,a);</div><div class="line">            &#125; </div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans == inf ? <span class="number">0</span> : ans);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">int</span> s = <span class="number">0</span>,t = (m - <span class="number">1</span>) * <span class="number">2</span> * (n - <span class="number">1</span>) + <span class="number">1</span>;</div><div class="line">        tot = <span class="number">0</span>;</div><div class="line">        <span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;++i) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m - <span class="number">1</span>;++j) &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cap);</div><div class="line">                <span class="keyword">if</span>(i == <span class="number">1</span>) &#123;</div><div class="line">                    u = s;</div><div class="line">                    v = <span class="number">2</span> * j;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(i == n) &#123;</div><div class="line">                    u = (m - <span class="number">1</span>) * (n - <span class="number">2</span>) * <span class="number">2</span> + <span class="number">2</span> * j - <span class="number">1</span>;</div><div class="line">                    v = t;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    v = (m - <span class="number">1</span>) * <span class="number">2</span> * (i - <span class="number">2</span>) + <span class="number">2</span> * j - <span class="number">1</span>;</div><div class="line">                    u = (m - <span class="number">1</span>) * <span class="number">2</span> * (i - <span class="number">1</span>) + <span class="number">2</span> * j;</div><div class="line">                &#125; </div><div class="line">                add(u,v,cap);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;++i) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;++j) &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cap);</div><div class="line">                <span class="keyword">if</span>(j == <span class="number">1</span>) &#123;</div><div class="line">                    v = t;</div><div class="line">                    u = (m - <span class="number">1</span>)*(i - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">1</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>(j == m) &#123;</div><div class="line">                    u = s;</div><div class="line">                    v = (m - <span class="number">1</span>) * i * <span class="number">2</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    u = (m - <span class="number">1</span>) * (i - <span class="number">1</span>) * <span class="number">2</span> + <span class="number">2</span> * (j - <span class="number">1</span>);</div><div class="line">                    v = u + <span class="number">1</span>;</div><div class="line">                &#125;</div><div class="line">                add(u,v,cap);</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;++i) &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt; m;++j) &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cap);</div><div class="line">                u = (m - <span class="number">1</span>) * <span class="number">2</span> * (i - <span class="number">1</span>) + <span class="number">2</span> * j - <span class="number">1</span>;</div><div class="line">                v = u + <span class="number">1</span>;</div><div class="line">                add(u,v,cap);</div><div class="line">            &#125;</div><div class="line">        &#125; </div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,spfa(s,t));</div><div class="line">    &#125; </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Project/ACM2016_08_31.html" target="_blank" rel="external">ACM 2016级新生赛题解</a><br>文章地址：  <a href="/post/Project/ACM2016_08_31.html" target="_blank" rel="external">https://www.oyohyee.com/post/Project/ACM2016_08_31.html</a><br>创建时间：  2016-08-30 19:23:35<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&title=《ACM 2016级新生赛题解》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&title=《ACM 2016级新生赛题解》 — OhYee's Blog&source=本次比赛共 9 题主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔  
+题解比..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Project/ACM2016_08_31.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ACM 2016级新生赛题解》 — OhYee's Blog&url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Study/2016_08_28-2016_08_30.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2016-08-28 ~ 2016-08-30 学习报告</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Codeforces/711C.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Codeforces 711C.Coloring Trees</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&title=《ACM 2016级新生赛题解》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&title=《ACM 2016级新生赛题解》 — OhYee's Blog&source=本次比赛共 9 题主要目的是为了明确大家的实力,可以找到大家的短板,同时熟悉各种题型主要对象是自学过C\C++的同学,开学后会有正式的比赛选拔  
+题解比..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Project/ACM2016_08_31.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ACM 2016级新生赛题解》 — OhYee's Blog&url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Project/ACM2016_08_31.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Project/ACM2016_08_31.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

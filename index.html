@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6206"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-21 22:22:02 22:22:02" datetime="2017-09-21T14:22:02.000Z"  itemprop="datePublished">2017-09-21 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6206.html">HDU 6206.Apple</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Apple is Taotao’s favourite fruit. In his backyard, there are three apple trees with coordinates $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$. Now Taotao is planning to plant a new one, but he is not willing to take these trees too close. He believes that the new apple tree should be outside the circle which the three apple trees that already exist is on. Taotao picked a potential position $(x,y)$ of the new tree. Could you tell him if it is outside the circle or not?<br><br></div><div class="part" title="Input"><br>The first line contains an integer $T$, indicating that there are $T(T \leq 30)$ cases.<br>In the first line of each case, there are eight integers $x_1, y_1, x_2, y_2, x_3,y_3,x,y$, as described above.<br>The absolute values of integers in input are less than or equal to $1,000,000,000,000$.<br>It is guaranteed that, any three of the four positions do not lie on a straight line.<br><br></div><div class="part" title="Output"><br>For each case, output “Accepted” if the position is outside the circle, or “Rejected” if the position is on or inside the circle.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>-2 0 0 -2 2 0 2 -2<br>-2 0 0 -2 2 0 0 2<br>-2 0 0 -2 2 0 1 1<br><br></div><div class="output part" title="Sample Output"><br>Accepted<br>Rejected<br>Rejected<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/6206.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1696"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-14 00:42:00 00:42:00" datetime="2017-09-13T16:42:00.000Z"  itemprop="datePublished">2017-09-14 00:42:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1696.html">POJ 1696.Space Ant</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>The most exciting space discovery occurred at the end of the 20th century. In 1999, scientists traced down an ant-like creature in the planet Y1999 and called it M11. It has only one eye on the left side of its head and just three feet all on the right side of its body and suffers from three walking limitations:<br><br>It can not turn right due to its special body structure.<br>It leaves a red path while walking.<br>It hates to pass over a previously red colored path, and never does that.<br><br>The pictures transmitted by the Discovery space ship depicts that plants in the Y1999 grow in special points on the planet. Analysis of several thousands of the pictures have resulted in discovering a magic coordinate system governing the grow points of the plants. In this coordinate system with x and y axes,<br>       no two plants share the same x or y.<br>An M11 needs to eat exactly one plant in each day to stay alive. When it eats one plant, it remains there for the rest of the day with no move. Next day, it looks for another plant to go there and eat it. If it can not reach any other plant it dies by the end of the day. Notice that it can reach a plant in any distance.<br>The problem is to find a path for an M11 to let it live longest.<br>Input is a set of (x, y) coordinates of plants. Suppose A with the coordinates (xA, yA) is the plant with the least y-coordinate. M11 starts from point (0,yA) heading towards plant A. Notice that the solution path should not cross itself and all of the turns should be counter-clockwise. Also note that the solution may visit more than two plants located on a same straight line.<br><br></div><div class="part" title="Input"><br>The first line of the input is M, the number of test cases to be solved (1 &lt;= M &lt;= 10). For each test case, the first line is N, the number of plants in that test case (1 &lt;= N &lt;= 50), followed by N lines for each plant data. Each plant data consists of three integers: the first number is the unique plant index (1..N), followed by two positive integers x and y representing the coordinates of the plant. Plants are sorted by the increasing order on their indices in the input file. Suppose that the values of coordinates are at most 100.<br><br></div><div class="part" title="Output"><br>Output should have one separate line for the solution of each test case. A solution is the number of plants on the solution path, followed by the indices of visiting plants in the path in the order of their visits.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2<br>10<br>1 4 5<br>2 9 8<br>3 5 9<br>4 1 7<br>5 3 2<br>6 6 3<br>7 10 10<br>8 8 1<br>9 2 4<br>10 7 6<br>14<br>1 6 11<br>2 11 9<br>3 8 7<br>4 12 8<br>5 9 20<br>6 3 2<br>7 1 6<br>8 2 13<br>9 15 1<br>10 14 17<br>11 13 19<br>12 5 18<br>13 7 3<br>14 10 16<br><br></div><div class="output part" title="Sample Output"><br>10 8 7 3 4 9 5 6 2 1 10<br>14 9 10 11 5 12 8 7 6 13 4 14 1 3 2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1696.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Convex-Hull/">凸包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1410"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-13 22:36:20 22:36:20" datetime="2017-09-13T14:36:20.000Z"  itemprop="datePublished">2017-09-13 22:36:20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1410.html">POJ 1410.Intersection</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You are to write a program that has to decide whether a given line segment intersects a given rectangle.<br><br>An example:<br>line: start point: (4,9)<br>end point: (11,2)<br>rectangle: left-top: (1,5)<br>right-bottom: (7,1)<br><br><img src="/post/img/poj1410.jpg" alt=""><br>Figure 1: Line segment does not intersect rectangle<br><br>The line is said to intersect the rectangle if the line and the rectangle have at least one point in common. The rectangle consists of four straight lines and the area in between. Although all input values are integer numbers, valid intersection points do not have to lay on the integer grid.<br><br></div><div class="part" title="Input"><br>The input consists of n test cases. The first line of the input file contains the number n. Each following line contains one test case of the format:<br>       xstart ystart xend yend xleft ytop xright ybottom<br><br>where (xstart, ystart) is the start and (xend, yend) the end point of the line and (xleft, ytop) the top left and (xright, ybottom) the bottom right corner of the rectangle. The eight numbers are separated by a blank. The terms top left and bottom right do not imply any ordering of coordinates.<br><br></div><div class="part" title="Output"><br>For each test case in the input file, the output file should contain a line consisting either of the letter “T” if the line segment intersects the rectangle or the letter “F” if the line segment does not intersect the rectangle.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1<br>4 9 11 2 1 5 7 1<br><br></div><div class="output part" title="Sample Output"><br>F<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1410.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1066"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-13 00:21:10 00:21:10" datetime="2017-09-12T16:21:10.000Z"  itemprop="datePublished">2017-09-13 00:21:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1066.html">POJ 1066.Treasure Hunt</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Archeologists from the Antiquities and Curios Museum (ACM) have flown to Egypt to examine the great pyramid of Key-Ops. Using state-of-the-art technology they are able to determine that the lower floor of the pyramid is constructed from a series of straightline walls, which intersect to form numerous enclosed chambers. Currently, no doors exist to allow access to any chamber. This state-of-the-art technology has also pinpointed the location of the treasure room. What these dedicated (and greedy) archeologists want to do is blast doors through the walls to get to the treasure room. However, to minimize the damage to the artwork in the intervening chambers (and stay under their government grant for dynamite) they want to blast through the minimum number of doors. For structural integrity purposes, doors should only be blasted at the midpoint of the wall of the room being entered. You are to write a program which determines this minimum number of doors.<br>An example is shown below:<br><figure class="image-bubble"><br>                <div class="img-lightbox"><br>                    <div class="overlay"></div><br>                    <img src="/post/img/poj1066.jpg" alt="" title=""><br>                </div><br>                <div class="image-caption"></div><br>            </figure><br><br></div><div class="part" title="Input"><br>The input will consist of one case. The first line will be an integer n (0 &lt;= n &lt;= 30) specifying number of interior walls, followed by n lines containing integer endpoints of each wall x1 y1 x2 y2 . The 4 enclosing walls of the pyramid have fixed endpoints at (0,0); (0,100); (100,100) and (100,0) and are not included in the list of walls. The interior walls always span from one exterior wall to another exterior wall and are arranged such that no more than two walls intersect at any point. You may assume that no two given walls coincide. After the listing of the interior walls there will be one final line containing the floating point coordinates of the treasure in the treasure room (guaranteed not to lie on a wall).<br><br></div><div class="part" title="Output"><br>Print a single line listing the minimum number of doors which need to be created, in the format shown below.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>7<br>20 0 37 100<br>40 0 76 100<br>85 0 0 75<br>100 90 0 90<br>0 71 100 61<br>0 14 100 38<br>100 47 47 100<br>54.5 55.4<br><br></div><div class="output part" title="Sample Output"><br>Number of doors = 2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1066.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2653"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-12 21:22:13 21:22:13" datetime="2017-09-12T13:22:13.000Z"  itemprop="datePublished">2017-09-12 21:22:13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2653.html">POJ 2653.Pick-up sticks</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Stan has n sticks of various length. He throws them one at a time on the floor in a random way. After finishing throwing, Stan tries to find the top sticks, that is these sticks such that there is no stick on top of them. Stan has noticed that the last thrown stick is always on top but he wants to know all the sticks that are on top. Stan sticks are very, very thin such that their thickness can be neglected.<br><br></div><div class="part" title="Input"><br>Input consists of a number of cases. The data for each case start with 1 &lt;= n &lt;= 100000, the number of sticks for this case. The following n lines contain four numbers each, these numbers are the planar coordinates of the endpoints of one stick. The sticks are listed in the order in which Stan has thrown them. You may assume that there are no more than 1000 top sticks. The input is ended by the case with n=0. This case should not be processed.<br><br></div><div class="part" title="Output"><br>For each input case, print one line of output listing the top sticks in the format given in the sample. The top sticks should be listed in order in which they were thrown.<br><br>The picture to the right below illustrates the first case from input.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>1 1 4 2<br>2 3 3 1<br>1 -2.0 8 4<br>1 4 8 2<br>3 3 6 -2.0<br>3<br>0 0 1 1<br>1 0 2 1<br>2 0 3 1<br>0<br><br></div><div class="output part" title="Sample Output"><br>Top sticks: 2, 4, 5.<br>Top sticks: 1, 2, 3.<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/2653.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1269"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-12 20:56:07 20:56:07" datetime="2017-09-12T12:56:07.000Z"  itemprop="datePublished">2017-09-12 20:56:07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1269.html">POJ 1269.Intersecting Lines</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>We all know that a pair of distinct points on a plane defines a line and that a pair of lines on a plane will intersect in one of three ways: 1) no intersection because they are parallel, 2) intersect in a line because they are on top of one another (i.e. they are the same line), 3) intersect in a point. In this problem you will use your algebraic knowledge to create a program that determines how and where two lines intersect.<br><br>Your program will repeatedly read in four points that define two lines in the x-y plane and determine how and where the lines intersect. All numbers required by this problem will be reasonable, say between -1000 and 1000.<br><br></div><div class="part" title="Input"><br>The first line contains an integer N between 1 and 10 describing how many pairs of lines are represented. The next N lines will each contain eight integers. These integers represent the coordinates of four points on the plane in the order x1y1x2y2x3y3x4y4. Thus each of these input lines represents two lines on the plane: the line through (x1,y1) and (x2,y2) and the line through (x3,y3) and (x4,y4). The point (x1,y1) is always distinct from (x2,y2). Likewise with (x3,y3) and (x4,y4).<br><br></div><div class="part" title="Output"><br>There should be N+2 lines of output. The first line of output should read INTERSECTING LINES OUTPUT. There will then be one line of output for each pair of planar lines represented by a line of input, describing how the lines intersect: none, line, or point. If the intersection is a point then your program should output the x and y coordinates of the point, correct to two decimal places. The final line of output should read “END OF OUTPUT”.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>0 0 4 4 0 4 4 0<br>5 0 7 6 1 0 2 3<br>5 0 7 6 3 -6 4 -3<br>2 0 2 27 1 5 18 5<br>0 3 4 0 1 2 2 5<br><br></div><div class="output part" title="Sample Output"><br>INTERSECTING LINES OUTPUT<br>POINT 2.00 2.00<br>NONE<br>LINE<br>POINT 2.00 5.00<br>POINT 1.07 2.20<br>END OF OUTPUT<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1269.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2398"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-11 22:50:01 22:50:01" datetime="2017-09-11T14:50:01.000Z"  itemprop="datePublished">2017-09-11 22:50:01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2398.html">POJ 2398.Toy Storage</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Mom and dad have a problem: their child, Reza, never puts his toys away when he is finished playing with them. They gave Reza a rectangular box to put his toys in. Unfortunately, Reza is rebellious and obeys his parents by simply throwing his toys into the box. All the toys get mixed up, and it is impossible for Reza to find his favorite toys anymore.<br><br>Reza’s parents came up with the following idea. They put cardboard partitions into the box. Even if Reza keeps throwing his toys into the box, at least toys that get thrown into different partitions stay separate. The box looks like this from the top:<br><br>We want for each positive integer t, such that there exists a partition with t toys, determine how many partitions have t, toys.<br><br></div><div class="part" title="Input"><br>The input consists of a number of cases. The first line consists of six integers n, m, x1, y1, x2, y2. The number of cardboards to form the partitions is n (0 &lt; n &lt;= 1000) and the number of toys is given in m (0 &lt; m &lt;= 1000). The coordinates of the upper-left corner and the lower-right corner of the box are (x1, y1) and (x2, y2), respectively. The following n lines each consists of two integers Ui Li, indicating that the ends of the ith cardboard is at the coordinates (Ui, y1) and (Li, y2). You may assume that the cardboards do not intersect with each other. The next m lines each consists of two integers Xi Yi specifying where the ith toy has landed in the box. You may assume that no toy will land on a cardboard.<br><br>A line consisting of a single 0 terminates the input.<br><br></div><div class="part" title="Output"><br>For each box, first provide a header stating “Box” on a line of its own. After that, there will be one line of output per count (t &gt; 0) of toys in a partition. The value t will be followed by a colon and a space, followed the number of partitions containing t toys. Output will be sorted in ascending order of t for each box.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4 10 0 10 100 0<br>20 20<br>80 80<br>60 60<br>40 40<br>5 10<br>15 10<br>95 10<br>25 10<br>65 10<br>75 10<br>35 10<br>45 10<br>55 10<br>85 10<br>5 6 0 10 60 0<br>4 3<br>15 30<br>3 1<br>6 8<br>10 10<br>2 1<br>2 8<br>1 5<br>5 5<br>40 10<br>7 9<br>0<br><br></div><div class="output part" title="Sample Output"><br>Box<br>2: 5<br>Box<br>1: 4<br>2: 1<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/2398.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2318"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-11 22:16:12 22:16:12" datetime="2017-09-11T14:16:12.000Z"  itemprop="datePublished">2017-09-11 22:16:12</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2318.html">POJ 2318.TOYS</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Calculate the number of toys that land in each bin of a partitioned toy box.<br>       Mom and dad have a problem - their child John never puts his toys away when he is finished playing with them. They gave John a rectangular box to put his toys in, but John is rebellious and obeys his parents by simply throwing his toys into the box. All the toys get mixed up, and it is impossible for John to find his favorite toys.<br><br><img src="/post/img/poj2318.jpg" alt=""><br><br>John’s parents came up with the following idea. They put cardboard partitions into the box. Even if John keeps throwing his toys into the box, at least toys that get thrown into different bins stay separated. The following diagram shows a top view of an example toy box.<br><br>For this problem, you are asked to determine how many toys fall into each partition as John throws them into the toy box.<br><br></div><div class="part" title="Input"><br>The input file contains one or more problems. The first line of a problem consists of six integers, n m x1 y1 x2 y2. The number of cardboard partitions is n (0 &lt; n &lt;= 5000) and the number of toys is m (0 &lt; m &lt;= 5000). The coordinates of the upper-left corner and the lower-right corner of the box are (x1,y1) and (x2,y2), respectively. The following n lines contain two integers per line, Ui Li, indicating that the ends of the i-th cardboard partition is at the coordinates (Ui,y1) and (Li,y2). You may assume that the cardboard partitions do not intersect each other and that they are specified in sorted order from left to right. The next m lines contain two integers per line, Xj Yj specifying where the j-th toy has landed in the box. The order of the toy locations is random. You may assume that no toy will land exactly on a cardboard partition or outside the boundary of the box. The input is terminated by a line consisting of a single 0.<br><br></div><div class="part" title="Output"><br>The output for each problem will be one line for each separate bin in the toy box. For each bin, print its bin number, followed by a colon and one space, followed by the number of toys thrown into that bin. Bins are numbered from 0 (the leftmost bin) to n (the rightmost bin). Separate the output of different problems by a single blank line.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5 6 0 10 60 0<br>3 1<br>4 3<br>6 8<br>10 10<br>15 30<br>1 5<br>2 1<br>2 8<br>5 5<br>40 10<br>7 9<br>4 10 0 10 100 0<br>20 20<br>40 40<br>60 60<br>80 80<br> 5 10<br>15 10<br>25 10<br>35 10<br>45 10<br>55 10<br>65 10<br>75 10<br>85 10<br>95 10<br>0<br><br></div><div class="output part" title="Sample Output"><br>0: 2<br>1: 1<br>2: 1<br>3: 1<br>4: 0<br>5: 1<br><br>0: 2<br>1: 2<br>2: 2<br>3: 2<br>4: 2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/2318.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/4652"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-08 22:58:01 22:58:01" datetime="2017-09-08T14:58:01.000Z"  itemprop="datePublished">2017-09-08 22:58:01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/4652.html">HDU 4652.Dice</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each query has one of the following form:<br> <ul><li>0 m n: ask for the expected number of tosses until the last n times results are all same.</li><li>1 m n: ask for the expected number of tosses until the last n consecutive results are pairwise different.</li></ul><br><br></div><div class="part" title="Input"><br>The first line contains a number T.(1≤T≤100) The next T line each line contains a query as we mentioned above. (1≤m,n≤10<sup>6</sup>) For second kind query, we guarantee n≤m. And in order to avoid potential precision issue, we guarantee the result for our query will not exceeding 10<sup>9</sup> in this problem.<br><br></div><div class="part" title="Output"><br>For each query, output the corresponding result. The answer will be considered correct if the absolute or relative error doesn’t exceed 10<sup>-6</sup>.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>6<br>0 6 1<br>0 6 3<br>0 6 5<br>1 6 2<br>1 6 4<br>1 6 6<br>10<br>1 4534 25<br>1 1232 24<br>1 3213 15<br>1 4343 24<br>1 4343 9<br>1 65467 123<br>1 43434 100<br>1 34344 9<br>1 10001 15<br>1 1000000 2000<br><br></div><div class="output part" title="Sample Output"><br>1.000000000<br>43.000000000<br>1555.000000000<br>2.200000000<br>7.600000000<br>83.200000000<br>25.586315824<br>26.015990037<br>15.176341160<br>24.541045769<br>9.027721917<br>127.908330426<br>103.975455253<br>9.003495515<br>15.056204472<br>4731.706620396<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/4652.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Probability-DP/">概率dp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/svgfont"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-03 13:58:23 13:58:23" datetime="2017-09-03T05:58:23.000Z"  itemprop="datePublished">2017-09-03 13:58:23</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/svgfont.html">把svg图片转换为图标</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>图标可以用于页面的很多地方,通常来说,我们使用的是通过字体来实现小图标<br>但是当我们需要使用自己的图片时,也可以将svg图片转换为字体,实现图标<br>
+    
+
+        <a href="/post/Note/svgfont.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AOJ 907.进制转换 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="AOJ,高精度算法">
+    <meta name="description" content="题目点击显/隐题目 给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。对于样例2：196=350^1 + 4650^0第一行一个十进制正整数a(a&amp;lt;=10^3000)。第二行一个正整数d(2&amp;lt;=d&amp;lt;=100)将数字a转换成d进制从高位到低位依次输出（不要前导0），中间用空格隔开。样例一：532样例二：">
+<meta name="keywords" content="AOJ,高精度算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOJ 907.进制转换">
+<meta property="og:url" content="https://www.oyohyee.com/post/AOJ/907.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。对于样例2：196=350^1 + 4650^0第一行一个十进制正整数a(a&amp;lt;=10^3000)。第二行一个正整数d(2&amp;lt;=d&amp;lt;=100)将数字a转换成d进制从高位到低位依次输出（不要前导0），中间用空格隔开。样例一：532样例二：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOJ 907.进制转换">
+<meta name="twitter:description" content="题目点击显/隐题目 给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。对于样例2：196=350^1 + 4650^0第一行一个十进制正整数a(a&amp;lt;=10^3000)。第二行一个正整数d(2&amp;lt;=d&amp;lt;=100)将数字a转换成d进制从高位到低位依次输出（不要前导0），中间用空格隔开。样例一：532样例二：">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AOJ 907.进制转换</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">AOJ 907.进制转换</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-25T09:37:09.000Z" itemprop="datePublished" class="page-time">
+  2017-08-25 17:37:09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AOJ/907"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AOJ 907.进制转换</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-25 17:37:09 17:37:09" datetime="2017-08-25T09:37:09.000Z"  itemprop="datePublished">2017-08-25 17:37:09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。<br>数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。<br>对于样例2：<br>196=3<em>50^1 + 46</em>50^0<br><br></div><div class="part" title="Input"><br>第一行一个十进制正整数a(a&lt;=10^3000)。<br>第二行一个正整数d(2&lt;=d&lt;=100)<br><br></div><div class="part" title="Output"><br>将数字a转换成d进制从高位到低位依次输出（不要前导0），中间用空格隔开。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>样例一：<br>53<br>2<br>样例二：<br>196<br>50<br><br></div><div class="output part" title="Sample Output"><br>样例一：<br>1<br>1<br>0<br>1<br>0<br>1<br>样例二：<br>3<br>46<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>高精度下的进制转换  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>进制转换</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">* 完全大数模板 修改版</span></div><div class="line"><span class="comment">* 输出cin&gt;&gt;a</span></div><div class="line"><span class="comment">* 输出a.print();</span></div><div class="line"><span class="comment">* 注意这个输入不能自动去掉前导0的，可以先读入到char数组，去掉前导0，再用构造函数。</span></div><div class="line"><span class="comment">* by kuangbin GG.</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 9999</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 1010</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> DLEN 4</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BigNum</span> &#123;</span></div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> a[<span class="number">5000</span>]; <span class="comment">//可以控制大数的位数</span></div><div class="line">    <span class="keyword">int</span> len;</div><div class="line"></div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    BigNum() &#123;</div><div class="line">        len = <span class="number">1</span>;</div><div class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    &#125;                        <span class="comment">//构造函数</span></div><div class="line">    BigNum(<span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span>); <span class="comment">//将一个int类型的变量转化成大数</span></div><div class="line">    BigNum(<span class="keyword">const</span> <span class="keyword">char</span> *);    <span class="comment">//将一个字符串类型的变量转化为大数</span></div><div class="line">    BigNum(<span class="keyword">const</span> BigNum &amp;);  <span class="comment">//拷贝构造函数</span></div><div class="line">    BigNum &amp;<span class="keyword">operator</span>=(<span class="keyword">const</span> BigNum &amp;); <span class="comment">//重载赋值运算符，大数之间进行赋值运算</span></div><div class="line">    <span class="keyword">friend</span> istream &amp;<span class="keyword">operator</span>&gt;&gt;(istream &amp;, BigNum &amp;); <span class="comment">//重载输入运算符</span></div><div class="line">    <span class="keyword">friend</span> ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;, BigNum &amp;); <span class="comment">//重载输出运算符</span></div><div class="line">    BigNum</div><div class="line">    <span class="keyword">operator</span>+(<span class="keyword">const</span> BigNum &amp;) <span class="keyword">const</span>; <span class="comment">//重载加法运算符，两个大数之间的相加运算</span></div><div class="line">    BigNum</div><div class="line">    <span class="keyword">operator</span>-(<span class="keyword">const</span> BigNum &amp;) <span class="keyword">const</span>; <span class="comment">//重载减法运算符，两个大数之间的相减运算</span></div><div class="line">    BigNum</div><div class="line">    <span class="keyword">operator</span>*(<span class="keyword">const</span> BigNum &amp;)<span class="keyword">const</span>; <span class="comment">//重载乘法运算符，两个大数之间的相乘运算</span></div><div class="line">    BigNum</div><div class="line">    <span class="keyword">operator</span>/(<span class="keyword">const</span> <span class="keyword">int</span> &amp;) <span class="keyword">const</span>; <span class="comment">//重载除法运算符，大数对一个整数进行相除运算</span></div><div class="line">    BigNum <span class="keyword">operator</span>^(<span class="keyword">const</span> <span class="keyword">int</span> &amp;) <span class="keyword">const</span>; <span class="comment">//大数的n次方运算</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">operator</span>%(<span class="keyword">const</span> <span class="keyword">int</span> &amp;) <span class="keyword">const</span>; <span class="comment">//大数对一个int类型的变量进行取模运算</span></div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&gt;(<span class="keyword">const</span> BigNum &amp;T) <span class="keyword">const</span>; <span class="comment">//大数和另一个大数的大小比较</span></div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&gt;(<span class="keyword">const</span> <span class="keyword">int</span> &amp;t) <span class="keyword">const</span>; <span class="comment">//大数和一个int类型的变量的大小比较</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>;                       <span class="comment">//输出大数</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">read</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *s)</span></span>;           <span class="comment">//从字符串读入</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pre0</span><span class="params">(<span class="keyword">char</span> *s)</span></span>;                 <span class="comment">//取出字符串的前导0;</span></div><div class="line">&#125;;</div><div class="line">BigNum::BigNum(<span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> b) <span class="comment">//将一个int类型的变量转化为大数</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> <span class="keyword">long</span> c, d = b;</div><div class="line">    len = <span class="number">0</span>;</div><div class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    <span class="keyword">while</span> (d &gt; MAXN) &#123;</div><div class="line">        c = d - (d / (MAXN + <span class="number">1</span>)) * (MAXN + <span class="number">1</span>);</div><div class="line">        d = d / (MAXN + <span class="number">1</span>);</div><div class="line">        a[len++] = c;</div><div class="line">    &#125;</div><div class="line">    a[len++] = d;</div><div class="line">&#125;</div><div class="line">BigNum::BigNum(<span class="keyword">const</span> <span class="keyword">char</span> *s) <span class="comment">//将一个字符串类型的变量转化为大数</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> t, k, index, L, i;</div><div class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    L = <span class="built_in">strlen</span>(s);</div><div class="line">    len = L / DLEN;</div><div class="line">    <span class="keyword">if</span> (L % DLEN)</div><div class="line">        len++;</div><div class="line">    index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i = L - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i -= DLEN) &#123;</div><div class="line">        t = <span class="number">0</span>;</div><div class="line">        k = i - DLEN + <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (k &lt; <span class="number">0</span>)</div><div class="line">            k = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = k; j &lt;= i; j++)</div><div class="line">            t = t * <span class="number">10</span> + s[j] - <span class="string">'0'</span>;</div><div class="line">        a[index++] = t;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">BigNum::BigNum(<span class="keyword">const</span> BigNum &amp;T)</div><div class="line">    : len(T.len) <span class="comment">//拷贝构造函数</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</div><div class="line">        a[i] = T.a[i];</div><div class="line">&#125;</div><div class="line">BigNum &amp;BigNum::<span class="keyword">operator</span>=(<span class="keyword">const</span> BigNum &amp;n) <span class="comment">//重载赋值运算符，大数之间赋值运算</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    len = n.len;</div><div class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</div><div class="line">        a[i] = n.a[i];</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">&#125;</div><div class="line">istream &amp;<span class="keyword">operator</span>&gt;&gt;(istream &amp;in, BigNum &amp;b) &#123;</div><div class="line">    <span class="keyword">char</span> ch[MAXSIZE * <span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> i = <span class="number">-1</span>;</div><div class="line">    in &gt;&gt; ch;</div><div class="line">    <span class="keyword">int</span> L = <span class="built_in">strlen</span>(ch);</div><div class="line">    <span class="keyword">int</span> count = <span class="number">0</span>, sum = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i = L - <span class="number">1</span>; i &gt;= <span class="number">0</span>;) &#123;</div><div class="line">        sum = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> t = <span class="number">1</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span> &amp;&amp; i &gt;= <span class="number">0</span>; j++, i--, t *= <span class="number">10</span>) &#123;</div><div class="line">            sum += (ch[i] - <span class="string">'0'</span>) * t;</div><div class="line">        &#125;</div><div class="line">        b.a[count] = sum;</div><div class="line">        count++;</div><div class="line">    &#125;</div><div class="line">    b.len = count++;</div><div class="line">    <span class="keyword">return</span> in;</div><div class="line">&#125;</div><div class="line">ostream &amp;<span class="keyword">operator</span>&lt;&lt;(ostream &amp;out, BigNum &amp;b) <span class="comment">//重载输出运算符</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; b.a[b.len - <span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (i = b.len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%04d"</span>, b.a[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> out;</div><div class="line">&#125;</div><div class="line">BigNum BigNum::<span class="keyword">operator</span>+(<span class="keyword">const</span> BigNum &amp;T) <span class="keyword">const</span> <span class="comment">//两个大数之间的相加运算</span></div><div class="line">&#123;</div><div class="line">    <span class="function">BigNum <span class="title">t</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</div><div class="line">    <span class="keyword">int</span> i, big;</div><div class="line">    big = T.len &gt; len ? T.len : len;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; big; i++) &#123;</div><div class="line">        t.a[i] += T.a[i];</div><div class="line">        <span class="keyword">if</span> (t.a[i] &gt; MAXN) &#123;</div><div class="line">            t.a[i + <span class="number">1</span>]++;</div><div class="line">            t.a[i] -= MAXN + <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (t.a[big] != <span class="number">0</span>)</div><div class="line">        t.len = big + <span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        t.len = big;</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div><div class="line">BigNum BigNum::<span class="keyword">operator</span>-(<span class="keyword">const</span> BigNum &amp;T) <span class="keyword">const</span> <span class="comment">//两个大数之间的相减运算</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i, j, big;</div><div class="line">    <span class="keyword">bool</span> flag;</div><div class="line">    BigNum t1, t2;</div><div class="line">    <span class="keyword">if</span> (*<span class="keyword">this</span> &gt; T) &#123;</div><div class="line">        t1 = *<span class="keyword">this</span>;</div><div class="line">        t2 = T;</div><div class="line">        flag = <span class="number">0</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        t1 = T;</div><div class="line">        t2 = *<span class="keyword">this</span>;</div><div class="line">        flag = <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    big = t1.len;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; big; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (t1.a[i] &lt; t2.a[i]) &#123;</div><div class="line">            j = i + <span class="number">1</span>;</div><div class="line">            <span class="keyword">while</span> (t1.a[j] == <span class="number">0</span>)</div><div class="line">                j++;</div><div class="line">            t1.a[j--]--;</div><div class="line">            <span class="keyword">while</span> (j &gt; i)</div><div class="line">                t1.a[j--] += MAXN;</div><div class="line">            t1.a[i] += MAXN + <span class="number">1</span> - t2.a[i];</div><div class="line">        &#125; <span class="keyword">else</span></div><div class="line">            t1.a[i] -= t2.a[i];</div><div class="line">    &#125;</div><div class="line">    t1.len = big;</div><div class="line">    <span class="keyword">while</span> (t1.a[len - <span class="number">1</span>] == <span class="number">0</span> &amp;&amp; t1.len &gt; <span class="number">1</span>) &#123;</div><div class="line">        t1.len--;</div><div class="line">        big--;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (flag)</div><div class="line">        t1.a[big - <span class="number">1</span>] = <span class="number">0</span> - t1.a[big - <span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> t1;</div><div class="line">&#125;</div><div class="line">BigNum BigNum::<span class="keyword">operator</span>*(<span class="keyword">const</span> BigNum &amp;T) <span class="keyword">const</span> <span class="comment">//两个大数之间的相乘</span></div><div class="line">&#123;</div><div class="line">    BigNum ret;</div><div class="line">    <span class="keyword">int</span> i, j=<span class="number">0</span>, up;</div><div class="line">    <span class="keyword">int</span> temp, temp1;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">        up = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; T.len; j++) &#123;</div><div class="line">            temp = a[i] * T.a[j] + ret.a[i + j] + up;</div><div class="line">            <span class="keyword">if</span> (temp &gt; MAXN) &#123;</div><div class="line">                temp1 = temp - temp / (MAXN + <span class="number">1</span>) * (MAXN + <span class="number">1</span>);</div><div class="line">                up = temp / (MAXN + <span class="number">1</span>);</div><div class="line">                ret.a[i + j] = temp1;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                up = <span class="number">0</span>;</div><div class="line">                ret.a[i + j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (up != <span class="number">0</span>)</div><div class="line">            ret.a[i + j] = up;</div><div class="line">    &#125;</div><div class="line">    ret.len = i + j;</div><div class="line">    <span class="keyword">while</span> (ret.a[ret.len - <span class="number">1</span>] == <span class="number">0</span> &amp;&amp; ret.len &gt; <span class="number">1</span>)</div><div class="line">        ret.len--;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line">BigNum BigNum::<span class="keyword">operator</span>/(<span class="keyword">const</span> <span class="keyword">int</span> &amp;b) <span class="keyword">const</span> <span class="comment">//大数对一个整数进行相除运算</span></div><div class="line">&#123;</div><div class="line">    BigNum ret;</div><div class="line">    <span class="keyword">int</span> i, down = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">        ret.a[i] = (a[i] + down * (MAXN + <span class="number">1</span>)) / b;</div><div class="line">        down = a[i] + down * (MAXN + <span class="number">1</span>) - ret.a[i] * b;</div><div class="line">    &#125;</div><div class="line">    ret.len = len;</div><div class="line">    <span class="keyword">while</span> (ret.a[ret.len - <span class="number">1</span>] == <span class="number">0</span> &amp;&amp; ret.len &gt; <span class="number">1</span>)</div><div class="line">        ret.len--;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="keyword">int</span> BigNum::<span class="keyword">operator</span>%(<span class="keyword">const</span> <span class="keyword">int</span> &amp;b) <span class="keyword">const</span> <span class="comment">//大数对一个 int类型的变量进行取模</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i, d = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--)</div><div class="line">        d = ((d * (MAXN + <span class="number">1</span>)) % b + a[i]) % b;</div><div class="line">    <span class="keyword">return</span> d;</div><div class="line">&#125;</div><div class="line">BigNum BigNum::<span class="keyword">operator</span>^(<span class="keyword">const</span> <span class="keyword">int</span> &amp;n) <span class="keyword">const</span> <span class="comment">//大数的n次方运算</span></div><div class="line">&#123;</div><div class="line">    BigNum t, ret(<span class="number">1</span>);</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</div><div class="line">    <span class="keyword">int</span> m = n;</div><div class="line">    <span class="keyword">while</span> (m &gt; <span class="number">1</span>) &#123;</div><div class="line">        t = *<span class="keyword">this</span>;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">1</span>; (i &lt;&lt; <span class="number">1</span>) &lt;= m; i &lt;&lt;= <span class="number">1</span>)</div><div class="line">            t = t * t;</div><div class="line">        m -= i;</div><div class="line">        ret = ret * t;</div><div class="line">        <span class="keyword">if</span> (m == <span class="number">1</span>)</div><div class="line">            ret = ret * (*<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"><span class="keyword">bool</span> BigNum::<span class="keyword">operator</span>&gt;(<span class="keyword">const</span> BigNum &amp;T) <span class="keyword">const</span> <span class="comment">//大数和另一个大数的大小比较</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> ln;</div><div class="line">    <span class="keyword">if</span> (len &gt; T.len)</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (len == T.len) &#123;</div><div class="line">        ln = len - <span class="number">1</span>;</div><div class="line">        <span class="keyword">while</span> (a[ln] == T.a[ln] &amp;&amp; ln &gt;= <span class="number">0</span>)</div><div class="line">            ln--;</div><div class="line">        <span class="keyword">if</span> (ln &gt;= <span class="number">0</span> &amp;&amp; a[ln] &gt; T.a[ln])</div><div class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125; <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">bool</span> BigNum::<span class="keyword">operator</span>&gt;(<span class="keyword">const</span> <span class="keyword">int</span> &amp;t) <span class="keyword">const</span> <span class="comment">//大数和一个int类型的变量的大小比较</span></div><div class="line">&#123;</div><div class="line">    <span class="function">BigNum <span class="title">b</span><span class="params">(t)</span></span>;</div><div class="line">    <span class="keyword">return</span> *<span class="keyword">this</span> &gt; b;</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> BigNum::print() <span class="comment">//输出大数</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, a[len - <span class="number">1</span>]);</div><div class="line">    <span class="keyword">for</span> (i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%04d"</span>, a[i]);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">void</span> BigNum::read(<span class="keyword">const</span> <span class="keyword">char</span> *s) &#123;</div><div class="line">    <span class="keyword">int</span> t, k, index, L, i;</div><div class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</div><div class="line">    L = <span class="built_in">strlen</span>(s);</div><div class="line">    len = L / DLEN;</div><div class="line">    <span class="keyword">if</span> (L % DLEN)</div><div class="line">        len++;</div><div class="line">    index = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (i = L - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i -= DLEN) &#123;</div><div class="line">        t = <span class="number">0</span>;</div><div class="line">        k = i - DLEN + <span class="number">1</span>;</div><div class="line">        <span class="keyword">if</span> (k &lt; <span class="number">0</span>)</div><div class="line">            k = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = k; j &lt;= i; j++)</div><div class="line">            t = t * <span class="number">10</span> + s[j] - <span class="string">'0'</span>;</div><div class="line">        a[index++] = t;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre0</span><span class="params">(<span class="keyword">char</span> *s)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> len = <span class="built_in">strlen</span>(s);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (s[i] != <span class="string">'0'</span>) &#123;</div><div class="line">            pos = i;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = pos; i &lt; len; i++)</div><div class="line">        s[i - pos] = s[i];</div><div class="line">    s[len - pos] = <span class="string">'\0'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">char</span> s[<span class="number">3005</span>];</div><div class="line">BigNum n, zero;</div><div class="line"><span class="keyword">int</span> ans[<span class="number">150000</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> d;</div><div class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%s%d"</span>, s, &amp;d)) &#123;</div><div class="line">        pre0(s);</div><div class="line">        n = BigNum(s);</div><div class="line">        zero = BigNum(<span class="number">0L</span>L);</div><div class="line">        <span class="keyword">int</span> pos = <span class="number">0</span>;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (n &gt; zero) &#123;</div><div class="line">            ans[pos++] = n % d;</div><div class="line">            n = n / d;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = pos - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/AOJ/907.html" target="_blank" rel="external">AOJ 907.进制转换</a><br>文章地址：  <a href="/post/AOJ/907.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/907.html</a><br>创建时间：  2017-08-25 17:37:09<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/907.html&title=《AOJ 907.进制转换》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/907.html&title=《AOJ 907.进制转换》 — OhYee's Blog&source=题目点击显/隐题目
+给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。对于..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/907.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 907.进制转换》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/907.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/907.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/AOJ/911.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AOJ 911.组队分配</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/6154.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 6154.CaoHaha&#39;s staff</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/907.html&title=《AOJ 907.进制转换》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/907.html&title=《AOJ 907.进制转换》 — OhYee's Blog&source=题目点击显/隐题目
+给定一个十进制正整数a和一个数字d，你需要将a转换成d进制并输出。数字a转换成d进制后，每一个数位都是0~d-1之间的十进制整数。对于..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/907.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 907.进制转换》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/907.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/907.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/AOJ/907.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

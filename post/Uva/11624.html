@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Uva 11624.Fire! | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="BFS,Uva">
+    <meta name="description" content="题目  Joe works in a maze.Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.Help Joe escape the maze.Given Joe’s location in the m">
+<meta name="keywords" content="BFS,Uva">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Uva 11624.Fire!">
+<meta property="og:url" content="https://www.oyohyee.com/post/Uva/11624.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目  Joe works in a maze.Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.Help Joe escape the maze.Given Joe’s location in the m">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Uva 11624.Fire!">
+<meta name="twitter:description" content="题目  Joe works in a maze.Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.Help Joe escape the maze.Given Joe’s location in the m">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Uva 11624.Fire!</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">Uva 11624.Fire!</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-09-09T14:09:14.000Z" itemprop="datePublished" class="page-time">
+  2016-09-09 22:09:14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-text">Sample Input</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#"><span class="post-toc-text"> </span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#-1"><span class="post-toc-text"> </span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-text">Sample Output</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Uva/11624"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Uva 11624.Fire!</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-09-09 22:09:14 22:09:14" datetime="2016-09-09T14:09:14.000Z"  itemprop="datePublished">2016-09-09 22:09:14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<blockquote>
+<p>Joe works in a maze.<br>Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.<br>Help Joe escape the maze.<br>Given Joe’s location in the maze and which squares of the maze are on fire, you must determine whether Joe can exit the maze before the fire reaches him, and how fast he can do it.<br>Joe and the fire each move one square per minute, vertically or horizontally (not diagonally).<br>The fire spreads all four directions from each square that is on fire.<br>Joe may exit the maze from any square that borders the edge of the maze.<br>Neither Joe nor the fire may enter a square that is occupied by a wall.  </p>
+<a id="more"></a>  
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>The first line of input contains a single integer, the number of test cases to follow.<br>The first line of each test case contains the two integers R and C, separated by spaces, with 1 ≤ R, C ≤ 1000.<br>The following R lines of the test case each contain one row of the maze.<br>Each of these lines contains exactly C characters, and each of these characters is one of:  </p>
+<p>  #, a wall<br>  ., a passable square<br>  J, Joe’s initial position in the maze, which is a passable square<br>  F, a square that is on fire<br>There will be exactly one J in each test case.  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>For each test case, output a single line containing ‘IMPOSSIBLE’ if Joe cannot exit the maze before the<br>fire reaches him, or an integer giving the earliest time Joe can safely exit the maze, in minutes.  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>2<br>4 4  </p>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><p>#JF#  </p>
+<p>#..#  </p>
+<p>#..#<br>3 3  </p>
+<h3 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h3><p>#J.  </p>
+<p>#.F  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>3<br>IMPOSSIBLE  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p><strong>BFS问题</strong><br>只是迷宫的地图是动态的,可以在拓展结点的同时,判断是否需要更新迷宫地形,然后采用另一个 BFS 来更新火焰的位置<br>需要注意的是 <strong>火焰起点不止一个</strong>   </p>
+<p>其他就是标准的模板  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><figcaption><span>Fire!</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">Blog:http://www.oyohyee.com/</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x7FFFFFFF</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-10</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> delta[<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</div><div class="line"></div><div class="line"><span class="keyword">char</span> Map[maxn][maxn];</div><div class="line"><span class="keyword">bool</span> vis[maxn][maxn];</div><div class="line"><span class="keyword">bool</span> fvis[maxn][maxn];</div><div class="line"><span class="keyword">int</span> n,m;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> x,y,dis;</div><div class="line">    Node(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> dis) &#123;</div><div class="line">        <span class="keyword">this</span>-&gt;x = x;</div><div class="line">        <span class="keyword">this</span>-&gt;y = y;</div><div class="line">        <span class="keyword">this</span>-&gt;dis = dis;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">queue</span>&lt;Node&gt; Q;</div><div class="line"><span class="built_in">queue</span>&lt;Node&gt; Qf;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">fire</span><span class="params">(<span class="keyword">int</span> d)</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span>(!Qf.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> x = Qf.front().x;</div><div class="line">        <span class="keyword">int</span> y = Qf.front().y;</div><div class="line">        <span class="keyword">int</span> dis = Qf.front().dis;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(dis &gt; d) &#123;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            Qf.pop();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">3</span>;i++) &#123;</div><div class="line">            <span class="keyword">int</span> xx = x + delta[i];</div><div class="line">            <span class="keyword">int</span> yy = y + delta[<span class="number">3</span> - i];</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(xx&lt;<span class="number">1</span> || xx&gt;n || yy&lt;<span class="number">1</span> || yy&gt;m)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span>(Map[xx][yy] == <span class="string">'#'</span>)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span>(fvis[xx][yy])</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">            fvis[xx][yy] = <span class="literal">true</span>;</div><div class="line">            Map[xx][yy] = <span class="string">'F'</span>;</div><div class="line">            </div><div class="line">            Qf.push(Node(xx,yy,dis + <span class="number">1</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> jx,jy;</div><div class="line"></div><div class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</div><div class="line"></div><div class="line">    <span class="built_in">memset</span>(vis,<span class="literal">false</span>,<span class="keyword">sizeof</span>(vis));</div><div class="line">    <span class="built_in">memset</span>(fvis,<span class="literal">false</span>,<span class="keyword">sizeof</span>(fvis));</div><div class="line">    <span class="keyword">while</span>(!Q.empty())</div><div class="line">        Q.pop();</div><div class="line">    <span class="keyword">while</span>(!Qf.empty())</div><div class="line">        Qf.pop();</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++) &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;j &lt;= m;j++) &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; Map[i][j];</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(Map[i][j] == <span class="string">'J'</span>)</div><div class="line">                jx = i,jy = j;</div><div class="line">            <span class="keyword">if</span>(Map[i][j] == <span class="string">'F'</span>) &#123;</div><div class="line">                Qf.push(Node(i,j,<span class="number">0</span>));</div><div class="line">                fvis[i][j] = <span class="literal">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    Map[jx][jy] = <span class="string">'.'</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">int</span> ans = <span class="number">-1</span>;</div><div class="line"></div><div class="line">    Q.push(Node(jx,jy,<span class="number">0</span>));</div><div class="line">    vis[jx][jy] = <span class="literal">true</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> lastdis = <span class="number">-1</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> x = Q.front().x;</div><div class="line">        <span class="keyword">int</span> y = Q.front().y;</div><div class="line">        <span class="keyword">int</span> dis = Q.front().dis;</div><div class="line">        Q.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(dis != lastdis) &#123;</div><div class="line">            fire(dis);</div><div class="line">            lastdis = dis;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">3</span>;i++) &#123;</div><div class="line">            <span class="keyword">int</span> xx = x + delta[i];</div><div class="line">            <span class="keyword">int</span> yy = y + delta[<span class="number">3</span> - i];</div><div class="line">            <span class="keyword">int</span> dist = dis + <span class="number">1</span>;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(xx&lt;<span class="number">1</span> || xx&gt;n || yy&lt;<span class="number">1</span> || yy&gt;m) &#123;</div><div class="line">                ans = dist;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span>(Map[xx][yy] == <span class="string">'.'</span> &amp;&amp; vis[xx][yy] == <span class="literal">false</span>) &#123;</div><div class="line">                vis[xx][yy] = <span class="literal">true</span>;</div><div class="line">                Q.push(Node(xx,yy,dist));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(ans != <span class="number">-1</span>)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(ans == <span class="number">-1</span>)</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"IMPOSSIBLE"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; T;</div><div class="line">    <span class="keyword">while</span>(T--)</div><div class="line">        Do();</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Uva/11624.html" target="_blank" rel="external">Uva 11624.Fire!</a><br>文章地址：  <a href="/post/Uva/11624.html" target="_blank" rel="external">https://www.oyohyee.com/post/Uva/11624.html</a><br>创建时间：  2016-09-09 22:09:14<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Uva/11624.html&title=《Uva 11624.Fire!》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Uva/11624.html&title=《Uva 11624.Fire!》 — OhYee's Blog&source=题目
+
+Joe works in a maze.Unfortunately, portions of the maze have caught on fi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Uva/11624.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Uva 11624.Fire!》 — OhYee's Blog&url=https://www.oyohyee.com/post/Uva/11624.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Uva/11624.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/1166.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 1166.敌兵布阵</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/POJ/1995.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">POJ 1995.Raising Modulo Numbers</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Uva/11624.html&title=《Uva 11624.Fire!》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Uva/11624.html&title=《Uva 11624.Fire!》 — OhYee's Blog&source=题目
+
+Joe works in a maze.Unfortunately, portions of the maze have caught on fi..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Uva/11624.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Uva 11624.Fire!》 — OhYee's Blog&url=https://www.oyohyee.com/post/Uva/11624.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Uva/11624.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Uva/11624.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

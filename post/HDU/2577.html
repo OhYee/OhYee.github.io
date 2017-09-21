@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 2577.How to Type | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,HDU,模拟">
+    <meta name="description" content="题目 Description Pirates have finished developing the typing software. He called Cathy to test his typing software. She is good at thinking. After testing for several days, she finds that if she types a">
+<meta name="keywords" content="动态规划,HDU,模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 2577.How to Type">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/2577.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目 Description Pirates have finished developing the typing software. He called Cathy to test his typing software. She is good at thinking. After testing for several days, she finds that if she types a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 2577.How to Type">
+<meta name="twitter:description" content="题目 Description Pirates have finished developing the typing software. He called Cathy to test his typing software. She is good at thinking. After testing for several days, she finds that if she types a">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 2577.How to Type</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 2577.How to Type</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-07-20T03:34:26.000Z" itemprop="datePublished" class="page-time">
+  2016-07-20 11:34:26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Description"><span class="post-toc-text">Description</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Input"><span class="post-toc-text">Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Output"><span class="post-toc-text">Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Input"><span class="post-toc-text">Sample Input</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sample-Output"><span class="post-toc-text">Sample Output</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hint"><span class="post-toc-text">Hint</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#翻译"><span class="post-toc-text">翻译</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#背景"><span class="post-toc-text">背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入"><span class="post-toc-text">输入</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出"><span class="post-toc-text">输出</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#提示"><span class="post-toc-text">提示</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/2577"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 2577.How to Type</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-07-20 11:34:26 11:34:26" datetime="2016-07-20T03:34:26.000Z"  itemprop="datePublished">2016-07-20 11:34:26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Pirates have finished developing the typing software. He called Cathy to test his typing software. She is good at thinking. After testing for several days, she finds that if she types a string by some ways, she will type the key at least. But she has a bad habit that if the caps lock is on, she must turn off it, after she finishes typing. Now she wants to know the smallest times of typing the key to finish typing a string.  </p>
+<a id="more"></a>  
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>The first line is an integer t (t&lt;=100), which is the number of test case in the input file. For each test case, there is only one string which consists of lowercase letter and upper case letter. The length of the string is at most 100.  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>For each test case, you must output the smallest times of typing the key to finish typing this string.  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>3<br>Pirates<br>HDUacm<br>HDUACM   </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>8<br>8<br>8   </p>
+<h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h2><p> The string “Pirates”, can type this way, Shift, p, i, r, a, t, e, s, the answer is 8. The string “HDUacm”, can type this way, Caps lock, h, d, u, Caps lock, a, c, m, the answer is 8 The string “HDUACM”, can type this way Caps lock h, d, u, a, c, m, Caps lock, the answer is 8   </p>
+</blockquote>
+</blockquote>
+<h1 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h1><blockquote>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><blockquote>
+<p>海盗们开发了打字软件<br>他们让善于思考的凯西来测试他的打字软件<br>测试了几天后,她发现她可以用不同的方式打不同的字母( <code>Caps lock</code> 、 <code>shift</code> )<br>但她有个坏习惯,如果使用大写锁定( <code>Caps lock</code> ),打完后必须要关掉它<br>现在她想知道输入一个字符串的最小完成时间   </p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>第一行是数据数 <code>t</code> ( <code>t&lt;=100</code> )<br>接下来 <code>t</code> 行每行是一个只有大小写字母的字符串  </p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>对于每组数据,在一行内输出最少花费的时间(按键数)  </p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于 <code>Pirates</code> 可以这样输入 <code>shift</code> <code>p</code> <code>i</code> <code>r</code> <code>a</code> <code>t</code> <code>e</code> <code>s</code> 这样输入,共需要 <code>8</code> 个键<br>对于 <code>HDUacm</code> 可以这样输入 <code>Cap Lock</code> <code>h</code> <code>d</code> <code>u</code> <code>Cap Lock</code> <code>a</code> <code>c</code> <code>m</code> 这样输入,共需要 <code>8</code> 个键<br>对于 <code>HDUACM</code> 可以这样输入 <code>Cap Lock</code> <code>h</code> <code>d</code> <code>u</code> <code>a</code> <code>c</code> <code>m</code> <code>Cap Lock</code> 这样输入,共需要 <code>8</code> 个键   </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>自然,作为动态规划的题目,这道题可以使用动态规划求解,但是模拟相对会更快一点  </p>
+<p>首先,对于一个字符,需要判断大小写,同时需要一个变量记录 <code>Cap Lock</code> 是否开启,一个变量记录上一个字符<br>如果 <code>Cap Lock</code> 关闭,字符是小写;或者 <code>Cap Lock</code> 开启,字符是大写,直接把记录 <code>+1</code> 即可<br>如果 <code>Cap Lock</code> 和要输入的字符不同,就需要分类判断了<br>由于开始和最后 <code>Cap Lock</code> 是关闭的,要想维持这种状态必须需要按下两次 <code>Cap Lock</code><br>如果只是一个键的键入,就不应该用 <code>Cap Lock</code> ,而是应该用 <code>shift</code><br>而两个键时,两种方法效果相同,不过为了下一个字符的方便,还是变成 <code>Cap Lock</code><br>不管是大写中有一个小写还是小写中有一个大写,都应该符合这些  </p>
+<p>字符输入完后,还需要判断 <code>Cap Lock</code> 的状态<br>在 <code>AAa</code> 形式的情况下,由于按照上面的情况,采取了使用 <code>shift</code> 的方法来保证最优(如果后面还有字符)<br>然而最后一个字符关掉 <code>Cap Lock</code> 才是最好的选择<br>因此,如果 <code>Cap Lock</code> 打开,并且最后一个字符是大写时,我们需要额外一次按键来保证关闭 <code>Cap Lock</code>  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><figcaption><span>How to Type</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">HomePage:http://www.oyohyee.com</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">islower</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (c &gt;= <span class="string">'a'</span>&amp;&amp;c &lt;= <span class="string">'z'</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">isupper</span><span class="params">(<span class="keyword">char</span> c)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (c &gt;= <span class="string">'A'</span>&amp;&amp;c &lt;= <span class="string">'Z'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> dp=<span class="number">0</span>;</div><div class="line">    <span class="keyword">bool</span> Cap = <span class="literal">false</span>;</div><div class="line">    <span class="keyword">char</span> c = getchar(),last = <span class="string">'a'</span>;</div><div class="line">    <span class="keyword">while</span>(!(<span class="built_in">islower</span>(c) || <span class="built_in">isupper</span>(c)))</div><div class="line">        c=getchar();</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">islower</span>(c) || <span class="built_in">isupper</span>(c)) &#123;</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">islower</span>(c)) &#123;</div><div class="line">            <span class="comment">//字符是小写</span></div><div class="line">            <span class="keyword">if</span>(Cap) &#123;</div><div class="line">                <span class="keyword">if</span>(<span class="built_in">islower</span>(last)) &#123;</div><div class="line">                    dp += <span class="number">1</span>;</div><div class="line">                    Cap = <span class="literal">false</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    dp += <span class="number">2</span>;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                dp++;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span>(Cap) &#123;</div><div class="line">                dp++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span>(<span class="built_in">isupper</span>(last)) &#123;</div><div class="line">                    dp++;</div><div class="line">                    Cap = <span class="literal">true</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    dp += <span class="number">2</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        last = c;</div><div class="line">        c = getchar();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(Cap)</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">isupper</span>(last))</div><div class="line">            dp++;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)</div><div class="line">        Do();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/2577.html" target="_blank" rel="external">HDU 2577.How to Type</a><br>文章地址：  <a href="/post/HDU/2577.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/2577.html</a><br>创建时间：  2016-07-20 11:34:26<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/2577.html&title=《HDU 2577.How to Type》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/2577.html&title=《HDU 2577.How to Type》 — OhYee's Blog&source=题目
+Description
+Pirates have finished developing the typing software. He calle..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/2577.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 2577.How to Type》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/2577.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/2577.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/2844.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 2844.Coins</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Study/2016_07_17-2016_07_19.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2016-07-17 ~ 2016-07-19 学习报告</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/2577.html&title=《HDU 2577.How to Type》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/2577.html&title=《HDU 2577.How to Type》 — OhYee's Blog&source=题目
+Description
+Pirates have finished developing the typing software. He calle..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/2577.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 2577.How to Type》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/2577.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/2577.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/2577.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

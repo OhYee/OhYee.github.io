@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AOJ 865.青铜莲花池 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="AOJ,最短路,BFS">
+    <meta name="description" content="题目点击显/隐题目 为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是坚固得令人惊讶的莲花，还有一些格子是岩石，其余的只是美丽、纯净、湛蓝的水。贝西正在练习芭蕾舞，她站在一朵莲花上，想跳到另一朵莲花上去，她只能从一朵莲花跳到另一朵莲花上，既不能跳到水里，也不能跳到岩石上。贝西的舞步很像象棋中的马步：每次总是先横向移">
+<meta name="keywords" content="AOJ,最短路,BFS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOJ 865.青铜莲花池">
+<meta property="og:url" content="https://www.oyohyee.com/post/AOJ/865.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是坚固得令人惊讶的莲花，还有一些格子是岩石，其余的只是美丽、纯净、湛蓝的水。贝西正在练习芭蕾舞，她站在一朵莲花上，想跳到另一朵莲花上去，她只能从一朵莲花跳到另一朵莲花上，既不能跳到水里，也不能跳到岩石上。贝西的舞步很像象棋中的马步：每次总是先横向移">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOJ 865.青铜莲花池">
+<meta name="twitter:description" content="题目点击显/隐题目 为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是坚固得令人惊讶的莲花，还有一些格子是岩石，其余的只是美丽、纯净、湛蓝的水。贝西正在练习芭蕾舞，她站在一朵莲花上，想跳到另一朵莲花上去，她只能从一朵莲花跳到另一朵莲花上，既不能跳到水里，也不能跳到岩石上。贝西的舞步很像象棋中的马步：每次总是先横向移">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AOJ 865.青铜莲花池</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">AOJ 865.青铜莲花池</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-05T03:42:03.000Z" itemprop="datePublished" class="page-time">
+  2017-05-05 11:42:03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AOJ/865"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AOJ 865.青铜莲花池</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-05-05 11:42:03 11:42:03" datetime="2017-05-05T03:42:03.000Z"  itemprop="datePublished">2017-05-05 11:42:03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是坚固得令人惊讶的莲花，还有一些格子是岩石，其余的只是美丽、纯净、湛蓝的水。<br>贝西正在练习芭蕾舞，她站在一朵莲花上，想跳到另一朵莲花上去，她只能从一朵莲花跳到另一朵莲花上，既不能跳到水里，也不能跳到岩石上。<br>贝西的舞步很像象棋中的马步：每次总是先横向移动M1 （1 ≤ M1 ≤ 30）格，再纵向移动M2 （1 ≤ M2 ≤ 30, M1 M2）格，或先纵向移动M1格，再横向移动M2格。最多时，贝西会有八个移动方向可供选择。<br>给定池塘的布局和贝西的跳跃长度，请计算贝西从起点出发，到达目的地的最小步数，我们保证输入数据中的目的地一定是可达的。<br><br></div><div class="part" title="Input"><br>第一行：四个用空格分开的整数：M，N，M1和M2<br>第二行到M + 1行：第i + 1行有N个用空格分开的整数，描述了池塘第i行的状态：0 为水，1 为莲花，2 为岩石，3 为贝西所在的起点，4 为贝西想去的终点。<br><br></div><div class="part" title="Output"><br>第一行：从起点到终点的最少步数<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4 5 1 2<br>1 0 1 0 1<br>3 0 2 0 4<br>0 1 2 0 0<br>0 0 0 1 0 4 5 1 2<br>1 0 1 0 1<br>3 0 2 0 4<br>0 1 2 0 0<br>0 0 0 1 0<br><br></div><div class="output part" title="Sample Output"><br>22<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>标准的BFS问题,节点的拓展方式比较多<br>题意为每一步是先跳到一个荷叶,再跳到另一片荷叶<br>实际操作<strong>不考虑中间的荷叶是否能走</strong></p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>青铜莲花池</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*/</span></div><div class="line"><span class="comment">#define debug</span></div><div class="line"><span class="comment">#include &lt;ctime&gt;</span></div><div class="line"><span class="comment">//*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">35</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> delta[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">1</span>&#125;&#125;;</div><div class="line"><span class="keyword">int</span> Map[maxn][maxn];</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> x, y;</div><div class="line">    Point(<span class="keyword">int</span> _x = <span class="number">0</span>, <span class="keyword">int</span> _y = <span class="number">0</span>) : x(_x), y(_y) &#123;&#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> Point &amp;rhs) <span class="keyword">const</span> &#123; <span class="keyword">return</span> x == rhs.x &amp;&amp; y == rhs.y; &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">queue</span>&lt;Point&gt; Q;</div><div class="line"><span class="keyword">int</span> dis[maxn][maxn];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">int</span> d1, <span class="keyword">int</span> d2, Point s, Point v)</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(dis, <span class="number">0</span>, <span class="keyword">sizeof</span>(dis));</div><div class="line">    <span class="keyword">while</span> (!Q.empty())</div><div class="line">        Q.pop();</div><div class="line"></div><div class="line">    Q.push(s);</div><div class="line">    dis[s.x][s.y] = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (!Q.empty()) &#123;</div><div class="line">        Point t = Q.front();</div><div class="line">        Q.pop();</div><div class="line">        <span class="keyword">if</span> (t == v)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> xx = t.x + delta[i][<span class="number">0</span>] * d1;</div><div class="line">            <span class="keyword">int</span> yy = t.y + delta[i][<span class="number">1</span>] * d2;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (xx &lt; <span class="number">0</span> || xx &gt;= m || yy &lt; <span class="number">0</span> || yy &gt;= n)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span> (dis[xx][yy] || Map[xx][yy] == <span class="number">0</span> || Map[xx][yy] == <span class="number">2</span>)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="comment">// if (!(Map[t.x][yy] == 1 || Map[xx][t.y] == 1 || Map[t.x][yy] == 4 || Map[xx][t.y] == 4))</span></div><div class="line">            <span class="comment">//     continue;</span></div><div class="line"></div><div class="line">            dis[xx][yy] = dis[t.x][t.y] + <span class="number">1</span>;</div><div class="line">            Q.push(Point(xx, yy));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">3</span>; i++) &#123;</div><div class="line">            <span class="keyword">int</span> xx = t.x + delta[i][<span class="number">0</span>] * d2;</div><div class="line">            <span class="keyword">int</span> yy = t.y + delta[i][<span class="number">1</span>] * d1;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (xx &lt; <span class="number">0</span> || xx &gt;= m || yy &lt; <span class="number">0</span> || yy &gt;= n)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span> (dis[xx][yy] || Map[xx][yy] == <span class="number">0</span> || Map[xx][yy] == <span class="number">2</span>)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="comment">// if (!(Map[t.x][yy] == 1 || Map[xx][t.y] == 1 || Map[t.x][yy] == 4 || Map[xx][t.y] == 4))</span></div><div class="line">            <span class="comment">//     continue;</span></div><div class="line"></div><div class="line">            dis[xx][yy] = dis[t.x][t.y] + <span class="number">1</span>;</div><div class="line">            Q.push(Point(xx, yy));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> dis[v.x][v.y];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    <span class="keyword">int</span> START = clock();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"></div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line">    <span class="keyword">int</span> M, N, M1, M2;</div><div class="line">    Point s, v;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;M, &amp;N, &amp;M1, &amp;M2) != EOF) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;Map[i][j]);</div><div class="line">                <span class="keyword">if</span> (Map[i][j] == <span class="number">3</span>) &#123;</div><div class="line">                    s.x = i;</div><div class="line">                    s.y = j;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">if</span> (Map[i][j] == <span class="number">4</span>) &#123;</div><div class="line">                    v.x = i;</div><div class="line">                    v.y = j;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, bfs(M, N, M1, M2, s, v));</div><div class="line">    <span class="comment">// for (int i = 0; i &lt; M; i++) &#123;</span></div><div class="line">    <span class="comment">//     for (int j = 0; j &lt; N; j++)</span></div><div class="line">    <span class="comment">//         printf("%d ", dis[i][j]);</span></div><div class="line">    <span class="comment">//     printf("\n");</span></div><div class="line">    <span class="comment">// &#125;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Time:%.3fs.\n"</span>, <span class="keyword">double</span>(clock() - START) / CLOCKS_PER_SEC);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/AOJ/865.html" target="_blank" rel="external">AOJ 865.青铜莲花池</a><br>文章地址：  <a href="/post/AOJ/865.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/865.html</a><br>创建时间：  2017-05-05 11:42:03<br>更新时间：  2017-08-25 20:31:42
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/865.html&title=《AOJ 865.青铜莲花池》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/865.html&title=《AOJ 865.青铜莲花池》 — OhYee's Blog&source=题目点击显/隐题目
+为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/865.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 865.青铜莲花池》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/865.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/865.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/AOJ/866.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AOJ 866.飞跃原野</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Note/Ubuntu_on_UDisk.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">随身携带Ubuntu系统(非启动盘)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/865.html&title=《AOJ 865.青铜莲花池》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/865.html&title=《AOJ 865.青铜莲花池》 — OhYee's Blog&source=题目点击显/隐题目
+为了让奶牛们娱乐和锻炼，农夫约翰建造了一个美丽的池塘。这个长方形的池子被分成了M行N列个方格（1 ≤ M, N ≤ 30）。一些格子是..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/865.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 865.青铜莲花池》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/865.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/865.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/AOJ/865.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

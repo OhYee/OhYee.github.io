@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/11/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/483"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-18 19:32:42 19:32:42" datetime="2017-03-18T11:32:42.000Z"  itemprop="datePublished">2017-03-18 19:32:42</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/483.html">AOJ 483.求素数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>用筛选法求(1,n]之内的全部素数  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>行1：一个整数n，n∈[2,100000]  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>每行输出一个素数，由小到大排列  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>20  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>2<br>3<br>5<br>7<br>11<br>13<br>17<br>19  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/AOJ/483.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/480"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-18 19:19:24 19:19:24" datetime="2017-03-18T11:19:24.000Z"  itemprop="datePublished">2017-03-18 19:19:24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/480.html">AOJ 480.分数序列求和</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>有一个分数序列:2/1,3/2,5/3,8/5……求出这个数列的前n项之和.  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>行1：一个整数n，n∈[1,40]  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>行1：累加和，精确到小数点后6位  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>20  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>32.660261  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/AOJ/480.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/double/">double</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/SQL_Restore"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-17 12:19:01 12:19:01" datetime="2017-03-17T04:19:01.000Z"  itemprop="datePublished">2017-03-17 12:19:01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/SQL_Restore.html">服务器 SQL 数据库还原</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>解决了两个问题：</p>
+<ul>
+<li><a href="#a1">未正常卸载 SQL 2005 的情况下重装 SQL 提示 “<strong>工作站组件、联机丛书和开发工具安装失败</strong>“</a></li>
+<li><a href="#a2">在只有 MDF 和 LDF 文件情况下还原数据库</a>
+    
+
+        <a href="/post/Note/SQL_Restore.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Database/">数据库</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/LearnAndroid"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-11 23:22:21 23:22:21" datetime="2017-03-11T15:22:21.000Z"  itemprop="datePublished">2017-03-11 23:22:21</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/LearnAndroid.html">学习安卓开发</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>安卓又是一个大坑<br>
+    
+
+        <a href="/post/Note/LearnAndroid.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-COGS/185"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-06 22:41:50 22:41:50" datetime="2017-03-06T14:41:50.000Z"  itemprop="datePublished">2017-03-06 22:41:50</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/COGS/185.html">COGS 185.挖水井</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>农夫约翰决定给他的N（1&lt;=N&lt;=300）个牧场浇水，这些牧场被自然的命名为1..N。<br>他可以给一个牧场引入水通过在这个牧场挖一口井或者修一条管道使这个牧场和一个已经有水的牧场连接。<br>在牧场i挖一口井的花费是w_i（1&lt;=w_i&lt;=100000）。<br>修建一条水管连接牧场i和牧场j的花费是p_ij（1&lt;=p_ij&lt;=100000;p_ij=p_ji;p_ii=0）。<br>请确定农夫约翰为了完成浇灌所有的牧场所需的最小的总花费。  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>第1行：一个单独的整数n。<br>第2..n+1行：第i+1行包含一个单独的整数w_i。<br>第n+2..2n+1行：第n+1+i行包含n个用空可分开的整数；其中第j个数是p_ij。  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>第1行：一个单独的整数，表示花费。  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>4<br>5<br>4<br>4<br>3<br>0 2 2 2<br>2 0 3 3<br>2 3 0 4<br>2 3 4 0  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>9</p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/COGS/185.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/COGS/">COGS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">最小生成树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Project/AOJ8th"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-02 20:02:10 20:02:10" datetime="2017-03-02T12:02:10.000Z"  itemprop="datePublished">2017-03-02 20:02:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Project/AOJ8th.html">安徽大学第八届程序设计竞赛 现场决赛</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <table>
+<thead>
+<tr>
+<th style="text-align:center">题号</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">题解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">788</td>
+<td style="text-align:center">数方块</td>
+<td style="text-align:center"><a href="/post/AOJ/788.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">789</td>
+<td style="text-align:center">买酒</td>
+<td style="text-align:center"><a href="/post/AOJ/789.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">793</td>
+<td style="text-align:center">西瓜理发记（一）</td>
+<td style="text-align:center"><a href="/post/AOJ/793.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">794</td>
+<td style="text-align:center">西瓜理发记（二）</td>
+<td style="text-align:center"><a href="/post/AOJ/794.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">795</td>
+<td style="text-align:center">西瓜理发记（三）</td>
+<td style="text-align:center"><a href="/post/AOJ/795.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">797</td>
+<td style="text-align:center">Roll不是处女座</td>
+<td style="text-align:center"><a href="/post/AOJ/797.html">题解</a></td>
+</tr>
+<tr>
+<td style="text-align:center">802</td>
+<td style="text-align:center">运输宝物</td>
+<td style="text-align:center"><a href="/post/AOJ/802.html">题解</a></td>
+</tr>
+</tbody>
+</table>
+    
+
+        <a href="/post/Project/AOJ8th.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/795"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-02 19:43:28 19:43:28" datetime="2017-03-02T11:43:28.000Z"  itemprop="datePublished">2017-03-02 19:43:28</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/795.html">AOJ 795.西瓜理发记(三)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>顺利潜入勺林寺几天后，方丈给了西瓜一个光荣而艰巨的任务——打扫寺庙中的道路。同时给了西瓜一张勺林寺的地图。<br>西瓜这才知道，勺林寺中总共有n座房子，但道路只有n-1条，这n-1条道路连接了寺中的所有房子，即保证在任何两座房子都能沿着道路抵达。<br>好在西瓜人缘不错，他知道每座房子中都有个自己的朋友，只要给他们每个人打个电话，让他到自己这里来，顺便把路也扫了，即给某座房子中的朋友打过电话后，可认为从该房子到西瓜所在的位置之间所有的道路都会被打扫干净。<br>同时西瓜还知道，这n-1条道路中有一些路昨天已经被人打扫过了不需要再打扫一遍。<br>现在西瓜想知道，自己最少要给多少个朋友打电话才能完成方丈给的任务。<br>西瓜在编号为1的房子中。  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>输入包含多组数据<br>每组数据第一行包含一个n(2?≤?n?≤?10^5)，表示有n座房子<br>之后n-1行，每行三个数字a，b，c表示在房子a和房子b之间有一条路，c等于1表示路已被打扫，c等于2表示路未被打扫。  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>每组数据输出一个整数k，表示最少要给k个朋友打电话  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>5<br>1 2 2<br>1 3 2<br>1 4 2<br>1 5 2  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>4  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/AOJ/795.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree-dp/">树形dp</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/797"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-02 19:36:58 19:36:58" datetime="2017-03-02T11:36:58.000Z"  itemprop="datePublished">2017-03-02 19:36:58</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/797.html">AOJ 797.Roll不是处女座</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>一天Roll在codeforces网站上做ACM练习的时候，由于打开题目的顺序比较随性，他看到了他的浏览器标签页是这样的：  </p>
+<p>虽然Roll不是处女座，但他还是非常地不开心，于是他移动了标签页，就变成了这样:  </p>
+<p>由此想到了一个问题，对于一个乱序的不重复的数字序列，最少需要移动几个数字，能使它们从小到大排列。<br>例如序列 4 2 3 1 5，只要把1放到第一个，4放到3和5之间，就变成了1 2 3 4 5  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>输入数据包含多组<br>每组数据第一行一个数n (0﹤n≤?1000)，表示这个序列有n个数字。<br>第二行包含n个数字Ai(0≤Ai≤10^9),  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>对于每组数据输出一个整数，表示最少需要移动几个数字。  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>5<br>4 2 3 1 5<br>2<br>1 2  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>2<br>0  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/AOJ/797.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LIS/">最长上升子序列</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6015"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-25 21:52:04 21:52:04" datetime="2017-02-25T13:52:04.000Z"  itemprop="datePublished">2017-02-25 21:52:04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6015.html">HDU 6015.Skip the Class</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>Finally term begins. luras loves school so much as she could skip the class happily again.(wtf?)  </p>
+<p>Luras will take n lessons in sequence(in another word, to have a chance to skip xDDDD).  </p>
+<p>For every lesson, it has its own type and value to skip.  </p>
+<p>But the only thing to note here is that luras can’t skip the same type lesson more than twice.  </p>
+<p>Which means if she have escaped the class type twice, she has to take all other lessons of this type.  </p>
+<p>Now please answer the highest value luras can earn if she choose in the best way.  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>The first line is an integer T which indicates the case number.  </p>
+<p>And as for each case, the first line is an integer n which indicates the number of lessons luras will take in sequence.  </p>
+<p>Then there are n lines, for each line, there is a string consists of letters from ‘a’ to ‘z’ which is within the length of 10,<br>and there is also an integer which is the value of this lesson.  </p>
+<p>The string indicates the lesson type and the same string stands for the same lesson type.  </p>
+<p>It is guaranteed that——  </p>
+<p>T is about 1000  </p>
+<p>For 100% cases, 1 &lt;= n &lt;= 100，1 &lt;= |s| &lt;= 10, 1 &lt;= v &lt;= 1000  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>As for each case, you need to output a single line.<br>there should be 1 integer in the line which represents the highest value luras can earn if she choose in the best way.  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>2<br>5<br>english 1<br>english 2<br>english 3<br>math 10<br>cook 100<br>2<br>a 1<br>a 2  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>115<br>3  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/HDU/6015.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Miller_rabin"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-10 20:08:37 20:08:37" datetime="2017-02-10T12:08:37.000Z"  itemprop="datePublished">2017-02-10 20:08:37</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Miller_rabin.html">Miller_rabin 判断素数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>素数在数论里是一个非常常用的内容<br>而且当数非常大时,即使是 O(n) 的筛法求素数有可能也无法满足要求(空间和时间都不允许)  </p>
+<p>因此,就有了该算法  </p>
+<ol>
+<li>Fermat定理: 若 $n$ 是奇素数，$a$ 是任意正整数$(1≤ a≤ n−1)$，则 $a^{n-1} ≡ 1 \; mod \; n$。</li>
+<li>二次探测定理: 如果n是一个奇素数，将 $n−1$ 表示成 $2^s*r$ 的形式，$r$ 是奇数，$a$ 与 $n$ 是互素的任何随机整数，那么 $a^r ≡ 1 \; mod \; n$ 或者对某个 $j (0 ≤ j≤ s−1, j∈Z)$ 等式 $a^{2jr} ≡ −1 \; mod \; n $ 成立。</li>
+</ol>
+<p>最后可知,当对于任意数 $a$,有 $a^r ≡ 1 \; mod \; n$ 或者对某个 $j (0 ≤ j≤ s−1, j∈Z)$ 等式 $a^(2jr) ≡ −1 \; mod \; n$ 则可得知 $a$ 为素数  </p>
+<p>实际使用时,只需要随机出几个 $a$ ,只要这些情况下都满足,则可以近似认为待判断数为素数  </p>
+<p>大概这个意思,反正会不会证明都不影响使用  </p>
+<p>模板如下<br>记得包含 <code>#include&lt;ctime&gt;</code> 和初始化随机数种子  </p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold"><figure class="highlight cpp"><figcaption><span>Miller_rabin判断素数</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">// Miller_rabin 判断素数</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> times = <span class="number">20</span>; <span class="comment">//测试次数</span></div><div class="line"></div><div class="line"><span class="function">LL <span class="title">Random</span><span class="params">(LL n )</span></span>&#123;<span class="comment">//生成[ 0 , n ]的随机数  </span></div><div class="line">    <span class="keyword">return</span> ((<span class="keyword">double</span>)rand() / RAND_MAX*n + <span class="number">0.5</span>);  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">//快速计算 (a*b) % mod</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">LL mul_mod(LL a, LL b, LL mod)&#123;</span></div><div class="line"><span class="comment">    LL ans = 0;  </span></div><div class="line"><span class="comment">    while(b)&#123;  </span></div><div class="line"><span class="comment">        if(b &amp; 1)&#123;  </span></div><div class="line"><span class="comment">            b--;  </span></div><div class="line"><span class="comment">            ans =(ans+ a)%mod;  </span></div><div class="line"><span class="comment">        &#125;  </span></div><div class="line"><span class="comment">        b /= 2;  </span></div><div class="line"><span class="comment">        a = (a + a) % mod;  </span></div><div class="line"><span class="comment">  </span></div><div class="line"><span class="comment">    &#125;  </span></div><div class="line"><span class="comment">    return ans;  </span></div><div class="line"><span class="comment">&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">mul_mod</span><span class="params">(LL a,LL b,LL mod)</span></span>&#123;</div><div class="line">    a=(a % mod + mod) % mod;</div><div class="line">    b=(b % mod + mod) % mod;</div><div class="line">    <span class="keyword">return</span> ((a*b-(LL)((<span class="keyword">long</span> <span class="keyword">double</span>)a/mod*b+<span class="number">.5</span>L)*mod)%mod+mod)%mod;</div><div class="line">&#125;</div><div class="line">  </div><div class="line"><span class="function">LL <span class="title">exp_mod</span><span class="params">(LL a, LL b, LL mod )</span></span>&#123; <span class="comment">//快速计算 (a^b) % mod  </span></div><div class="line">    LL ans = <span class="number">1</span>;  </div><div class="line">    <span class="keyword">while</span>(b)&#123;  </div><div class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</div><div class="line">            ans = mul_mod(ans,a,mod);  </div><div class="line">        b /= <span class="number">2</span>;  </div><div class="line">        a = mul_mod(a,a,mod);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> ans;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">witness</span><span class="params">( LL a, LL n )</span></span>&#123; <span class="comment">//miller_rabin算法的精华  </span></div><div class="line">    <span class="comment">//用检验算子a来检验n是不是素数 </span></div><div class="line">    <span class="comment">//a^r ≡ 1 mod n或者对某个j (0 ≤ j≤ s−1, j∈Z) 等式a^(2jr) ≡ −1 mod n </span></div><div class="line">    LL tem = n - <span class="number">1</span>;  </div><div class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span>(tem % <span class="number">2</span> == <span class="number">0</span>)&#123;  </div><div class="line">        tem /= <span class="number">2</span>;  </div><div class="line">        j++;  </div><div class="line">    &#125;  </div><div class="line">    <span class="comment">//将n-1拆分为a^r * s  </span></div><div class="line">  </div><div class="line">    LL x = exp_mod( a, tem, n ); <span class="comment">//得到a^r mod n  </span></div><div class="line">    <span class="keyword">if</span>(x == <span class="number">1</span> || x == n - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;   <span class="comment">//余数为1则为素数  </span></div><div class="line">    <span class="keyword">while</span>(j--)&#123; <span class="comment">//否则试验条件2看是否有满足的 j    </span></div><div class="line">        x = mul_mod( x, x, n );  </div><div class="line">        <span class="keyword">if</span>(x == n - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">miller_rabin</span><span class="params">( LL n )</span></span>&#123;  <span class="comment">//检验n是否是素数    </span></div><div class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>)  </div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span> || n % <span class="number">2</span> == <span class="number">0</span>)  <span class="comment">//如果是2则是素数，如果&lt;2或者是&gt;2的偶数则不是素数</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= times; i++)&#123; <span class="comment">//做times次随机检验   </span></div><div class="line">        LL a = Random(n - <span class="number">2</span>) + <span class="number">1</span>; <span class="comment">//得到随机检验算子 a  </span></div><div class="line">        <span class="keyword">if</span>(!witness(a, n)) <span class="comment">//用a检验n是否是素数  </span></div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(ll n)</span></span>&#123;</div><div class="line">    ll p = <span class="number">2</span>;</div><div class="line">    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\t"</span>&lt;&lt;n&lt;&lt;<span class="string">" "</span>&lt;&lt;p&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">if</span>(n%p)</div><div class="line">            p++;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            n/=p;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div></div>
+    
+
+        <a href="/post/Algorithm/Miller_rabin.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Miller-rabin/">Miller_rabin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/10/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/12/">下一页</a>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/11/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/11/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/11/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/11/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/11/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/11/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

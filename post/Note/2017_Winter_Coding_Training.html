@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>2017安徽省程序设计竞赛培训笔记 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="2017-1-16 ~ 2017-1-19内容:  数学(数论 &amp;amp; 组合数学) 数据结构 图论 动态规划">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017安徽省程序设计竞赛培训笔记">
+<meta property="og:url" content="https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="2017-1-16 ~ 2017-1-19内容:  数学(数论 &amp;amp; 组合数学) 数据结构 图论 动态规划">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017安徽省程序设计竞赛培训笔记">
+<meta name="twitter:description" content="2017-1-16 ~ 2017-1-19内容:  数学(数论 &amp;amp; 组合数学) 数据结构 图论 动态规划">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2017安徽省程序设计竞赛培训笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">2017安徽省程序设计竞赛培训笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-16T05:39:20.000Z" itemprop="datePublished" class="page-time">
+  2017-01-16 13:39:20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数学-数论-amp-组合数学"><span class="post-toc-text">数学(数论 & 组合数学)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#唯一分解定理"><span class="post-toc-text">唯一分解定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最大公因数和最小公倍数"><span class="post-toc-text">最大公因数和最小公倍数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#欧几里得算法"><span class="post-toc-text">欧几里得算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#拓展欧几里得算法"><span class="post-toc-text">拓展欧几里得算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#同余方程"><span class="post-toc-text">同余方程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#中国剩余定理"><span class="post-toc-text">中国剩余定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Lucas定理"><span class="post-toc-text">Lucas定理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数论的函数"><span class="post-toc-text">数论的函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#积性函数"><span class="post-toc-text">积性函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完全积性函数"><span class="post-toc-text">完全积性函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Euler筛法"><span class="post-toc-text">Euler筛法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mobius反演"><span class="post-toc-text">Mobius反演</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最大公约数和"><span class="post-toc-text">最大公约数和</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#组合数"><span class="post-toc-text">组合数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#二项式展开"><span class="post-toc-text">二项式展开</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#置换"><span class="post-toc-text">置换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#置换群"><span class="post-toc-text">置换群</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Burnside引理"><span class="post-toc-text">Burnside引理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Polya定理"><span class="post-toc-text">Polya定理</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数据结构"><span class="post-toc-text">数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RMQ问题"><span class="post-toc-text">RMQ问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#稀疏表-ST算法"><span class="post-toc-text">稀疏表(ST算法)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线段树"><span class="post-toc-text">线段树</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#左式堆"><span class="post-toc-text">左式堆</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#并查集"><span class="post-toc-text">并查集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#带权并查集"><span class="post-toc-text">带权并查集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#KMP算法"><span class="post-toc-text">KMP算法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#字典树-Trie"><span class="post-toc-text">字典树(Trie)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AC自动机"><span class="post-toc-text">AC自动机</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可持久化数据结构"><span class="post-toc-text">可持久化数据结构</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#图论"><span class="post-toc-text">图论</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动态规划"><span class="post-toc-text">动态规划</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Note/2017_Winter_Coding_Training"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2017安徽省程序设计竞赛培训笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-16 13:39:20 13:39:20" datetime="2017-01-16T05:39:20.000Z"  itemprop="datePublished">2017-01-16 13:39:20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>2017-1-16 ~ 2017-1-19<br>内容:</p>
+<ul>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#数学-数论-amp-组合数学">数学(数论 &amp; 组合数学)</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#数据结构">数据结构</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#图论">图论</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#动态规划">动态规划</a></li>
+</ul>
+<a id="more"></a>
+<h1 id="数学-数论-amp-组合数学"><a href="#数学-数论-amp-组合数学" class="headerlink" title="数学(数论 &amp; 组合数学)"></a>数学(数论 &amp; 组合数学)</h1><h2 id="唯一分解定理"><a href="#唯一分解定理" class="headerlink" title="唯一分解定理"></a>唯一分解定理</h2><p>每个正整数都可以唯一地表示成素数的乘积.<br>即有唯一的分解质因数的方案:<br>$x=a_1^{p_1}a_2^{p_2}...a_n^{p_n}$<br>根据上面的式子,可以推知 x 共有 $(p_1+1)(p_2+1)…(p_n+1)$ 个约数</p>
+<h2 id="最大公因数和最小公倍数"><a href="#最大公因数和最小公倍数" class="headerlink" title="最大公因数和最小公倍数"></a>最大公因数和最小公倍数</h2><p>若有<br>$x=a_1^{p_1}a_2^{p_2}…a_n^{p_n}$<br>$y=a_1^{q_1}a_2^{q_2}…a_n^{q_n}$</p>
+<p>则<br>$gcd(x,y) = a_1^{min(p_1,q_1)}a_2^{min(p_2,q_2)}…a_n^{min(p_n,q_n)}$<br>$lcm(x,y) = a_1^{max(p_1,q_1)}a_2^{max(p_2,q_2)}…a_n^{max(p_n,q_n)}$</p>
+<p>同时可以很容易得到<br>$x \times y = gcd(x,y) \times lcm(x,y)$  </p>
+<p>若<br>$x = p \times gcd(x,y)$<br>$y = q \times gcd(x,y)$  </p>
+<p>那么 $x + y = (p+q) \times gcd(x,y)$<br>可以得到 $gcd(x,y) = gcd(x,x+y)$  </p>
+<h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><p><code>gcd(a,b) = gcd(b,a mod b)</code>  </p>
+<p>证明如下:<br>若</p>
+<p>$a = p \times c$<br>$b = q \times c$<br>$a \;  mod \;  b =  a - \left \lfloor \frac{a}{b} \right \rfloor \times b$<br>$a \; mod \; b = p \times c - k \times q \times c$<br>$a \; mod \; b = (p-kq)c$<br>$\therefore gcd(a,b) = gcd(b,a \; mod \; b)$  </p>
+<p>之所以要不断交换 <code>a</code> <code>b</code> 的位置,是为了保证两边都要逐渐减小  </p>
+<p>根据这个算法,就可以写出求最小公倍数的算法<br><figure class="highlight cpp"><figcaption><span>欧几里得算法</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b,a%b);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="拓展欧几里得算法"><a href="#拓展欧几里得算法" class="headerlink" title="拓展欧几里得算法"></a>拓展欧几里得算法</h2><p>对于方程 <code>ax + by = c</code><br>有两种情况  </p>
+<ul>
+<li><code>gcd(a,b)</code> 是 <code>c</code> 的因子<br>这种情况下,有 $ \frac{a}{gcd(a,b)}x + \frac{b}{gcd(a.b)}= \frac{c}{gcd(a,b)}$<br>有可能存在整数解</li>
+<li><code>gcd(a,b)</code> 不是 <code>c</code> 的因子<br>这种情况下,两边同时除以 <code>gcd(a,b)</code> 左侧为整数,右侧为小数,不可能存在整数解  </li>
+</ul>
+<p>先考虑 <code>ax+by=gcd(a,b)</code> 的情况<br>当 $b=0$ 时,有 <code>gcd(a,b)=a</code> 即  <code>x=1,y=0</code><br>当 $b \neq 0$,有 <code>ax+by=gcd(a,b)</code><br>根据欧几里得算法 $gcd(a,b) = gcd(b,a \; mod \; b)$<br>有 $ax+by = gcd(a,b) = gcd(b,a \; mod \; b)$<br>$bx′+(a−b∗\left \lfloor \frac{a}{b} \right \rfloor)y′ = gcd(b,a \; mod \; b)$<br>可化得 $ax+by = bx’ + (a \; mod \; b)y’ = ay’+b(x’- \lfloor \frac{a}{b} \rfloor y’)$<br>因此 $\begin{cases}<br>x=y’\<br>y=x’-  \lfloor \frac{a}{b} \rfloor  y’<br>\end{cases}$  </p>
+<p>由于已经知道递归到 <code>b=0</code> 时的解,因此可以一步一步得出 <code>ax+by=gcd(a,b)</code> 的解<br>而对于 <code>ax+by=kgcd(a,b)</code> 只需要将 <code>x</code> , <code>y</code> 同乘 <code>k</code> 即可  </p>
+<p>下面是对于 <code>ax+by=gcd(a,b)</code> 的解<br><figure class="highlight cpp"><figcaption><span>拓展gcd</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</div><div class="line">        x=<span class="number">1</span>;</div><div class="line">        y=<span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> a;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">int</span> r=exgcd(b,a%b,x,y);</div><div class="line">    <span class="keyword">int</span> t=x;</div><div class="line">    x=y;</div><div class="line">    y=t-a/b*y;</div><div class="line">    <span class="keyword">return</span> r;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="同余方程"><a href="#同余方程" class="headerlink" title="同余方程"></a>同余方程</h2><h2 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h2><p>对于一元线性同余方程组<br>$
+\begin{cases}
+x \equiv a_1 (mod \; m_1)\\
+x \equiv a_2 (mod \; m_2)\\
+...\\
+x \equiv a_n (mod \; m_n)\\
+\end{cases}
+$  </p>
+<p>其中 $m_1$ 、$m_1$ …. $m_n$ 两两互质<br>则对任意整数 $a_1$ 、$a_1$ …. $a_n$ 方程组有解</p>
+<p>求解方法如下<br>令<br>$M=m_1m_2m_3…m_n$<br>$M_i=\frac{M}{m_i}$<br>$t_i$为$M_i$模$m_i$下的逆元,也即$M_it_i \equiv 1(mod \; m_i)$  </p>
+<p>则有<br>$x = a_1t_1M_1 + a_2t_2M_2 +  …  + a_nt_nM_n + kM  \; \; k \in Z$</p>
+<h2 id="Lucas定理"><a href="#Lucas定理" class="headerlink" title="Lucas定理"></a>Lucas定理</h2><p>若 <code>p</code> 为素数<br>$n = n<em>kp^k + n</em>{k-1}p^{k-1} + …+n_1p + n_0$<br>$m = m<em>kp^k + m</em>{k-1}p^{k-1} + …+m_1p + m_0$  </p>
+<p>则有$C(n,m) = \prod_{i=0}^{k} C(n_i,m_i)(mod \; p)$ </p>
+<h2 id="数论的函数"><a href="#数论的函数" class="headerlink" title="数论的函数"></a>数论的函数</h2><ul>
+<li>$\phi (n)$ : 不大于 n 且与 n 互素的数的个数  </li>
+<li>$\mu (n)$ : 如果 $n=kd^2$, $\mu (n)= 0$, 否则 $\mu(n) = (-1)^k $,其中 k 是 n 的素因子数  </li>
+</ul>
+<p>特别地<br>
+$\sum_{d|n} \phi(d) = n$   
+<br>
+$\sum_{d|n} \mu(d) = [n=1]$  
+</p>
+<h2 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h2><p>$\forall x,y$ 若 $gcd(x,y)=1$ ,则$f(xy)=f(x)f(y)$<br>$\phi (x)$和$\mu (x)$都是积性函数  </p>
+<h2 id="完全积性函数"><a href="#完全积性函数" class="headerlink" title="完全积性函数"></a>完全积性函数</h2><p>$\forall x,y$ ,则$f(xy)=f(x)f(y)$  </p>
+<h2 id="Euler筛法"><a href="#Euler筛法" class="headerlink" title="Euler筛法"></a>Euler筛法</h2><p>对于积性函数 <code>f(x)</code> 可以用 Euler 筛法在 <code>O(n)</code> 的时间复杂度内预处理 <code>f(1)</code> <code>f(2)</code> … <code>f(n)</code> 的值<br>若 t 是  x 的最小质因子,那么 <code>f(x)</code> 将在枚举到 <code>x/t</code> 时用 <code>f(x/t)</code> 与 <code>f(t)</code> 求出  </p>
+<h2 id="Mobius反演"><a href="#Mobius反演" class="headerlink" title="Mobius反演"></a>Mobius反演</h2><p>Dirichlet卷积<br>$(f \times g)(n) = \sum_{d|n}f(d)g(\frac{n}{d})$  </p>
+<p>如果 <code>f</code> , <code>g</code> 是积性函数,那么 <code>f × g</code> 也是积性函数<br>且当 $g(n)  = \sum_{d|n}f(d)$ 时<br>有 $f(n) = \sum_{d|n} \mu (d) g(\frac{n}{d})$  </p>
+<h2 id="最大公约数和"><a href="#最大公约数和" class="headerlink" title="最大公约数和"></a>最大公约数和</h2>$
+\begin{align*}
+&\sum_{i=1}^{n}gcd(n,i) \\
+= &\sum_{i=1}^{n} \sum_{d|i\&d|n}\phi(d) \\
+= &\sum_{d|n}\left \lfloor \frac{n}{d} \right \rfloor\phi(d)
+\end{align*}
+$
+<p><br\></br\></p>
+$
+\begin{align*}
+&\sum_{i=1}^{n}\sum_{j=1}^{m}gcd(i,j) \\
+= &\sum_{i=1}^{n}\sum_{j=1}^{m} \sum_{d|i\&d|n}\phi(d) \\
+= &\sum_{d=1}^{min(n,m)}\left \lfloor \frac{n}{d} \right \rfloor \left \lfloor \frac{m}{d} \right \rfloor\phi(d)
+\end{align*}
+$
+<h2 id="组合数"><a href="#组合数" class="headerlink" title="组合数"></a>组合数</h2><p>从 n 个数中选 m 个数,每个数最多选一次<br>$C(n,m) = \frac{n!}{m!(n-m)!}$  </p>
+<p>特别地,  </p>
+<ul>
+<li><code>C(n,0) = C(n,n) = 1</code></li>
+<li><code>C(n,m) = C(n,n-m)</code></li>
+<li><code>C(n,m) = C(n-1,m-1) + C(n-1,m)</code></li>
+</ul>
+<h2 id="二项式展开"><a href="#二项式展开" class="headerlink" title="二项式展开"></a>二项式展开</h2><p>$(x + y)^n = \sum_{i=0}^{n} C(n,i)x^iy^{n-i}$</p>
+<h2 id="置换"><a href="#置换" class="headerlink" title="置换"></a>置换</h2><h2 id="置换群"><a href="#置换群" class="headerlink" title="置换群"></a>置换群</h2><p>置换作为元素的群<br>可以用来描述等价关系  </p>
+<h2 id="Burnside引理"><a href="#Burnside引理" class="headerlink" title="Burnside引理"></a>Burnside引理</h2><p>对于一个置换 f ,若方案 s 变回它自己,称它为 f 的不动点<br>f 的不动点数目记为 <code>C(f)</code><br>等价类数目为所有 <code>C(f)</code> 的平均值  </p>
+<h2 id="Polya定理"><a href="#Polya定理" class="headerlink" title="Polya定理"></a>Polya定理</h2><p>给 n 种颜色着 k 种颜色,设置换 f 的循环节为 <code>m(f)</code> ,则它的不动点数目为 $C(f) = k^{m(f)}$  </p>
+<hr>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="RMQ问题"><a href="#RMQ问题" class="headerlink" title="RMQ问题"></a>RMQ问题</h2><p><a href="/post/Algorithm/RMQ.html">RMQ问题</a> 是范围最小值查询问题  </p>
+<h3 id="稀疏表-ST算法"><a href="#稀疏表-ST算法" class="headerlink" title="稀疏表(ST算法)"></a>稀疏表(ST算法)</h3><p><a href="/post/Algorithm/ST.html">ST算法</a><br>ST算法是一种解决 RMQ 问题的效率较高的方法<br>在不需要更改节点的情况下,可以优先使用ST算法  </p>
+<h3 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h3><p><a href="/post/Algorithm/Segment_tree.html">线段树</a><br>当需要更新节点的时候,就需要使用线段树这种数据结构<br>在修改节点时,只需要改变其所在分支上的节点<br>在修改区间时,给区间加上tag,在以后用到该区间时,将tag传递给其子节点(<code>O(log n)</code>)  </p>
+<p>如果线段树上的修改为 <strong>取模</strong> 操作,可以将其化为 <strong>最大值查询+单点修改</strong>  </p>
+<h2 id="左式堆"><a href="#左式堆" class="headerlink" title="左式堆"></a>左式堆</h2><p>又称左偏树、左倾堆  </p>
+<ul>
+<li>外部节点（external node）：左子树或右子树为空的节点</li>
+<li>左偏树节点距离（dis）属性：该节点到最它的后代中最近的外部节点经过的距离<br>特别地，外部节点dist = 0</li>
+<li>左偏树key值满足堆性，左儿子dist&gt;=右儿子dist  </li>
+</ul>
+<p>整个树呈现一种左倾的形态,根据这种特性,可以将插入、修改、删除全部以合并不同的左式堆代替<br>合并时,优先合并到右支<br><figure class="highlight cpp"><figcaption><span>merge</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (!u) <span class="keyword">return</span> v;</div><div class="line">    <span class="keyword">if</span> (!v) <span class="keyword">return</span> u;</div><div class="line">    <span class="keyword">if</span> (key[u] &lt; key[v]) swap(u,v);</div><div class="line">    r[u] = merge(r[u],v);</div><div class="line">    <span class="keyword">if</span> (dist[r[u]] &gt; dist[l[u]]) swap(r[u], l[u]);</div><div class="line">    dist[u] = r[u] &gt; <span class="number">0</span> ? dist[r[u]] + <span class="number">1</span> : <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> u;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p><a href="/post/Algorithm/Union_Find.html">并查集</a><br>在一些有N个元素的集合应用问题中,我们通常是在开始时让每个元素构成一个单元素的集合<br>然后按一定顺序将属于同一组的元素所在的集合合并,其间要反复查找一个元素在哪个集合中<br>这一类问题数据量极大,若用正常的数据结构来描述的话,计算机无法承受<br>只能采用一种全新的抽象的特殊数据结构——并查集来描述  </p>
+<h2 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h2><p>顾名思义，就是在维护元素所属集合的同时记录集合的一些信息：  </p>
+<ul>
+<li>维护集合的最大最小值</li>
+<li>维护集合的和</li>
+<li>维护其它的信息</li>
+</ul>
+<h2 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h2><p><a href="/post/Algorithm/KMP.html">KMP算法</a><br>KMP算法是一种字符串匹配算法<br>可以快速地找出一个字符串在另一个字符串中第一次出现的位置  </p>
+<h2 id="字典树-Trie"><a href="#字典树-Trie" class="headerlink" title="字典树(Trie)"></a>字典树(Trie)</h2><p>字典树是一个26叉树，每次插入一个单词的话就是按照树的插入操作进行<br>将每个字母看作一个节点  </p>
+<h2 id="AC自动机"><a href="#AC自动机" class="headerlink" title="AC自动机"></a>AC自动机</h2><p>AC 自动机是一种多模匹配算法<br>可以简单地将其看作 字典树+KMP算法   </p>
+<p>失败指针：AC自动机即在字典树上添加失败指针,这个失败指针与 KMP 的 next 数组类似  </p>
+<p>对应关系:   </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">KMP</th>
+<th style="text-align:center">AC自动机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">单串</td>
+<td style="text-align:center">多串</td>
+</tr>
+<tr>
+<td style="text-align:center">原字符串</td>
+<td style="text-align:center">字典树</td>
+</tr>
+<tr>
+<td style="text-align:center">Next数组</td>
+<td style="text-align:center">失败指针</td>
+</tr>
+</tbody>
+</table>
+<h2 id="可持久化数据结构"><a href="#可持久化数据结构" class="headerlink" title="可持久化数据结构"></a>可持久化数据结构</h2><p>所谓的可持久化数据结构,就是保存这个数据结构的历史版本,同时他们之间公用数据减少时间和空间的消耗<br>可用持久化的数据结构：线段树(常见),平衡树,块状链表,块状数组(较少见)等  </p>
+<p><strong>对于线段树的可持久化</strong>  </p>
+<p>可持久化线段树常见应用：有修改的区间第k大  </p>
+<ul>
+<li>单点修改：<ul>
+<li>修改一个叶子节点<br>我们只需要新建一个新的叶子节点就能得到一个当前版本</li>
+<li>修改一个非叶子节点.<br>两个孩子中最多有一个会被修改,于是递归调用.然后将当前版本复制一遍,另外一个孩子不变,当前孩子为修改后的版本.</li>
+</ul>
+</li>
+<li>查询.与线段树一样</li>
+<li>tag标记.遇到一个打了标记的节点,直接下传标记即可,下传的时候新建两个打了标记的节点.</li>
+</ul>
+<hr>
+<h1 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h1><hr>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Note/2017_Winter_Coding_Training.html" target="_blank" rel="external">2017安徽省程序设计竞赛培训笔记</a><br>文章地址：  <a href="/post/Note/2017_Winter_Coding_Training.html" target="_blank" rel="external">https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html</a><br>创建时间：  2017-01-16 13:39:20<br>更新时间：  2017-08-25 20:31:46
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&title=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&title=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&source=2017-1-16 ~ 2017-1-19内容:
+
+数学(数论 &amp; 组合数学)
+数据结构
+图论
+动态规划
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Writing/samsung_c5_root.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">三星 C5 Google(港版) + root + Xposed + 其他设置</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/5984.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 5984.Pocky(2016 CCPC 青岛 C)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&title=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&title=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&source=2017-1-16 ~ 2017-1-19内容:
+
+数学(数论 &amp; 组合数学)
+数据结构
+图论
+动态规划
+" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2017安徽省程序设计竞赛培训笔记》 — OhYee's Blog&url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Note/2017_Winter_Coding_Training.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

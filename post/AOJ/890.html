@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AOJ 890.修理牛棚 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="动态规划,AOJ,贪心算法">
+    <meta name="description" content="题目点击显/隐题目 Description在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩下的牛一个紧挨着另一个被排成一行来过夜。 有些牛棚里有牛，有些没有。 所有的牛棚有相同的宽度。 自门遗失以后,农民约翰必须尽快在牛棚之前竖立起新的木板。 他的新木材供应商将会供应他任何他想要的长度,但是供应商只能提供有限数目的木板。 农民约翰想将">
+<meta name="keywords" content="动态规划,AOJ,贪心算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AOJ 890.修理牛棚">
+<meta property="og:url" content="https://www.oyohyee.com/post/AOJ/890.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 Description在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩下的牛一个紧挨着另一个被排成一行来过夜。 有些牛棚里有牛，有些没有。 所有的牛棚有相同的宽度。 自门遗失以后,农民约翰必须尽快在牛棚之前竖立起新的木板。 他的新木材供应商将会供应他任何他想要的长度,但是供应商只能提供有限数目的木板。 农民约翰想将">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-08-25T12:31:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AOJ 890.修理牛棚">
+<meta name="twitter:description" content="题目点击显/隐题目 Description在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩下的牛一个紧挨着另一个被排成一行来过夜。 有些牛棚里有牛，有些没有。 所有的牛棚有相同的宽度。 自门遗失以后,农民约翰必须尽快在牛棚之前竖立起新的木板。 他的新木材供应商将会供应他任何他想要的长度,但是供应商只能提供有限数目的木板。 农民约翰想将">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AOJ 890.修理牛棚</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">AOJ 890.修理牛棚</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-07-31T11:40:14.000Z" itemprop="datePublished" class="page-time">
+  2017-07-31 19:40:14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贪心"><span class="post-toc-text">贪心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态规划"><span class="post-toc-text">动态规划</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#贪心-1"><span class="post-toc-text">贪心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#动态规划-1"><span class="post-toc-text">动态规划</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AOJ/890"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AOJ 890.修理牛棚</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-07-31 19:40:14 19:40:14" datetime="2017-07-31T11:40:14.000Z"  itemprop="datePublished">2017-07-31 19:40:14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Description<br>在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩下的牛一个紧挨着另一个被排成一行来过夜。 有些牛棚里有牛，有些没有。 所有的牛棚有相同的宽度。 自门遗失以后,农民约翰必须尽快在牛棚之前竖立起新的木板。 他的新木材供应商将会供应他任何他想要的长度,但是供应商只能提供有限数目的木板。 农民约翰想将他购买的木板总长度减到最少。<br>给出:可能买到的木板最大的数目M(1&lt;=M&lt;=50);牛棚的总数S(1&lt;=S&lt;=200); 牛棚里牛的总数C(1&lt;=C&lt;=S);和牛所在的牛棚的编号stall_number(1&lt;=stall_number&lt;=S),计算拦住所有有牛的牛棚所需木板的最小总长度。 输出所需木板的最小总长度作为答案。<br><br></div><div class="part" title="Input"><br>1行: M，S和C(用空格分开)<br>2到C+1行:每行包含一个整数，表示牛所占的牛棚的编号。<br><br></div><div class="part" title="Output"><br>单独的一行包含一个整数表示所需木板的最小总长度。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br><br>4 50 18<br>3<br>4<br>6<br>8<br>14<br>15<br>16<br>17<br>21<br>25<br>26<br>27<br>30<br>31<br>40<br>41<br>42<br>43<br><br></div><div class="output part" title="Sample Output"><br><br>25<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>这道题有多种不同的思路</p>
+<h2 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h2><p>首先假定我们用一个木板拦住所有的牛,当我们有多于一个木板的时候,我们的任务就是选一个<strong>最大的区间</strong>,从这里把木板拆成两个  </p>
+<p>当有多个木板时同理,不停寻找最大的区间即可  </p>
+<p>细节比较多,可以把中间变量输出出来进行测试  </p>
+<p><strong>需要特别注意的是: 牛所在的牛栏并不是有序输出的,同时存在没有牛和木板比牛的情况</strong>  </p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>动态规划最重要的是转移方程  </p>
+<p>可以看出自变量的应该是木板数和牛栏数,也即有:<br><code>dp(i,j)</code> 表示前i个牛栏使用j个木板所需要的最小木板总长度  </p>
+<p>那么就可以看出在已经有<code>dp(i-1,j)</code>的情况下,又加入一个新的牛栏(有牛),存在两种处理方案：</p>
+<ul>
+<li>用一块新的木板 <code>dp(i-1,j-1)+1</code></li>
+<li>延长上一块木板 <code>dp(i-1,j)+a[i]-a[i-1]</code></li>
+</ul>
+<p>也即 <code>dp(i,j) = min( dp(i-1,j-1)+1, dp(i-1,j)+a[i]-a[i-1] )</code></p>
+<p>然后需要处理的就是边界条件<br>按照实际含义来想,<code>dp(0,k)</code> 表示0个牛栏需要的木板数,显然应该是0<br>而 <code>dp(k,0)</code> (k!=0) 表示没有木板的情况下,拦住k个有牛的牛栏,应该是无穷大  </p>
+<p>综上:<br>$
+dp(i,j) = \left\{\begin{matrix}
+            0                                           & i=0\\ 
+            INF                                         & i \neq 0,j=0\\
+            min(dp(i-1,j-1)+1,dp(i-1,j)+a[i]-a[i-1])    & 其他
+            \end{matrix}\right.
+$</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="贪心-1"><a href="#贪心-1" class="headerlink" title="贪心"></a>贪心</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>修理牛棚(贪心)</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*/</span></div><div class="line"><span class="comment">#define debug</span></div><div class="line"><span class="comment">#include &lt;ctime&gt;</span></div><div class="line"><span class="comment">//*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">205</span>;</div><div class="line"><span class="keyword">int</span> a[maxn], b[maxn];</div><div class="line"><span class="keyword">int</span> m, s, c;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    <span class="keyword">int</span> START = clock();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; s &gt;&gt; c) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; c; i++)</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; a[i];</div><div class="line">        sort(a,a+c);</div><div class="line">        <span class="keyword">if</span> (c == <span class="number">0</span> || m &gt;= c ) &#123;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; c - <span class="number">1</span>; i++)</div><div class="line">                b[i] = a[i + <span class="number">1</span>] - a[i] - <span class="number">1</span>;</div><div class="line">            sort(b, b + c - <span class="number">1</span>);</div><div class="line"></div><div class="line">            <span class="keyword">int</span> ans = a[c - <span class="number">1</span>] - a[<span class="number">0</span>] + <span class="number">1</span>;</div><div class="line">            <span class="comment">// cout&lt;&lt;ans&lt;&lt;endl;</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m - <span class="number">1</span>; i++) &#123;</div><div class="line">                <span class="comment">// cout&lt;&lt;b[c-1-i]&lt;&lt;endl;</span></div><div class="line">                ans -= b[c - <span class="number">2</span> - i];</div><div class="line">            &#125;</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Time:%.3fs.\n"</span>, <span class="keyword">double</span>(clock() - START) / CLOCKS_PER_SEC);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+<h2 id="动态规划-1"><a href="#动态规划-1" class="headerlink" title="动态规划"></a>动态规划</h2><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>修理牛棚(dp)</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">/*/</span></div><div class="line"><span class="comment">#define debug</span></div><div class="line"><span class="comment">#include &lt;ctime&gt;</span></div><div class="line"><span class="comment">//*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">205</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f</span>;</div><div class="line"><span class="keyword">int</span> a[maxn];</div><div class="line"><span class="keyword">int</span> m, s, c;</div><div class="line"><span class="keyword">int</span> dp[maxn][maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    freopen(<span class="string">"in.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</div><div class="line">    <span class="keyword">int</span> START = clock();</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</div><div class="line">    <span class="built_in">cin</span>.sync_with_stdio(<span class="literal">false</span>);</div><div class="line"></div><div class="line">    a[<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; m &gt;&gt; s &gt;&gt; c) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= c; i++) &#123;</div><div class="line">            <span class="built_in">cin</span> &gt;&gt; a[i];</div><div class="line">        &#125;</div><div class="line">        sort(a + <span class="number">1</span>, a + <span class="number">1</span> + c);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= c; i++)</div><div class="line">            dp[i][<span class="number">0</span>] = INF;</div><div class="line">        <span class="built_in">memset</span>(dp[<span class="number">0</span>], <span class="number">0</span>, <span class="keyword">sizeof</span>(dp[<span class="number">0</span>]));</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= c; i++)</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</div><div class="line">                dp[i][j] =</div><div class="line">                    min(dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>, dp[i - <span class="number">1</span>][j] + a[i] - a[i - <span class="number">1</span>]);</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; dp[c][m] &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line">        <span class="comment">// for (int i = 0; i &lt;= c; i++)&#123;</span></div><div class="line">        <span class="comment">//     for (int j = 0; j &lt;= m; j++)</span></div><div class="line">        <span class="comment">//         printf("%5d ",dp[i][j]);</span></div><div class="line">        <span class="comment">//     printf("\n");</span></div><div class="line">        <span class="comment">// &#125;</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> debug</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Time:%.3fs.\n"</span>, <span class="keyword">double</span>(clock() - START) / CLOCKS_PER_SEC);</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/AOJ/890.html" target="_blank" rel="external">AOJ 890.修理牛棚</a><br>文章地址：  <a href="/post/AOJ/890.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/890.html</a><br>创建时间：  2017-07-31 19:40:14<br>更新时间：  2017-08-25 20:31:44
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/890.html&title=《AOJ 890.修理牛棚》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/890.html&title=《AOJ 890.修理牛棚》 — OhYee's Blog&source=题目点击显/隐题目
+Description在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/890.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 890.修理牛棚》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/890.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/890.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/AOJ/894.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AOJ 894.种花</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/AOJ/887.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AOJ 887.又是迷宫</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/AOJ/890.html&title=《AOJ 890.修理牛棚》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/AOJ/890.html&title=《AOJ 890.修理牛棚》 — OhYee's Blog&source=题目点击显/隐题目
+Description在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/AOJ/890.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AOJ 890.修理牛棚》 — OhYee's Blog&url=https://www.oyohyee.com/post/AOJ/890.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/AOJ/890.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/AOJ/890.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Portable Development Environment | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="U盘版集成开发环境">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portable Development Environment">
+<meta property="og:url" content="https://www.oyohyee.com/projects/portable/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="U盘版集成开发环境">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-20T10:37:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Portable Development Environment">
+<meta name="twitter:description" content="U盘版集成开发环境">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Portable Development Environment</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header page-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">Portable Development Environment</h1>
+        <h5 class="subtitle">
+            
+                U盘版集成开发环境
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <div class="card">
+<p>使用VSCode以及一些配置文件实现在U盘完成开发工作  </p>
+<p>已确认支持语言: <span class="label label-sky">C/C++</span>、<span class="label label-red">Java</span>、<span class="label label-blue">Python</span>、<span class="label label-green">Node.js</span><br>另外也可配置<span class="label label-orange">Git</span>环境,因此也可以用来写Hexo博客  </p>
+<p>编程学习者可以用该环境更方便地进行代码编写工作(比如在网吧)<br>非编程开发人员也可以用来随时随地更新自己的Hexo博客   </p>
+<p>设备要求:</p>
+<ul>
+<li>U盘一个,空间大于2G</li>
+<li><strong>Windows 7 以上(不包括)电脑</strong>(更低版本无法运行VS Code)<br>(如果希望在所有系统下保证开发环境,可以使用Deepin来实现)  </li>
+</ul>
+<p>实现思路:</p>
+<ul>
+<li>通过在运行VS Code前使用命令行语句设置临时环境变量,实现开发环境的构建</li>
+<li>通过VS Code的参数来指定插件目录和数据目录到U盘内  </li>
+</ul>
+<p>因此按照该思路,理论上可以实现绝大多数编程环境的U盘化  </p>
+</div>
+<div class="card">
+<h1 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h1><ol>
+<li>下载<a href="https://code.visualstudio.com/docs/?dv=winzip" target="_blank" rel="external">VS Code ZIP版</a>  </li>
+<li><p>使用cmd来配置临时环境变量,并且设定VS Code启动目录</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><div class="line"><span class="built_in">set</span> VSCodePath=<span class="variable">%cd%</span>\VSCode</div><div class="line"><span class="built_in">set</span> default_path=<span class="variable">%path%</span></div><div class="line"><span class="built_in">set</span> PortableENV=<span class="variable">%VSCodePath%</span>\environment</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%PortableENV%</span>\git\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\git\bin\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\git\usr\bin\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\nodejs\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\nodejs\node_modules\npm\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\nodejs\node_modules\npm\bin\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Code\Blog\node_modules\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%cd%</span>\Code\Blog\node_modules\.bin\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\MinGW\bin\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\MinGW\lib\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\MinGW\include\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\Python\</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\Python\Scripts\</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%PortableENV%</span>\cmder\</div><div class="line"></div><div class="line"><span class="built_in">set</span> JAVA_HOME=<span class="variable">%PortableENV%</span>\Java\jdk1.<span class="number">8</span>.<span class="number">0</span>_131</div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%JAVA_HOME%</span>\bin;<span class="variable">%JAVA_HOME%</span>\jre\bin;</div><div class="line"><span class="built_in">set</span> CLASSPATH=<span class="variable">%JAVA_HOME%</span>\bin;<span class="variable">%JAVA_HOME%</span>\jre\bin;</div><div class="line"></div><div class="line"><span class="built_in">set</span> <span class="built_in">path</span>=<span class="variable">%path%</span>;<span class="variable">%default_path%</span></div><div class="line"></div><div class="line"><span class="built_in">start</span> <span class="variable">%VSCodePath%</span>\VSCode\Code.exe -n --user-data-<span class="built_in">dir</span> <span class="variable">%VSCodePath%</span>\data --extensions-<span class="built_in">dir</span> <span class="variable">%VSCodePath%</span>\extension  ./Code</div><div class="line"><span class="keyword">exit</span></div></pre></td></tr></table></figure>
+<p>前三行是需要用到的参数</p>
+<ul>
+<li><code>VSCodePath</code> 是VSCode的路径  </li>
+<li><code>default_path</code>是默认的环境变量(如果电脑的环境里和U盘里配置了同样的环境,优先使用U盘环境)  </li>
+<li><code>PortableENV</code>是U盘环境目录,开发环境在该目录里</li>
+</ul>
+<p>下面需要用到那些环境就保留哪一部分即可<br>最后是默认打开<code>Code</code>文件夹  </p>
+</li>
+<li><p>下载对应的环境安装到电脑,安装完成后把文件复制到<code>PortableENV</code>文件夹内,然后电脑内的可以视需要卸载掉  </p>
+<ul>
+<li><a href="https://github.com/git-for-windows/git/releases" target="_blank" rel="external">git</a></li>
+<li><a href="https://www.python.org/downloads/" target="_blank" rel="external">Python</a></li>
+<li><a href="https://nodejs.org/en/download/current/" target="_blank" rel="external">nodejs</a></li>
+<li><a href="https://sourceforge.net/projects/mingw/files/" target="_blank" rel="external">MinGW</a></li>
+<li><a href="https://github.com/cmderdev/cmder/releases/" target="_blank" rel="external">cmder</a></li>
+</ul>
+</li>
+<li><p>使用<code>run.bat</code>运行VS Code即可</p>
+</li>
+</ol>
+</div>
+
+        </div>
+
+        
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        
+
+    </article>
+    
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/projects/portable/&title=《Portable Development Environment》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/projects/portable/&title=《Portable Development Environment》 — OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/projects/portable/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Portable Development Environment》 — OhYee's Blog&url=https://www.oyohyee.com/projects/portable/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/projects/portable/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/projects/portable/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>主流播放器的强行联网对比 | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="结论： 　　pc版百度音乐阉割联网功能 　　手机版天天动听或网易云音乐阉割联网功能  起因 作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的~ 无疑，音乐一定要是flac无损的（尽管我听不出来），带高清专辑封面（尽管我不看），有双语歌词的（尽管我也不怎么看） 在众多LoveLiver的共同努力下，我们有了符合以上要求的歌曲（如图，有高清专辑封面，在同文件夹下有同名歌词）">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主流播放器的强行联网对比">
+<meta property="og:url" content="https://www.oyohyee.com/post/Writing/Music_Player.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="结论： 　　pc版百度音乐阉割联网功能 　　手机版天天动听或网易云音乐阉割联网功能  起因 作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的~ 无疑，音乐一定要是flac无损的（尽管我听不出来），带高清专辑封面（尽管我不看），有双语歌词的（尽管我也不怎么看） 在众多LoveLiver的共同努力下，我们有了符合以上要求的歌曲（如图，有高清专辑封面，在同文件夹下有同名歌词）">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/070938032377815.jpg">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071008050342090.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071009165801765.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071011265189869.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071013152687645.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071015333774385.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071018507843409.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071022276746548.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071025145028081.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071028349099588.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071029347842530.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071034221592302.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071037482683036.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071113000654937.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071041449099572.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071045513152863.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071048470655103.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071052260804925.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071054562055827.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071058389879732.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071059526908251.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071105024871705.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071109132051276.png">
+<meta property="og:image" content="http://images0.cnblogs.com/blog2015/790793/201508/071108091746538.png">
+<meta property="og:updated_time" content="2017-08-25T12:31:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="主流播放器的强行联网对比">
+<meta name="twitter:description" content="结论： 　　pc版百度音乐阉割联网功能 　　手机版天天动听或网易云音乐阉割联网功能  起因 作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的~ 无疑，音乐一定要是flac无损的（尽管我听不出来），带高清专辑封面（尽管我不看），有双语歌词的（尽管我也不怎么看） 在众多LoveLiver的共同努力下，我们有了符合以上要求的歌曲（如图，有高清专辑封面，在同文件夹下有同名歌词）">
+<meta name="twitter:image" content="http://images0.cnblogs.com/blog2015/790793/201508/070938032377815.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">主流播放器的强行联网对比</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">主流播放器的强行联网对比</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2015-08-07T03:18:00.000Z" itemprop="datePublished" class="page-time">
+  2015-08-07 11:18:00
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#PC版"><span class="post-toc-text">PC版</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#QQ音乐"><span class="post-toc-text">QQ音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#百度音乐"><span class="post-toc-text">百度音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多米音乐"><span class="post-toc-text">多米音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#酷狗音乐"><span class="post-toc-text">酷狗音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#酷我音乐"><span class="post-toc-text">酷我音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#千千静听"><span class="post-toc-text">千千静听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#天天动听"><span class="post-toc-text">天天动听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网易云音乐"><span class="post-toc-text">网易云音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虾米音乐"><span class="post-toc-text">虾米音乐</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#手机版"><span class="post-toc-text">手机版</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#百度音乐-1"><span class="post-toc-text">百度音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#QQ音乐-1"><span class="post-toc-text">QQ音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#酷狗音乐-1"><span class="post-toc-text">酷狗音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#酷我音乐-1"><span class="post-toc-text">酷我音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#虾米音乐-1"><span class="post-toc-text">虾米音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多米音乐-1"><span class="post-toc-text">多米音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网易云音乐-1"><span class="post-toc-text">网易云音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#咪咕音乐"><span class="post-toc-text">咪咕音乐</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#天天动听-1"><span class="post-toc-text">天天动听</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Rockbox"><span class="post-toc-text">Rockbox</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Writing/Music_Player"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">主流播放器的强行联网对比</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2015-08-07 11:18:00 11:18:00" datetime="2015-08-07T03:18:00.000Z"  itemprop="datePublished">2015-08-07 11:18:00</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>结论：</p>
+<p>　　pc版百度音乐阉割联网功能</p>
+<p>　　手机版天天动听或网易云音乐阉割联网功能</p>
+</blockquote>
+<p><strong>起因</strong></p>
+<p>作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的~</p>
+<p>无疑，音乐一定要是flac无损的（尽管我听不出来），带高清专辑封面（尽管我不看），有双语歌词的（尽管我也不怎么看）</p>
+<p>在众多LoveLiver的共同努力下，我们有了符合以上要求的歌曲（如图，有高清专辑封面，在同文件夹下有同名歌词）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/070938032377815.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>科研内容包括常见播放器对本地专辑封面，本地歌词的支持情况（包括pc版和手机版）</p>
+<p>测试歌曲 <code>START DASH-μ&#39;s</code></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071008050342090.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<a id="more"></a>
+<h1 id="PC版"><a href="#PC版" class="headerlink" title="PC版"></a>PC版</h1><p>所有软件由360软件管家下载（毕竟那么多，我也不能一个一个跑官网下载吧）</p>
+<p>有：QQ音乐，百度音乐，多米音乐，酷狗音乐，酷我音乐，千千静听，天天动听，网易云音乐，虾米音乐　　（2015-08-07 09:59:08最新版）</p>
+<h2 id="QQ音乐"><a href="#QQ音乐" class="headerlink" title="QQ音乐"></a>QQ音乐</h2><p>作为腾讯大老爷的播放器，QQ音乐的使用者应该不少</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071009165801765.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>能正常读取本地歌词，但是没有专辑封面</p>
+<h2 id="百度音乐"><a href="#百度音乐" class="headerlink" title="百度音乐"></a>百度音乐</h2><p>曾经的千千静听</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071011265189869.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>能正常显示封面，正常显示歌词</p>
+<p>但是存在间接性读不到歌词，自己上网下载的情况，建议随便设个代理服务器，阉割上网功能</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071013152687645.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="多米音乐"><a href="#多米音乐" class="headerlink" title="多米音乐"></a>多米音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071015333774385.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在图片上右键可以选择图片，我选择了专辑封面后，还是一片黑→_→</p>
+<p>而且这歌词可不是我本地的歌词，本地歌词只有中日，没有罗马音的</p>
+<p>要你何用→_→</p>
+<h2 id="酷狗音乐"><a href="#酷狗音乐" class="headerlink" title="酷狗音乐"></a>酷狗音乐</h2><p>Hello kugou~</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071018507843409.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>同上，没专辑封面，不是本地歌词</p>
+<h2 id="酷我音乐"><a href="#酷我音乐" class="headerlink" title="酷我音乐"></a>酷我音乐</h2><p>听音乐，用酷我</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071022276746548.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我丝毫不能理解前几首为什么不能播放→_→</p>
+<p>没专辑封面歌词这些功能就算了，作为一个音乐播放器不能放歌→_→</p>
+<p><del>不过背景……南酱prpr</del></p>
+<h2 id="千千静听"><a href="#千千静听" class="headerlink" title="千千静听"></a>千千静听</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071025145028081.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>图片选择专辑封面，也不读取，而且这歌词也不是本地的</p>
+<h2 id="天天动听"><a href="#天天动听" class="headerlink" title="天天动听"></a>天天动听</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071028349099588.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>歌词不对，封面看似对，然而我们进入缓存目录，发现这个图片是他下的，只是凑巧一样~</p>
+<p>而且<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071029347842530.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>没点进播放界面的图片不对~~</p>
+<h2 id="网易云音乐"><a href="#网易云音乐" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><p>看名字就不会用本地的→_→</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071034221592302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在未断网情况下，上网下载图片和歌词</p>
+<p>断网情况下，没封面，只有本地歌词</p>
+<h2 id="虾米音乐"><a href="#虾米音乐" class="headerlink" title="虾米音乐"></a>虾米音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071037482683036.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>PC版测试完毕，推荐不联网的百度音乐</strong></p>
+<h1 id="手机版"><a href="#手机版" class="headerlink" title="手机版"></a>手机版</h1><p>所有软件由PP助手下载</p>
+<p>有：百度音乐，QQ音乐，酷狗音乐，Rockbox，酷我音乐，虾米音乐，多米音乐，网易云音乐，咪咕音乐，天天动听</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071113000654937.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="百度音乐-1"><a href="#百度音乐-1" class="headerlink" title="百度音乐"></a>百度音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071041449099572.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>本地歌词，没专辑图片</p>
+<h2 id="QQ音乐-1"><a href="#QQ音乐-1" class="headerlink" title="QQ音乐"></a>QQ音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071045513152863.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>歌词不对，封面不对</p>
+<h2 id="酷狗音乐-1"><a href="#酷狗音乐-1" class="headerlink" title="酷狗音乐"></a>酷狗音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071048470655103.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>什么都没有→_→</p>
+<h2 id="酷我音乐-1"><a href="#酷我音乐-1" class="headerlink" title="酷我音乐"></a>酷我音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071052260804925.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>带着胎毛的小鸟→_→（所以我一定要本地歌词，太TM乱了）</p>
+<p>没专辑，不是本地歌词</p>
+<h2 id="虾米音乐-1"><a href="#虾米音乐-1" class="headerlink" title="虾米音乐"></a>虾米音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071054562055827.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>没歌词</p>
+<h2 id="多米音乐-1"><a href="#多米音乐-1" class="headerlink" title="多米音乐"></a>多米音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071058389879732.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>没专辑图片，歌词非本地</p>
+<h2 id="网易云音乐-1"><a href="#网易云音乐-1" class="headerlink" title="网易云音乐"></a>网易云音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071059526908251.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>专辑图片，歌词都是自己下的，不过断网情况下会调用本地专辑图片和歌词</p>
+<p>然而在调用本地歌词的时候，切歌后，桌面歌词不变，需要手动关闭桌面歌词再打开更新→_→</p>
+<p>此bug已提交，如果可以修复还是不错的</p>
+<h2 id="咪咕音乐"><a href="#咪咕音乐" class="headerlink" title="咪咕音乐"></a>咪咕音乐</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071105024871705.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="天天动听-1"><a href="#天天动听-1" class="headerlink" title="天天动听"></a>天天动听</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071109132051276.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>本地专辑封面，联网时去上网搜歌词，然而很可能搜不到，断网时本地歌词</p>
+<p>注意，断网指关闭wifi，开wifi不给联网权限它还是会去搜，但是搜不到</p>
+<p>断网听，目前这个效果最好，没有其他问题，正在研究怎么阉割他的联网功能</p>
+<h2 id="Rockbox"><a href="#Rockbox" class="headerlink" title="Rockbox"></a>Rockbox</h2><p>神器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images0.cnblogs.com/blog2015/790793/201508/071108091746538.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这玩意根本没法联网= =歌词，专辑封面支持的都不错</p>
+<p>但是上手太难=_=</p>
+<p><strong>如果网易云音乐能修复bug推荐网易云音乐（禁止联网权限）</strong></p>
+<p><strong>否则就用天天动听应付着吧</strong></p>
+<p><strong>如果不怕麻烦，Rockbox也不错，只是没有桌面歌词</strong></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/Writing/Music_Player.html" target="_blank" rel="external">主流播放器的强行联网对比</a><br>文章地址：  <a href="/post/Writing/Music_Player.html" target="_blank" rel="external">https://www.oyohyee.com/post/Writing/Music_Player.html</a><br>创建时间：  2015-08-07 11:18:00<br>更新时间：  2017-08-25 20:31:48
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Writing/Music_Player.html&title=《主流播放器的强行联网对比》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Writing/Music_Player.html&title=《主流播放器的强行联网对比》 — OhYee's Blog&source=
+结论：
+　　pc版百度音乐阉割联网功能
+　　手机版天天动听或网易云音乐阉割联网功能
+
+起因
+作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Writing/Music_Player.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《主流播放器的强行联网对比》 — OhYee's Blog&url=https://www.oyohyee.com/post/Writing/Music_Player.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Writing/Music_Player.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/Note/CodeBetter.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">代码优化方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/Algorithm/Contour.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">康托（逆）展开</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/Writing/Music_Player.html&title=《主流播放器的强行联网对比》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/Writing/Music_Player.html&title=《主流播放器的强行联网对比》 — OhYee's Blog&source=
+结论：
+　　pc版百度音乐阉割联网功能
+　　手机版天天动听或网易云音乐阉割联网功能
+
+起因
+作为一名虔诚的LoveLiver，听μ’s的歌写程序是必须的..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/Writing/Music_Player.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《主流播放器的强行联网对比》 — OhYee's Blog&url=https://www.oyohyee.com/post/Writing/Music_Player.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/Writing/Music_Player.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/Writing/Music_Player.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
