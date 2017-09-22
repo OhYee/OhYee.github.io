@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="OhYee&#39;s Blog">
 <meta property="og:description" content="题目 Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submission: 203Submission Accepted: 14   Description 快毕业了，同学们开始为自己的未来做打算。某人打算回家养猪。由于养猪还得去卖，所以交通是个问题，现在有n个村庄，村庄的编号是1到n，有m条路。若想使得所有">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-08-25T12:31:42.000Z">
+<meta property="og:updated_time" content="2017-09-22T14:56:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AOJ 799.热身之回家养猪">
 <meta name="twitter:description" content="题目 Time Limit: 1000 msCase Time Limit: 1000 msMemory Limit: 64 MBTotal Submission: 203Submission Accepted: 14   Description 快毕业了，同学们开始为自己的未来做打算。某人打算回家养猪。由于养猪还得去卖，所以交通是个问题，现在有n个村庄，村庄的编号是1到n，有m条路。若想使得所有">
@@ -273,69 +273,7 @@
 </blockquote>
 <h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>可采用并查集求解，然而当时对并查集并不怎么熟练</p>
 <p>采用了较为暴力的写法</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>```cpp</p>
-<p>#include <cstdio></cstdio></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <cstring></cstring></p>
-<p>#include <cmath></cmath></p>
-<p>#include <string></string></p>
-<p>#include <iostream></iostream></p>
-<p>#include <vector></vector></p>
-<p>#include <list></list></p>
-<p>#include <stack></stack></p>
-<p>#include <queue><br>using namespace std;</queue></p>
-<p>#define REP(n) for(int o=0;o&lt;n;o++)</p>
-<p>const int maxn = 1005;<br>int edge[maxn][maxn];</p>
-<p>inline void road(int a,int b) {<br>    edge[a][++edge[a][0]] = b;<br>    edge[b][++edge[b][0]] = a;<br>    //printf(“     %d %d\n”,a,b);<br>}</p>
-<p>bool Do() {<br>    int n,m;<br>    if(scanf(“%d%d”,&amp;n,&amp;m) == EOF)<br>        return false;<br>    for(int i = 1;i &lt;= n;i++)<br>        edge[i][0] = 0;<br>    REP(m) {<br>        int a,b;<br>        scanf(“%d%d”,&amp;a,&amp;b);<br>        road(a,b);<br>    }<br>    bool can[maxn] = {0};</p>
-<pre><code>int cnt = 0;
-
-queue&lt;int&gt; Q;
-Q.push(1);
-
-while(!Q.empty()) {
-    int top = Q.front();
-    Q.pop();
-    if(can[top])
-        continue;
-    can[top] = 1;
-    REP(edge[top][0])
-        Q.push(edge[top][o+1]);
-}
-/*
-printf(&quot;===\n&quot;);
-REP(n)
-    printf(&quot;can[%d]=%d\n&quot;,o + 1,can[o + 1]);
-    */
-while(1) {
-    bool ok = true;
-    REP(n) {
-        if(!can[o + 1]) {
-            road(1,o + 1);
-            cnt++;
-            Q.push(o + 1);
-            while(!Q.empty()) {
-                int top = Q.front();
-                Q.pop();
-                if(can[top])
-                    continue;
-                can[top] = 1;
-                REP(edge[top][0]) {
-                    Q.push(edge[top][o+1]);
-                }
-            }
-            ok = false;
-            break;
-        }
-    }
-    if(ok)
-        break;
-}
-printf(&quot;%d\n&quot;,cnt);
-return true;
-</code></pre><p>}</p>
-<p>int main() {<br>    while(Do());<br>    return 0;<br>}<br>``</p>
-
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"> </div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1005</span>;</div><div class="line"><span class="keyword">int</span> edge[maxn][maxn];</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">road</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> </span>&#123;</div><div class="line">    edge[a][++edge[a][<span class="number">0</span>]] = b;</div><div class="line">    edge[b][++edge[b][<span class="number">0</span>]] = a;</div><div class="line">    <span class="comment">//printf("     %d %d\n",a,b);</span></div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n,m;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m) == EOF)</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</div><div class="line">        edge[i][<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    REP(m) &#123;</div><div class="line">        <span class="keyword">int</span> a,b;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</div><div class="line">        road(a,b);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">bool</span> can[maxn] = &#123;<span class="number">0</span>&#125;;</div><div class="line">     </div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line"> </div><div class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</div><div class="line">    Q.push(<span class="number">1</span>);</div><div class="line"> </div><div class="line">    <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> top = Q.front();</div><div class="line">        Q.pop();</div><div class="line">        <span class="keyword">if</span>(can[top])</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        can[top] = <span class="number">1</span>;</div><div class="line">        REP(edge[top][<span class="number">0</span>])</div><div class="line">            Q.push(edge[top][o+<span class="number">1</span>]);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/*</span></div><div class="line"><span class="comment">    printf("===\n");</span></div><div class="line"><span class="comment">    REP(n)</span></div><div class="line"><span class="comment">        printf("can[%d]=%d\n",o + 1,can[o + 1]);</span></div><div class="line"><span class="comment">        */</span></div><div class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">bool</span> ok = <span class="literal">true</span>;</div><div class="line">        REP(n) &#123;</div><div class="line">            <span class="keyword">if</span>(!can[o + <span class="number">1</span>]) &#123;</div><div class="line">                road(<span class="number">1</span>,o + <span class="number">1</span>);</div><div class="line">                cnt++;</div><div class="line">                Q.push(o + <span class="number">1</span>);</div><div class="line">                <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">                    <span class="keyword">int</span> top = Q.front();</div><div class="line">                    Q.pop();</div><div class="line">                    <span class="keyword">if</span>(can[top])</div><div class="line">                        <span class="keyword">continue</span>;</div><div class="line">                    can[top] = <span class="number">1</span>;</div><div class="line">                    REP(edge[top][<span class="number">0</span>]) &#123;</div><div class="line">                        Q.push(edge[top][o+<span class="number">1</span>]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                ok = <span class="literal">false</span>;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(ok)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,cnt);</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span>(Do());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -343,7 +281,7 @@ return true;
         
 
         
-        文章标题：  <a href="/post/AOJ/799.html" target="_blank" rel="external">AOJ 799.热身之回家养猪</a><br>文章地址：  <a href="/post/AOJ/799.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/799.html</a><br>创建时间：  2016-03-23 23:43:00<br>更新时间：  2017-08-25 20:31:42
+        文章标题：  <a href="/post/AOJ/799.html" target="_blank" rel="external">AOJ 799.热身之回家养猪</a><br>文章地址：  <a href="/post/AOJ/799.html" target="_blank" rel="external">https://www.oyohyee.com/post/AOJ/799.html</a><br>创建时间：  2016-03-23 23:43:00<br>更新时间：  2017-09-22 22:56:32
         
     </div>
     <footer>
