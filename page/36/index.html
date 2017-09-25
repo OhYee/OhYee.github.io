@@ -217,6 +217,130 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-hello_world"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-06-03 20:00:00 20:00:00" datetime="2016-06-03T12:00:00.000Z"  itemprop="datePublished">2016-06-03 20:00:00</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/hello_world.html">Hello World</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+    
+
+        <a href="/post/hello_world.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HFUT/1357"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-05-30 20:05:00 20:05:00" datetime="2016-05-30T12:05:00.000Z"  itemprop="datePublished">2016-05-30 20:05:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HFUT/1357.html">HFUT 1357.梯田AGAIN(安徽省2016“京胜杯”程序设计大赛 D)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>大家还记得去年的梯田吗？土豪YZK在一块小岛上有着一大片n<em>m的梯田，每块1</em>1的田地都有它的高度。奴隶们不甘被YZK剥削，他们联合起来决定发动一场海啸淹掉YZK的部分梯田。<br>奴隶们去年尝试了一下，结果发现，由于土质太过松软，水能够透过土地渗入到相邻的梯田，即对于海啸高度h，梯田中所有小于等于h的土地都会由于土质松软而被被淹没。  </p>
+<p>现在给你一个n*m的矩阵，代表梯田中每块田地的高度。然后给定q个询问，每个询问给定一个海啸高度h，问在此高度下，不被淹没的梯田数量是多少。  </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>第一行一个整数T，表示测试数据组数。<br>对于每组测试数据：  </p>
+<p>第一行三个数字n，m，q，表示梯田的行数，列数和询问数。  </p>
+<p>之后n行，每行m个数字，表示每块田地的高度，梯田高度不大于1000000。  </p>
+<p>之后q行，每行给出一个海啸高度h，问大于这个高度的梯田有多少块。  </p>
+<p>0&lt;T&lt;20。  </p>
+<p>0&lt;n，m&lt;=200。  </p>
+<p>0&lt;=q&lt;1000。  </p>
+<p>0&lt;=h&lt;=1000000.  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>对于每个询问，给出一个整数，表示大于这个海啸高度的梯田数量。  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>2<br>2 2 2<br>1 2<br>3 4<br>2<br>3<br>2 3 3<br>1 2 3<br>3 4 5<br>0<br>4<br>5  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>​2<br>1<br>6<br>1<br>0  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>题目比较容易理解，可以看出，整个梯田的大小可能是200*200，而询问的数量是1000，h的最大高度为1000000</p>
+<p>因此，可以知道，在极限数据情况下，如果保存梯田中每块田的高度的话，会有大量的重复计算，会导致超时。</p>
+<p>可以将每个高度的梯田的数目记录下来，采用记忆化搜索的方式来查询。</p>
+<p>（比赛时的数据貌似比这个容易过）</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">HomePage:http://www.oyohyee.com</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment">Blog:http://www.cnblogs.com/ohyee/</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//DEBUG MODE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug 0</span></div><div class="line"></div><div class="line"><span class="comment">//循环</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxh = <span class="number">1000005</span>;</div><div class="line"><span class="keyword">int</span> cnt[maxh];</div><div class="line"><span class="keyword">int</span> ans[maxh];</div><div class="line"></div><div class="line"><span class="keyword">int</span> Max = <span class="number">-1</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Ans</span><span class="params">(<span class="keyword">int</span> h)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(h &gt; Max)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span>(ans[h] == <span class="number">-1</span>)</div><div class="line">        ans[h] = cnt[h] + Ans(h + <span class="number">1</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ans[h];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">    <span class="built_in">memset</span>(ans,<span class="number">-1</span>,<span class="keyword">sizeof</span>(cnt));</div><div class="line">    Max = <span class="number">-1</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">int</span> n,m,q;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;q);</div><div class="line">    </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j++) &#123;</div><div class="line">            <span class="keyword">int</span> temp;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</div><div class="line">            Max = max(Max,temp);</div><div class="line">            cnt[temp]++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    REP(q) &#123;</div><div class="line">        <span class="keyword">int</span> h;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;h);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,Ans(h)-cnt[h]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)</div><div class="line">        Do();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+
+        <a href="/post/HFUT/1357.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HFUT/">HFUT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JingShengBei/">京胜杯</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-HFUT/1355"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -621,112 +745,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-POJ/1035"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-20 05:24:00 05:24:00" datetime="2016-05-19T21:24:00.000Z"  itemprop="datePublished">2016-05-20 05:24:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/1035.html">POJ 1035.Spell checker</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>You, as a member of a development team for a new spell checking program, are to write a module that will check the correctness of given words using a known dictionary of all correct words in all their forms.<br>If the word is absent in the dictionary then it can be replaced by correct words (from the dictionary) that can be obtained by one of the following operations:   </p>
-<ul>
-<li>deleting of one letter from the word;   </li>
-<li>replacing of one letter in the word with an arbitrary letter;   </li>
-<li>inserting of one arbitrary letter into the word.   </li>
-</ul>
-<p>Your task is to write the program that will find all possible replacements from the dictionary for every given word.<br>
-    
-
-        <a href="/post/POJ/1035.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trie/">Trie树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-POJ/2299"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-19 00:56:00 00:56:00" datetime="2016-05-18T16:56:00.000Z"  itemprop="datePublished">2016-05-19 00:56:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/2299.html">POJ 2299.Ultra-QuickSort</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>In this problem, you have to analyze a particular sorting algorithm. The algorithm processes a sequence of n distinct integers by swapping two adjacent sequence elements until the sequence is sorted in ascending order. For the input sequence<br>9 1 0 5 4 ,  </p>
-<p>Ultra-QuickSort produces the output<br>0 1 4 5 9 .  </p>
-<p>Your task is to determine how many swap operations Ultra-QuickSort needs to perform in order to sort a given input sequence.<br>
-    
-
-        <a href="/post/POJ/2299.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Inverse-number/">逆序数</a></li></ul>
 
     </div>
     

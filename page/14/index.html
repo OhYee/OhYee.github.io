@@ -217,6 +217,111 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Algorithm/Strongly_connected_components"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-06 01:01:07 01:01:07" datetime="2016-11-05T17:01:07.000Z"  itemprop="datePublished">2016-11-06 01:01:07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Strongly_connected_components.html">强连通分量缩点 — Kosaraju | Tarjan | Gabow</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="强连通分量"><a href="#强连通分量" class="headerlink" title="强连通分量"></a>强连通分量</h1><p>如果两个点能够互相到达,那么说明两个点在一个 <strong>强连通分量</strong> (成 <strong>环</strong> )里<br>其概念与 <a href="/post/Algorithm/Union_Find.html"><strong>并查集</strong></a> 相似  </p>
+<p>不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里<br>而强连通分量操作的是无向图,需要考虑边的方向  </p>
+<p>如图,最左侧的分支不是一个强连通分量,而右两个是  </p>
+<p><img src="/post/img/strongly_connected_components_1.png" alt="Strongly_connected_components"></p>
+<p>在许多图的题目里,需要对节点进行 <strong>强连通分量缩点</strong> 从而简化后续操作的复杂度<br>缩点后,新的图是一个 <strong>有向无环图(DAG)</strong> ,因此可以使用其他算法进行其他的操作  </p>
+<p>强连通分量的算法有 kosaraju tarjan gabow  </p>
+<p>找了模板题 <a href="/post/HDU/1269.html"><strong>HDU 1269.迷宫城堡</strong></a> 测试写的模板有没有问题</p>
+    
+
+        <a href="/post/Algorithm/Strongly_connected_components.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gabow/">gabow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kosaraju/">kosaraju</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5934"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-05 22:53:05 22:53:05" datetime="2016-11-05T14:53:05.000Z"  itemprop="datePublished">2016-11-05 22:53:05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5934.html">HDU 5934.Bomb(2016 CCPC 杭州 B)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>There are N bombs needing exploding.  </p>
+<p>Each bomb has three attributes: exploding radius ri, position (xi,yi) and lighting-cost ci which means you need to pay ci cost making it explode.  </p>
+<p>If a un-lighting bomb is in or on the border the exploding area of another exploding one, the un-lighting bomb also will explode.  </p>
+<p>Now you know the attributes of all bombs, please use the minimum cost to explode all bombs.  </p>
+    
+
+        <a href="/post/HDU/5934.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-HDU/5938"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -658,55 +763,6 @@
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-POJ/1273"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-19 00:25:53 00:25:53" datetime="2016-09-18T16:25:53.000Z"  itemprop="datePublished">2016-09-19 00:25:53</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/1273.html">POJ 1273.Drainage Ditches</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>Every time it rains on Farmer John’s fields, a pond forms over Bessie’s favorite clover patch. This means that the clover is covered by water for awhile and takes quite a long time to regrow. Thus, Farmer John has built a set of drainage ditches so that Bessie’s clover patch is never covered in water. Instead, the water is drained to a nearby stream. Being an ace engineer, Farmer John has also installed regulators at the beginning of each ditch, so he can control at what rate water flows into that ditch.<br>Farmer John knows not only how many gallons of water each ditch can transport per minute but also the exact layout of the ditches, which feed out of the pond and into each other and stream in a potentially complex network.<br>Given all this information, determine the maximum rate at which water can be transported out of the pond and into the stream. For any given ditch, water flows in only one direction, but there might be a way that water can flow in a circle.<br>
-    
-
-        <a href="/post/POJ/1273.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-HDU/1273"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -747,55 +803,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5889"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-17 21:37:02 21:37:02" datetime="2016-09-17T13:37:02.000Z"  itemprop="datePublished">2016-09-17 21:37:02</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5889.html">HDU 5889.Barricade(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>The empire is under attack again. The general of empire is planning to defend his castle. The land can be seen as N towns and M roads, and each road has the same length and connects two towns. The town numbered 1 is where general’s castle is located, and the town numbered N is where the enemies are staying. The general supposes that the enemies would choose a shortest path. He knows his army is not ready to fight and he needs more time. Consequently he decides to put some barricades on some roads to slow down his enemies. Now, he asks you to find a way to set these barricades to make sure the enemies would meet at least one of them. Moreover, the barricade on the i-th road requires wi units of wood. Because of lacking resources, you need to use as less wood as possible.  </p>
-    
-
-        <a href="/post/HDU/5889.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
 
     </div>
     

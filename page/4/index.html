@@ -217,6 +217,103 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-hihocoder/1069"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-11 22:21:51 22:21:51" datetime="2017-08-11T14:21:51.000Z"  itemprop="datePublished">2017-08-11 22:21:51</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/hihocoder/1069.html">hihocoder 1069.最近公共祖先·三</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>上上回说到，小Hi和小Ho使用了Tarjan算法来优化了他们的“最近公共祖先”网站，但是很快这样一个离线算法就出现了问题：如果只有一个人提出了询问，那么小Hi和小Ho很难决定到底是针对这个询问就直接进行计算还是等待一定数量的询问一起计算。毕竟无论是一个询问还是很多个询问，使用离线算法都是只需要做一次深度优先搜索就可以了的。<br><br>那么问题就来了，如果每次计算都只针对一个询问进行的话，那么这样的算法事实上还不如使用最开始的朴素算法呢！但是如果每次要等上很多人一起的话，因为说不准什么时候才能够凑够人——所以事实上有可能要等上很久很久才能够进行一次计算，实际上也是很慢的！<br><br>“那到底要怎么办呢？在等到10分钟，或者凑够一定数量的人两个条件满足一个时就进行运算？”小Ho想出了一个折衷的办法。<br><br>“哪有这么麻烦！别忘了和离线算法相对应的可是有一个叫做在线算法的东西呢！”小Hi笑道。<br><br>小Ho面临的问题还是和之前一样：假设现在小Ho现在知道了N对父子关系——父亲和儿子的名字，并且这N对父子关系中涉及的所有人都拥有一个共同的祖先（这个祖先出现在这N对父子关系中），他需要对于小Hi的若干次提问——每次提问为两个人的名字（这两个人的名字在之前的父子关系中出现过），告诉小Hi这两个人的所有共同祖先中辈分最低的一个是谁？<br><br></div><div class="part" title="Input"><br>每个测试点（输入文件）有且仅有一组测试数据。<br><br>每组测试数据的第1行为一个整数N，意义如前文所述。<br><br>每组测试数据的第2~N+1行，每行分别描述一对父子关系，其中第i+1行为两个由大小写字母组成的字符串<code>Father_i</code>, <code>Son_i</code>，分别表示父亲的名字和儿子的名字。<br><br>每组测试数据的第N+2行为一个整数M，表示小Hi总共询问的次数。<br><br>每组测试数据的第N+3~N+M+2行，每行分别描述一个询问，其中第N+i+2行为两个由大小写字母组成的字符串<code>Name1_i</code>, <code>Name2_i</code>，分别表示小Hi询问中的两个名字。<br><br>对于100%的数据，满足N&lt;=10^5，M&lt;=10^5, 且数据中所有涉及的人物中不存在两个名字相同的人（即姓名唯一的确定了一个人），所有询问中出现过的名字均在之前所描述的N对父子关系中出现过，且每个输入文件中第一个出现的名字所确定的人是其他所有人的公共祖先。<br><br></div><div class="part" title="Output"><br>对于每组测试数据，对于每个小Hi的询问，按照在输入中出现的顺序，各输出一行，表示查询的结果：他们的所有共同祖先中辈分最低的一个人的名字。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4<br>Adam Sam<br>Sam Joey<br>Sam Micheal<br>Adam Kevin<br>3<br>Sam Sam<br>Adam Sam<br>Micheal Kevin<br><br></div><div class="output part" title="Sample Output"><br>Sam<br>Adam<br>Adam<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/hihocoder/1069.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/V2ray"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-11 21:41:36 21:41:36" datetime="2017-08-11T13:41:36.000Z"  itemprop="datePublished">2017-08-11 21:41:36</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/V2ray.html">使用V2ray科学上网</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR<br>国家开始严打各种VPN服务<br>而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)  </p>
+<p>因此需要搞一个VPN来科学上网  </p>
+    
+
+        <a href="/post/Note/V2ray.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/v2ray/">v2ray</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">科学上网</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Note/git_rm_cached"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -588,7 +685,7 @@
 
     
         <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>小Ho：小Hi，上次我学会了如何检测一个数是否是质数。于是我又有了一个新的问题，我如何去快速得求解[1,N]这个区间内素数的个数呢？<br>小Hi：你自己有什么想法么？<br>小Ho：有！我一开始的想法是，自然我们已经知道了如何快速判定一个数是否是质数，那么我就直接将[1,N]之间每一个数判定一次，就可以得到结果。但我发现这个方法太笨了。<br>小Hi：确实呢，虽然我们已经通过快速素数检测将每一次判定的时间复杂度降低，但是N个数字的话，总的时间复杂度依旧很高。<br>小Ho：是的，所以后来我改变了我的算法。我发现如果一个数p是质数的话，那么它的倍数一定都是质数。所以我建立了一个布尔类型的数组isPrime，初始化都为true。我从2开始枚举，当我找到一个isPrime[p]仍然为true时，可以确定p一定是一个质数。接着我再将N以内所有p的倍数全部设定为isPrime[p*i]=false。<br>写成伪代码为：<br><br><!--�584--><br><br>小Hi：小Ho你用的这个算法叫做Eratosthenes筛法，是一种非常古老的质数筛选算法。其时间复杂度为O(n log log n)。但是这个算法有一个冗余的地方：比如合数10，在枚举2的时候我们判定了一次，在枚举5的时候我们又判定了一次。因此使得其时间复杂度比O(n)要高。<br>小Ho：那有没有什么办法可以避免啊？<br>小Hi：当然有了，一个改进的方法叫做Eular筛法，其时间复杂度是O(n)的。<br>提示：Eular质数筛法<br><br></div><div class="part" title="Input"><br>第1行：1个正整数n，表示数字的个数，2≤n≤1,000,000。<br><br></div><div class="part" title="Output"><br>第1行：1个整数，表示从1到n中质数的个数<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>9<br><br></div><div class="output part" title="Sample Output"><br>4<br><br></div><div class="clear"></div></div></div>
+<div class="oj"><div class="part" title="Description"><br>小Ho：小Hi，上次我学会了如何检测一个数是否是质数。于是我又有了一个新的问题，我如何去快速得求解[1,N]这个区间内素数的个数呢？<br>小Hi：你自己有什么想法么？<br>小Ho：有！我一开始的想法是，自然我们已经知道了如何快速判定一个数是否是质数，那么我就直接将[1,N]之间每一个数判定一次，就可以得到结果。但我发现这个方法太笨了。<br>小Hi：确实呢，虽然我们已经通过快速素数检测将每一次判定的时间复杂度降低，但是N个数字的话，总的时间复杂度依旧很高。<br>小Ho：是的，所以后来我改变了我的算法。我发现如果一个数p是质数的话，那么它的倍数一定都是质数。所以我建立了一个布尔类型的数组isPrime，初始化都为true。我从2开始枚举，当我找到一个isPrime[p]仍然为true时，可以确定p一定是一个质数。接着我再将N以内所有p的倍数全部设定为isPrime[p*i]=false。<br>写成伪代码为：<br><br><!--�581--><br><br>小Hi：小Ho你用的这个算法叫做Eratosthenes筛法，是一种非常古老的质数筛选算法。其时间复杂度为O(n log log n)。但是这个算法有一个冗余的地方：比如合数10，在枚举2的时候我们判定了一次，在枚举5的时候我们又判定了一次。因此使得其时间复杂度比O(n)要高。<br>小Ho：那有没有什么办法可以避免啊？<br>小Hi：当然有了，一个改进的方法叫做Eular筛法，其时间复杂度是O(n)的。<br>提示：Eular质数筛法<br><br></div><div class="part" title="Input"><br>第1行：1个正整数n，表示数字的个数，2≤n≤1,000,000。<br><br></div><div class="part" title="Output"><br>第1行：1个整数，表示从1到n中质数的个数<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>9<br><br></div><div class="output part" title="Sample Output"><br>4<br><br></div><div class="clear"></div></div></div>
 </div></div>
     
 
@@ -600,104 +697,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5890"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-05 11:23:17 11:23:17" datetime="2017-08-05T03:23:17.000Z"  itemprop="datePublished">2017-08-05 11:23:17</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5890.html">HDU 5890.Eighty seven</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>Mr. Fib is a mathematics teacher of a primary school. In the next lesson, he is planning to teach children how to add numbers up. Before the class, he will prepare N cards with numbers. The number on the i-th card is ai. In class, each turn he will remove no more than 3 cards and let students choose any ten cards, the sum of the numbers on which is 87. After each turn the removed cards will be put back to their position. Now, he wants to know if there is at least one solution of each turn. Can you help him?<br><br></div><div class="part" title="Input"><br>The first line of input contains an integer t(t≤5), the number of test cases. t test cases follow.<br>For each test case, the first line consists an integer N(N≤50).<br>The second line contains N non-negative integers<br>a1,a2,…,aN. The i-th number represents the number on the i-th card. The third line consists an integer Q(Q≤100000). Each line of the next Q lines contains three integers i,j,k, representing Mr.Fib will remove the i-th, j-th, and k-th cards in this turn. A question may degenerate while i=j, i=k or j=k.<br><br></div><div class="part" title="Output"><br>For each turn of each case, output ‘Yes’ if there exists at least one solution, otherwise output ‘No’.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1<br>12<br>1 2 3 4 5 6 7 8 9 42 21 22<br>10<br>1 2 3<br>3 4 5<br>2 3 2<br>10 10 10<br>10 11 11<br>10 1 1<br>1 2 10<br>1 11 12<br>1 10 10<br>11 11 12<br><br></div><div class="output part" title="Sample Output"><br>No<br>No<br>No<br>Yes<br>No<br>Yes<br>No<br>No<br>Yes<br>Yes<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/HDU/5890.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bitset/">bitset</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Codeforces/148D"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-03 15:48:23 15:48:23" datetime="2017-08-03T07:48:23.000Z"  itemprop="datePublished">2017-08-03 15:48:23</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Codeforces/148D.html">Codeforces 148D.Bag of mice</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>The dragon and the princess are arguing about what to do on the New Year’s Eve. The dragon suggests flying to the mountains to watch fairies dancing in the moonlight, while the princess thinks they should just go to bed early. They are desperate to come to an amicable agreement, so they decide to leave this up to chance.<br>They take turns drawing a mouse from a bag which initially contains w white and b black mice. The person who is the first to draw a white mouse wins. After each mouse drawn by the dragon the rest of mice in the bag panic, and one of them jumps out of the bag itself (the princess draws her mice carefully and doesn’t scare other mice). Princess draws first. What is the probability of the princess winning?<br>If there are no more mice in the bag and nobody has drawn a white mouse, the dragon wins. Mice which jump out of the bag themselves are not considered to be drawn (do not define the winner). Once a mouse has left the bag, it never returns to it. Every mouse is drawn from the bag with the same probability as every other one, and every mouse jumps out of the bag with the same probability as every other one.<br><br></div><div class="part" title="Input"><br>The only line of input data contains two integers w and b (0?≤?w,?b?≤?1000).<br><br></div><div class="part" title="Output"><br><br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>the probability of the princess winning. The answer is considered to be correct if its absolute or relative error does not exceed 10?-?9.<br>Example<br><br></div><div class="output part" title="Sample Output"><br>1 3<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/Codeforces/148D.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Codeforces/">Codeforces</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Probability-DP/">概率dp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li></ul>
 
     </div>
     

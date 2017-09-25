@@ -217,6 +217,123 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Note/spfk_theme"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-06-16 21:15:24 21:15:24" datetime="2017-06-16T13:15:24.000Z"  itemprop="datePublished">2017-06-16 21:15:24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/spfk_theme.html">Hexo博客主题更换</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>spfk是一个在电脑端和移动端都有着不错效果的网站<br>由于之前Next已经修改了好多地方,所以迁移还是一个比较大的工程  </p>
+<p>修改部分如下：</p>
+<ol>
+<li><p>Keywords信息添加</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Keywords --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"&#123;% if page.keywords %&#125;&#123;&#123; page.keywords &#125;&#125;,&#123;% endif %&#125;&#123;% if page.tags and page.tags.length %&#125;&#123;% for tag in page.tags %&#125;&#123;&#123; tag.name &#125;&#125;,&#123;% endfor %&#125;&#123;% endif %&#125;&#123;% if theme.keywords %&#125;&#123;&#123; theme.keywords &#125;&#125;&#123;% endif %&#125;&#123;% if config.keywords %&#125;&#123;&#123; config.keywords &#125;&#125;&#123;% endif %&#125;"</span> /&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>代码折叠等功能抑制</p>
+</li>
+<li>增加备案信息</li>
+<li>修改了个别页面的显示问题</li>
+<li>修改了在手机端标题和日期重叠的问题</li>
+<li>将标签页的标签云的形式改成了符合主题风格的形式</li>
+<li>删掉了许多不需要的东西</li>
+<li>增加了手机端chrome的状态栏颜色</li>
+</ol>
+
+    
+
+        <a href="/post/Note/spfk_theme.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spfk/">spfk</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/install_nodejs_on_linux"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-05-20 23:44:45 23:44:45" datetime="2017-05-20T15:44:45.000Z"  itemprop="datePublished">2017-05-20 23:44:45</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/install_nodejs_on_linux.html">在 Linux 上安装 Node.js</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>原则上,直接从<a href="https://nodejs.org/en/download/" target="_blank" rel="external">官网</a>下载是没有问题的<br>不过我这里一直安装不上<br><code>apt-get</code> 和 source 都安装失败  </p>
+<p>于是下载了编译好的 64 位包  </p>
+<p>下载后<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">tar xvf &lt;filename&gt;</div></pre></td></tr></table></figure></p>
+<p>解压文件  </p>
+<p>然后放到了 <code>/usr/share/node</code> 目录</p>
+<p>然后编辑 <code>/etc/profile</code> </p>
+<p>把下面内容加到最后面(环境变量)<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export NODE_HOME=/alidata/node-v0.10.19-linux-x64</div><div class="line">export PATH=$PATH:$NODE_HOME/bin</div><div class="line">export NODE_PATH=$NODE_HOME/lib/node_modules</div></pre></td></tr></table></figure></p>
+<p>最后重载下<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">source</span> /etc/profile</div></pre></td></tr></table></figure></p>
+
+    
+
+        <a href="/post/Note/install_nodejs_on_linux.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Note/oh_my_zsh"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -599,106 +716,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pruning/">剪枝</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/862"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-26 20:28:26 20:28:26" datetime="2017-04-26T12:28:26.000Z"  itemprop="datePublished">2017-04-26 20:28:26</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/862.html">AOJ 862.平面上最近点对</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>给定平面上n个点，找出其中的一对点的距离，使得这n个点的所有点对中，该距离为所有点对中最小的。<br><br></div><div class="part" title="Input"><br>第一行：n；2≤n≤60000；<br>接下来n行：每行两个整数：x y，表示一个点的行坐标和列坐标，中间用一个空格隔开。<br><br></div><div class="part" title="Output"><br>仅一行，一个实数，表示最短距离，精确到小数点后面4位。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>1  1<br>1  2<br>2  2<br><br></div><div class="output part" title="Sample Output"><br>1.0000<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/AOJ/862.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recursion/">递归与分治</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/VPS_gengrator"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-04-07 21:31:50 21:31:50" datetime="2017-04-07T13:31:50.000Z"  itemprop="datePublished">2017-04-07 21:31:50</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/VPS_gengrator.html">VPS gengrator 命令导致 hexo 被 killed 解决方案</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>问题在 Segmentfault 上提问 <a href="https://segmentfault.com/q/1010000007869915" target="_blank" rel="external">Linux(CentOs)下hexo生成文章被killed</a>  </p>
-<p>有解决方案:</p>
-<blockquote>
-<p>内存不足，创建交互空间即可。<br>见：<a href="https://www.qcloud.com/document/product/362/3597" target="_blank" rel="external">https://www.qcloud.com/document/product/362/3597</a>  </p>
-</blockquote>
-    
-
-        <a href="/post/Note/VPS_gengrator.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li></ul>
 
     </div>
     

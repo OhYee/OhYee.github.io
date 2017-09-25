@@ -217,6 +217,104 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-jisuanke/17309"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-26 22:22:02 22:22:02" datetime="2017-09-26T14:22:02.000Z"  itemprop="datePublished">2017-09-26 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/jisuanke/17309.html">计蒜客 17309.Train Seats Reservation</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You are given a list of train stations, say from the station $1$ to the station $100$.<br>The passengers can order several tickets from one station to another before the train leaves the station one. We will issue one train from the station $1$ to the station $100$ after all reservations have been made. Write a program to determine the minimum number of seats required for all passengers so that all reservations are satisfied without any conflict.<br>Note that one single seat can be used by several passengers as long as there are no conflicts between them. For example, a passenger from station $1$ to station $10$ can share a seat with another passenger from station $30$ to $60$.<br><br></div><div class="part" title="Input"><br>Several sets of ticket reservations. The inputs are a list of integers. Within each set, the first integer (in a single line) represents the number of orders, $n$, which can be as large as $1000$. After $n$, there will be $n$ lines representing the $n$ reservations; each line contains three integers $s, t, k$, which means that the reservation needs $k$ seats from the station $s$ to the station $t$ .These ticket reservations occur repetitively in the input as the pattern described above. An integer $n = 0$ (zero) signifies the end of input.<br><br></div><div class="part" title="Output"><br>For each set of ticket reservations appeared in the input, calculate the minimum number of seats required so that all reservations are satisfied without conflicts. Output a single star ‘*’ to signify the end of outputs.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1 10 8<br>20 50 20<br>3<br>2 30 5<br>20 80 20<br>40 90 40<br>0<br><br></div><div class="output part" title="Sample Output"><br>20<br>60<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/jisuanke/17309.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jisuanke/">计蒜客</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-jisuanke/17308"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-25 22:22:02 22:22:02" datetime="2017-09-25T14:22:02.000Z"  itemprop="datePublished">2017-09-25 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/jisuanke/17308.html">计蒜客 17308.Weather Patterns</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Consider a system which is described at any time as being in one of a set of $N$ distinct states, $1,2,3,…,N$. We denote the time instants associated with state changes as $t = 1,2,…$, and the actual state at time $t$ as $a_{ij} = p = [s_{i}=j\ |\ s_{i-1}=i], 1\le i,j \le N$.<br><br>For the special case of a discrete, first order, Markovchain, the probabilistic description for the current state (at time $t$) and the predecessor state is $s_{t}$. Furthermore we only consider those processes being independent of time, thereby leading to the set of state transition probability $a_{ij}$ of the form: with the properties $a_{ij} \geq 0$ and $\sum_{i=1}^{N} A_{ij} = 1 $.<br><br>The stochastic process can be called an observable Markovmodel. Now, let us consider the problem of a simple 4-state Markov model of weather. We assume that once a day (e.g., at noon), the weather is observed as being one of the following:<br>- State $1$: snow<br>- State $2$: rain<br>- State $3$: cloudy<br>- State $4$: sunny<br><br>The matrix $A$ of state transition probabilities is:<br><br><br>$A = {a_{ij}}= \begin{Bmatrix} a_{11}&amp; a_{12}&amp; a_{13}&amp;a_{14} \\<br>a_{21}&amp;a_{22}&amp;a_{23}&amp;a_{24} \\<br>a_{31}&amp;a_{32}&amp;a_{33}&amp;a_{34} \\<br>a_{41}&amp;a_{42}&amp;a_{43}&amp;a_{44}<br>\end{Bmatrix}$<br><br><br>Given the model, several interestingquestions about weather patterns over time can be asked (and answered). We canask the question: what is the probability (according to the given model) thatthe weather for the next $k$ days willbe? Another interesting question we can ask: given that the model is in a knownstate, what is the expected number of consecutive days to stay in that state?Let us define the observation sequence $O$ as $O = \left \{ s_{1}, s_{2}, s_{3}, … , s_{k} \right \}$, and the probability of the observation sequence $O$ given the model is defined as $p(O|model)$.<br><br>Also, let the expected number of consecutive days to stayin state $i$ be $E_{i}$. Assume that the initial state probabilities $p[s_{1} = i] = 1, 1 \leq i \leq N$. Both $p(O|model)$ and $E_{i}$ are real numbers.<br><br></div><div class="part" title="Input"><br>Line $1$~$4$ for the state transition probabilities. Line $5$ for the observation sequence $O_{1}$, and line $6$ for the observation sequence $O_{2}$. Line $7$ and line $8$ for the states of interest to find the expected number of consecutive days to stay in these states.<br><br>Line $1$: $a_{11}\ a_{12}\ a_{13}\ a_{14}$<br>Line $2$: $a_{21}\ a_{22}\ a_{23}\ a_{34}$<br>Line $3$: $a_{31}\ a_{32}\ a_{33}\ a_{34}$<br>Line $4$: $a_{41}\ a_{42}\ a_{43}\ a_{44}$<br>Line $5$: $s_{1}\ s_{2}\ s_{3}\ …\ s_{k}$<br>Line $6$: $s_{1}\ s_{2}\ s_{3}\ …\ s_{l}$<br>Line $7$: $i$<br>Line $8$: $j$<br><br></div><div class="part" title="Output"><br>Line $1$ and line $2$ are used to show the probabilities of the observation sequences $O_{1}$ and $O_{2}$ respectively.<br>Line $3$ and line $4$ are for the expected number of consecutive days to stay in states $i$ and $j$ respectively.<br>Line $1$: $p[O_{1} | model]$<br>Line $2$: $p[O_{2} | model]$<br>Line $3$: $E_{i}$<br>Line $4$: $E_{j}$<br>Please be reminded that the floating number should accurate to $10^{-8}$.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>0.4 0.3 0.2 0.1<br>0.3 0.3 0.3 0.1<br>0.1 0.1 0.6 0.2<br>0.1 0.2 0.2 0.5<br>4 4 3 2 2 1 1 3 3<br>2 1 1 1 3 3 4<br>3<br>4<br><br></div><div class="output part" title="Sample Output"><br>0.00115200<br>2.50000000<br>2.00000000<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/jisuanke/17308.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/probability/">概率</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jisuanke/">计蒜客</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-HDU/6206"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -601,102 +699,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/4652"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-08 22:58:01 22:58:01" datetime="2017-09-08T14:58:01.000Z"  itemprop="datePublished">2017-09-08 22:58:01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/4652.html">HDU 4652.Dice</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each query has one of the following form:<br> <ul><li>0 m n: ask for the expected number of tosses until the last n times results are all same.</li><li>1 m n: ask for the expected number of tosses until the last n consecutive results are pairwise different.</li></ul><br><br></div><div class="part" title="Input"><br>The first line contains a number T.(1≤T≤100) The next T line each line contains a query as we mentioned above. (1≤m,n≤10<sup>6</sup>) For second kind query, we guarantee n≤m. And in order to avoid potential precision issue, we guarantee the result for our query will not exceeding 10<sup>9</sup> in this problem.<br><br></div><div class="part" title="Output"><br>For each query, output the corresponding result. The answer will be considered correct if the absolute or relative error doesn’t exceed 10<sup>-6</sup>.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>6<br>0 6 1<br>0 6 3<br>0 6 5<br>1 6 2<br>1 6 4<br>1 6 6<br>10<br>1 4534 25<br>1 1232 24<br>1 3213 15<br>1 4343 24<br>1 4343 9<br>1 65467 123<br>1 43434 100<br>1 34344 9<br>1 10001 15<br>1 1000000 2000<br><br></div><div class="output part" title="Sample Output"><br>1.000000000<br>43.000000000<br>1555.000000000<br>2.200000000<br>7.600000000<br>83.200000000<br>25.586315824<br>26.015990037<br>15.176341160<br>24.541045769<br>9.027721917<br>127.908330426<br>103.975455253<br>9.003495515<br>15.056204472<br>4731.706620396<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/HDU/4652.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Probability-DP/">概率dp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/svgfont"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-03 13:58:23 13:58:23" datetime="2017-09-03T05:58:23.000Z"  itemprop="datePublished">2017-09-03 13:58:23</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/svgfont.html">把svg图片转换为图标</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>图标可以用于页面的很多地方,通常来说,我们使用的是通过字体来实现小图标<br>但是当我们需要使用自己的图片时,也可以将svg图片转换为字体,实现图标<br>
-    
-
-        <a href="/post/Note/svgfont.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
 
     </div>
     

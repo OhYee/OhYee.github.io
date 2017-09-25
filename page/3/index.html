@@ -217,6 +217,104 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-HDU/1686"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-22 20:53:39 20:53:39" datetime="2017-08-22T12:53:39.000Z"  itemprop="datePublished">2017-08-22 20:53:39</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1686.html">HDU 1686.Oulipo</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>The French author Georges Perec (1936–1982) once wrote a book, La disparition, without the letter ‘e’. He was a member of the Oulipo group. A quote from the book:<br><br> Tout avait Pair normal, mais tout s’affirmait faux. Tout avait Fair normal, d’abord, puis surgissait l’inhumain, l’affolant. Il aurait voulu savoir où s’articulait l’association qui l’unissait au roman : stir son tapis, assaillant à tout instant son imagination, l’intuition d’un tabou, la vision d’un mal obscur, d’un quoi vacant, d’un non-dit : la vision, l’avision d’un oubli commandant tout, où s’abolissait la raison : tout avait l’air normal mais…<br><br> Perec would probably have scored high (or rather, low) in the following contest. People are asked to write a perhaps even meaningful text on some subject with as few occurrences of a given “word” as possible. Our task is to provide the jury with a program that counts these occurrences, in order to obtain a ranking of the competitors. These competitors often write very long texts with nonsense meaning; a sequence of 500,000 consecutive ‘T’s is not unusual. And they never use spaces.<br><br> So we want to quickly find out how often a word, i.e., a given string, occurs in a text. More formally: given the alphabet {‘A’, ‘B’, ‘C’, …, ‘Z’} and two finite strings over that alphabet, a word W and a text T, count the number of occurrences of W in T. All the consecutive characters of W must exactly match consecutive characters of T. Occurrences may overlap.<br><br></div><div class="part" title="Input"><br>The first line of the input file contains a single number: the number of test cases to follow. Each test case has the following format:<br><br>One line with the word W, a string over {‘A’, ‘B’, ‘C’, …, ‘Z’}, with 1 ≤ |W| ≤ 10,000 (here |W| denotes the length of the string W).<br>One line with the text T, a string over {‘A’, ‘B’, ‘C’, …, ‘Z’}, with |W| ≤ |T| ≤ 1,000,000.<br><br></div><div class="part" title="Output"><br>For every test case in the input file, the output should contain a single number, on a single line: the number of occurrences of the word W in the text T.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>BAPC<br>BAPC<br>AZA<br>AZAZAZA<br>VERDI<br>AVERDXIVYERDIAN<br><br></div><div class="output part" title="Sample Output"><br>1<br>3<br>0<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/1686.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KMP/">KMP</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/902"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-22 00:44:48 00:44:48" datetime="2017-08-21T16:44:48.000Z"  itemprop="datePublished">2017-08-22 00:44:48</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/902.html">AOJ 902.最讨厌的“2”</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一个长度为n的数组a。现有m组操作。<br>操作1：将区间[l,r]内的所有数字都整除2。<br>操作2：输出区间[l,r]内所有数字的和。<br><br></div><div class="part" title="Input"><br>第一行输入两个整数n,m(1&lt;=n&lt;=200000,1&lt;=m&lt;=200000)<br>第二行n个整数，表示数组a (0&lt;=a[i]&lt;=10^9)<br>接下来m行，每行三个整数op,l,r<br>——若op=1，表示操作1，将[l,r]内所有数字整除2<br>——若op=2，表示操作2，输出[l,r]内所有数字的和<br><br></div><div class="part" title="Output"><br>对于所有的操作2，输出结果。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5 5<br>3 4 9 2 7<br>2 3 4<br>1 4 5<br>2 1 5<br>1 3 4<br>2 3 5<br><br></div><div class="output part" title="Sample Output"><br>11<br>20<br>7<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/AOJ/902.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-AOJ/901"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -601,103 +699,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kruskal/">Kruskal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">最小生成树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-hihocoder/1069"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-11 22:21:51 22:21:51" datetime="2017-08-11T14:21:51.000Z"  itemprop="datePublished">2017-08-11 22:21:51</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/hihocoder/1069.html">hihocoder 1069.最近公共祖先·三</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>上上回说到，小Hi和小Ho使用了Tarjan算法来优化了他们的“最近公共祖先”网站，但是很快这样一个离线算法就出现了问题：如果只有一个人提出了询问，那么小Hi和小Ho很难决定到底是针对这个询问就直接进行计算还是等待一定数量的询问一起计算。毕竟无论是一个询问还是很多个询问，使用离线算法都是只需要做一次深度优先搜索就可以了的。<br><br>那么问题就来了，如果每次计算都只针对一个询问进行的话，那么这样的算法事实上还不如使用最开始的朴素算法呢！但是如果每次要等上很多人一起的话，因为说不准什么时候才能够凑够人——所以事实上有可能要等上很久很久才能够进行一次计算，实际上也是很慢的！<br><br>“那到底要怎么办呢？在等到10分钟，或者凑够一定数量的人两个条件满足一个时就进行运算？”小Ho想出了一个折衷的办法。<br><br>“哪有这么麻烦！别忘了和离线算法相对应的可是有一个叫做在线算法的东西呢！”小Hi笑道。<br><br>小Ho面临的问题还是和之前一样：假设现在小Ho现在知道了N对父子关系——父亲和儿子的名字，并且这N对父子关系中涉及的所有人都拥有一个共同的祖先（这个祖先出现在这N对父子关系中），他需要对于小Hi的若干次提问——每次提问为两个人的名字（这两个人的名字在之前的父子关系中出现过），告诉小Hi这两个人的所有共同祖先中辈分最低的一个是谁？<br><br></div><div class="part" title="Input"><br>每个测试点（输入文件）有且仅有一组测试数据。<br><br>每组测试数据的第1行为一个整数N，意义如前文所述。<br><br>每组测试数据的第2~N+1行，每行分别描述一对父子关系，其中第i+1行为两个由大小写字母组成的字符串<code>Father_i</code>, <code>Son_i</code>，分别表示父亲的名字和儿子的名字。<br><br>每组测试数据的第N+2行为一个整数M，表示小Hi总共询问的次数。<br><br>每组测试数据的第N+3~N+M+2行，每行分别描述一个询问，其中第N+i+2行为两个由大小写字母组成的字符串<code>Name1_i</code>, <code>Name2_i</code>，分别表示小Hi询问中的两个名字。<br><br>对于100%的数据，满足N&lt;=10^5，M&lt;=10^5, 且数据中所有涉及的人物中不存在两个名字相同的人（即姓名唯一的确定了一个人），所有询问中出现过的名字均在之前所描述的N对父子关系中出现过，且每个输入文件中第一个出现的名字所确定的人是其他所有人的公共祖先。<br><br></div><div class="part" title="Output"><br>对于每组测试数据，对于每个小Hi的询问，按照在输入中出现的顺序，各输出一行，表示查询的结果：他们的所有共同祖先中辈分最低的一个人的名字。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4<br>Adam Sam<br>Sam Joey<br>Sam Micheal<br>Adam Kevin<br>3<br>Sam Sam<br>Adam Sam<br>Micheal Kevin<br><br></div><div class="output part" title="Sample Output"><br>Sam<br>Adam<br>Adam<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/hihocoder/1069.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hihocoder/">hihocoder</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/V2ray"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-11 21:41:36 21:41:36" datetime="2017-08-11T13:41:36.000Z"  itemprop="datePublished">2017-08-11 21:41:36</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/V2ray.html">使用V2ray科学上网</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>近来一段时间访问谷歌变得越来越难,SSR的作者因为人肉原因停止维护SSR<br>国家开始严打各种VPN服务<br>而近一段写安卓又需要大量使用墙外的资源(有时候github的网速也像是被墙了)  </p>
-<p>因此需要搞一个VPN来科学上网  </p>
-    
-
-        <a href="/post/Note/V2ray.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/v2ray/">v2ray</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/">科学上网</a></li></ul>
 
     </div>
     

@@ -217,6 +217,110 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Uva/540"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-02-18 21:08:00 21:08:00" datetime="2016-02-18T13:08:00.000Z"  itemprop="datePublished">2016-02-18 21:08:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/540.html">Uva 540.Team Queue</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>队列问题，思路较为清晰</p>
+<p>通过模拟操作可以发现可以先队内排列，然后进行队伍排列</p>
+<p>其中个别操作由于<code>vector</code>、<code>map</code>嵌套，可能会发生打错凌乱的情况。<br>
+    
+
+        <a href="/post/Uva/540.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Uva/12096"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-02-17 17:37:00 17:37:00" datetime="2016-02-17T09:37:00.000Z"  itemprop="datePublished">2016-02-17 17:37:00</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Uva/12096.html">Uva 12096.The SetStack Computer</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>嗯……这道题大思路很明显，但是细节好烦人……</p>
+<p>大体上就是stack+set</p>
+<p>对于栈中的元素，可以发现每个元素都是一个集合（set），而集合中的元素也是集合</p>
+<p>因此，应该对每个集合（元素）进行编号 <code>typedef set&lt;int&gt; element</code> ，这样就能把每个元素看作保存整数的栈 <code>stack s;</code> </p>
+<p>用map和vector进行映射集合（元素）和编号</p>
+<p><code>map&lt;element,int&gt; ID_eache;</code></p>
+<p><code>vector&lt;int&gt; ID_eache2;</code></p>
+<p>然后再按照要求写就行了</p>
+<p>其中可用<code>switch case</code>判断操作。</p>
+<p>要注意每个<code>case</code>都需要 <code>break;</code></p>
+<p><font color="RED"><strong>因为case只是入口，并不是出口。只要进去后，没有break就会一直运行下去</strong></font><br>
+    
+
+        <a href="/post/Uva/12096.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Uva/156"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -605,110 +709,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">字符串(string)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Uva/1368"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-01-10 20:42:00 20:42:00" datetime="2016-01-10T12:42:00.000Z"  itemprop="datePublished">2016-01-10 20:42:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Uva/1368.html">Uva 1368.DNA Consensus String</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>题目要求是对几个字符串进行分析，得到一个最优的字符串，使它满足与要求的字符串不同的字符之和最小。如果有多种解，则输出字典序最小的。</p>
-<p><strong>注意：字符串的结束时 \0  一定要加上</strong></p>
-    
-
-        <a href="/post/Uva/1368.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/String/">字符串(string)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/cin"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2015-10-15 12:05:00 12:05:00" datetime="2015-10-15T04:05:00.000Z"  itemprop="datePublished">2015-10-15 12:05:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/cin.html">关于cin</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>若要判断文件尾，有很多种方法。</p>
-<p>作为对比，有</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;s)&#123;</div><div class="line">            ...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span>(!<span class="built_in">cin</span>.eof())&#123;</div><div class="line">            ...</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;s)!=EOF)&#123;</div><div class="line">            ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>但是<code>cin.eof()</code>并不像其看着的样子那样，能够直接判断，他还需要我们再读一下字符才能正确判断是否达到文件尾</p>
-<blockquote>
-<p>ABCDEFG(EOF)</p>
-</blockquote>
-<p>也即，我们若使用<code>scanf</code>的话，在G(处就可判断到是否到达结尾</p>
-<p>而<code>cin.eof()</code>则需要我们到达)处</p>
-
-    
-
-        <a href="/post/Note/cin.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IO/">读入输出</a></li></ul>
 
     </div>
     
