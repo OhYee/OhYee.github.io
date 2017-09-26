@@ -217,6 +217,98 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Note/double"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-06-06 23:49:55 23:49:55" datetime="2016-06-06T15:49:55.000Z"  itemprop="datePublished">2016-06-06 23:49:55</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/double.html">double的读入与输出</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote><p>scanf函数是通过指针指向变量的。%f告诉scanf函数在所传地址位置上存储一个float型值，<br>而%lf告诉scanf函数在所传地址位置上存储一个double型值。这里float和double的区别是非常重要的。<br>如果给出了错误的转换说明，那么scanf函数将可能存储错误的字节数量<br>（没有提到的是，float型的为模式可能不同于double型的位模式）。  </p>
+<footer><strong>Taku</strong><cite><a href="https://segmentfault.com/q/1010000005590782" target="_blank" rel="external">SegmentFault上的回答</a></cite></footer></blockquote>  
+<p>因此，当输入时必须使用<code>%lf</code>来确保数据被正确存储</p>
+<p>为了方便使用者，很多编译器默许了常见的错误，当使用<code>printf(&quot;%lf&quot;,a)</code>时，若a为<code>double</code>变量，编译器会自动把其修改为<code>%f</code></p>
+<p>而LLVM会警告并推荐修改为%f。</p>
+<p><strong><code>scanf()</code>函数中不存在<code>%lf</code>，输入<code>double</code>用<code>%lf</code>输出用<code>%f</code></strong></p>
+
+    
+
+        <a href="/post/Note/double.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IO/">读入输出</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Test"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-06-03 20:29:03 20:29:03" datetime="2016-06-03T12:29:03.000Z"  itemprop="datePublished">2016-06-03 20:29:03</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Test.html">Test</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>Test Hexo post</p>
+    
+
+        <a href="/post/Test.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-hello_world"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -647,104 +739,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/761"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-21 00:37:00 00:37:00" datetime="2016-05-20T16:37:00.000Z"  itemprop="datePublished">2016-05-21 00:37:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/761.html">AOJ 761.Fibonacci序列</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>Fibonacci 数列的另一种形式<br>F(0)=7, F(1)=11 F(n)=F(n-1)+F(n-2) (n&gt;=2)<br>
-    
-
-        <a href="/post/AOJ/761.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recurrence/">递推</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/760"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-21 00:35:00 00:35:00" datetime="2016-05-20T16:35:00.000Z"  itemprop="datePublished">2016-05-21 00:35:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/760.html">AOJ 760.尾数相等的数</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>从键盘输入一个自然数K(1 &lt; K &lt; 99999999)，一定存在自然数M和N（M &lt; N），使得K的M次方和K的N次方均大于或等于1000，且它们的未尾三位数相等，则称M和N是一对“K尾相等数”。请编程序，输出K尾相等数中M+N最小值。<br>
-    
-
-        <a href="/post/AOJ/760.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
 
     </div>
     
