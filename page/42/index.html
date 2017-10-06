@@ -217,6 +217,57 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-AOJ/788"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-10 18:25:00 18:25:00" datetime="2016-04-10T10:25:00.000Z"  itemprop="datePublished">2016-04-10 18:25:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/788.html">AOJ 788.数方块</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>116</code><br>Submission Accepted: <code>38</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>西瓜在寒假里辅导身为小学生的小西瓜寒假作业，里面有这样一道题目：<br>数一数下图中有几个正方形，小巫女认为只有16个，可是老师说错了。  </p>
+<p>对于西瓜来说，这样的问题自然很容易解决，但是现在西瓜想知道，如果现在有一个n*m个小正方形组成的长方形，请问里面一共有几个正方形呢？<br>
+    
+
+        <a href="/post/AOJ/788.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Algorithm/Network_Flow"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -556,16 +607,18 @@
 <p>！为逻辑取反，表示非的意思  </p>
 <p>经过它处理后的结果为布尔型，要么为0，要么为1，!x，只要x不为0，1,2，3，都可以，那么!x的结果就是0，只有当x为0时，结果为1。如果<em>为真，则！</em>为假，反之如果<em>为假，则！</em>为真  </p>
 <h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="lowbit函数"><a href="#lowbit函数" class="headerlink" title="lowbit函数"></a>lowbit函数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> x&amp;(-x);    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>由于程序数据用补码保存，负数是其绝对值取反+1</p>
-<p><code>1（0001）</code></p>
-<p><code>-1（1111）</code></p>
-<p><code>1&amp;（-1）=0001</code></p>
-<p>其意义是将只保留最低位的1</p>
-<p>换成10进制后就是2i（i是最低位的1的位数）</p>
-<h2 id="判断最后一位"><a href="#判断最后一位" class="headerlink" title="判断最后一位"></a>判断最后一位</h2><p> <code>x&amp;1;</code> 可以取得x最后一位是1还是0</p>
+<p>由于程序数据用补码保存，负数是其绝对值取反+1<br><code>1（0001）</code><br><code>-1（1111）</code><br><code>1&amp;（-1）=0001</code>  </p>
+<p>其意义是将只保留最低位的1<br>换成10进制后就是2i（i是最低位的1的位数）</p>
+<h2 id="判断最后一位"><a href="#判断最后一位" class="headerlink" title="判断最后一位"></a>判断最后一位</h2><p><code>x&amp;1;</code> 可以取得x最后一位是1还是0</p>
 <h2 id="1"><a href="#1" class="headerlink" title="+1"></a>+1</h2><p>将一个数+1，可以将其最后一个0变成1，比其低的位变成0</p>
 <h2 id="1-1"><a href="#1-1" class="headerlink" title="-1"></a>-1</h2><p>将一个数-1，可以将其最后一个1变成0，比其低的位变成1</p>
 <h2 id="计算二进制中1的个数"><a href="#计算二进制中1的个数" class="headerlink" title="计算二进制中1的个数"></a>计算二进制中1的个数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitCount</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    i = i - ((i &gt;&gt;&gt; <span class="number">1</span>) &amp; <span class="number">0x55555555</span>);</div><div class="line">    i = (i &amp; <span class="number">0x33333333</span>) + ((i &gt;&gt;&gt; <span class="number">2</span>) &amp; <span class="number">0x33333333</span>);</div><div class="line">    i = (i + (i &gt;&gt;&gt; <span class="number">4</span>)) &amp; <span class="number">0x0f0f0f0f</span>;</div><div class="line">    i = i + (i &gt;&gt;&gt; <span class="number">8</span>);</div><div class="line">    i = i + (i &gt;&gt;&gt; <span class="number">16</span>);</div><div class="line">    <span class="keyword">return</span> i &amp; <span class="number">0x3f</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="返回右起第一个1的位置"><a href="#返回右起第一个1的位置" class="headerlink" title="返回右起第一个1的位置"></a>返回右起第一个1的位置</h2><p>Returns one plus the index of the least significant 1-bit of x, or if x is zero, returns zero.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_ffs (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_ffsl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_ffsll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回左起第一个1之前0的个数"><a href="#返回左起第一个1之前0的个数" class="headerlink" title="返回左起第一个1之前0的个数"></a>返回左起第一个1之前0的个数</h2><p>Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_clz (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_clzl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_clzll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回右起第一个1之后的0的个数"><a href="#返回右起第一个1之后的0的个数" class="headerlink" title="返回右起第一个1之后的0的个数"></a>返回右起第一个1之后的0的个数</h2><p>Returns the number of trailing 0-bits in x, starting at the least significant bit position. If x is 0, the result is undefined.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_ctz (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_ctzl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_ctzll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回1的个数"><a href="#返回1的个数" class="headerlink" title="返回1的个数"></a>返回1的个数</h2><p>Returns the number of 1-bits in x.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_popcount (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_popcountl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_popcountll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回1的个数的奇偶性"><a href="#返回1的个数的奇偶性" class="headerlink" title="返回1的个数的奇偶性"></a>返回1的个数的奇偶性</h2><p>Returns the parity of x, i.e. the number of 1-bits in x modulo 2.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_parity (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_parityl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_parityll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+
     
 
         <a href="/post/Note/bit.html" class="post-more waves-effect waves-button">
@@ -840,56 +893,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/799"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-23 23:43:00 23:43:00" datetime="2016-03-23T15:43:00.000Z"  itemprop="datePublished">2016-03-23 23:43:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/799.html">AOJ 799.热身之回家养猪</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>203</code><br>Submission Accepted: <code>14</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>快毕业了，同学们开始为自己的未来做打算。某人打算回家养猪。由于养猪还得去卖，所以交通是个问题，现在有n个村庄，村庄的编号是1到n，有m条路。若想使得所有的村庄连通，至少还需要修多少条路？<br>
-    
-
-        <a href="/post/AOJ/799.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Union-Find/">并查集</a></li></ul>
 
     </div>
     

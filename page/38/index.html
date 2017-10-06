@@ -217,6 +217,71 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-AOJ/756"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-05-15 22:54:00 22:54:00" datetime="2016-05-15T14:54:00.000Z"  itemprop="datePublished">2016-05-15 22:54:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/756.html">AOJ 756.电梯</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>在城市的高层建筑物中，只有一部电梯，由N个正整数组成一个请求列表，列表中的数字表示电梯将在哪层停，电梯按列表顺序依次停靠。电梯每上行一层需要<br>花6秒时间，每下行一层需要花4秒时间，电梯每停一次需要用时5秒。<br>对于给定的请求列表，计算完成所有请求需要花费的时间，不考虑优先顺序，电梯从第0层开始，完成所有请求后又回到第0层。  </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>包含多组数据，每组数据占一行，其中第一个正整数N表示请求列表中有N个数据，接下来是N个整数，如果N=0,则表示输入结束。  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>对每组数据，输出所有请求的总时间。  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>1 2<br>3 2 3 1<br>0  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>17<br>41  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>直接模拟电梯的运行即可</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">HomePage:http://www.oyohyee.com</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment">Blog:http://www.cnblogs.com/ohyee/</span></div><div class="line"><span class="comment"> </span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"> </div><div class="line"><span class="comment">//DEBUG MODE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug 0</span></div><div class="line"> </div><div class="line"><span class="comment">//循环</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n),n == <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"> </div><div class="line">    <span class="keyword">int</span> <span class="built_in">floor</span> = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</div><div class="line">    REP(n) &#123;</div><div class="line">        <span class="keyword">int</span> temp;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;temp);</div><div class="line">        <span class="keyword">if</span>(temp &lt; <span class="built_in">floor</span>) &#123;</div><div class="line">            ans += <span class="number">4</span> * (<span class="built_in">floor</span> - temp);</div><div class="line">            <span class="built_in">floor</span> = temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(temp &gt; <span class="built_in">floor</span>) &#123;</div><div class="line">            ans += <span class="number">6</span> * (temp - <span class="built_in">floor</span>);</div><div class="line">            <span class="built_in">floor</span> = temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//ans += floor * 4;</span></div><div class="line">    ans += n * <span class="number">5</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">while</span>(Do());</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+
+        <a href="/post/AOJ/756.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Algorithm/Union_Find"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -897,54 +962,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-POJ/1836"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-01 01:24:00 01:24:00" datetime="2016-04-30T17:24:00.000Z"  itemprop="datePublished">2016-05-01 01:24:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/1836.html">POJ 1836.Alignment</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>In the army, a platoon is composed by n soldiers. During the morning inspection, the soldiers are aligned in a straight line in front of the captain. The captain is not satisfied with the way his soldiers are aligned; it is true that the soldiers are aligned in order by their code number: 1 , 2 , 3 , . . . , n , but they are not aligned by their height. The captain asks some soldiers to get out of the line, as the soldiers that remain in the line, without changing their places, but getting closer, to form a new line, where each soldier can see by looking lengthwise the line at least one of the line’s extremity (left or right). A soldier see an extremity if there isn’t any soldiers with a higher or equal height than his height between him and that extremity.<br>
-    
-
-        <a href="/post/POJ/1836.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LIS/">最长上升子序列</a></li></ul>
 
     </div>
     

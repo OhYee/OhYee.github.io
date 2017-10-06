@@ -217,6 +217,85 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Note/HexoBuild"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-06-07 00:39:53 00:39:53" datetime="2016-06-06T16:39:53.000Z"  itemprop="datePublished">2016-06-07 00:39:53</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/HexoBuild.html">Hexo博客搭建及迁移完成</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>从0开始安装Hexo用了两天，迁移博客用了三天。<br>纪念一下。</p>
+<h1 id="迁移至Hexo的原因"><a href="#迁移至Hexo的原因" class="headerlink" title="迁移至Hexo的原因"></a>迁移至Hexo的原因</h1><p>之前使用的是<a href="http://www.cnblogs.com/ohyee" target="_blank" rel="external">博客园</a>的博客。<br>作为国内两大IT技术博客(另一个是CSDN，之前也用过，不过审核实在太烦人)的集中地，不得不说博客园有很多不错的地方。<br>不过，与几乎所有博客一样，过多的限制了用户的自由。<br>许多本来可以轻易更改的东西需要费很大功夫才能达到自己的目的。<br>(真的觉得博客园的代码高亮真难看╮(╯-╰)╭)<br>一直都挺向往GitHub的GitHub Pages搭建的博客的，于是终于下决心搞了下。  </p>
+<h1 id="搭建GitHub-Pages"><a href="#搭建GitHub-Pages" class="headerlink" title="搭建GitHub Pages"></a>搭建GitHub Pages</h1><p>由于GitHub使用了挺长一段时间了，因此，注册什么的就不详细说了。</p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><p>Hexo的安装需要Git和Node.js支持<br>这些都可以在他们的官网上获取最新的安装包。<br>链接：<a href="https://git-scm.com/" target="_blank" rel="external">Git</a>、<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a><br>下载并安装好后，可以尝试在控制台运行<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">node -v</div><div class="line">npm -v</div></pre></td></tr></table></figure></p>
+<p>指令来检查node.js和npm是否安装成功  </p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装完成后，就可以运行下面的命令开始安装Hexo了。<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo -g</div></pre></td></tr></table></figure></p>
+<p>其中，<code>-g</code>指全局安装<br>根据网速可能需要等待不同的时间<br>安装完成后，进入我们要搭建博客的目录<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">npm install hexo --save</div></pre></td></tr></table></figure></p>
+<p>将Hexo安装到目录中。<br>而后运行<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<p>安装可能需要的插件  </p>
+<p>安装完毕后，我们就搭建好了Hexo<br>可以使用<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">hexo s</div></pre></td></tr></table></figure></p>
+<p>而后访问<a href="localhost:4000" target="_blank" rel="external">localhost:4000</a>测试<br>如果能够看到页面，就证明安装完成  </p>
+<h2 id="配置和上传"><a href="#配置和上传" class="headerlink" title="配置和上传"></a>配置和上传</h2><p>Hexo有以下目录与文件</p>
+<ul>
+<li>node_modules (Hexo的程序，用于生成页面)</li>
+<li>public (生成的页面文件，上传到git的就是这个文件夹内的内容)</li>
+<li>scaffolds (模板文件，使用<code>hexo new</code>命令时，会按照这个模板生成文件)</li>
+<li>source (资源文件，里面的_post存放文章，其他东西生成时会照搬到public)</li>
+<li>theme (主题文件，里面每一个文件夹都是一个主题。定义页面生成的样式)</li>
+<li>_config.yml (Hexo配置文件，我们主要操作的文件，里面定义各种变量，在生成页面会程序会根据不同变量生成不同形式的页面)</li>
+<li>db.json (数据库文件)</li>
+<li>package.json (插件数据库，只要有这个文件，运行<code>npm install</code>就会按照里面的内容安装插件)</li>
+</ul>
+<p>Hexo常用的命令如下</p>
+<ul>
+<li>hexo clean 清楚public文件夹</li>
+<li>hexo g 生成文件</li>
+<li>hexo d 上传网站到git</li>
+<li>hexo s 运行本地服务器测试网站</li>
+<li>hexo new 建立一个md文件(页面)</li>
+</ul>
+<p>其中，可以<code>hexo d -g</code>在生成后发布  </p>
+<h2 id="使用GitCafe-Coding-搭建双博客系统"><a href="#使用GitCafe-Coding-搭建双博客系统" class="headerlink" title="使用GitCafe(Coding)搭建双博客系统"></a>使用GitCafe(Coding)搭建双博客系统</h2><p>由于GitHub屏蔽了百度爬虫，同时访问速度稍微有点慢，我们可以搭建双系统来实现我们心目中的完美网站。<br>按照正常的方式申请项目<br>在<code>_config.yml</code>的<code>deploy</code>中，同时写入GitHub和GitCafe即可<br>这样每次<code>hexo d</code>会同时上传到两边<br>在域名dns解析里，再根据线路进行解析即可。  </p>
+
+    
+
+        <a href="/post/Note/HexoBuild.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-Note/double"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -690,55 +769,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/762"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-05-21 00:40:00 00:40:00" datetime="2016-05-20T16:40:00.000Z"  itemprop="datePublished">2016-05-21 00:40:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/762.html">AOJ 762.分数数列</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>一个数列的前6项为：1/2，3/5，4/7，6/10，8/13，9/15等，试求数列的第n项(n&lt;2000)<br>
-    
-
-        <a href="/post/AOJ/762.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
 
     </div>
     

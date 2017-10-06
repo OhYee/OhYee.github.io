@@ -217,6 +217,55 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-HDU/2094"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-08-05 11:59:57 11:59:57" datetime="2017-08-05T03:59:57.000Z"  itemprop="datePublished">2017-08-05 11:59:57</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/2094.html">HDU 2094.产生冠军</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一群人，打乒乓球比赛，两两捉对撕杀，每两个人之间最多打一场比赛。<br>球赛的规则如下：<br>如果A打败了B，B又打败了C，而A与C之间没有进行过比赛，那么就认定，A一定能打败C。<br>如果A打败了B，B又打败了C，而且，C又打败了A，那么A、B、C三者都不可能成为冠军。<br>根据这个规则，无需循环较量，或许就能确定冠军。你的任务就是面对一群比赛选手，在经过了若干场撕杀之后，确定是否已经实际上产生了冠军。<br><br></div><div class="part" title="Input"><br>输入含有一些选手群，每群选手都以一个整数n(n&lt;1000)开头，后跟n对选手的比赛结果，比赛结果以一对选手名字（中间隔一空格）表示，前者战胜后者。如果n为0，则表示输入结束。<br><br></div><div class="part" title="Output"><br>对于每个选手群，若你判断出产生了冠军，则在一行中输出“Yes”，否则在一行中输出“No”。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>Alice Bob<br>Smith John<br>Alice Smith<br>5<br>a c<br>c d<br>d e<br>b e<br>a d<br>0<br><br></div><div class="output part" title="Sample Output"><br>Yes<br>No<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/2094.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TopoSort/">拓扑排序</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-hihocoder/1297"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -295,7 +344,7 @@
 
     
         <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>小Ho：小Hi，上次我学会了如何检测一个数是否是质数。于是我又有了一个新的问题，我如何去快速得求解[1,N]这个区间内素数的个数呢？<br>小Hi：你自己有什么想法么？<br>小Ho：有！我一开始的想法是，自然我们已经知道了如何快速判定一个数是否是质数，那么我就直接将[1,N]之间每一个数判定一次，就可以得到结果。但我发现这个方法太笨了。<br>小Hi：确实呢，虽然我们已经通过快速素数检测将每一次判定的时间复杂度降低，但是N个数字的话，总的时间复杂度依旧很高。<br>小Ho：是的，所以后来我改变了我的算法。我发现如果一个数p是质数的话，那么它的倍数一定都是质数。所以我建立了一个布尔类型的数组isPrime，初始化都为true。我从2开始枚举，当我找到一个isPrime[p]仍然为true时，可以确定p一定是一个质数。接着我再将N以内所有p的倍数全部设定为isPrime[p*i]=false。<br>写成伪代码为：<br><br><!--�581--><br><br>小Hi：小Ho你用的这个算法叫做Eratosthenes筛法，是一种非常古老的质数筛选算法。其时间复杂度为O(n log log n)。但是这个算法有一个冗余的地方：比如合数10，在枚举2的时候我们判定了一次，在枚举5的时候我们又判定了一次。因此使得其时间复杂度比O(n)要高。<br>小Ho：那有没有什么办法可以避免啊？<br>小Hi：当然有了，一个改进的方法叫做Eular筛法，其时间复杂度是O(n)的。<br>提示：Eular质数筛法<br><br></div><div class="part" title="Input"><br>第1行：1个正整数n，表示数字的个数，2≤n≤1,000,000。<br><br></div><div class="part" title="Output"><br>第1行：1个整数，表示从1到n中质数的个数<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>9<br><br></div><div class="output part" title="Sample Output"><br>4<br><br></div><div class="clear"></div></div></div>
+<div class="oj"><div class="part" title="Description"><br>小Ho：小Hi，上次我学会了如何检测一个数是否是质数。于是我又有了一个新的问题，我如何去快速得求解[1,N]这个区间内素数的个数呢？<br>小Hi：你自己有什么想法么？<br>小Ho：有！我一开始的想法是，自然我们已经知道了如何快速判定一个数是否是质数，那么我就直接将[1,N]之间每一个数判定一次，就可以得到结果。但我发现这个方法太笨了。<br>小Hi：确实呢，虽然我们已经通过快速素数检测将每一次判定的时间复杂度降低，但是N个数字的话，总的时间复杂度依旧很高。<br>小Ho：是的，所以后来我改变了我的算法。我发现如果一个数p是质数的话，那么它的倍数一定都是质数。所以我建立了一个布尔类型的数组isPrime，初始化都为true。我从2开始枚举，当我找到一个isPrime[p]仍然为true时，可以确定p一定是一个质数。接着我再将N以内所有p的倍数全部设定为isPrime[p*i]=false。<br>写成伪代码为：<br><br><!--�592--><br><br>小Hi：小Ho你用的这个算法叫做Eratosthenes筛法，是一种非常古老的质数筛选算法。其时间复杂度为O(n log log n)。但是这个算法有一个冗余的地方：比如合数10，在枚举2的时候我们判定了一次，在枚举5的时候我们又判定了一次。因此使得其时间复杂度比O(n)要高。<br>小Ho：那有没有什么办法可以避免啊？<br>小Hi：当然有了，一个改进的方法叫做Eular筛法，其时间复杂度是O(n)的。<br>提示：Eular质数筛法<br><br></div><div class="part" title="Input"><br>第1行：1个正整数n，表示数字的个数，2≤n≤1,000,000。<br><br></div><div class="part" title="Output"><br>第1行：1个整数，表示从1到n中质数的个数<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>9<br><br></div><div class="output part" title="Sample Output"><br>4<br><br></div><div class="clear"></div></div></div>
 </div></div>
     
 
@@ -650,55 +699,6 @@
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/890"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-07-31 19:40:14 19:40:14" datetime="2017-07-31T11:40:14.000Z"  itemprop="datePublished">2017-07-31 19:40:14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/890.html">AOJ 890.修理牛棚</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>Description<br>在一个夜黑风高,下着暴风雨的夜晚,农民约翰的牛棚的屋顶、门被吹飞了。 好在许多牛正在度假，所以牛棚没有住满。 剩下的牛一个紧挨着另一个被排成一行来过夜。 有些牛棚里有牛，有些没有。 所有的牛棚有相同的宽度。 自门遗失以后,农民约翰必须尽快在牛棚之前竖立起新的木板。 他的新木材供应商将会供应他任何他想要的长度,但是供应商只能提供有限数目的木板。 农民约翰想将他购买的木板总长度减到最少。<br>给出:可能买到的木板最大的数目M(1&lt;=M&lt;=50);牛棚的总数S(1&lt;=S&lt;=200); 牛棚里牛的总数C(1&lt;=C&lt;=S);和牛所在的牛棚的编号stall_number(1&lt;=stall_number&lt;=S),计算拦住所有有牛的牛棚所需木板的最小总长度。 输出所需木板的最小总长度作为答案。<br><br></div><div class="part" title="Input"><br>1行: M，S和C(用空格分开)<br>2到C+1行:每行包含一个整数，表示牛所占的牛棚的编号。<br><br></div><div class="part" title="Output"><br>单独的一行包含一个整数表示所需木板的最小总长度。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br><br>4 50 18<br>3<br>4<br>6<br>8<br>14<br>15<br>16<br>17<br>21<br>25<br>26<br>27<br>30<br>31<br>40<br>41<br>42<br>43<br><br></div><div class="output part" title="Sample Output"><br><br>25<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/AOJ/890.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
 
     </div>
     
