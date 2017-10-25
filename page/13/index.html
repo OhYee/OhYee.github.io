@@ -217,6 +217,506 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-AOJ/797"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-02 19:36:58 19:36:58" datetime="2017-03-02T11:36:58.000Z"  itemprop="datePublished">2017-03-02 19:36:58</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/797.html">AOJ 797.Roll不是处女座</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>一天Roll在codeforces网站上做ACM练习的时候，由于打开题目的顺序比较随性，他看到了他的浏览器标签页是这样的：  </p>
+<p>虽然Roll不是处女座，但他还是非常地不开心，于是他移动了标签页，就变成了这样:  </p>
+<p>由此想到了一个问题，对于一个乱序的不重复的数字序列，最少需要移动几个数字，能使它们从小到大排列。<br>例如序列 4 2 3 1 5，只要把1放到第一个，4放到3和5之间，就变成了1 2 3 4 5  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>输入数据包含多组<br>每组数据第一行一个数n (0﹤n≤?1000)，表示这个序列有n个数字。<br>第二行包含n个数字Ai(0≤Ai≤10^9),  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>对于每组数据输出一个整数，表示最少需要移动几个数字。  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>5<br>4 2 3 1 5<br>2<br>1 2  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>2<br>0  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/AOJ/797.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LIS/">最长上升子序列</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6015"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-25 21:52:04 21:52:04" datetime="2017-02-25T13:52:04.000Z"  itemprop="datePublished">2017-02-25 21:52:04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6015.html">HDU 6015.Skip the Class</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>Finally term begins. luras loves school so much as she could skip the class happily again.(wtf?)  </p>
+<p>Luras will take n lessons in sequence(in another word, to have a chance to skip xDDDD).  </p>
+<p>For every lesson, it has its own type and value to skip.  </p>
+<p>But the only thing to note here is that luras can’t skip the same type lesson more than twice.  </p>
+<p>Which means if she have escaped the class type twice, she has to take all other lessons of this type.  </p>
+<p>Now please answer the highest value luras can earn if she choose in the best way.  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>The first line is an integer T which indicates the case number.  </p>
+<p>And as for each case, the first line is an integer n which indicates the number of lessons luras will take in sequence.  </p>
+<p>Then there are n lines, for each line, there is a string consists of letters from ‘a’ to ‘z’ which is within the length of 10,<br>and there is also an integer which is the value of this lesson.  </p>
+<p>The string indicates the lesson type and the same string stands for the same lesson type.  </p>
+<p>It is guaranteed that——  </p>
+<p>T is about 1000  </p>
+<p>For 100% cases, 1 &lt;= n &lt;= 100，1 &lt;= |s| &lt;= 10, 1 &lt;= v &lt;= 1000  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>As for each case, you need to output a single line.<br>there should be 1 integer in the line which represents the highest value luras can earn if she choose in the best way.  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>2<br>5<br>english 1<br>english 2<br>english 3<br>math 10<br>cook 100<br>2<br>a 1<br>a 2  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>115<br>3  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/HDU/6015.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Miller_rabin"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-10 20:08:37 20:08:37" datetime="2017-02-10T12:08:37.000Z"  itemprop="datePublished">2017-02-10 20:08:37</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Miller_rabin.html">Miller_rabin 判断素数</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>素数在数论里是一个非常常用的内容<br>而且当数非常大时,即使是 O(n) 的筛法求素数有可能也无法满足要求(空间和时间都不允许)  </p>
+<p>因此,就有了该算法  </p>
+<ol>
+<li>Fermat定理: 若 $n$ 是奇素数，$a$ 是任意正整数$(1≤ a≤ n−1)$，则 $a^{n-1} ≡ 1 \; mod \; n$。</li>
+<li>二次探测定理: 如果n是一个奇素数，将 $n−1$ 表示成 $2^s*r$ 的形式，$r$ 是奇数，$a$ 与 $n$ 是互素的任何随机整数，那么 $a^r ≡ 1 \; mod \; n$ 或者对某个 $j (0 ≤ j≤ s−1, j∈Z)$ 等式 $a^{2jr} ≡ −1 \; mod \; n $ 成立。</li>
+</ol>
+<p>最后可知,当对于任意数 $a$,有 $a^r ≡ 1 \; mod \; n$ 或者对某个 $j (0 ≤ j≤ s−1, j∈Z)$ 等式 $a^(2jr) ≡ −1 \; mod \; n$ 则可得知 $a$ 为素数  </p>
+<p>实际使用时,只需要随机出几个 $a$ ,只要这些情况下都满足,则可以近似认为待判断数为素数  </p>
+<p>大概这个意思,反正会不会证明都不影响使用  </p>
+<p>模板如下<br>记得包含 <code>#include&lt;ctime&gt;</code> 和初始化随机数种子  </p>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold"><figure class="highlight cpp"><figcaption><span>Miller_rabin判断素数</span></figcaption><table><tr><td class="code"><pre><div class="line"><span class="comment">// Miller_rabin 判断素数</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> times = <span class="number">20</span>; <span class="comment">//测试次数</span></div><div class="line"></div><div class="line"><span class="function">LL <span class="title">Random</span><span class="params">(LL n )</span></span>&#123;<span class="comment">//生成[ 0 , n ]的随机数  </span></div><div class="line">    <span class="keyword">return</span> ((<span class="keyword">double</span>)rand() / RAND_MAX*n + <span class="number">0.5</span>);  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">//快速计算 (a*b) % mod</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">LL mul_mod(LL a, LL b, LL mod)&#123;</span></div><div class="line"><span class="comment">    LL ans = 0;  </span></div><div class="line"><span class="comment">    while(b)&#123;  </span></div><div class="line"><span class="comment">        if(b &amp; 1)&#123;  </span></div><div class="line"><span class="comment">            b--;  </span></div><div class="line"><span class="comment">            ans =(ans+ a)%mod;  </span></div><div class="line"><span class="comment">        &#125;  </span></div><div class="line"><span class="comment">        b /= 2;  </span></div><div class="line"><span class="comment">        a = (a + a) % mod;  </span></div><div class="line"><span class="comment">  </span></div><div class="line"><span class="comment">    &#125;  </span></div><div class="line"><span class="comment">    return ans;  </span></div><div class="line"><span class="comment">&#125;</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">inline</span> LL <span class="title">mul_mod</span><span class="params">(LL a,LL b,LL mod)</span></span>&#123;</div><div class="line">    a=(a % mod + mod) % mod;</div><div class="line">    b=(b % mod + mod) % mod;</div><div class="line">    <span class="keyword">return</span> ((a*b-(LL)((<span class="keyword">long</span> <span class="keyword">double</span>)a/mod*b+<span class="number">.5</span>L)*mod)%mod+mod)%mod;</div><div class="line">&#125;</div><div class="line">  </div><div class="line"><span class="function">LL <span class="title">exp_mod</span><span class="params">(LL a, LL b, LL mod )</span></span>&#123; <span class="comment">//快速计算 (a^b) % mod  </span></div><div class="line">    LL ans = <span class="number">1</span>;  </div><div class="line">    <span class="keyword">while</span>(b)&#123;  </div><div class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</div><div class="line">            ans = mul_mod(ans,a,mod);  </div><div class="line">        b /= <span class="number">2</span>;  </div><div class="line">        a = mul_mod(a,a,mod);  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> ans;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">witness</span><span class="params">( LL a, LL n )</span></span>&#123; <span class="comment">//miller_rabin算法的精华  </span></div><div class="line">    <span class="comment">//用检验算子a来检验n是不是素数 </span></div><div class="line">    <span class="comment">//a^r ≡ 1 mod n或者对某个j (0 ≤ j≤ s−1, j∈Z) 等式a^(2jr) ≡ −1 mod n </span></div><div class="line">    LL tem = n - <span class="number">1</span>;  </div><div class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;  </div><div class="line">    <span class="keyword">while</span>(tem % <span class="number">2</span> == <span class="number">0</span>)&#123;  </div><div class="line">        tem /= <span class="number">2</span>;  </div><div class="line">        j++;  </div><div class="line">    &#125;  </div><div class="line">    <span class="comment">//将n-1拆分为a^r * s  </span></div><div class="line">  </div><div class="line">    LL x = exp_mod( a, tem, n ); <span class="comment">//得到a^r mod n  </span></div><div class="line">    <span class="keyword">if</span>(x == <span class="number">1</span> || x == n - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;   <span class="comment">//余数为1则为素数  </span></div><div class="line">    <span class="keyword">while</span>(j--)&#123; <span class="comment">//否则试验条件2看是否有满足的 j    </span></div><div class="line">        x = mul_mod( x, x, n );  </div><div class="line">        <span class="keyword">if</span>(x == n - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;  </div><div class="line">&#125;  </div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">miller_rabin</span><span class="params">( LL n )</span></span>&#123;  <span class="comment">//检验n是否是素数    </span></div><div class="line">    <span class="keyword">if</span>(n == <span class="number">2</span>)  </div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span> || n % <span class="number">2</span> == <span class="number">0</span>)  <span class="comment">//如果是2则是素数，如果&lt;2或者是&gt;2的偶数则不是素数</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">  </div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= times; i++)&#123; <span class="comment">//做times次随机检验   </span></div><div class="line">        LL a = Random(n - <span class="number">2</span>) + <span class="number">1</span>; <span class="comment">//得到随机检验算子 a  </span></div><div class="line">        <span class="keyword">if</span>(!witness(a, n)) <span class="comment">//用a检验n是否是素数  </span></div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(ll n)</span></span>&#123;</div><div class="line">    ll p = <span class="number">2</span>;</div><div class="line">    <span class="keyword">while</span>(n&gt;<span class="number">1</span>)&#123;</div><div class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"\t"</span>&lt;&lt;n&lt;&lt;<span class="string">" "</span>&lt;&lt;p&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">if</span>(n%p)</div><div class="line">            p++;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            n/=p;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure><br><br></div></div>
+    
+
+        <a href="/post/Algorithm/Miller_rabin.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Miller-rabin/">Miller_rabin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/Termux"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-09 16:42:58 16:42:58" datetime="2017-02-09T08:42:58.000Z"  itemprop="datePublished">2017-02-09 16:42:58</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/Termux.html">使用 Termux 在手机上运行 linux 黑科技</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>非常棒的神器<br>不同于其他终端,这个终端是一个寄居在安卓系统中的阉割版 <span class="label label-orange">Linux</span><br>手机里的 <code>/data/data/com.termux/files/</code> 目录对应的就是 <span class="label label-orange">Linux</span>   的根目录 <code>/</code>  </p>
+<p>在自己的这一块地方里, <span class="label label-sky">Termux</span> 拥有绝对权限,但是出去后需要 root 权限才能进行操作  </p>
+<p>这篇博客介绍<span class="label label-sky">Termux</span>的基础配置及在手机上写<span class="label label-blue">Hexo</span>博客(是不是很激动[滑稽])<br>
+    
+
+        <a href="/post/Note/Termux.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Termux/">Termux</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/LocalSearch"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-08 21:01:42 21:01:42" datetime="2017-02-08T13:01:42.000Z"  itemprop="datePublished">2017-02-08 21:01:42</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/LocalSearch.html">Hexo本地搜索及部分SEO优化</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>解决本地搜索问题,并且修改了 Next 主题的部分SEO内容,写了一个小插件用于生成 <code>urls.txt</code> 用来给百度主动推送<br>
+    
+
+        <a href="/post/Note/LocalSearch.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SEO/">SEO</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Writing/samsung_c5_root"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-04 21:32:47 21:32:47" datetime="2017-02-04T13:32:47.000Z"  itemprop="datePublished">2017-02-04 21:32:47</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Writing/">随笔</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Writing/samsung_c5_root.html">三星 C5 Google(港版) + root + Xposed + 其他设置</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="刷机前注意！！"><a href="#刷机前注意！！" class="headerlink" title="== 刷机前注意！！ =="></a>== 刷机前注意！！ ==</h1><p>刷机有风险,会失去保修、失去 <span class="label label-blue">Knox</span> 、失去 <span class="label label-blue">SAMSUNG PAY</span> 、失去<span class="label label-blue">指纹支付(支付宝、微信)</span></p>
+    
+
+        <a href="/post/Writing/samsung_c5_root.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C5/">C5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/root/">root</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SAMSUNG/">三星(SAMSUNG)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/2017_Winter_Coding_Training"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-16 13:39:20 13:39:20" datetime="2017-01-16T05:39:20.000Z"  itemprop="datePublished">2017-01-16 13:39:20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/2017_Winter_Coding_Training.html">2017安徽省程序设计竞赛培训笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>2017-1-16 ~ 2017-1-19<br>内容:</p>
+<ul>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#数学-数论-amp-组合数学">数学(数论 &amp; 组合数学)</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#数据结构">数据结构</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#图论">图论</a></li>
+<li><a href="/post/Note/2017_Winter_Coding_Training.html#动态规划">动态规划</a></li>
+</ul>
+    
+
+        <a href="/post/Note/2017_Winter_Coding_Training.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5984"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-14 17:23:15 17:23:15" datetime="2017-01-14T09:23:15.000Z"  itemprop="datePublished">2017-01-14 17:23:15</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5984.html">HDU 5984.Pocky(2016 CCPC 青岛 C)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+    <div class="oj">   
+        <div class="part" title="Description">
+
+<p>Let’s talking about something of eating a pocky. Here is a Decorer Pocky, with colorful decorative stripes in the coating, of length L.<br>While the length of remaining pocky is longer than d, we perform the following procedure.<br>We break the pocky at any point on it in an equal possibility and this will divide the remaining pocky into two parts.<br>Take the left part and eat it. When it is not longer than d, we do not repeat this procedure.<br>Now we want to know the expected number of times we should repeat the procedure above.<br>Round it to 6 decimal places behind the decimal point.  </p>
+
+        </div>
+        <div class="part" title="Input">
+
+<p>The first line of input contains an integer N which is the number of test cases. Each of the N lines contains two float-numbers L and d respectively with at most 5 decimal places behind the decimal point where 1 ≤ d, L ≤ 150.  </p>
+
+        </div>
+        <div class="part" title="Output">
+
+<p>For each test case, output the expected number of times rounded to 6 decimal places behind the decimal point in a line.  </p>
+
+        </div>
+        <div class="samp">
+            <div class="clear"></div>
+            <div class="input part" title="Sample Input">
+
+<p>6<br>1.0 1.0<br>2.0 1.0<br>4.0 1.0<br>8.0 1.0<br>16.0 1.0<br>7.00 3.00  </p>
+
+            </div>
+            <div class="output part" title="Sample Output">
+
+<p>0.000000<br>1.693147<br>2.386294<br>3.079442<br>3.772589<br>1.847298  </p>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div></div>
+    
+
+        <a href="/post/HDU/5984.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-HDU/5983"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -374,466 +874,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Note/python_problem_format"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-10 20:20:52 20:20:52" datetime="2016-12-10T12:20:52.000Z"  itemprop="datePublished">2016-12-10 20:20:52</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/python_problem_format.html">使用 Python 写 OJ 题目格式生成工具</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>使用正则表达式将文本分割开,然后拼接成应该的格式  </p>
-<p>转码成 <code>utf-8</code> 输出出来  </p>
-<p>算是第一次学 Python 吧<br>学习了下一些基本的语法  </p>
-    
-
-        <a href="/post/Note/python_problem_format.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5982"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-10 16:58:07 16:58:07" datetime="2016-12-10T08:58:07.000Z"  itemprop="datePublished">2016-12-10 16:58:07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5982.html">HDU 5982.Relic Discovery(2016 CCPC 青岛 A)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
-<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-    <div class="oj">   
-        <div class="part" title="Description">
-
-<p>Recently, paleoanthropologists have found historical remains on an island in the Atlantic Ocean. The most inspiring thing is that they excavated in a magnificent cave and found that it was a huge tomb. Inside the construction,researchers identified a large number of skeletons, and funeral objects including stone axe, livestock bones and murals. Now, all items have been sorted, and they can be divided into N types. After they were checked attentively, you are told that there are Ai items of the i-th type. Further more, each item of the i-th type requires Bi million dollars for transportation, analysis, and preservation averagely. As your job, you need to calculate the total expenditure.     </p>
-
-        </div>
-        <div class="part" title="Input">
-
-<p>The first line of input contains an integer T which is the number of test cases. For each test case, the first line contains an integer N which is the number of types. In the next N lines, the i-th line contains two numbers Ai and Bi as described above. All numbers are positive integers and less than 101.</p>
-
-        </div>
-        <div class="part" title="Output">
-
-<p>For each case, output one integer, the total expenditure in million dollars.    </p>
-
-        </div>
-        <div class="samp">
-            <div class="clear"></div>
-            <div class="input part" title="Sample Input">
-             
-<p>1<br>2<br>1 2<br>3 4<br>
-            </p></div>
-            <div class="output part" title="Sample Output">
-<br>14<br>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div></div>
-<br>
-    
-
-        <a href="/post/HDU/5982.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/vscode"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-10 15:08:26 15:08:26" datetime="2016-12-10T07:08:26.000Z"  itemprop="datePublished">2016-12-10 15:08:26</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/vscode.html">VS Code 便携环境配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>关键词: U盘写Hexo博客 | U盘编译C/C++ | U盘编译Python<br>支持 <span class="label label-green">node.js</span><span class="label label-sky">Hexo</span><span class="label label-red">Git</span><span class="label label-blue">Python</span><span class="label label-orange">MinGW</span></p>
-<p>在 <a href="/post/Note/Portable.html">Hexo + C++ 便携套装</a> 里,介绍了将 VS Code portable 化的基础思路<br>经过改进,将该功能改的更加完美  </p>
-<p><a href="https://github.com/OhYee/Portable" target="_blank" rel="external">Github</a></p>
-    
-
-        <a href="/post/Note/vscode.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MinGW/">MinGW</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/New_function"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-09 00:57:29 00:57:29" datetime="2016-12-08T16:57:29.000Z"  itemprop="datePublished">2016-12-09 00:57:29</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/New_function.html">给 Hexo 加上 bootstrap 的一些特效 &amp;amp;&amp;amp; jquery 实现隐藏功能</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>查东西的时候看到了 <a href="http://www.bootcss.com/" target="_blank" rel="external">Bootstrap</a> 的特效,觉得非常好看,就像把里面的一些功能加到 Hexo 的 Next 主题里<br>(有别的主题是自带 <span class="label label-sky">Bootstrap</span> 的,不过 Next 已经被修改了好多,不想在折腾了【虽然有折腾了一晚上】)  </p>
-<p>加了一些好看的标签,同时修改了 Next 自带的 <code>code</code> 标签  </p>
-    
-
-        <a href="/post/Note/New_function.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5943"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-06 01:28:58 01:28:58" datetime="2016-12-05T17:28:58.000Z"  itemprop="datePublished">2016-12-06 01:28:58</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5943.html">HDU 5943.Kingdom of Obsession(2016 CCPC 杭州 K)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1>
-<div><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-    <div class="oj">   
-        <div class="part" title="Description">
-
-<p>There is a kindom of obsession, so people in this kingdom do things very strictly.  </p>
-<p>They name themselves in integer, and there are n people with their id continuous (s+1,s+2, ,s+n) standing in a line in arbitrary order, be more obsessively, people with id x wants to stand at yth position which satisfy  </p>
-<p><code>x mod y=0</code>  </p>
-<p>Is there any way to satisfy everyone’s requirement<br>
-        </p></div>
-        <div class="part" title="Input">
-<br>First line contains an integer T, which indicates the number of test cases.  <p></p>
-<p>Every test case contains one line with two integers n, s.  </p>
-<p>Limits  </p>
-<blockquote>
-<p>1≤T≤100.<br>1≤n≤109.<br>0≤s≤109.<br>
-        </p></blockquote></div>
-        <div class="part" title="Output">
-<br>For every test case, you should output ‘Case #x: y’, where x indicates the case number and counts from 1 and y is the result string.  <p></p>
-
-<p>If there is any way to satisfy everyone’s requirement, y equals ‘Yes’, otherwise y equals ‘No’.<br>
-        </p></div>
-        <div class="samp">
-            <div class="clear"></div>
-            <div class="input part" title="Sample Input">
-<br>2<br>5 14<br>4 11<br>
-            </div>
-            <div class="output part" title="Sample Output">
-<br>Case #1: No<br>Case #2: Yes  <p></p>
-
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-</div></div>
-    
-
-        <a href="/post/HDU/5943.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bipartite-Matching/">二分图匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hungary/">匈牙利算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">质数</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/2063"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-06 00:55:51 00:55:51" datetime="2016-12-05T16:55:51.000Z"  itemprop="datePublished">2016-12-06 00:55:51</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/2063.html">HDU 2063.过山车</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>RPG girls今天和大家一起去游乐场玩，终于可以坐上梦寐以求的过山车了。可是，过山车的每一排只有两个座位，而且还有条不成文的规矩，就是每个女生必须找个个男生做partner和她同坐。但是，每个女孩都有各自的想法，举个例子把，Rabbit只愿意和XHD或PQK做partner，Grass只愿意和linle或LL做partner，PrincessSnow愿意和水域浪子或伪酷儿做partner。考虑到经费问题，boss刘决定只让找到partner的人去坐过山车，其他的人，嘿嘿，就站在下面看着吧。聪明的Acmer，你可以帮忙算算最多有多少对组合可以坐上过山车吗？<br>
-    
-
-        <a href="/post/HDU/2063.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bipartite-Matching/">二分图匹配</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hungary/">匈牙利算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/BlackTheme"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-12-05 19:57:06 19:57:06" datetime="2016-12-05T11:57:06.000Z"  itemprop="datePublished">2016-12-05 19:57:06</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/BlackTheme.html">Hexo 黑色主题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>想搭下黑色主题的 Next<br>然而都说不好看<br>哭<br>记录下改动: <a href="/css/black.css">black.css</a><br>
-    
-
-        <a href="/post/Note/BlackTheme.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5937"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-11-28 21:07:01 21:07:01" datetime="2016-11-28T13:07:01.000Z"  itemprop="datePublished">2016-11-28 21:07:01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5937.html">HDU 5937.Equation(2016 CCPC 杭州 E)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>Little Ruins is a studious boy, recently he learned addition operation! He was rewarded some number bricks of 1 to 9 and infinity bricks of addition mark ‘+’ and equal mark ‘=’.  </p>
-<p>Now little Ruins is puzzled by those bricks because he wants to put those bricks into as many different addition equations form x+y=z as possible. Each brick can be used at most once and x, y, z are one digit integer.  </p>
-<p>As Ruins is a beginer of addition operation, x, y and z will be single digit number.  </p>
-<p>Two addition equations are different if any number of x, y and z is different.  </p>
-<p>Please help little Ruins to calculate the maximum number of different addition equations.  </p>
-    
-
-        <a href="/post/HDU/5937.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pruning/">剪枝</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Search/">搜索</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
     </div>
 </nav>
 

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+    <meta name="description" content="OhYee在学习算法、编程和生活中的记录">
+<meta name="keywords" content="OhYee,ACM,OYOhYee,博客,题解,C++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="OhYee&#39;s Blog">
+<meta property="og:url" content="https://www.oyohyee.com/page/48/index.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="OhYee在学习算法、编程和生活中的记录">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OhYee&#39;s Blog">
+<meta name="twitter:description" content="OhYee在学习算法、编程和生活中的记录">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OhYee&#39;s Blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header index-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">OhYee&#39;s Blog</h1>
+        <h5 class="subtitle">
+            
+                随手记录一些东西
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Congruence"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-07-28 20:17:00 20:17:00" datetime="2015-07-28T12:17:00.000Z"  itemprop="datePublished">2015-07-28 20:17:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Congruence.html">同余</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote>
+<p>同余指两个整数除以同一正数，余数相同。<br>同余指两个整数相减能够被一个整数整除。<br>
+    
+
+        <a href="/post/Algorithm/Congruence.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Congruence/">同余</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Graph"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-07-27 18:20:00 18:20:00" datetime="2015-07-27T10:20:00.000Z"  itemprop="datePublished">2015-07-27 18:20:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Graph.html">图论相关算法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>转载自：<a href="http://cojs.tk/cogs/page/page.php?aid=30" target="_blank" rel="external">http://cojs.tk/cogs/page/page.php?aid=30</a></p>
+    
+
+        <a href="/post/Algorithm/Graph.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/STLNote"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-07-27 17:22:00 17:22:00" datetime="2015-07-27T09:22:00.000Z"  itemprop="datePublished">2015-07-27 17:22:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/STLNote.html">STL笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h2 id="STL方面的笔记"><a href="#STL方面的笔记" class="headerlink" title="STL方面的笔记"></a>STL方面的笔记</h2><p>以下为vector queue map set stack的基本用法<br>可编译结合注释查看</p>
+    
+
+        <a href="/post/Note/STLNote.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vector/">向量(vector)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Map/">映射(map)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stack/">栈(stack)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Set/">集合(set)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/ACM"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-07-27 17:19:00 17:19:00" datetime="2015-07-27T09:19:00.000Z"  itemprop="datePublished">2015-07-27 17:19:00</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/ACM.html">ACM进阶计划</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>转载自：<a href="http://cojs.tk/cogs/page/page.php?aid=38" target="_blank" rel="external">http://cojs.tk/cogs/page/page.php?aid=38</a></p>
+<p>ACM进阶计划<br>ACM队不是为了一场比赛而存在的，为的是队员的整体提高。</p>
+<p>大学期间，ACM队队员必须要学好的课程有：</p>
+<p>l C/C++两种语言</p>
+<p>l 高等数学</p>
+<p>l 线性代数</p>
+<p>l 数据结构</p>
+<p>l 离散数学</p>
+<p>l 数据库原理</p>
+<p>l 操作系统原理</p>
+<p>l 计算机组成原理</p>
+<p>l 人工智能</p>
+<p>l 编译原理</p>
+<p>l 算法设计与分析</p>
+<p>除此之外，我希望你们能掌握一些其它的知识，因为知识都是相互联系，触类旁通的。</p>
+<p>以下学习计划每学期中的内容不分先后顺序，虽说是为立志于学习ACM的同学列的知识清单，但内容不限于ACM的知识。英语之类与专业相距较远的课程请自行分配时间，这里不再列举。</p>
+<p>大一上学期：</p>
+<p>必学：</p>
+<ol>
+<li>C语言基础语法必须全部学会</li>
+</ol>
+<p>a) 推荐“语言入门”分类20道题以上</p>
+<p>b) 提前完成C语言课程设计</p>
+<ol>
+<li>简单数学题（推荐“数学”分类20道以上）</li>
+</ol>
+<p>需要掌握以下基本算法：</p>
+<p>a) 欧几里德算法求最大公约数</p>
+<p>b) 筛法求素数</p>
+<p>c) 康托展开</p>
+<p>d) 逆康托展开</p>
+<p>e) 同余定理</p>
+<p>f) 次方求模</p>
+<ol>
+<li>计算几何初步</li>
+</ol>
+<p>a) 三角形面积</p>
+<p>b) 三点顺序</p>
+<ol>
+<li><p>学会简单计算程序的时间复杂度与空间复杂度</p>
+</li>
+<li><p>二分查找法</p>
+</li>
+<li><p>简单的排序算法</p>
+</li>
+</ol>
+<p>a) 冒泡排序法</p>
+<p>b) 插入排序法</p>
+<ol>
+<li>贪心算法经典题目</li>
+</ol>
+<ol>
+<li>高等数学</li>
+</ol>
+<p>以下为选修：</p>
+<ol>
+<li>学会使用简单的DOS命令（较重要）</li>
+</ol>
+<p>a) color/dir/copy/shutdown/mkdir(md)/rmdir(rd)/attrib/cd/</p>
+<p>b) 知道什么是绝对路径与相对路径</p>
+<p>c) 学会使用C语言调用DOS命令</p>
+<p>d) 学会在命令提示符下调用你自己用C语言编写的程序，并使用命令行参数给自己的程序传参（比如自己制作一个copyfile.exe实现与copy命令基本功能一致的功能）</p>
+<p>e) 学会编写bat批处理文件</p>
+<ol>
+<li><p>学会Windows系统的一些小知识，如设置隐藏文件，autoRun.inf的设置等。</p>
+</li>
+<li><p>学会编辑注册表（包括使用注册表编辑器regedit和使用DOS命令编辑注册表）</p>
+</li>
+<li><p>学会使用组策略管理器管理(gpedit.msc)组策略。</p>
+</li>
+</ol>
+<p>大一下学期：</p>
+<ol>
+<li><p>掌握C++部分语法，如引用类型，函数重载等，基本明白什么是类。</p>
+</li>
+<li><p>学会BFS与DFS</p>
+</li>
+</ol>
+<p>a) 迷宫求解（最少步数）</p>
+<p>b) 水池数目(NYOJ27)</p>
+<p>c) 图像有用区域(NYOJ92)</p>
+<p>d) 树的前序中序后序遍历</p>
+<ol>
+<li>动态规划（15题以上），要学会使用循环的方法写动态规划，同时也要学会使用记忆化搜索的方法。</li>
+</ol>
+<p>a) 最大子串和</p>
+<p>b) 最长公共子序列</p>
+<p>c) 最长单调递增子序列(O(n)与O(n log n)算法都需要掌握)</p>
+<p>d) 01背包</p>
+<p>e) RMQ算法</p>
+<ol>
+<li><p>学会分析与计算复杂程序的时间复杂度</p>
+</li>
+<li><p>学会使用栈与队列等线性存储结构</p>
+</li>
+<li><p>学会分治策略</p>
+</li>
+<li><p>排序算法</p>
+</li>
+</ol>
+<p>a) 归并排序</p>
+<p>b) 快速排序</p>
+<p>c) 计数排序</p>
+<ol>
+<li>数论</li>
+</ol>
+<p>a) 扩展欧几里德算法</p>
+<p>b) 求逆元</p>
+<p>c) 同余方程</p>
+<p>d) 中国剩余定理</p>
+<ol>
+<li>博弈论</li>
+</ol>
+<p>a) 博弈问题与SG函数的定义</p>
+<p>b) 多个博弈问题SG值的合并</p>
+<ol>
+<li>图论：</li>
+</ol>
+<p>a) 图的邻接矩阵与邻接表两种常见存储方式</p>
+<p>b) 欧拉路的判定</p>
+<p>c) 单最短路bellman-ford算法dijkstra算法。</p>
+<p>d) 最小生成树的kruskal算法与prim算法。</p>
+<ol>
+<li>学会使用C语言进行网络编程与多线程编程</li>
+</ol>
+<ol>
+<li>高等数学</li>
+</ol>
+<ol>
+<li>线性代数</li>
+</ol>
+<p>a) 明确线性代数的重要性，首先是课本必须学好</p>
+<p>b) 编写一个Matrix类，进行矩阵的各种操作，并求编写程序解线性方程组。</p>
+<p>c) 推荐做一两道“矩阵运算”分类下的题目。</p>
+<p>以下为选修，随便选一两个学学即可：</p>
+<ol>
+<li>（较重要）使用C语言或C++编写简单程序来调用一些简单的windows API，或者在linux下进行linux系统调用，其目的是明白什么是API（应用程序接口）。</li>
+</ol>
+<ol>
+<li>网页设计</li>
+</ol>
+<p>a) 学习静态网页技术(html+css+javascript)</p>
+<p>b) 较具有艺术细胞的可以试试Photoshop</p>
+<p>c) php或其它动态网页技术</p>
+<ol>
+<li>学习matlab，如果想参加数学建模大赛的话，需要学这个软件。</li>
+</ol>
+<p>大一假期（如果留校集训）</p>
+<ol>
+<li><p>掌握C++语法，并熟练使用STL</p>
+</li>
+<li><p>试着实现STL的一些基本容器和函数，使自己基本能看懂STL源码</p>
+</li>
+<li><p>图论</p>
+</li>
+</ol>
+<p>a) 使用优先队列优化Dijkstra和Prim</p>
+<p>b) 单源最短路径之SPFA</p>
+<p>c) 差分约束系统</p>
+<p>d) 多源多点最短路径之FloydWarshall算法</p>
+<p>e) 求欧拉路(圈套圈算法）</p>
+<ol>
+<li><p>进行复杂模拟题训练</p>
+</li>
+<li><p>拓扑排序</p>
+</li>
+<li><p>动态规划进阶</p>
+</li>
+</ol>
+<p>a) 完全背包、多重背包等各种背包问题（参见背包九讲）</p>
+<p>b) POJ上完成一定数目的动态规划题目</p>
+<p>c) 状态压缩动态规划</p>
+<p>d) 树形动态规划</p>
+<ol>
+<li>搜索</li>
+</ol>
+<p>a) 回溯法熟练应用</p>
+<p>b) 复杂的搜索题目练习</p>
+<p>c) 双向广度优先搜索</p>
+<p>d) 启发式搜索(包括A*算法，如八数码问题)</p>
+<ol>
+<li>计算几何</li>
+</ol>
+<p>a) 判断点是否在线段上</p>
+<p>b) 判断线段相交</p>
+<p>c) 判断矩形是否包含点</p>
+<p>d) 判断圆与矩形关系</p>
+<p>e) 判断点是否在多边形内</p>
+<p>f) 判断点到线段的最近点</p>
+<p>g) 计算两个圆的公切线</p>
+<p>h) 求矩形的并的面积</p>
+<p>i) 求多边形面积</p>
+<p>j) 求多边形重心</p>
+<p>k) 求凸包</p>
+<p>选修</p>
+<ol>
+<li><p>可以学习一种C++的开发框架来编写一些窗体程序玩玩（如MFC,Qt等)。</p>
+</li>
+<li><p>学习使用C或C++连接数据库。</p>
+</li>
+</ol>
+<p>大二一整年：</p>
+<ol>
+<li>数据结构</li>
+</ol>
+<p>a) 单调队列</p>
+<p>b) 堆</p>
+<p>c) 并查集</p>
+<p>d) 树状数组</p>
+<p>e) 哈希表</p>
+<p>f) 线段树</p>
+<p>g) 字典树</p>
+<ol>
+<li>图论</li>
+</ol>
+<p>a) 强连通分量</p>
+<p>b) 双连通分量（求割点，桥）</p>
+<p>c) 强连通分量与双连通分量缩点</p>
+<p>d) LCA、LCA与RMQ的转化</p>
+<p>e) 二分图匹配</p>
+<p>i. 二分图最大匹配</p>
+<p>ii. 最小点集覆盖</p>
+<p>iii. 最小路径覆盖</p>
+<p>iv. 二分图最优匹配</p>
+<p>v. 二分图多重匹配</p>
+<p>f) 网络流</p>
+<p>i. 最大流的基本SAP</p>
+<p>ii. 最大流的ISAP或者Dinic等高效算法（任一）</p>
+<p>iii. 最小费用最大流</p>
+<p>iv. 最大流最小割定理</p>
+<ol>
+<li><p>动态规划多做题提高（10道难题以上）</p>
+</li>
+<li><p>数论</p>
+</li>
+</ol>
+<p>a) 积性函数的应用</p>
+<p>b) 欧拉定理</p>
+<p>c) 费马小定理</p>
+<p>d) 威乐逊定理</p>
+<ol>
+<li>组合数学</li>
+</ol>
+<p>a) 群论基础</p>
+<p>b) Polya定理与计数问题</p>
+<p>c) Catalan数</p>
+<ol>
+<li>计算几何</li>
+</ol>
+<p>a) 各种旋转卡壳相关算法</p>
+<p>b) 三维计算几何算法</p>
+<ol>
+<li><p>理解数据库原理，学会SQL语句</p>
+</li>
+<li><p>学好计算机组成原理</p>
+</li>
+</ol>
+<ol>
+<li><p>学习Transact-SQL语言，学会使用触发器，存储过程，学会数据库事务等。</p>
+</li>
+<li><p>图论二</p>
+</li>
+</ol>
+<p>a) 网络流的各种构图训练（重要）</p>
+<p>b) 最小割与最小点权覆盖等的关系（详见《最小割模型在信息学竞赛中的应用》一文）</p>
+<p>c) 次小生成树</p>
+<p>d) 第k短路</p>
+<p>e) 最小比率生成树</p>
+<ol>
+<li><p>线性规划</p>
+</li>
+<li><p>动态规划更高级进阶</p>
+</li>
+<li><p>KMP算法</p>
+</li>
+<li><p>AC自动机理论与实现</p>
+</li>
+<li><p>博弈论之Alpha-beta剪枝</p>
+</li>
+</ol>
+<p>选修，有相关兴趣的可以学一下：</p>
+<ol>
+<li><p>自学C#或Java做一个项目，比如C++/C#/Java考试系统之类的。</p>
+</li>
+<li><p>先做一些小游戏玩玩，然后可以学一下DirectX或者OpenGL，或者可以试试XNA游戏框架。</p>
+</li>
+<li><p>了解一下游戏引擎相关的知识</p>
+</li>
+</ol>
+<p>其中的寒假假期最好：</p>
+<ol>
+<li><p>自学完离散数学</p>
+</li>
+<li><p>自学概率论的部分章节</p>
+</li>
+<li><p>自学操作系统部分章节</p>
+</li>
+</ol>
+<p>大三、</p>
+<ol>
+<li><p>巩固之前的知识，进行一遍大复习。</p>
+</li>
+<li><p>一些如蚁群算法，遗传算法，模拟退火算法等人工智能方面应用较广的随机性算法。</p>
+</li>
+<li><p>把编译原理上学的东西应用到编程中：如DFA,NFA，还有语法分析的各种方法等。</p>
+</li>
+</ol>
+<p>当你按上面那些一步步走过来时你已经是牛人了，后面要学的东西，就是由牛人自己来发掘的了。</p>
+<p><a href="http://acm.nyist.net" target="_blank" rel="external">http://acm.nyist.net</a></p>
+<p>2011年6月21日</p>
+
+    
+
+        <a href="/post/Note/ACM.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Dijkstra"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2015-07-27 17:15:00 17:15:00" datetime="2015-07-27T09:15:00.000Z"  itemprop="datePublished">2015-07-27 17:15:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Dijkstra.html">Dijkstra算法</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><del>吐槽一句，这个东西好难拼</del></p>
+<blockquote>
+<p>迪杰斯特拉算法是由荷兰计算机科学家狄克斯特拉于1959年提出的，因此又叫狄克斯特拉算法。是从一个顶点到其余各顶点的最短路径算法，解决的是有向图中最短路径问题。迪杰斯特拉算法主要特点是以起始点为中心向外层层扩展，直到扩展到终点为止。——百度百科</p>
+</blockquote>
+<p>Dijkstra算法就是用来算在一个有向带权图中，一个点到其他各点的最短距离</p>
+<p>其思路是： </p>
+<ol>
+<li>给起始点权值标成0，其他点标成无限大。从出发点开始 </li>
+<li>向该点向能通向的点走，算出到各点的总距离，并标记在相应点上。 </li>
+<li>给该点标记上访问标志，以后不再访问该点，然后从所有点中选出权值最小的点，重复步骤2 </li>
+<li>当所有点均被标记后，各点权值即为到该点最短距离</li>
+</ol>
+    
+
+        <a href="/post/Algorithm/Dijkstra.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dijkstra/">Dijkstra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+<nav id="page-nav">
+    <div class="inner">
+    <a class="extend prev" rel="prev" href="/page/47/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/46/">46</a><a class="page-number" href="/page/47/">47</a><span class="page-number current">48</span>
+    </div>
+</nav>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/page/48/&title=OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/page/48/&title=OhYee's Blog&source=OhYee在学习算法、编程和生活中的记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/page/48/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=OhYee's Blog&url=https://www.oyohyee.com/page/48/&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/page/48/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/page/48/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

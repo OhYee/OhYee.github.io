@@ -217,6 +217,425 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-HDU/2579"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-21 14:33:00 14:33:00" datetime="2016-04-21T06:33:00.000Z"  itemprop="datePublished">2016-04-21 14:33:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/2579.html">HDU 2579.Dating with girls(2)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>If you have solved the problem Dating with girls(1).I think you can solve this problem too.This problem is also about dating with girls. Now you are in a maze and the girl you want to date with is also in the maze.If you can find the girl, then you can date with the girl.Else the girl will date with other boys. What a pity!<br>The Maze is very strange. There are many stones in the maze. The stone will disappear at time t if t is a multiple of k(2&lt;= k &lt;= 10), on the other time , stones will be still there.<br>There are only ‘.’ or ‘#’, ’Y’, ’G’ on the map of the maze. ’.’ indicates the blank which you can move on, ‘#’ indicates stones. ’Y’ indicates the your location. ‘G’ indicates the girl’s location . There is only one ‘Y’ and one ‘G’. Every seconds you can move left, right, up or down.  </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>The first line contain an integer T. Then T cases followed. Each case begins with three integers r and c (1 &lt;= r , c &lt;= 100), and k(2 &lt;=k &lt;= 10).<br>The next r line is the map’s description.  </p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>For each cases, if you can find the girl, output the least time in seconds, else output “Please give me another chance!”.  </p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>1<br>6 6 2<br>…Y..<br>…#..<br>.#….<br>…#..<br>…#..<br>..#G#.  </p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>7  </p>
+</blockquote>
+</blockquote>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>由于在不同时间，墙有存在和不存在两种情况。  </p>
+<p>因此，在判重时，也要考虑到时间。只需考虑time%k即可  </p>
+<p>其他部分就是正常的BFS问题  </p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">By:OhYee</span></div><div class="line"><span class="comment">Github:OhYee</span></div><div class="line"><span class="comment">Email:oyohyee@oyohyee.com</span></div><div class="line"><span class="comment">Blog:http://www.cnblogs.com/ohyee/</span></div><div class="line"><span class="comment"></span></div><div class="line"><span class="comment">かしこいかわいい？</span></div><div class="line"><span class="comment">エリーチカ！</span></div><div class="line"><span class="comment">要写出来Хорошо的代码哦~</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="comment">//DEBUG MODE</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> debug 0</span></div><div class="line"></div><div class="line"><span class="comment">//循环</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> REP(n) for(int o=0;o&lt;n;o++)</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">105</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxk = <span class="number">15</span>;</div><div class="line"><span class="keyword">int</span> n,m,k;</div><div class="line"><span class="keyword">int</span> dis[maxn][maxn][maxk];</div><div class="line"><span class="keyword">char</span> Map[maxn][maxn];</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> delta[] = &#123;<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> x,y;</div><div class="line">    <span class="keyword">int</span> dis;</div><div class="line">    point(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> c) &#123;</div><div class="line">        x = a;</div><div class="line">        y = b;</div><div class="line">        dis = c;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">BFS</span><span class="params">(<span class="keyword">int</span> s1,<span class="keyword">int</span> s2,<span class="keyword">int</span> v1,<span class="keyword">int</span> v2)</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(dis,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dis));</div><div class="line">    <span class="built_in">queue</span>&lt;point&gt; Q;</div><div class="line"></div><div class="line">    Q.push(point(s1,s2,<span class="number">0</span>));</div><div class="line">    dis[s1][s2][<span class="number">0</span>] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(!Q.empty()) &#123;</div><div class="line">        <span class="keyword">int</span> x = Q.front().x;</div><div class="line">        <span class="keyword">int</span> y = Q.front().y;</div><div class="line">        <span class="keyword">int</span> dist = Q.front().dis;</div><div class="line">        Q.pop();</div><div class="line"></div><div class="line">        REP(<span class="number">4</span>) &#123;</div><div class="line">            <span class="keyword">int</span> xx = x + delta[o];</div><div class="line">            <span class="keyword">int</span> yy = y + delta[<span class="number">3</span> - o];</div><div class="line">            <span class="keyword">if</span>(xx &lt; <span class="number">0</span> || xx &gt;= n || yy &lt; <span class="number">0</span> || yy &gt;= m)</div><div class="line">                <span class="keyword">continue</span>;</div><div class="line">            <span class="keyword">if</span>(Map[xx][yy] != <span class="string">'#'</span> || (Map[xx][yy] == <span class="string">'#'</span> &amp;&amp; (dist+<span class="number">1</span>) % k == <span class="number">0</span>)) &#123;</div><div class="line">                <span class="keyword">int</span> dd = dist + <span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span>(dis[xx][yy][dd%k] == <span class="number">-1</span>) &#123;</div><div class="line">                    dis[xx][yy][dd%k] = dd;</div><div class="line">                    <span class="keyword">if</span>(xx == v1 &amp;&amp; yy == v2)</div><div class="line">                        <span class="keyword">return</span> dd;</div><div class="line">                    Q.push(point(xx,yy,dd));</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Do</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;n,&amp;m,&amp;k);</div><div class="line">    <span class="keyword">int</span> s1,s2,v1,v2;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j++) &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"\n%c\n"</span>,&amp;Map[i][j]);</div><div class="line">            <span class="keyword">if</span>(Map[i][j] == <span class="string">'Y'</span>) &#123;</div><div class="line">                s1 = i;</div><div class="line">                s2 = j;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(Map[i][j] == <span class="string">'G'</span>) &#123;</div><div class="line">                v1 = i;</div><div class="line">                v2 = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">int</span> ans = BFS(s1,s2,v1,v2);</div><div class="line">    <span class="keyword">if</span>(ans == <span class="number">-1</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Please give me another chance!\n"</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</div><div class="line">    <span class="keyword">while</span>(T--)</div><div class="line">        Do();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    
+
+        <a href="/post/HDU/2579.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1782"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-21 11:04:00 11:04:00" datetime="2016-04-21T03:04:00.000Z"  itemprop="datePublished">2016-04-21 11:04:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1782.html">HDU 1782.逃离迷宫</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>　　给定一个m × n (m行, n列)的迷宫，迷宫中有两个位置，gloria想从迷宫的一个位置走到另外一个位置，当然迷宫中有些地方是空地，gloria可以穿越，有些地方是障碍，她必须绕行，从迷宫的一个位置，只能走到与它相邻的4个位置中,当然在行走过程中，gloria不能走到迷宫外面去。令人头痛的是，gloria是个没什么方向感的人，因此，她在行走过程中，不能转太多弯了，否则她会晕倒的。我们假定给定的两个位置都是空地，初始时，gloria所面向的方向未定，她可以选择4个方向的任何一个出发，而不算成一次转弯。gloria能从一个位置走到另外一个位置吗？<br>
+    
+
+        <a href="/post/HDU/1782.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1242"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-21 00:14:00 00:14:00" datetime="2016-04-20T16:14:00.000Z"  itemprop="datePublished">2016-04-21 00:14:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1242.html">HDU 1242.Rescue</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Angel was caught by the MOLIGPY! He was put in prison by Moligpy. The prison is described as a N * M (N, M &lt;= 200) matrix. There are WALLs, ROADs, and GUARDs in the prison.   </p>
+<p>Angel’s friends want to save Angel. Their task is: approach Angel. We assume that “approach Angel” is to get to the position where Angel stays. When there’s a guard in the grid, we must kill him (or her?) to move into the grid. We assume that we moving up, down, right, left takes us 1 unit time, &gt; and killing a guard takes 1 unit time, too. And we are strong enough to kill all the guards.   </p>
+<p>You have to calculate the minimal time to approach Angel. (We can move only UP, DOWN, LEFT and RIGHT, to the neighbor grid within bound, of course.)<br>
+    
+
+        <a href="/post/HDU/1242.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1026"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-19 21:05:00 21:05:00" datetime="2016-04-19T13:05:00.000Z"  itemprop="datePublished">2016-04-19 21:05:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1026.html">HDU 1026.Ignatius and the Princess I</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The Princess has been abducted by the BEelzebub feng5166, our hero Ignatius has to rescue our pretty Princess. Now he gets into feng5166’s castle. The castle is a large labyrinth. To make the problem simply, we assume the labyrinth is a N*M two-dimensional array which left-top corner is (0,0) and &gt; &gt; right-bottom corner is (N-1,M-1). Ignatius enters at (0,0), and the door to feng5166’s room is at (N-1,M-1), that is our target. There are some monsters in the castle, if Ignatius meet them, he has to kill them. Here is some rules:  </p>
+<blockquote>
+<p>1.Ignatius can only move in four directions(up, down, left, right), one step per second. A step is defined as follow: if current position is (x,y), after a step, Ignatius can only stand on (x-1,y), (x+1,y), (x,y-1) or (x,y+1).<br>2.The array is marked with some characters and numbers. We define them like this:<br>. : The place where Ignatius can walk on.<br>X : The place is a trap, Ignatius should not walk on it.<br>n : Here is a monster with n HP(1&lt;=n&lt;=9), if Ignatius walk on it, it takes him n seconds to kill the monster.  </p>
+<p>Your task is to give out the path which costs minimum seconds for Ignatius to reach target position. You may assume that the start position and the target position will never be a trap, and there will never be a monster at the start position.<br>
+    
+
+        <a href="/post/HDU/1026.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dijkstra/">Dijkstra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1180"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-19 20:32:00 20:32:00" datetime="2016-04-19T12:32:00.000Z"  itemprop="datePublished">2016-04-19 20:32:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1180.html">HDU 1180.诡异的楼梯</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>Hogwarts正式开学以后,Harry发现在Hogwarts里,某些楼梯并不是静止不动的，相反,他们每隔一分钟就变动一次方向.<br>比如下面的例子里,一开始楼梯在竖直方向,一分钟以后它移动到了水平方向,再过一分钟它又回到了竖直方向.Harry发现对他来说很难找到能使得他最快到达目的地的路线,这时Ron(Harry最好的朋友)告诉Harry正好有一个魔法道具可以帮助他寻找这样的路线,而那个魔法道具上的咒语,正是由你纂写的.<br>
+    
+
+        <a href="/post/HDU/1180.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/1175"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-17 00:58:00 00:58:00" datetime="2016-04-16T16:58:00.000Z"  itemprop="datePublished">2016-04-17 00:58:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1175.html">HDU 1175.连连看</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>有一种新的游戏，游戏规则如下：在棋盘中，存在一些棋子。如果某两个棋子，可以通过一条线连起来（这条线不能经过其它棋子），而且线的转折次数不超过两次，那么这两个棋子就可以在棋盘上消去。注意：连线不能从外面绕过去的。<br>给出当前棋盘的情况，试判断某些棋子能不能消去。<br>现在你的任务就是写这个后台程序。<br>呵呵，这个跟“连连看”很像。<br>
+    
+
+        <a href="/post/HDU/1175.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5650"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-17 00:42:00 00:42:00" datetime="2016-04-16T16:42:00.000Z"  itemprop="datePublished">2016-04-17 00:42:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5650.html">HDU 5650.so easy</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <blockquote>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Given an array with<br>n<br>n<br>integers, assume f(S)f(S) as the result of executing xor operation among all the elements of set SS. e.g. if S={1,2,3}S={1,2,3} then f(S)=0f(S)=0.   </p>
+<p>your task is: calculate xor of all f(s)f(s), here s⊆Ss⊆S.<br>
+    
+
+        <a href="/post/HDU/5650.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bit/">位运算</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5642"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-04-17 00:37:00 00:37:00" datetime="2016-04-16T16:37:00.000Z"  itemprop="datePublished">2016-04-17 00:37:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5642.html">HDU 5642.King&#39;s Order</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>After the king’s speech , everyone is encouraged. But the war is not over. The king needs to give orders from time to time. But sometimes he can not speak things well. So in his order there are some ones like this: “Let the group-p-p three come to me”. As you can see letter ‘p’ repeats for 3 times. &gt; &gt; Poor king!   </p>
+<blockquote>
+<p>Now , it is war time , because of the spies from enemies , sometimes it is pretty hard for the general to tell which orders come from the king. But fortunately the general know how the king speaks: the king never repeats a letter for more than 3 times continually .And only this kind of order is &gt; &gt; legal. For example , the order: “Let the group-p-p-p three come to me” can never come from the king. While the order:” Let the group-p three come to me” is a legal statement.   </p>
+<p>The general wants to know how many legal orders that has the length of n   </p>
+<p>To make it simple , only lower case English Letters can appear in king’s order , and please output the answer modulo 10000000071000000007   </p>
+<p>We regard two strings are the same if and only if each charactor is the same place of these two strings are the same.<br>
+    
+
+        <a href="/post/HDU/5642.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory-Search/">记忆化搜索</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-POJ/1306"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -314,428 +733,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-HDU/1072"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-15 01:23:00 01:23:00" datetime="2016-04-14T17:23:00.000Z"  itemprop="datePublished">2016-04-15 01:23:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1072.html">HDU 1072.Nightmare</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>Ignatius had a nightmare last night. He found himself in a labyrinth with a time bomb on him. The labyrinth has an exit, Ignatius should get out of the labyrinth before the bomb explodes. The initial exploding time of the bomb is set to 6 minutes. To prevent the bomb from exploding by shake, Ignatius had to move slowly, that is to move from one area to the nearest area(that is, if Ignatius stands on (x,y) now, he could only on (x+1,y), (x-1,y), (x,y+1), or (x,y-1) in the next minute) takes him 1 minute. Some area in the labyrinth contains a Bomb-Reset-Equipment. They could reset the &gt; &gt; exploding time to 6 minutes. </p>
-<p>Given the layout of the labyrinth and Ignatius’ start position, please tell Ignatius whether he could get out of the labyrinth, if he could, output the minimum time that he has to use to find the exit of the labyrinth, else output -1. </p>
-<p>Here are some rules: </p>
-<ol>
-<li>We can assume the labyrinth is a 2 array. </li>
-<li>Each minute, Ignatius could only get to one of the nearest area, and he should not walk out of the border, of course he could not walk on a wall, too. </li>
-<li>If Ignatius get to the exit when the exploding time turns to 0, he can’t get out of the labyrinth. </li>
-<li>If Ignatius get to the area which contains Bomb-Rest-Equipment when the exploding time turns to 0, he can’t use the equipment to reset the bomb. </li>
-<li>A Bomb-Reset-Equipment can be used as many times as you wish, if it is needed, Ignatius can get to any areas in the labyrinth as many times as you wish. </li>
-<li>The time to reset the exploding time can be ignore, in other words, if Ignatius get to an area which contain Bomb-Rest-Equipment, and the exploding time is larger than 0, the exploding time would be reset to 6.
-    
-
-        <a href="/post/HDU/1072.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/2717"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-14 00:25:00 00:25:00" datetime="2016-04-13T16:25:00.000Z"  itemprop="datePublished">2016-04-14 00:25:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/2717.html">HDU 2717.Catch That Cow</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Farmer John has been informed of the location of a fugitive cow and wants to catch her immediately. He starts at a point N (0 ≤ N ≤ 100,000) on a number line and the cow is at a point K (0 ≤ K ≤ 100,000) on the same number line. Farmer John has two modes of transportation: walking and &gt; teleporting. </p>
-<blockquote>
-<ul>
-<li>Walking: FJ can move from any point X to the points X - 1 or X + 1 in a single minute </li>
-<li>Teleporting: FJ can move from any point X to the point 2 × X in a single minute. </li>
-</ul>
-<p>If the cow, unaware of its pursuit, does not move at all, how long does it take for Farmer John to retrieve it?<br>
-    
-
-        <a href="/post/HDU/2717.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/1372"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-14 00:22:00 00:22:00" datetime="2016-04-13T16:22:00.000Z"  itemprop="datePublished">2016-04-14 00:22:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1372.html">HDU 1372.Knight Moves</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>A friend of you is doing research on the Traveling Knight Problem (TKP) where you are to find the shortest closed tour of knight moves that visits each square of a given set of n squares on a chessboard exactly once. He thinks that the most difficult part of the problem is determining the smallest &gt; &gt; number of knight moves between two given squares and that, once you have accomplished this, finding the tour would be easy.<br>Of course you know that it is vice versa. So you offer him to write a program that solves the “difficult” part.   </p>
-<p>Your job is to write a program that takes two squares a and b as input and then determines the number of knight moves on a shortest route from a to b.<br>
-    
-
-        <a href="/post/HDU/1372.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/1548"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-14 00:16:00 00:16:00" datetime="2016-04-13T16:16:00.000Z"  itemprop="datePublished">2016-04-14 00:16:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1548.html">HDU 1548.A strange lift</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>There is a strange lift.The lift can stop can at every floor as you want, and there is a number Ki(0 &lt;= Ki &lt;= N) on every floor.The lift have just two buttons: up and down.When you at floor i,if you press the button “UP” , you will go up Ki floor,i.e,you will go to the i+Ki th floor,as the same, if you press the button “DOWN” , you will go down Ki floor,i.e,you will go to the i-Ki th floor. Of course, the lift can’t go up high than N,and can’t go down lower than 1. For example, there is a buliding with 5 floors, and k1 = 3, k2 = 3,k3 = 1,k4 = 2, k5 = 5.Begining from the 1 st floor,you can &gt; &gt; press the button “UP”, and you’ll go up to the 4 th floor,and if you press the button “DOWN”, the lift can’t do it, because it can’t go down to the -2 th floor,as you know ,the -2 th floor isn’t exist.<br>Here comes the problem: when you are on floor A,and you want to go to floor B,how many times at least he has to press the button “UP” or “DOWN”?<br>
-    
-
-        <a href="/post/HDU/1548.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Queue/">队列(queue)</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/802"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-10 19:49:00 19:49:00" datetime="2016-04-10T11:49:00.000Z"  itemprop="datePublished">2016-04-10 19:49:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/802.html">AOJ 802.运输宝物</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>53</code><br>Submission Accepted: <code>22</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>众所周知，“西瓜”是大名鼎鼎的江洋大盗。有一次他偷到了一批宝库。<br>这批宝物共有n个，他一共有k个箱子。他只能用这些箱子把这些宝物运出去，为了保证运输安全，他不会把两个以上的宝物装入同一个箱子（一个箱子只能装1个或者2个宝物）。这些宝物的大小分别是s(1)、s(2)、s(3)……s(n)。（题目给出的重量保证是非降序，即s(i-1)&lt;=s(i) 对于任何i&gt;1)。<br>装进宝物后，每个箱子的容量要大于或者等于所装的宝物大小之和。为了规格统一，这些箱子每个的容量要一致。为了降低运费，箱子的容量要尽可能小。“西瓜”想要知道，在能运走的情况下，箱子容量最小是多少。<br>
-    
-
-        <a href="/post/AOJ/802.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/794"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-10 19:44:00 19:44:00" datetime="2016-04-10T11:44:00.000Z"  itemprop="datePublished">2016-04-10 19:44:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/794.html">AOJ 794.西瓜理发记(二)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>151</code><br>Submission Accepted: <code>28</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>剃完光头后，西瓜表示非常开心，于是直接骑上自行车去往勺林寺。<br>等骑到勺林寺的时候，头发已经都长出来了，于是西瓜决定在附近的理发店再剃一次。<br>然而这里的理发店老板WzyJerry表示正在做ACM练习，没空给他理发。<br>西瓜决定帮助老板AK。<br>题目是这样的：<br>你现在有一个培养盒，盒中没有细菌<br>每天早上，你可以向盒中放入一个细菌<br>每天晚上，一个细菌会分裂成两个。<br>求如果你想在将来的某天使盒中恰好有n个细菌，你最少要向盒中放入几个细菌<br>
-    
-
-        <a href="/post/AOJ/794.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/793"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-10 19:26:00 19:26:00" datetime="2016-04-10T11:26:00.000Z"  itemprop="datePublished">2016-04-10 19:26:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/793.html">AOJ 793.西瓜理发记(一)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>100</code><br>Submission Accepted: <code>42</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>某天，西瓜决心皈依勺林寺，于是来到安大门口的理发店，准备剃一个光头。<br>然而理发店有很多人排队，西瓜想知道他大概还需要排队排多久。<br>假设一位男生需要8分钟，一位女生需要12分钟。<br>
-    
-
-        <a href="/post/AOJ/793.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/789"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-04-10 19:07:00 19:07:00" datetime="2016-04-10T11:07:00.000Z"  itemprop="datePublished">2016-04-10 19:07:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/789.html">AOJ 789.买酒</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>43</code><br>Submission Accepted: <code>6</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>众所周知，西瓜是一个很爱喝酒的人。有一天西瓜和朋友去酒楼喝酒，却发现酒楼在大酬宾，活动规则如下。  </p>
-<ol>
-<li>全场只要买酒可以买二送一，买2瓶酒就可以送一瓶酒，买4瓶酒就送两瓶酒。  </li>
-<li>4个空瓶可以换一瓶酒。  </li>
-<li>10个酒瓶盖可以换一瓶酒。  </li>
-<li>拿瓶子和盖子换酒可以享受换二送一的优惠（比如8个空瓶可以换两瓶酒，然后再送一瓶；12个空瓶+10个盖子可以换4瓶酒，再送两瓶），并且换来的酒产生的的瓶盖和空瓶依旧可以继续拿给酒楼换酒。<br>现在西瓜和朋友们的钱一共有N元, 酒一瓶M元，请问他们最多可以喝多少瓶酒。
-    
-
-        <a href="/post/AOJ/789.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/40/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/42/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/40/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="page-number" href="/page/40/">40</a><span class="page-number current">41</span><a class="page-number" href="/page/42/">42</a><a class="page-number" href="/page/43/">43</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/42/">下一页</a>
     </div>
 </nav>
 

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>HDU 6010.Daylight Saving Time | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="HDU,模拟">
+    <meta name="description" content="题目点击显/隐题目 Last month, xiaodao together with her friend poteko took a flight from San Francisco to Shanghai.When they were driving to the airport, xiaodao suddenly realized that the clock time on potek">
+<meta name="keywords" content="HDU,模拟">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HDU 6010.Daylight Saving Time">
+<meta property="og:url" content="https://www.oyohyee.com/post/HDU/6010.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 Last month, xiaodao together with her friend poteko took a flight from San Francisco to Shanghai.When they were driving to the airport, xiaodao suddenly realized that the clock time on potek">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-15T11:37:08.963Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HDU 6010.Daylight Saving Time">
+<meta name="twitter:description" content="题目点击显/隐题目 Last month, xiaodao together with her friend poteko took a flight from San Francisco to Shanghai.When they were driving to the airport, xiaodao suddenly realized that the clock time on potek">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HDU 6010.Daylight Saving Time</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">HDU 6010.Daylight Saving Time</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-07T13:00:11.000Z" itemprop="datePublished" class="page-time">
+  2017-10-07 21:00:11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-HDU/6010"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HDU 6010.Daylight Saving Time</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-07 21:00:11 21:00:11" datetime="2017-10-07T13:00:11.000Z"  itemprop="datePublished">2017-10-07 21:00:11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Last month, xiaodao together with her friend poteko took a flight from San Francisco to Shanghai.<br>When they were driving to the airport, xiaodao suddenly realized that the clock time on potekos car is one hour faster than the clock time on her mobile phone. And both of them might be correct, but how can it be? Because that day was Nov 6th, the Daylight saving time switch day this year.<br>Daylight saving time (DST) or summer time is the practice of advancing clocks during summer months by one hour so that evening daylight lasts an hour longer. It is arguable that using DST can reduce overall energy consumption. Not all of us are using DST now, and for those regions adopting DST, the practices are also different.<br>In the case of California, effective in the U.S. in 2007 as a result of the Energy Policy Act of 2005, the local time changes from Pacific Standard Time (PST) to Pacific Daylight Time (PDT) at 02:00 to 03:00 on the second Sunday in March and the local time changes back from PDT to PST at 02:00 to 01:00 on the first Sunday in November.<br>Because it is one hour longer on that day, so xiaodao and poteko didn’t miss the flights, but they found it still a little confusing.<br>Interestingly, once xiaodao went back to Shanghai, she met a bug caused by exactly the same issue during the work. You might also be in trouble with DST some day, so here comes this problem and hope it will be helpful.<br>The local time in California without specifying whether it is PST or PDT could be ambiguous in some cases (e.g. 2016-11-06 01:25:00). In this problem, you are given a local time in California.<br>Check whether it is “PST”, “PDT”, “Both” or “Neither”.<br><br></div><div class="part" title="Input"><br>The first line of the input gives the number of test cases, T.<br>T test cases follow. Each test case consists of one line, a date string written in the following format: YYYY-MM-DD HH:MM:SS.<br><br></div><div class="part" title="Output"><br>For each test case, first output one line containing “Case #x: ”, where x is the test case number (starting from 1), following a result string which in one of “PST”, “PDT”, “Both” or “Neither”.<br>$\bullet$ 1 ≤ T ≤ 1000.<br>$\bullet$ date will be legal and between “2007-01-01 00:00:00” and “2100-12-31 23:59:59”.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4<br>2016-03-13 01:59:59<br>2016-03-13 02:00:00<br>2016-11-06 00:59:59<br>2016-11-06 01:00:00<br><br></div><div class="output part" title="Sample Output"><br>Case #1: PST<br>Case #2: Neither<br>Case #3: PDT<br>Case #4: Both<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><blockquote>
+<p>给你一个时间,判断该时间的描述方式(夏令时、正常时间)<br>由于夏令时变换牵扯到小时的变换,中间会有2个小时处于特殊情况  </p>
+</blockquote>
+<p>夏令时规则如下:</p>
+<ul>
+<li>3月的第二个周日的2点直接跳到3点,进入夏令时(DST)  </li>
+<li>11月的第一个周日的2点跳到1点,进入太平洋标准时间(PST)  </li>
+</ul>
+<p>可以看出3月第二个周日的2点到3点的时间段,既不属于夏令时,也不属于大平洋标准时间(neither)<br>而11月第一个周日的1点到2点时间段,既有可能是夏令时,也有可能是太平洋标准时间(Both)  </p>
+<p>题目分为两步,判断任意一天是第几周的星期几;按照要求判断时间的状态  </p>
+<div class="note danger"><p><strong><span style="color:red">坑点</span></strong><br>3月第二个周日的2点是Neither,<strong>3点是Neither</strong>.<br>11月的第一个周日的1点是Both,<strong>2点是PST</strong>.</p>
+</div>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Daylight Saving Time</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> days[<span class="number">13</span>] = &#123;<span class="number">0</span>, <span class="number">31</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>&#125;;</div><div class="line"><span class="keyword">int</span> sunday[<span class="number">105</span>][<span class="number">15</span>][<span class="number">35</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sunday</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="built_in">memset</span>(sunday, <span class="number">0</span>, <span class="keyword">sizeof</span>(sunday));</div><div class="line">    <span class="keyword">int</span> year = <span class="number">2007</span>;</div><div class="line">    <span class="keyword">int</span> month = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> day = <span class="number">7</span>;</div><div class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (year &lt;= <span class="number">2100</span>) &#123;</div><div class="line">        sunday[year - <span class="number">2000</span>][month][day] = ++cnt;</div><div class="line">        <span class="comment">//  printf("%4d-%2d-%2d %d\n", year, month, day,</span></div><div class="line">        <span class="comment">//         sunday[year - 2000][month][day]);</span></div><div class="line">        day += <span class="number">7</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> ((((year % <span class="number">4</span> == <span class="number">0</span>) &amp;&amp; (year % <span class="number">100</span> != <span class="number">0</span>)) || (year % <span class="number">400</span> == <span class="number">0</span>)) &amp;&amp;</div><div class="line">            month == <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">if</span> ((day &gt; <span class="number">29</span>)) &#123;</div><div class="line">                day -= days[month++] + <span class="number">1</span>;</div><div class="line">                cnt = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">if</span> (day &gt; days[month]) &#123;</div><div class="line">                day -= days[month++];</div><div class="line">                cnt = <span class="number">0</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (month == <span class="number">13</span>) &#123;</div><div class="line">            month = <span class="number">1</span>;</div><div class="line">            ++year;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 1pst,2neiter,3pdt,4both</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> month, <span class="keyword">int</span> hour, <span class="keyword">int</span> week, <span class="keyword">bool</span> sun, <span class="keyword">int</span> minute, <span class="keyword">int</span> second)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (month &lt; <span class="number">3</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (month == <span class="number">3</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (week &lt; <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (week == <span class="number">2</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (!sun) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">if</span> (hour &lt; <span class="number">2</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour == <span class="number">2</span>) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (minute == <span class="number">0</span> &amp;&amp; hour == <span class="number">0</span>) &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">if</span> (month &lt; <span class="number">11</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (month == <span class="number">11</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (week == <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">if</span> (!sun) &#123;</div><div class="line">                    <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="keyword">if</span> (hour &lt; <span class="number">1</span>) &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">3</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (hour == <span class="number">1</span>) &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">4</span>;</div><div class="line">                    &#125; <span class="keyword">else</span> &#123;</div><div class="line">                        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    Sunday();</div><div class="line">    <span class="keyword">int</span> kase = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="keyword">int</span> year, month, day, hour, minute, second;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d-%d-%d %d:%d:%d"</span>, &amp;year, &amp;month, &amp;day, &amp;hour, &amp;minute,</div><div class="line">              &amp;second);</div><div class="line">        year -= <span class="number">2000</span>;</div><div class="line">        <span class="keyword">bool</span> sun = sunday[year][month][day] != <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> week = <span class="number">4</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (sun) &#123;</div><div class="line">            week = sunday[year][month][day];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; ++i) &#123;</div><div class="line">                <span class="keyword">if</span> (day - <span class="number">7</span> * i &lt;= <span class="number">0</span>) &#123;</div><div class="line">                    week = i;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="comment">// for (int i = day; i &lt; day + 7; ++i) &#123;</span></div><div class="line">            <span class="comment">//     if (sunday[year][month][day] != 0) &#123;</span></div><div class="line">            <span class="comment">//         week = sunday[year][month][day];</span></div><div class="line">            <span class="comment">//         break;</span></div><div class="line">            <span class="comment">//     &#125;</span></div><div class="line">            <span class="comment">// &#125;</span></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// printf("%d %d\n", sun, week);</span></div><div class="line"></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: "</span>, ++kase);</div><div class="line">        <span class="keyword">int</span> ans = judge(month, hour, week, sun, minute, second);</div><div class="line">        <span class="keyword">if</span> (ans == <span class="number">1</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"PST\n"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ans == <span class="number">2</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Neither\n"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ans == <span class="number">3</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"PDT\n"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ans == <span class="number">4</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"Both\n"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/HDU/6010.html" target="_blank" rel="external">HDU 6010.Daylight Saving Time</a><br>文章地址：  <a href="/post/HDU/6010.html" target="_blank" rel="external">https://www.oyohyee.com/post/HDU/6010.html</a><br>创建时间：  2017-10-07 21:00:11<br>更新时间：  2017-10-15 19:37:08
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6010.html&title=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6010.html&title=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&source=题目点击显/隐题目
+Last month, xiaodao together with her friend poteko took a flight f..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6010.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6010.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6010.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/HDU/6007.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">HDU 6007.Mr. Panda and Crystal</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/5547.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 5547.Sudoku</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/HDU/6010.html&title=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/HDU/6010.html&title=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&source=题目点击显/隐题目
+Last month, xiaodao together with her friend poteko took a flight f..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/HDU/6010.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HDU 6010.Daylight Saving Time》 — OhYee's Blog&url=https://www.oyohyee.com/post/HDU/6010.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/HDU/6010.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/HDU/6010.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

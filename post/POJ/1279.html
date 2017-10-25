@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>POJ 1279.Art Gallery | OhYee&#39;s Blog | 随手记录一些东西</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#428bca">
+    
+    
+    <meta name="keywords" content="计算几何,POJ,半平面交">
+    <meta name="description" content="题目点击显/隐题目 The art galleries of the new and very futuristic building of the Center for Balkan Cooperation have the form of polygons (not necessarily convex). When a big exhibition is organized, watchin">
+<meta name="keywords" content="计算几何,POJ,半平面交">
+<meta property="og:type" content="article">
+<meta property="og:title" content="POJ 1279.Art Gallery">
+<meta property="og:url" content="https://www.oyohyee.com/post/POJ/1279.html">
+<meta property="og:site_name" content="OhYee&#39;s Blog">
+<meta property="og:description" content="题目点击显/隐题目 The art galleries of the new and very futuristic building of the Center for Balkan Cooperation have the form of polygons (not necessarily convex). When a big exhibition is organized, watchin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-15T11:37:08.965Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="POJ 1279.Art Gallery">
+<meta name="twitter:description" content="题目点击显/隐题目 The art galleries of the new and very futuristic building of the Center for Balkan Cooperation have the form of polygons (not necessarily convex). When a big exhibition is organized, watchin">
+    
+        <link rel="alternate" type="application/atom+xml" title="OhYee&#39;s Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.13">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+        
+            <link href='/css/My.css' rel='stylesheet' type='text/css' />
+        
+            <script type='text/javascript' src='/js/My.js'></script>
+        
+            <script type='text/javascript' src='/js/digit.js'></script>
+        
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/logo.svg" style="background-color: rgba(255,255,255,1)">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">OhYee</h5>
+          <a href="mailto:oyohyee@oyohyee.com" title="oyohyee@oyohyee.com" class="mail">oyohyee@oyohyee.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                
+                主页
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                
+                归档
+                
+                  <span id="site.posts.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                
+                分类
+                
+                  <span id="site.categories.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                
+                标签
+                
+                  <span id="site.tags.length" class="digit"></span>
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/projects"  >
+                <i class="icon icon-lg icon-OhYee"></i>
+                
+                我的项目
+                
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/templates.html"  >
+                <i class="icon icon-lg icon-code"></i>
+                
+                算法模板
+                
+              </a>
+            </li>
+        
+
+      <ul class="nav2">
+          
+              <li class="waves-block waves-effect">
+                <a href="/about"  title="关于" >
+                  <i class="icon icon-lg icon-address-card address-card"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="/gitment"  title="评论系统" >
+                  <i class="icon icon-lg icon-commenting commenting"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="http://wpa.qq.com/msgrd?v=3&uin=896817156&site=qq&menu=yes" target="_blank" title="QQ联系" >
+                  <i class="icon icon-lg icon-qq qq"></i>
+                </a>
+              </li>
+          
+              <li class="waves-block waves-effect">
+                <a href="https://github.com/OhYee" target="_blank" title="github" >
+                  <i class="icon icon-lg icon-github github"></i>
+                </a>
+              </li>
+          
+        </ul>
+
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">POJ 1279.Art Gallery</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+<!-- 占位 -->
+<div class="holder" style="height:56px"></div>
+
+<header class="content-header post-header" >
+
+    <div class="container fade-scale">
+        <h1 class="title">POJ 1279.Art Gallery</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-09T14:25:19.000Z" itemprop="datePublished" class="page-time">
+  2017-10-09 22:25:19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题解"><span class="post-toc-text">题解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码"><span class="post-toc-text">代码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-POJ/1279"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">POJ 1279.Art Gallery</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-09 22:25:19 22:25:19" datetime="2017-10-09T14:25:19.000Z"  itemprop="datePublished">2017-10-09 22:25:19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>The art galleries of the new and very futuristic building of the Center for Balkan Cooperation have the form of polygons (not necessarily convex). When a big exhibition is organized, watching over all of the pictures is a big security concern. Your task is that for a given gallery to write a program which finds the surface of the area of the floor, from which each point on the walls of the gallery is visible. On the figure 1. a map of a gallery is given in some co-ordinate system. The area wanted is shaded on the figure 2.<br><br></div><div class="part" title="Input"><br>The number of tasks T that your program have to solve will be on the first row of the input file. Input data for each task start with an integer N, 5 &lt;= N &lt;= 1500. Each of the next N rows of the input will contain the co-ordinates of a vertex of the polygon ? two integers that fit in 16-bit integer type, separated by a single space. Following the row with the co-ordinates of the last vertex for the task comes the line with the number of vertices for the next test and so on.<br><br></div><div class="part" title="Output"><br>For each test you must write on one line the required surface - a number with exactly two digits after the decimal point (the number should be rounded to the second digit after the decimal point).<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1<br>7<br>0 0<br>4 4<br>4 7<br>9 7<br>13 -1<br>8 -6<br>4 -4<br><br></div><div class="output part" title="Sample Output"><br>80.00<br><br></div><div class="clear"></div></div></div>
+</div></div>
+<a id="more"></a>
+<h1 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h1><p>半平面交模板题,样例比较严格,能卡掉不严谨的板子<br>网上搜到的好多AC代码都WA,可能是数据加强了  </p>
+<p>如果之前的点<strong>在新加入的边上时</strong>,<strong>不需要</strong>从队列删除<br>在这里卡了好久</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐代码</div></div><div class="fold">
+<figure class="highlight cpp"><figcaption><span>Art Gallery</span><a href="https://github.com/OhYee/sourcecode/tree/master/ACM">代码备份</a></figcaption><table><tr><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> Log(format, ...) <span class="comment">// printf(format, ##__VA_ARGS__)</span></span></div><div class="line"></div><div class="line"><span class="comment">/* 计算几何模板 */</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-8</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> INF = <span class="number">0x4242424242424242</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">sgn</span><span class="params">(<span class="keyword">const</span> <span class="keyword">double</span> &amp;x)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">fabs</span>(x) &lt; eps)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="keyword">return</span> x &gt; <span class="number">0</span> ? <span class="number">1</span> : <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector</span>;</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Segment</span>;</span></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">Cross</span><span class="params">(<span class="keyword">const</span> Vector &amp;, <span class="keyword">const</span> Vector &amp;)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Point_Segment</span><span class="params">(<span class="keyword">const</span> Vector &amp;, <span class="keyword">const</span> Segment &amp;)</span></span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector</span> &#123;</span></div><div class="line">    <span class="keyword">double</span> x, y;</div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    Vector(<span class="keyword">double</span> _x = <span class="number">0</span>, <span class="keyword">double</span> _y = <span class="number">0</span>, <span class="keyword">int</span> _n = <span class="number">0</span>) : x(_x), y(_y), n(_n) &#123;&#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> Vector &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> sgn(x - rhs.x) == <span class="number">0</span> &amp;&amp; sgn(y - rhs.y) == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>!=(<span class="keyword">const</span> Vector &amp;rhs) <span class="keyword">const</span> &#123; <span class="keyword">return</span> !(*<span class="keyword">this</span> == rhs); &#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Vector &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">if</span> (sgn(y - rhs.y) == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> sgn(x - rhs.x) &lt; <span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> sgn(y - rhs.y) &gt; <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    Vector <span class="keyword">operator</span>+(<span class="keyword">const</span> Vector &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> Vector(x + rhs.x, y + rhs.y);</div><div class="line">    &#125;</div><div class="line">    Vector <span class="keyword">operator</span>-(<span class="keyword">const</span> Vector &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> Vector(x - rhs.x, y - rhs.y);</div><div class="line">    &#125;</div><div class="line">    Vector <span class="keyword">operator</span>*(<span class="keyword">const</span> <span class="keyword">double</span> &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> Vector(x * rhs, y * rhs);</div><div class="line">    &#125;</div><div class="line">    Vector <span class="keyword">operator</span>/(<span class="keyword">const</span> <span class="keyword">double</span> &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">return</span> Vector(x / rhs, y / rhs);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getAngle</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">atan2</span>(y, x); &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">squre</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> x * x + y * y; &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">sqrt</span>(squre()); &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">bool</span> flag = <span class="number">0</span>)</span> <span class="keyword">const</span> </span>&#123;</div><div class="line">        Log(<span class="string">"(%.2f %.2f)"</span>, x, y);</div><div class="line">        <span class="keyword">if</span> (flag)</div><div class="line">            Log(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">typedef</span> Vector Point;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Segment</span> &#123;</span></div><div class="line">    Point a, b;</div><div class="line">    Segment() &#123;&#125;</div><div class="line">    Segment(Point _a, Point _b) : a(_a), b(_b) &#123;&#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Segment &amp;rhs) <span class="keyword">const</span> &#123;</div><div class="line">        <span class="keyword">double</span> angle1 = getAngle();</div><div class="line">        <span class="keyword">double</span> angle2 = rhs.getAngle();</div><div class="line">        <span class="keyword">if</span> (sgn(angle1 - angle2) == <span class="number">0</span>)</div><div class="line">            <span class="keyword">return</span> Point_Segment(a, rhs) &gt; <span class="number">0</span>;</div><div class="line">        <span class="keyword">return</span> sgn(angle1 - angle2) &lt; <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">getAngle</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> toVector().getAngle(); &#125;</div><div class="line">    <span class="function">Vector <span class="title">toVector</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> b - a; &#125;</div><div class="line">    <span class="function"><span class="keyword">double</span> <span class="title">distance</span><span class="params">()</span> <span class="keyword">const</span> </span>&#123; <span class="keyword">return</span> toVector().distance(); &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">bool</span> flag = <span class="number">0</span>)</span> <span class="keyword">const</span> </span>&#123;</div><div class="line">        a.print();</div><div class="line">        Log(<span class="string">" -&gt; "</span>);</div><div class="line">        b.print();</div><div class="line">        <span class="keyword">if</span> (flag)</div><div class="line">            Log(<span class="string">"\n"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 读入一个点的坐标</span></div><div class="line"><span class="comment">    * @return   读入的点</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> Point <span class="title">read_Point</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">double</span> x, y;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf%lf"</span>, &amp;x, &amp;y);</div><div class="line">    <span class="keyword">return</span> Point(x, y);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">xmult</span><span class="params">(<span class="keyword">const</span> Vector &amp;a, <span class="keyword">const</span> Vector &amp;b, <span class="keyword">const</span> Vector &amp;c)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (a.x - c.x) * (b.y - c.y) - (b.x - c.x) * (a.y - c.y);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两个向量的叉积</span></div><div class="line"><span class="comment">    * @param a  向量1</span></div><div class="line"><span class="comment">    * @param b  向量2</span></div><div class="line"><span class="comment">    * @return   叉积</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Cross</span><span class="params">(<span class="keyword">const</span> Vector &amp;a, <span class="keyword">const</span> Vector &amp;b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a.x * b.y - a.y * b.x;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两个向量的点积</span></div><div class="line"><span class="comment">    * @param a  向量1</span></div><div class="line"><span class="comment">    * @param b  向量2</span></div><div class="line"><span class="comment">    * @return   点积</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Dot</span><span class="params">(<span class="keyword">const</span> Vector &amp;a, <span class="keyword">const</span> Vector &amp;b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a.x * b.x + a.y * b.y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两点之间的距离</span></div><div class="line"><span class="comment">    * @param a  线段L1</span></div><div class="line"><span class="comment">    * @param b  线段L2</span></div><div class="line"><span class="comment">    * @return   两点间的距离</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">Distance</span><span class="params">(<span class="keyword">const</span> Point &amp;a, <span class="keyword">const</span> Point &amp;b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (a - b).distance();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 点和直线的关系</span></div><div class="line"><span class="comment">    * @param p   目标点</span></div><div class="line"><span class="comment">    * @param L   目标直线</span></div><div class="line"><span class="comment">    * @return    1 在左侧,0 在直线上,-1在右侧</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Point_Segment</span><span class="params">(<span class="keyword">const</span> Vector &amp;p, <span class="keyword">const</span> Segment &amp;L)</span> </span>&#123;</div><div class="line">    <span class="comment">// printf("Point_segment %d\n", sgn(Cross(L.b - L.a, p - L.a)));</span></div><div class="line">    <span class="keyword">return</span> sgn(Cross(L.b - L.a, p - L.a));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两个线段(直线)是否平行</span></div><div class="line"><span class="comment">    * @param L1 L1的向量</span></div><div class="line"><span class="comment">    * @param L2 L2的向量</span></div><div class="line"><span class="comment">    * @return   返回是否平行</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">parallel</span><span class="params">(<span class="keyword">const</span> Vector &amp;L1, <span class="keyword">const</span> Vector &amp;L2)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> sgn(Cross(L1, L2)) == <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两个直线的交点(需要确保不平行、重合)</span></div><div class="line"><span class="comment">    * @param L1 L1的向量</span></div><div class="line"><span class="comment">    * @param L2 L2的向量</span></div><div class="line"><span class="comment">    * @return   返回是否平行</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function">Point <span class="title">getIntersection</span><span class="params">(<span class="keyword">const</span> Segment &amp;L1, <span class="keyword">const</span> Segment &amp;L2)</span> </span>&#123;</div><div class="line">    Point ret = L1.a;</div><div class="line">    <span class="keyword">double</span> t = ((L1.a.x - L2.a.x) * (L2.a.y - L2.b.y) -</div><div class="line">                (L1.a.y - L2.a.y) * (L2.a.x - L2.b.x)) /</div><div class="line">               ((L1.a.x - L1.b.x) * (L2.a.y - L2.b.y) -</div><div class="line">                (L1.a.y - L1.b.y) * (L2.a.x - L2.b.x));</div><div class="line">    ret.x += (L1.b.x - L1.a.x) * t;</div><div class="line">    ret.y += (L1.b.y - L1.a.y) * t;</div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 计算两个线段的位置关系</span></div><div class="line"><span class="comment">    * @param L1 线段L1</span></div><div class="line"><span class="comment">    * @param L2 线段L2</span></div><div class="line"><span class="comment">    * @param p  返回交点坐标</span></div><div class="line"><span class="comment">    * @return   2   重叠</span></div><div class="line"><span class="comment">                1   相交</span></div><div class="line"><span class="comment">                0   延长线相交</span></div><div class="line"><span class="comment">                -1  平行</span></div><div class="line"><span class="comment">                -2  共线不交</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">Segment_Segment</span><span class="params">(<span class="keyword">const</span> Segment &amp;L1, <span class="keyword">const</span> Segment &amp;L2,</span></span></div><div class="line"><span class="function"><span class="params">                           Point *p = <span class="literal">NULL</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">double</span> a = L1.b.x - L1.a.x;</div><div class="line">    <span class="keyword">double</span> b = L2.b.x - L2.a.x;</div><div class="line">    <span class="keyword">double</span> c = L1.b.y - L1.a.y;</div><div class="line">    <span class="keyword">double</span> d = L2.b.y - L2.a.y;</div><div class="line">    <span class="keyword">double</span> f = a * d - b * c;</div><div class="line">    <span class="comment">// 平行或重叠</span></div><div class="line">    <span class="keyword">if</span> (sgn(f) == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (Point_Segment(L1.a, L2)) &#123;</div><div class="line">            <span class="comment">// 平行</span></div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 共线</span></div><div class="line">            <span class="keyword">int</span> len = max(max(Distance(L1.a, L2.a), Distance(L1.a, L2.b)),</div><div class="line">                          max(Distance(L1.b, L2.a), Distance(L1.b, L2.b)));</div><div class="line">            <span class="keyword">if</span> (sgn(len - L1.distance() - L2.distance()) &gt; <span class="number">0</span>) &#123;</div><div class="line">                <span class="comment">// 共线不交</span></div><div class="line">                <span class="keyword">return</span> <span class="number">-2</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 重叠</span></div><div class="line">                <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">double</span> g = L2.b.x - L1.a.x;</div><div class="line">    <span class="keyword">double</span> h = L2.b.y - L1.a.y;</div><div class="line">    <span class="keyword">double</span> t = (d * g - b * h) / f;</div><div class="line">    <span class="keyword">double</span> s = (-c * g + a * h) / f;</div><div class="line">    <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</div><div class="line">        *p = Point(L1.a.x + t * a, L1.a.y + t * c);</div><div class="line">    <span class="comment">// 在延长线上</span></div><div class="line">    <span class="keyword">if</span> (t &lt; <span class="number">0</span> || t &gt; <span class="number">1</span> || s &lt; <span class="number">0</span> || s &gt; <span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    <span class="comment">// 线段相交</span></div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 判断点是否在多边形内部</span></div><div class="line"><span class="comment">    * @param p              需要判断的点</span></div><div class="line"><span class="comment">    * @param polygon        多边形点集,需要保证有序</span></div><div class="line"><span class="comment">    * @param numberOfSide   多边形边数</span></div><div class="line"><span class="comment">    * @return   true 点在多边形内,false 点不在多边形内</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Point_Polygon</span><span class="params">(<span class="keyword">const</span> Point &amp;p, <span class="keyword">const</span> Point polygon[],</span></span></div><div class="line"><span class="function"><span class="params">                   <span class="keyword">const</span> <span class="keyword">int</span> &amp;numberOfSide)</span> </span>&#123;</div><div class="line">    <span class="keyword">bool</span> ok =</div><div class="line">        Point_Segment(p, Segment(polygon[numberOfSide - <span class="number">1</span>], polygon[<span class="number">0</span>])) &gt;= <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numberOfSide &amp;&amp; ok; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (!(Point_Segment(p, Segment(polygon[i - <span class="number">1</span>], polygon[i])) &gt;= <span class="number">0</span>))</div><div class="line">            ok = <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ok;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 求多边形面积</span></div><div class="line"><span class="comment">    * @param p              点集</span></div><div class="line"><span class="comment">    * @param numOfSide     多边形边数</span></div><div class="line"><span class="comment">    * @return   返回多边形面积</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">getArea</span><span class="params">(<span class="keyword">const</span> Point p[], <span class="keyword">const</span> <span class="keyword">int</span> numberOfSide)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (numberOfSide &lt; <span class="number">3</span>)</div><div class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</div><div class="line">    <span class="keyword">double</span> area = <span class="number">0.0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; numberOfSide; ++i)</div><div class="line">        area += <span class="built_in">fabs</span>(<span class="number">0.5</span> * Cross(p[i] - p[<span class="number">0</span>], p[i - <span class="number">1</span>] - p[<span class="number">0</span>]));</div><div class="line">    <span class="keyword">return</span> area;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 求点集的凸包</span></div><div class="line"><span class="comment">    * @param p              点集,需要保证已经排序,并且点需要有不同的编号</span></div><div class="line"><span class="comment">    * @param numOfPoint     点集内的点的个数</span></div><div class="line"><span class="comment">    * @param vis            记录点对应的编号是否可以选择</span></div><div class="line"><span class="comment">    * @param ans            返回的凸包</span></div><div class="line"><span class="comment">    * @param begin          起始位置</span></div><div class="line"><span class="comment">    * @return   返回凸包上点的个数</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Convex_Hull</span><span class="params">(Point p[], <span class="keyword">int</span> numOfPoint, <span class="keyword">bool</span> vis[], Point ans[],</span></span></div><div class="line"><span class="function"><span class="params">                <span class="keyword">int</span> begin = <span class="number">0</span>)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> pos = begin - <span class="number">1</span>;</div><div class="line">    <span class="comment">// 右链</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numOfPoint; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (!vis[p[i].n]) &#123;</div><div class="line">            <span class="keyword">while</span> (pos &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">                   Point_Segment(p[i], Segment(ans[pos], ans[pos - <span class="number">1</span>])) &gt; <span class="number">0</span>) &#123;</div><div class="line">                vis[ans[pos--].n] = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            ans[++pos] = p[i];</div><div class="line">            vis[ans[pos].n] = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 左链</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = numOfPoint - <span class="number">2</span>; i &gt; <span class="number">0</span>; --i) &#123;</div><div class="line">        <span class="keyword">if</span> (!vis[p[i].n]) &#123;</div><div class="line">            <span class="keyword">while</span> (pos &gt; <span class="number">0</span> &amp;&amp;</div><div class="line">                   Point_Segment(p[i], Segment(ans[pos], ans[pos - <span class="number">1</span>])) &gt; <span class="number">0</span>) &#123;</div><div class="line">                vis[ans[pos--].n] = <span class="literal">false</span>;</div><div class="line">            &#125;</div><div class="line">            ans[++pos] = p[i];</div><div class="line">            vis[ans[pos].n] = <span class="literal">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> pos + <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">    * 求直线集合的半平面交</span></div><div class="line"><span class="comment">    * @param s              线段集合</span></div><div class="line"><span class="comment">    * @param numOfSide      线段数目</span></div><div class="line"><span class="comment">    * @param ans            返回的多边形点</span></div><div class="line"><span class="comment">    * @param dequeue        需要的中间数组(记录用到的)</span></div><div class="line"><span class="comment">    * @return   返回结果多边形点的个数</span></div><div class="line"><span class="comment">    */</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Half_Plane</span><span class="params">(Segment s[], <span class="keyword">int</span> numOfSide, Point ans[], Segment dequeue[])</span> </span>&#123;</div><div class="line">    sort(s, s + numOfSide);</div><div class="line"></div><div class="line">    <span class="keyword">int</span> del = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; numOfSide; ++i) &#123;</div><div class="line">        <span class="keyword">if</span> (sgn(s[i].getAngle() - s[del - <span class="number">1</span>].getAngle()) != <span class="number">0</span>)</div><div class="line">            s[del++] = s[i];</div><div class="line">    &#125;</div><div class="line">    numOfSide = del;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numOfSide; ++i) &#123;</div><div class="line">        s[i].print(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> bot = <span class="number">0</span>, top = <span class="number">1</span>;</div><div class="line">    dequeue[<span class="number">0</span>] = s[<span class="number">0</span>];</div><div class="line">    dequeue[<span class="number">1</span>] = s[<span class="number">1</span>];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; numOfSide; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (parallel(dequeue[top].toVector(), dequeue[top - <span class="number">1</span>].toVector()) ||</div><div class="line">            parallel(dequeue[bot].toVector(), dequeue[bot + <span class="number">1</span>].toVector())) &#123;</div><div class="line">            dequeue[top].print(), dequeue[top - <span class="number">1</span>].print(<span class="number">1</span>);</div><div class="line">            dequeue[bot].print(), dequeue[bot + <span class="number">1</span>].print(<span class="number">1</span>);</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">while</span> (bot &lt; top &amp;&amp;</div><div class="line">               Point_Segment(getIntersection(dequeue[top], dequeue[top - <span class="number">1</span>]),</div><div class="line">                             s[i]) &lt; <span class="number">0</span>)</div><div class="line">            top--;</div><div class="line">        <span class="keyword">while</span> (bot &lt; top &amp;&amp;</div><div class="line">               Point_Segment(getIntersection(dequeue[bot], dequeue[bot + <span class="number">1</span>]),</div><div class="line">                             s[i]) &lt; <span class="number">0</span>)</div><div class="line">            bot++;</div><div class="line">        dequeue[++top] = s[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (bot &lt; top &amp;&amp;</div><div class="line">           Point_Segment(getIntersection(dequeue[top], dequeue[top - <span class="number">1</span>]),</div><div class="line">                         dequeue[bot]) &lt; <span class="number">0</span>)</div><div class="line">        top--;</div><div class="line">    <span class="keyword">while</span> (bot &lt; top &amp;&amp;</div><div class="line">           Point_Segment(getIntersection(dequeue[bot], dequeue[bot + <span class="number">1</span>]),</div><div class="line">                         dequeue[top]) &lt; <span class="number">0</span>)</div><div class="line">        bot++;</div><div class="line"></div><div class="line">    <span class="comment">//计算交点(注意不同直线形成的交点可能重合)</span></div><div class="line">    <span class="keyword">if</span> (bot + <span class="number">1</span> &gt;= top)</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = bot; i &lt; top; i++)</div><div class="line">        ans[len++] = getIntersection(dequeue[i], dequeue[i + <span class="number">1</span>]);</div><div class="line">    <span class="keyword">if</span> (bot &lt; top + <span class="number">1</span>)</div><div class="line">        ans[len++] = getIntersection(dequeue[bot], dequeue[top]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> len;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1505</span>;</div><div class="line"><span class="keyword">bool</span> vis[maxn];</div><div class="line">Point p[maxn];</div><div class="line">Point ans[maxn];</div><div class="line">Segment s[maxn];</div><div class="line">Segment deq[maxn];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> T;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</div><div class="line">    <span class="keyword">while</span> (T--) &#123;</div><div class="line">        <span class="keyword">int</span> n;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</div><div class="line">            p[i] = read_Point();</div><div class="line">            p[i].n = i;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i)</div><div class="line">            s[i] = Segment(p[(i + <span class="number">1</span>) % n], p[i]);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> len = Half_Plane(s, n, ans, deq);</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i)</div><div class="line">            ans[i].print(<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (len == <span class="number">0</span>) &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"0.00\n"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">double</span> area = getArea(ans, len);</div><div class="line">            <span class="keyword">if</span> (sgn(area) &lt;= <span class="number">0</span>)</div><div class="line">                area = <span class="number">0.0</span>;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>, area);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+</div></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        文章标题：  <a href="/post/POJ/1279.html" target="_blank" rel="external">POJ 1279.Art Gallery</a><br>文章地址：  <a href="/post/POJ/1279.html" target="_blank" rel="external">https://www.oyohyee.com/post/POJ/1279.html</a><br>创建时间：  2017-10-09 22:25:19<br>更新时间：  2017-10-15 19:37:08
+        
+    </div>
+    <footer>
+        <a href="https://www.oyohyee.com">
+            <img src="/logo.svg" alt="OhYee">
+            OhYee
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Half-Plane/">半平面交</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/POJ/1279.html&title=《POJ 1279.Art Gallery》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/POJ/1279.html&title=《POJ 1279.Art Gallery》 — OhYee's Blog&source=题目点击显/隐题目
+The art galleries of the new and very futuristic building of the Ce..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/POJ/1279.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《POJ 1279.Art Gallery》 — OhYee's Blog&url=https://www.oyohyee.com/post/POJ/1279.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/POJ/1279.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/post/POJ/3335.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">POJ 3335.Rotating Scoreboard</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/post/HDU/6007.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HDU 6007.Mr. Panda and Crystal</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="/css/gitment.css">
+    <script src="/js/gitment.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: "Gitment",
+            owner: 'OhYee',
+            repo: 'OhYee.github.io',
+            oauth: {
+                client_id: '300bdf519730fd67e69c',
+                client_secret: '9a496df1c4da10cec1ec233379b9b3ef6a448c2e',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/wechatimg.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/wechatimg.jpg" data-alipay="/alipayimg.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                
+                    
+
+<span id="busuanzi_container_site_uv" style='display:none'>
+    站点总访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+<span id="busuanzi_container_site_pv" style='display:none'>
+    站点总访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+
+
+
+                        <!--<span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>-->
+        </p>
+        <p>
+            <span>
+                <a href="https://www.oyohyee.com">OhYee</a> &copy; 2016 - 2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">豫ICP备17000379号</a>
+                
+            </span>
+            <span>
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="/projects/indigo/" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    <div class="bottom">
+        <div class="friends">
+            <p>
+                
+                    <span>
+                        <a href="http://hakale.cn/">
+                            Hakale
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/acblacktea">
+                            ACBlackTea
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/snow_me">
+                            Wilbert
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/adjky/">
+                            ADjky
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/JACK_JYH/">
+                            JACK_JYH
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/qq_35323001">
+                            Super丶xd
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/pengwill97">
+                            Pengwill
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://blog.csdn.net/Mr_Saltyfish">
+                            Mr_Saltyfish
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/wmrv587/">
+                            wmr
+                        </a>
+                    </span>
+                
+                    <span>
+                        <a href="http://www.cnblogs.com/robin1998/">
+                            Robin
+                        </a>
+                    </span>
+                
+            </p>
+        </div>
+    </div>
+</footer>
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.oyohyee.com/post/POJ/1279.html&title=《POJ 1279.Art Gallery》 — OhYee's Blog&pic=https://www.oyohyee.com/logo.svg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.oyohyee.com/post/POJ/1279.html&title=《POJ 1279.Art Gallery》 — OhYee's Blog&source=题目点击显/隐题目
+The art galleries of the new and very futuristic building of the Ce..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.oyohyee.com/post/POJ/1279.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《POJ 1279.Art Gallery》 — OhYee's Blog&url=https://www.oyohyee.com/post/POJ/1279.html&via=https://www.oyohyee.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.oyohyee.com/post/POJ/1279.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://www.oyohyee.com/post/POJ/1279.html" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.13"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.13" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

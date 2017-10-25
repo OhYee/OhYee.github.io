@@ -217,6 +217,398 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-ecnu/3306"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-27 00:55:01 00:55:01" datetime="2017-09-26T16:55:01.000Z"  itemprop="datePublished">2017-09-27 00:55:01</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/ecnu/3306.html">ecnu 3306.有钱人买钻石</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>有一个有钱人，他身上带了好多硬币。但是这么多硬币由不方便带，所以他决定要用这些硬币去买钻石。<br>有趣的是，店里只剩下一颗钻石了。这颗钻石的价格是 $P$。他身边由一元硬币 $N_1$ 枚，五元硬币 $N_2$ 枚，十元硬币 $N_3$ 枚，二十五元硬币 $N_4$ 枚。这些硬币都是一样重的。有钱人当然希望花的硬币越重越好，也就是说<strong>数量</strong>越多越好，但也<strong>不想让商家找钱</strong>。你知道应该怎么做吗？<br><br></div><div class="part" title="Input"><br>第一行一个整数 $P$，第二行用空格隔开的四个整数 $N_1, N_2, N_3, N_4$。$(1 \leq P \leq 10^8, 0 \leq N_1, N_2, N_3, N_4 \leq 10^8)$。<br>对于 $30\%$ 的数据，有 $P \leq 10^3, 0 \leq N_1, N_2, N_3, N_4 \leq 100$。<br><br></div><div class="part" title="Output"><br>如果办不到，输出 <code>Impossible</code>，否则输出最多能花掉多少枚硬币。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>13<br>3 2 1 1<br><br>13<br>1 1 1 1<br><br><br></div><div class="output part" title="Sample Output"><br>5<br><br>Impossible<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/ecnu/3306.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ecnu/">ecnu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-jisuanke/17309"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-26 22:22:02 22:22:02" datetime="2017-09-26T14:22:02.000Z"  itemprop="datePublished">2017-09-26 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/jisuanke/17309.html">计蒜客 17309.Train Seats Reservation</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You are given a list of train stations, say from the station $1$ to the station $100$.<br>The passengers can order several tickets from one station to another before the train leaves the station one. We will issue one train from the station $1$ to the station $100$ after all reservations have been made. Write a program to determine the minimum number of seats required for all passengers so that all reservations are satisfied without any conflict.<br>Note that one single seat can be used by several passengers as long as there are no conflicts between them. For example, a passenger from station $1$ to station $10$ can share a seat with another passenger from station $30$ to $60$.<br><br></div><div class="part" title="Input"><br>Several sets of ticket reservations. The inputs are a list of integers. Within each set, the first integer (in a single line) represents the number of orders, $n$, which can be as large as $1000$. After $n$, there will be $n$ lines representing the $n$ reservations; each line contains three integers $s, t, k$, which means that the reservation needs $k$ seats from the station $s$ to the station $t$ .These ticket reservations occur repetitively in the input as the pattern described above. An integer $n = 0$ (zero) signifies the end of input.<br><br></div><div class="part" title="Output"><br>For each set of ticket reservations appeared in the input, calculate the minimum number of seats required so that all reservations are satisfied without conflicts. Output a single star ‘*’ to signify the end of outputs.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1 10 8<br>20 50 20<br>3<br>2 30 5<br>20 80 20<br>40 90 40<br>0<br><br></div><div class="output part" title="Sample Output"><br>20<br>60<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/jisuanke/17309.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jisuanke/">计蒜客</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-jisuanke/17308"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-25 22:22:02 22:22:02" datetime="2017-09-25T14:22:02.000Z"  itemprop="datePublished">2017-09-25 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/jisuanke/17308.html">计蒜客 17308.Weather Patterns</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Consider a system which is described at any time as being in one of a set of $N$ distinct states, $1,2,3,…,N$. We denote the time instants associated with state changes as $t = 1,2,…$, and the actual state at time $t$ as $a_{ij} = p = [s_{i}=j\ |\ s_{i-1}=i], 1\le i,j \le N$.<br><br>For the special case of a discrete, first order, Markovchain, the probabilistic description for the current state (at time $t$) and the predecessor state is $s_{t}$. Furthermore we only consider those processes being independent of time, thereby leading to the set of state transition probability $a_{ij}$ of the form: with the properties $a_{ij} \geq 0$ and $\sum_{i=1}^{N} A_{ij} = 1 $.<br><br>The stochastic process can be called an observable Markovmodel. Now, let us consider the problem of a simple 4-state Markov model of weather. We assume that once a day (e.g., at noon), the weather is observed as being one of the following:<br>- State $1$: snow<br>- State $2$: rain<br>- State $3$: cloudy<br>- State $4$: sunny<br><br>The matrix $A$ of state transition probabilities is:<br><br><br>$A = {a_{ij}}= \begin{Bmatrix} a_{11}&amp; a_{12}&amp; a_{13}&amp;a_{14} \\<br>a_{21}&amp;a_{22}&amp;a_{23}&amp;a_{24} \\<br>a_{31}&amp;a_{32}&amp;a_{33}&amp;a_{34} \\<br>a_{41}&amp;a_{42}&amp;a_{43}&amp;a_{44}<br>\end{Bmatrix}$<br><br><br>Given the model, several interestingquestions about weather patterns over time can be asked (and answered). We canask the question: what is the probability (according to the given model) thatthe weather for the next $k$ days willbe? Another interesting question we can ask: given that the model is in a knownstate, what is the expected number of consecutive days to stay in that state?Let us define the observation sequence $O$ as $O = \left \{ s_{1}, s_{2}, s_{3}, … , s_{k} \right \}$, and the probability of the observation sequence $O$ given the model is defined as $p(O|model)$.<br><br>Also, let the expected number of consecutive days to stayin state $i$ be $E_{i}$. Assume that the initial state probabilities $p[s_{1} = i] = 1, 1 \leq i \leq N$. Both $p(O|model)$ and $E_{i}$ are real numbers.<br><br></div><div class="part" title="Input"><br>Line $1$~$4$ for the state transition probabilities. Line $5$ for the observation sequence $O_{1}$, and line $6$ for the observation sequence $O_{2}$. Line $7$ and line $8$ for the states of interest to find the expected number of consecutive days to stay in these states.<br><br>Line $1$: $a_{11}\ a_{12}\ a_{13}\ a_{14}$<br>Line $2$: $a_{21}\ a_{22}\ a_{23}\ a_{34}$<br>Line $3$: $a_{31}\ a_{32}\ a_{33}\ a_{34}$<br>Line $4$: $a_{41}\ a_{42}\ a_{43}\ a_{44}$<br>Line $5$: $s_{1}\ s_{2}\ s_{3}\ …\ s_{k}$<br>Line $6$: $s_{1}\ s_{2}\ s_{3}\ …\ s_{l}$<br>Line $7$: $i$<br>Line $8$: $j$<br><br></div><div class="part" title="Output"><br>Line $1$ and line $2$ are used to show the probabilities of the observation sequences $O_{1}$ and $O_{2}$ respectively.<br>Line $3$ and line $4$ are for the expected number of consecutive days to stay in states $i$ and $j$ respectively.<br>Line $1$: $p[O_{1} | model]$<br>Line $2$: $p[O_{2} | model]$<br>Line $3$: $E_{i}$<br>Line $4$: $E_{j}$<br>Please be reminded that the floating number should accurate to $10^{-8}$.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>0.4 0.3 0.2 0.1<br>0.3 0.3 0.3 0.1<br>0.1 0.1 0.6 0.2<br>0.1 0.2 0.2 0.5<br>4 4 3 2 2 1 1 3 3<br>2 1 1 1 3 3 4<br>3<br>4<br><br></div><div class="output part" title="Sample Output"><br>0.00115200<br>2.50000000<br>2.00000000<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/jisuanke/17308.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/probability/">概率</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jisuanke/">计蒜客</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/6206"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-21 22:22:02 22:22:02" datetime="2017-09-21T14:22:02.000Z"  itemprop="datePublished">2017-09-21 22:22:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/6206.html">HDU 6206.Apple</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Apple is Taotao’s favourite fruit. In his backyard, there are three apple trees with coordinates $(x_1, y_1)$, $(x_2, y_2)$, and $(x_3, y_3)$. Now Taotao is planning to plant a new one, but he is not willing to take these trees too close. He believes that the new apple tree should be outside the circle which the three apple trees that already exist is on. Taotao picked a potential position $(x,y)$ of the new tree. Could you tell him if it is outside the circle or not?<br><br></div><div class="part" title="Input"><br>The first line contains an integer $T$, indicating that there are $T(T \leq 30)$ cases.<br>In the first line of each case, there are eight integers $x_1, y_1, x_2, y_2, x_3,y_3,x,y$, as described above.<br>The absolute values of integers in input are less than or equal to $1,000,000,000,000$.<br>It is guaranteed that, any three of the four positions do not lie on a straight line.<br><br></div><div class="part" title="Output"><br>For each case, output “Accepted” if the position is outside the circle, or “Rejected” if the position is on or inside the circle.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>3<br>-2 0 0 -2 2 0 2 -2<br>-2 0 0 -2 2 0 0 2<br>-2 0 0 -2 2 0 1 1<br><br></div><div class="output part" title="Sample Output"><br>Accepted<br>Rejected<br>Rejected<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/HDU/6206.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1696"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-14 00:42:00 00:42:00" datetime="2017-09-13T16:42:00.000Z"  itemprop="datePublished">2017-09-14 00:42:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1696.html">POJ 1696.Space Ant</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>The most exciting space discovery occurred at the end of the 20th century. In 1999, scientists traced down an ant-like creature in the planet Y1999 and called it M11. It has only one eye on the left side of its head and just three feet all on the right side of its body and suffers from three walking limitations:<br><br>It can not turn right due to its special body structure.<br>It leaves a red path while walking.<br>It hates to pass over a previously red colored path, and never does that.<br><br>The pictures transmitted by the Discovery space ship depicts that plants in the Y1999 grow in special points on the planet. Analysis of several thousands of the pictures have resulted in discovering a magic coordinate system governing the grow points of the plants. In this coordinate system with x and y axes,<br>       no two plants share the same x or y.<br>An M11 needs to eat exactly one plant in each day to stay alive. When it eats one plant, it remains there for the rest of the day with no move. Next day, it looks for another plant to go there and eat it. If it can not reach any other plant it dies by the end of the day. Notice that it can reach a plant in any distance.<br>The problem is to find a path for an M11 to let it live longest.<br>Input is a set of (x, y) coordinates of plants. Suppose A with the coordinates (xA, yA) is the plant with the least y-coordinate. M11 starts from point (0,yA) heading towards plant A. Notice that the solution path should not cross itself and all of the turns should be counter-clockwise. Also note that the solution may visit more than two plants located on a same straight line.<br><br></div><div class="part" title="Input"><br>The first line of the input is M, the number of test cases to be solved (1 &lt;= M &lt;= 10). For each test case, the first line is N, the number of plants in that test case (1 &lt;= N &lt;= 50), followed by N lines for each plant data. Each plant data consists of three integers: the first number is the unique plant index (1..N), followed by two positive integers x and y representing the coordinates of the plant. Plants are sorted by the increasing order on their indices in the input file. Suppose that the values of coordinates are at most 100.<br><br></div><div class="part" title="Output"><br>Output should have one separate line for the solution of each test case. A solution is the number of plants on the solution path, followed by the indices of visiting plants in the path in the order of their visits.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2<br>10<br>1 4 5<br>2 9 8<br>3 5 9<br>4 1 7<br>5 3 2<br>6 6 3<br>7 10 10<br>8 8 1<br>9 2 4<br>10 7 6<br>14<br>1 6 11<br>2 11 9<br>3 8 7<br>4 12 8<br>5 9 20<br>6 3 2<br>7 1 6<br>8 2 13<br>9 15 1<br>10 14 17<br>11 13 19<br>12 5 18<br>13 7 3<br>14 10 16<br><br></div><div class="output part" title="Sample Output"><br>10 8 7 3 4 9 5 6 2 1 10<br>14 9 10 11 5 12 8 7 6 13 4 14 1 3 2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1696.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Convex-Hull/">凸包</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1410"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-13 22:36:20 22:36:20" datetime="2017-09-13T14:36:20.000Z"  itemprop="datePublished">2017-09-13 22:36:20</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1410.html">POJ 1410.Intersection</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>You are to write a program that has to decide whether a given line segment intersects a given rectangle.<br><br>An example:<br>line: start point: (4,9)<br>end point: (11,2)<br>rectangle: left-top: (1,5)<br>right-bottom: (7,1)<br><br><img src="/post/img/poj1410.jpg" alt=""><br>Figure 1: Line segment does not intersect rectangle<br><br>The line is said to intersect the rectangle if the line and the rectangle have at least one point in common. The rectangle consists of four straight lines and the area in between. Although all input values are integer numbers, valid intersection points do not have to lay on the integer grid.<br><br></div><div class="part" title="Input"><br>The input consists of n test cases. The first line of the input file contains the number n. Each following line contains one test case of the format:<br>       xstart ystart xend yend xleft ytop xright ybottom<br><br>where (xstart, ystart) is the start and (xend, yend) the end point of the line and (xleft, ytop) the top left and (xright, ybottom) the bottom right corner of the rectangle. The eight numbers are separated by a blank. The terms top left and bottom right do not imply any ordering of coordinates.<br><br></div><div class="part" title="Output"><br>For each test case in the input file, the output file should contain a line consisting either of the letter “T” if the line segment intersects the rectangle or the letter “F” if the line segment does not intersect the rectangle.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>1<br>4 9 11 2 1 5 7 1<br><br></div><div class="output part" title="Sample Output"><br>F<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1410.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/1066"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-13 00:21:10 00:21:10" datetime="2017-09-12T16:21:10.000Z"  itemprop="datePublished">2017-09-13 00:21:10</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/1066.html">POJ 1066.Treasure Hunt</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Archeologists from the Antiquities and Curios Museum (ACM) have flown to Egypt to examine the great pyramid of Key-Ops. Using state-of-the-art technology they are able to determine that the lower floor of the pyramid is constructed from a series of straightline walls, which intersect to form numerous enclosed chambers. Currently, no doors exist to allow access to any chamber. This state-of-the-art technology has also pinpointed the location of the treasure room. What these dedicated (and greedy) archeologists want to do is blast doors through the walls to get to the treasure room. However, to minimize the damage to the artwork in the intervening chambers (and stay under their government grant for dynamite) they want to blast through the minimum number of doors. For structural integrity purposes, doors should only be blasted at the midpoint of the wall of the room being entered. You are to write a program which determines this minimum number of doors.<br>An example is shown below:<br><figure class="image-bubble"><br>                <div class="img-lightbox"><br>                    <div class="overlay"></div><br>                    <img src="/post/img/poj1066.jpg" alt="" title=""><br>                </div><br>                <div class="image-caption"></div><br>            </figure><br><br></div><div class="part" title="Input"><br>The input will consist of one case. The first line will be an integer n (0 &lt;= n &lt;= 30) specifying number of interior walls, followed by n lines containing integer endpoints of each wall x1 y1 x2 y2 . The 4 enclosing walls of the pyramid have fixed endpoints at (0,0); (0,100); (100,100) and (100,0) and are not included in the list of walls. The interior walls always span from one exterior wall to another exterior wall and are arranged such that no more than two walls intersect at any point. You may assume that no two given walls coincide. After the listing of the interior walls there will be one final line containing the floating point coordinates of the treasure in the treasure room (guaranteed not to lie on a wall).<br><br></div><div class="part" title="Output"><br>Print a single line listing the minimum number of doors which need to be created, in the format shown below.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>7<br>20 0 37 100<br>40 0 76 100<br>85 0 0 75<br>100 90 0 90<br>0 71 100 61<br>0 14 100 38<br>100 47 47 100<br>54.5 55.4<br><br></div><div class="output part" title="Sample Output"><br>Number of doors = 2<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/1066.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-POJ/2653"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-09-12 21:22:13 21:22:13" datetime="2017-09-12T13:22:13.000Z"  itemprop="datePublished">2017-09-12 21:22:13</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/POJ/2653.html">POJ 2653.Pick-up sticks</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
+<div class="oj"><div class="part" title="Description"><br>Stan has n sticks of various length. He throws them one at a time on the floor in a random way. After finishing throwing, Stan tries to find the top sticks, that is these sticks such that there is no stick on top of them. Stan has noticed that the last thrown stick is always on top but he wants to know all the sticks that are on top. Stan sticks are very, very thin such that their thickness can be neglected.<br><br></div><div class="part" title="Input"><br>Input consists of a number of cases. The data for each case start with 1 &lt;= n &lt;= 100000, the number of sticks for this case. The following n lines contain four numbers each, these numbers are the planar coordinates of the endpoints of one stick. The sticks are listed in the order in which Stan has thrown them. You may assume that there are no more than 1000 top sticks. The input is ended by the case with n=0. This case should not be processed.<br><br></div><div class="part" title="Output"><br>For each input case, print one line of output listing the top sticks in the format given in the sample. The top sticks should be listed in order in which they were thrown.<br><br>The picture to the right below illustrates the first case from input.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>1 1 4 2<br>2 3 3 1<br>1 -2.0 8 4<br>1 4 8 2<br>3 3 6 -2.0<br>3<br>0 0 1 1<br>1 0 2 1<br>2 0 3 1<br>0<br><br></div><div class="output part" title="Sample Output"><br>Top sticks: 2, 4, 5.<br>Top sticks: 1, 2, 3.<br><br></div><div class="clear"></div></div></div>
+</div></div>
+    
+
+        <a href="/post/POJ/2653.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Violence/">暴力</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-POJ/1269"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -314,403 +706,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-POJ/2318"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-11 22:16:12 22:16:12" datetime="2017-09-11T14:16:12.000Z"  itemprop="datePublished">2017-09-11 22:16:12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/2318.html">POJ 2318.TOYS</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>Calculate the number of toys that land in each bin of a partitioned toy box.<br>       Mom and dad have a problem - their child John never puts his toys away when he is finished playing with them. They gave John a rectangular box to put his toys in, but John is rebellious and obeys his parents by simply throwing his toys into the box. All the toys get mixed up, and it is impossible for John to find his favorite toys.<br><br><img src="/post/img/poj2318.jpg" alt=""><br><br>John’s parents came up with the following idea. They put cardboard partitions into the box. Even if John keeps throwing his toys into the box, at least toys that get thrown into different bins stay separated. The following diagram shows a top view of an example toy box.<br><br>For this problem, you are asked to determine how many toys fall into each partition as John throws them into the toy box.<br><br></div><div class="part" title="Input"><br>The input file contains one or more problems. The first line of a problem consists of six integers, n m x1 y1 x2 y2. The number of cardboard partitions is n (0 &lt; n &lt;= 5000) and the number of toys is m (0 &lt; m &lt;= 5000). The coordinates of the upper-left corner and the lower-right corner of the box are (x1,y1) and (x2,y2), respectively. The following n lines contain two integers per line, Ui Li, indicating that the ends of the i-th cardboard partition is at the coordinates (Ui,y1) and (Li,y2). You may assume that the cardboard partitions do not intersect each other and that they are specified in sorted order from left to right. The next m lines contain two integers per line, Xj Yj specifying where the j-th toy has landed in the box. The order of the toy locations is random. You may assume that no toy will land exactly on a cardboard partition or outside the boundary of the box. The input is terminated by a line consisting of a single 0.<br><br></div><div class="part" title="Output"><br>The output for each problem will be one line for each separate bin in the toy box. For each bin, print its bin number, followed by a colon and one space, followed by the number of toys thrown into that bin. Bins are numbered from 0 (the leftmost bin) to n (the rightmost bin). Separate the output of different problems by a single blank line.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5 6 0 10 60 0<br>3 1<br>4 3<br>6 8<br>10 10<br>15 30<br>1 5<br>2 1<br>2 8<br>5 5<br>40 10<br>7 9<br>4 10 0 10 100 0<br>20 20<br>40 40<br>60 60<br>80 80<br> 5 10<br>15 10<br>25 10<br>35 10<br>45 10<br>55 10<br>65 10<br>75 10<br>85 10<br>95 10<br>0<br><br></div><div class="output part" title="Sample Output"><br>0: 2<br>1: 1<br>2: 1<br>3: 1<br>4: 0<br>5: 1<br><br>0: 2<br>1: 2<br>2: 2<br>3: 2<br>4: 2<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/POJ/2318.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Division/">二分</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/geometry/">计算几何</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/4652"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-08 22:58:01 22:58:01" datetime="2017-09-08T14:58:01.000Z"  itemprop="datePublished">2017-09-08 22:58:01</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/4652.html">HDU 4652.Dice</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>You have a dice with m faces, each face contains a distinct number. We assume when we tossing the dice, each face will occur randomly and uniformly. Now you have T query to answer, each query has one of the following form:<br> <ul><li>0 m n: ask for the expected number of tosses until the last n times results are all same.</li><li>1 m n: ask for the expected number of tosses until the last n consecutive results are pairwise different.</li></ul><br><br></div><div class="part" title="Input"><br>The first line contains a number T.(1≤T≤100) The next T line each line contains a query as we mentioned above. (1≤m,n≤10<sup>6</sup>) For second kind query, we guarantee n≤m. And in order to avoid potential precision issue, we guarantee the result for our query will not exceeding 10<sup>9</sup> in this problem.<br><br></div><div class="part" title="Output"><br>For each query, output the corresponding result. The answer will be considered correct if the absolute or relative error doesn’t exceed 10<sup>-6</sup>.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>6<br>0 6 1<br>0 6 3<br>0 6 5<br>1 6 2<br>1 6 4<br>1 6 6<br>10<br>1 4534 25<br>1 1232 24<br>1 3213 15<br>1 4343 24<br>1 4343 9<br>1 65467 123<br>1 43434 100<br>1 34344 9<br>1 10001 15<br>1 1000000 2000<br><br></div><div class="output part" title="Sample Output"><br>1.000000000<br>43.000000000<br>1555.000000000<br>2.200000000<br>7.600000000<br>83.200000000<br>25.586315824<br>26.015990037<br>15.176341160<br>24.541045769<br>9.027721917<br>127.908330426<br>103.975455253<br>9.003495515<br>15.056204472<br>4731.706620396<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/HDU/4652.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Probability-DP/">概率dp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Note/svgfont"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-09-03 13:58:23 13:58:23" datetime="2017-09-03T05:58:23.000Z"  itemprop="datePublished">2017-09-03 13:58:23</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Note/svgfont.html">把svg图片转换为图标</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>图标可以用于页面的很多地方,通常来说,我们使用的是通过字体来实现小图标<br>但是当我们需要使用自己的图片时,也可以将svg图片转换为字体,实现图标<br>
-    
-
-        <a href="/post/Note/svgfont.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/912"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-30 00:10:10 00:10:10" datetime="2017-08-29T16:10:10.000Z"  itemprop="datePublished">2017-08-30 00:10:10</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/912.html">AOJ 912.蕊蕊的后宫团</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>蕊蕊有n部喜欢的番剧，每部番剧里面有m个妹子，每个妹子都有一个颜值。现在蕊蕊想从每部番剧里挑出一个妹子，总共挑出n个妹子，组成后宫团，后宫团的颜值是里面n个妹子的颜值和。显然，蕊蕊一共可以组成m^n个后宫团，现在她想知道这m^n个后宫团中，颜值和第K大的总颜值是多少。<br>若K&gt;m^n，输出0<br><br>蕊蕊一共可以组成3^2=9个后宫团，总颜值分别是：<br>1+2=3,1+2=3,1+5=6<br>4+2=6,4+2=6,4+5=9<br>3+2=5,3+2=5,3+5=8<br>其中第4大的是6<br><br></div><div class="part" title="Input"><br>第一行三个整数n,m,k(1&lt;=n&lt;=1000,1&lt;=m&lt;=500,1&lt;=k&lt;=1000)。<br>接下来n行，每一行表示一部番剧的信息。每行m个整数，表示该番剧里m个妹子的颜值a(1&lt;=a&lt;=100000)。<br><br></div><div class="part" title="Output"><br>输出一个整数，表示颜值和第K大的后宫团总颜值。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2 3 4<br>1 4 3<br>2 2 5<br><br></div><div class="output part" title="Sample Output"><br>6<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/AOJ/912.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Multiway-merge/">多路归并</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/2586"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-30 00:06:13 00:06:13" datetime="2017-08-29T16:06:13.000Z"  itemprop="datePublished">2017-08-30 00:06:13</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/2586.html">HDU 2586.How far away?</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>There are n houses in the village and some bidirectional roads connecting them. Every day peole always like to ask like this “How far is it if I want to go from house A to house B”? Usually it hard to answer. But luckily int this village the answer is always unique, since the roads are built in the way that there is a unique simple path(“simple” means you can’t visit a place twice) between every two houses. Yout task is to answer all these curious people.<br><br></div><div class="part" title="Input"><br>First line is a single integer T(T&lt;=10), indicating the number of test cases.<br><br>For each test case,in the first line there are two numbers n(2&lt;=n&lt;=40000) and m (1&lt;=m&lt;=200),the number of houses and the number of queries. The following n-1 lines each consisting three numbers i,j,k, separated bu a single space, meaning that there is a road connecting house i and house j,with length k(0&lt;k&lt;=40000).The houses are labeled from 1 to n.<br><br>Next m lines each has distinct integers i and j, you areato answer the distance between house i and house j.<br><br></div><div class="part" title="Output"><br>For each test case,output m lines. Each line represents the answer of the query. Output a bland line after each test case.<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>2<br>3 2<br>1 2 10<br>3 1 15<br>1 2<br>2 3<br>2 2<br>1 2 100<br>1 2<br>2 1<br><br></div><div class="output part" title="Sample Output"><br>10<br>25<br>100<br>100<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/HDU/2586.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Algorithm/LCA"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-29 23:14:00 23:14:00" datetime="2017-08-29T15:14:00.000Z"  itemprop="datePublished">2017-08-29 23:14:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Algorithm/LCA.html">倍增最近公共祖先(LCA)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <blockquote>
-<p>对于有根树T的两个结点u、v，最近公共祖先LCA(T,u,v)表示一个结点x，满足x是u、v的祖先且x的深度尽可能大。</p>
-</blockquote>
-<p>在树上,两点之间的最短路就是公共祖先分别到两个节点的路径,因此最近公共祖先非常重要<br>
-    
-
-        <a href="/post/Algorithm/LCA.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/905"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-29 23:06:46 23:06:46" datetime="2017-08-29T15:06:46.000Z"  itemprop="datePublished">2017-08-29 23:06:46</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/905.html">AOJ 905.Ohyee的考验</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>有一个n个点m条边的连通无向图（无重边、无自环），点的编号为1~n。每条边都有一个正的边权，并且每条边边权互不相同（即数据保证该图的最小生成树唯一）。<br>如果只是求最小生成树，那么Ohyee觉得太简单了，于是他决定考考你。<br>对于每条边(u,v)都进行询问：<br>——如果该边在最小生成树上，那么输出“Ohyee”；<br>——如果该边不在最小生成树上，那么输出最小生成树上u,v两点路径中边权的最小值。<br>原图最小生成树中的边是(1,2,2) (2,3,5) (4,1,3)<br>对于输入的第三条边(3,4,7)，树上3-&gt;4的路径是3-&gt;2-&gt;1-&gt;4，边权分别是5,2,3，最小值是2。<br><br></div><div class="part" title="Input"><br>第一行输入两个整数n,m(2&lt;=n&lt;=100000,n-1&lt;=m&lt;=200000)<br>接下来m行，每行输入三个整数u,v,w。u,v表示该边连接点的编号，w是边权。<br>(1&lt;=w&lt;=1000000000)<br><br></div><div class="part" title="Output"><br>输出一共m行，按照输入的边的顺序回答每条边的询问。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>4 4<br>1 2 2<br>2 3 5<br>3 4 7<br>4 1 3<br><br></div><div class="output part" title="Sample Output"><br>Ohyee<br>Ohyee<br>2<br>Ohyee<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/AOJ/905.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kruskal/">Kruskal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">最小生成树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCA/">最近公共祖先</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/911"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-08-29 15:26:16 15:26:16" datetime="2017-08-29T07:26:16.000Z"  itemprop="datePublished">2017-08-29 15:26:16</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/911.html">AOJ 911.组队分配</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><div class="fold_parent"><div class="fold_hider"><div class="close hider_title">点击显/隐题目</div></div><div class="fold">
-<div class="oj"><div class="part" title="Description"><br>有一个n个节点n-1条边组成的树。<br>每个点看成一个人，连接u和v的边看成是“中意关系”，即u和v两个人都想和对方组队。每个人希望组队的对象有可能有多个。<br>一支队伍由且仅由两个人组成，并且如果u和v组队了，那么u、v将不能和其他人再组成一支队。<br>现在问你，这n个人最多能组成多少支队伍。（允许某些人组不了队）<br>一种可行的组队方案：<br>1与3组队<br>4与5组队<br>最多组成2支队<br><br></div><div class="part" title="Input"><br>第一行输入一个整数n,m(1&lt;=n&lt;=200000)<br>接下来n-1行，每行两个整数u,v，表示u和v两个人都想和对方组队。<br>数据保证是一个合法的树。<br><br></div><div class="part" title="Output"><br>输出一个整数，表示最多能组成多少支队伍。<br><br></div><div class="samp"><div class="clear"></div><div class="input part" title="Sample Input"><br>5<br>1 2<br>1 3<br>2 4<br>4 5<br><br></div><div class="output part" title="Sample Output"><br>2<br><br></div><div class="clear"></div></div></div>
-</div></div>
-    
-
-        <a href="/post/AOJ/911.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree-dp/">树形dp</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 

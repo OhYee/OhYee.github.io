@@ -217,6 +217,550 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-Algorithm/MST"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-26 23:23:00 23:23:00" datetime="2016-03-26T15:23:00.000Z"  itemprop="datePublished">2016-03-26 23:23:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/MST.html">最小生成树</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><strong>最小生成树</strong></p>
+<blockquote>
+<p>对于无向图G=(V,E)，连接G中所有点，且边集是E的子集的树成为G的生成树</p>
+<p>其中权值最小的生成树叫做最小生成树(MST)</p>
+</blockquote>
+<h1 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h1><p>Kruskal算法 是一种最小生成树算法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">首先对所有边按照权值进行排序</div><div class="line"></div><div class="line">初始化连通分量(并查集)</div><div class="line"></div><div class="line">初始化树</div><div class="line"></div><div class="line">循环考察每条边</div><div class="line"></div><div class="line">　　如果边的两个节点不在同一个连通分量</div><div class="line"></div><div class="line">　　　　将这个边插入到树中</div><div class="line"></div><div class="line">　　　　将两个节点对应的连通分量合并</div></pre></td></tr></table></figure>
+<h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><p>Prim算法是另一种最小生成树算法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">对所有边按照权值排序</div><div class="line"></div><div class="line">初始化集合S[i]为false</div><div class="line"></div><div class="line">声明队列Q</div><div class="line"></div><div class="line">将所有边加入到Q中</div><div class="line"></div><div class="line">队列不为空</div><div class="line"></div><div class="line">若Q的最顶部的两个节点不全在集合中</div><div class="line"></div><div class="line">　　将两个点加入到集合中</div><div class="line"></div><div class="line">　　将边插入到树中</div><div class="line"></div><div class="line">否则</div><div class="line"></div><div class="line">　　从队列中删除这条边</div></pre></td></tr></table></figure>
+<p>两种最小生成树的算法，大概思路都是对边排序后，将不会产生环的边逐个加入到树中</p>
+
+    
+
+        <a href="/post/Algorithm/MST.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kruskal/">Kruskal</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prim/">Prim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MST/">最小生成树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">树</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Shortest_Path"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-26 22:48:00 22:48:00" datetime="2016-03-26T14:48:00.000Z"  itemprop="datePublished">2016-03-26 22:48:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Shortest_Path.html">初窥Dijkstra算法、Bellman-Ford、SPFA算法、Floyd算法、迭代加深搜索、A*、IDA*</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="Dijlkstra算法"><a href="#Dijlkstra算法" class="headerlink" title="Dijlkstra算法"></a>Dijlkstra算法</h1><blockquote>
+<p>Dijkstra算法是一种常见的计算正权图上的单源最短路的算法，能同时用在有向图和无向图上。</p>
+</blockquote>
+<p><a href="/post/Algorithm/Dijkstra.html">&gt;Dijkstra算法的解释&lt;</a></p>
+<p>其以<strong>BFS</strong>为基础进行优化。</p>
+<h2 id="BFS算法"><a href="#BFS算法" class="headerlink" title="BFS算法"></a>BFS算法</h2><blockquote>
+<p>宽度优先遍历算法，先从起点向周围拓展，再从拓展后的每个点向外拓展，如果某个节点已经访问过，则不再访问该节点。</p>
+<p>由于每个节点只访问一次，并且按层逐层向外访问，因此第一次访问到终点时走过的路径就是最短路径。</p>
+<p>可以用于无权图的最短路搜索。</p>
+<p>通常使用<strong>循环</strong>和<strong>队列</strong>进行搜索。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</div><div class="line"><span class="keyword">bool</span> visited[maxn];</div><div class="line"><span class="built_in">memset</span>(visited,flase,<span class="keyword">sizeof</span>(visited));</div><div class="line"></div><div class="line">Q.push(v);</div><div class="line">visited[v]=<span class="literal">true</span>;</div><div class="line"><span class="keyword">while</span>(!Q.empty())&#123;</div><div class="line">    <span class="keyword">int</span> it=Q.top();</div><div class="line">    Q.pop();</div><div class="line">    </div><div class="line">    <span class="comment">//拓展到终点</span></div><div class="line">    <span class="keyword">if</span>(it==s)&#123;</div><div class="line">    ...</div><div class="line">     <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ...<span class="comment">//从it向外拓展到itn</span></div><div class="line">    <span class="keyword">if</span>(!visited[itn])</div><div class="line">        Q.push(itn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="DFS算法"><a href="#DFS算法" class="headerlink" title="DFS算法"></a>DFS算法</h2><blockquote>
+<p>深度优先遍历，从起点开始，沿着一条分支一直走到终点。</p>
+<p>与BFS不同，DFS的在搜索最短路的大多数情况下，是不如BFS的，它更多是用在状态的转移上。</p>
+<p>根据已有的状态向下一个状态进行转移。</p>
+<p>在较为复杂的迷宫中（牵扯到时间、方向等各种复杂状态）时，用DFS来传递参数会更有优势</p>
+<p>由于DFS强调的是状态的转移。因此，更多用递归来实现。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(...)</span></span>&#123;</div><div class="line">    <span class="comment">//不符合要求的拓展</span></div><div class="line">    <span class="keyword">if</span>(...)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    <span class="comment">//达到叶节点</span></div><div class="line">    <span class="keyword">if</span>(...)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    ...<span class="comment">//向下拓展到itn(n=1、2、……)</span></div><div class="line">    DFS(it1);</div><div class="line">    ...</div><div class="line">    DFS(itn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>当图为<strong>有权图</strong>时，如果我们想要走最短的路径，就要<strong>优先走权值更小的路</strong>，这样才能走出最小的解（可证明）</p>
+<p>因此，在BFS中，我们在队列中不应该选取先进队的节点，而应该走权值最小的节点。</p>
+<p>将BFS的队列(queue)改成优先队列(priority_queue)即可。</p>
+<p>然后每次拓展节点后，更新每个节点的权值(取最小)</p>
+<p>最后终点的权值就是最小路的距离。</p>
+<h1 id="Bellman-Ford算法"><a href="#Bellman-Ford算法" class="headerlink" title="Bellman-Ford算法"></a>Bellman-Ford算法</h1><p>Dijkstra算法只适用于正权图上最短路，而Bellman-Ford还可计算副权存在时的最短路。</p>
+<p>首先要明确：</p>
+<ul>
+<li><p>如果最短路存在，一定存在一个不含环的最短路。</p>
+</li>
+<li><p>最短路最多只经过(不含起点)n-1个节点，可以通过n-1轮松弛操作得到。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">将起点权值设置为0，其他点权值设置为无穷大。</div><div class="line"></div><div class="line">循环节点个数-1次</div><div class="line"></div><div class="line">　　循环边的个数次(i)</div><div class="line"></div><div class="line">　　　　对第i条边进行松弛操作</div><div class="line"></div><div class="line">　　　　检测是否存在负权回路</div><div class="line"></div><div class="line">　　　　　　存在</div><div class="line"></div><div class="line">　　　　　　　返回false</div><div class="line"></div><div class="line">　　　　　　不存在</div><div class="line"></div><div class="line">　　　　　　　继续</div></pre></td></tr></table></figure>
+<h1 id="SPFA算法"><a href="#SPFA算法" class="headerlink" title="SPFA算法"></a>SPFA算法</h1><p>Bellman-Ford算法虽然解决了负权路的问题，但是其效率过于底下，并不常使用。</p>
+<p>而SPFA算法，是其高效率的替代方法。</p>
+<p>其与无权图的BFS较为相近。</p>
+<p>不同的是，visited数组记录的不是是否已经访问过，而是是否在队列Q中</p>
+<p>每次松弛操作更新估计值(d[i])，如果i点不在队列中，则要把i点入队</p>
+<p>如果有边入队的次数超过N次，则说明存在负环。</p>
+<h1 id="Floyd算法"><a href="#Floyd算法" class="headerlink" title="Floyd算法"></a>Floyd算法</h1><p>如果需要求出每两点之间的最短路，则可以使用Floyd算法，这是一个非常简洁的算法</p>
+<p>不断进行松弛操作，即可得到最短路径</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;n;k++)</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</div><div class="line">            d[i][j]=min(d[i][j],d[i][k]+d[k][j]);</div></pre></td></tr></table></figure>
+<p>迭代加深搜索、A*、IDA*是三种相似并且很有用的算法。</p>
+<p>他们是一种解题的思路，并没有具体的实现代码，在脑海中有这种思路，有可能会帮助我们获取解题的思路</p>
+<h1 id="迭代加深搜索"><a href="#迭代加深搜索" class="headerlink" title="迭代加深搜索"></a>迭代加深搜索</h1><p>迭代加深搜索是一种不断拓展搜索范围的搜索方式。</p>
+<p>可以将其形象成一棵树，这棵树有无数层（深度无限深），每一层有无限个节点（无限广）</p>
+<p>因此，无论是DFS还是BFS，都不能拓展一支，拓展一层。</p>
+<p>而其答案可能就在第二层第二支上……</p>
+<p>为了求解这种问题，有了迭代加深搜索。</p>
+<p>顾名思义，迭代加深就是逐渐增加搜索的范围。</p>
+<p>最初我们只搜索maxd的范围，当maxd内没有我们需要的答案时，我们将maxd+1，而后继续搜索。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span>(maxd=<span class="number">1</span>;;maxd++)</div><div class="line">    <span class="keyword">if</span>(dfs(...))</div><div class="line">        <span class="keyword">break</span>;</div></pre></td></tr></table></figure>
+<p>埃及分数问题，是经典的迭代加深问题</p>
+<p>在古埃及，人们使用单位分数的和（形如 1/a 的，a 是正整数）表示一切有理数。</p>
+<p>如：<code>2/3 = 1/2 + 1/6</code>，但不允许 <code>2/3 = 1/3 + 1/3</code>，因为加数中有相同的。</p>
+<p>首先，加数少的比加数多的好，其次，加数个数相同的，最小的分数越大越好。</p>
+<p>首先BFS无法求解这个问题，我们不知道有几个加数；其次DFS也不能求解这个问题，我们不知道加数没有最小值（分母可以无限大）。</p>
+<p>因此，我们需要使用迭代加深算法。先让每个加数都大于1/10，进行DFS，如果没有答案，再搜索每个加数都大于1/20……</p>
+<p>很显然，每次maxd的增加，都导致了重复搜索，不过相比搜索总数指数级的增加，重复搜索的这部分可以忽略……</p>
+<h1 id="A-算法"><a href="#A-算法" class="headerlink" title="A*算法"></a>A*算法</h1><p>A*算法，又称启发式搜索。</p>
+<p>用公式表示为</p>
+<blockquote>
+<p>f(n)=g(n)+h(n)</p>
+</blockquote>
+<p>其中</p>
+<blockquote>
+<p>f(n)是初始点经由节点n到目标点的估价函数</p>
+<p>g(n)是在状态空间中从初始节点到n节点的实际代价</p>
+<p>h(n)是从n到目标结点的最佳路径的估计代价</p>
+</blockquote>
+<p>具体是什么意思呢，就是我们要优先选择一条我们估计最好的分支进行拓展，对于我们估计不是很好的分支进行剪枝。</p>
+<p>由于最好只是我们的估计，因此，如果估计的不合理，可能会丢失最优解或者并没有有效提升效率。</p>
+<p>与Dijkstra对比，我们可以发现，Dijkstra其实是简化的一种A*算法：</p>
+<p>它与A*相比少了剪枝的部分，与BFS相比，多了估价的部分</p>
+<h1 id="IDA-算法"><a href="#IDA-算法" class="headerlink" title="IDA*算法"></a>IDA*算法</h1><p>将迭代加深的有上限的搜索和A<em>算法的剪枝与估价结合，就得到了IDA</em>算法</p>
+<p>IDA*算法有以下优缺点：</p>
+<ul>
+<li>优化了A*对空间的小号</li>
+<li>在每一次迭代的过程中避免了判重</li>
+<li>比普通的DFS相比更加明确目标，并能够有效剪枝</li>
+<li>迭代加深会导致重复搜索内容</li>
+</ul>
+
+    
+
+        <a href="/post/Algorithm/Shortest_Path.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/A/">A*</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bellman-Ford/">Bellman-Ford</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dijkstra/">Dijkstra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Floyd/">Floyd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDA/">IDA*</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Iteration/">迭代加深</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/bit"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-26 00:41:00 00:41:00" datetime="2016-03-25T16:41:00.000Z"  itemprop="datePublished">2016-03-26 00:41:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/bit.html">(转)巧妙运用C语言位运算+位运算笔记</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><blockquote>
+<p>位运算的运算分量只能是整型或字符型数据，位运算把运算对象看作是由二进位组成的位串信息，按位完成指定的运算，得到位串信息的结果。<br>位运算符有：<br>&amp;(按位与)、|(按位或)、^(按位异或)、~ (按位取反)。  </p>
+<p>其中，按位取反运算符是单目运算符，其余均为双目运算符。  </p>
+<p>位运算符的优先级从高到低，依次为~、&amp;、^、|，  </p>
+<p>其中~的结合方向自右至左，且优先级高于算术运算符，其余运算符的结合方向都是自左至右，且优先级低于关系运算符。  </p>
+</blockquote>
+<h2 id="1-按位与运算符-amp"><a href="#1-按位与运算符-amp" class="headerlink" title="(1)按位与运算符(&amp;)"></a>(1)按位与运算符(&amp;)</h2><p>按位与运算将两个运算分量的对应位按位遵照以下规则进行计算：<br>     <code>0 &amp; 0 = 0, 0 &amp; 1 = 0, 1 &amp; 0 = 0, 1 &amp; 1 = 1</code>。<br>即同为 1 的位，结果为 1，否则结果为 0。<br>例如，设3的内部表示为<br> 00000011<br>5的内部表示为<br> 00000101<br>则3&amp;5的结果为<br> 00000001<br>按位与运算有两种典型用法，一是取一个位串信息的某几位，如以下代码截取x的最低7位：x &amp; 0177。二是让某变量保留某几位，其余位置0，如以下代码让x只保留最低6位：x = x &amp; 077。以上用法都先要设计好一个常数，该常数只有需要的位是1，不需要的位是0。用它与指定的位串信息按位与。   </p>
+<h2 id="2-按位或运算符"><a href="#2-按位或运算符" class="headerlink" title="(2)按位或运算符(|)"></a>(2)按位或运算符(|)</h2><p>按位或运算将两个运算分量的对应位按位遵照以下规则进行计算： </p>
+<p><code>0 | 0 = 0, 0 | 1 = 1, 1 | 0 = 1, 1 | 1 = 1</code> </p>
+<p>即只要有1个是1的位，结果为1，否则为0。   </p>
+<p>例如，023 | 035 结果为037。   </p>
+<p>按位或运算的典型用法是将一个位串信息的某几位置成1。如将要获得最右4为1，其他位与变量j的其他位相同，可用逻辑或运算017|j。若要把这结果赋给变量j，可写成：<br>     j = 017|j </p>
+<h2 id="3-按位异或运算符"><a href="#3-按位异或运算符" class="headerlink" title="(3)按位异或运算符(^)"></a>(3)按位异或运算符(^)</h2><p>按位异或运算将两个运算分量的对应位按位遵照以下规则进行计算：  </p>
+<pre><code>`0 ^ 0 = 0, 0 ^ 1 = 1, 1 ^ 0 = 1, 1 ^ 1 = 0 `
+</code></pre><p>即相应位的值相同的，结果为 0，不相同的结果为 1。   </p>
+<p>例如，013^035结果为026。 </p>
+<p>异或运算的意思是求两个运算分量相应位值是否相异，相异的为1，相同的为0。按位异或运算的典型用法是求一个位串信息的某几位信息的反。如欲求整型变量j 的最右4位信息的反，用逻辑异或运算017^j，就能求得j最右4位的信息的反,即原来为1的位，结果是0,原来为0的位，结果是1。   </p>
+<h2 id="4-按位取反运算符"><a href="#4-按位取反运算符" class="headerlink" title="(4)按位取反运算符(~)"></a>(4)按位取反运算符(~)</h2><p>按位取反运算是单目运算，用来求一个位串信息按位的反，即哪些为0的位，结果是1，而哪些为1的位，结果是0。例如, ~7的结果为0xfff8。  </p>
+<p>取反运算常用来生成与系统实现无关的常数。如要将变量x最低6位置成0，其余位不变，可用代码x = x &amp; ~077实现。以上代码与整数x用2个字节还是用4个字节实现无关。  </p>
+<p>当两个长度不同的数据进行位运算时(例如long型数据与int型数据)，将两个运算分量的右端对齐进行位运算。如果短的数为正数，高位用0补满；如果短的数为负数，高位用1补满。如果短的为无符号整数，则高位总是用0补满。  </p>
+<p>位运算用来对位串信息进行运算，得到位串信息结果。如以下代码能取下整型变量k的位串信息的最右边为1的信息位：((k-1)^k) &amp; k。  </p>
+<h2 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h2><p>移位运算用来将整型或字符型数据作为二进位信息串作整体移动。有两个运算符：   </p>
+<h3 id="lt-lt-左移-和-gt-gt-右移"><a href="#lt-lt-左移-和-gt-gt-右移" class="headerlink" title="&lt;&lt; (左移) 和 &gt;&gt; (右移)"></a>&lt;&lt; (左移) 和 &gt;&gt; (右移)</h3><p>移位运算是双目运算，有两个运算分量,左分量为移位数据对象，右分量的值为移位位数。移位运算将左运算分量视作由二进位组成的位串信息,对其作向左或向右移位，得到新的位串信息。   </p>
+<p>移位运算符的优先级低于算术运算符，高于关系运算符，它们的结合方向是自左至右。   </p>
+<h3 id="1-左移运算符-lt-lt"><a href="#1-左移运算符-lt-lt" class="headerlink" title="(1)左移运算符(&lt;&lt;)"></a>(1)左移运算符(&lt;&lt;)</h3><p>左移运算将一个位串信息向左移指定的位，右端空出的位用0补充。例如014&lt;&lt;2,结果为060,即48。   </p>
+<p>左移时，空出的右端用0补充，左端移出的位的信息就被丢弃。在二进制数运算中，在信息没有因移动而丢失的情况下，每左移1位相当于乘2。如4 &lt;&lt; 2，结果为16。   </p>
+<h3 id="2-右移运算符-gt-gt"><a href="#2-右移运算符-gt-gt" class="headerlink" title="(2)右移运算符(&gt;&gt;)"></a>(2)右移运算符(&gt;&gt;)</h3><p>右移运算将一个位串信息向右移指定的位，右端移出的位的信息被丢弃。例如12&gt;&gt;2,结果为3。与左移相反，对于小整数，每右移1位，相当于除以2。在右移时，需要注意符号位问题。对无符号数据，右移时，左端空出的位用0补充。对于带符号的数据，如果移位前符号位为0(正数)，则左端也是用0   </p>
+<p>补充；如果移位前符号位为1(负数)，则左端用0或用1补充，取决于计算机系统。对于负数右移，称用0 补充的系统为“逻辑右移”，用1补充的系统为“算术右移”。以下代码能说明读者上机的系统所采用的右移方法：   </p>
+<p><code>printf(&quot;%d\n\n\n&quot;, -2&gt;&gt;4);</code>  </p>
+<p>若输出结果为-1，是采用算术右移；输出结果为一个大整数，则为逻辑右移。   </p>
+<p>移位运算与位运算结合能实现许多与位串运算有关的复杂计算。设变量的位自右至左顺序编号，自0位至15位，有关指定位的表达式是不超过15的正整数。以下各代码分别有它们右边注释所示的意义：   </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line">~（~<span class="number">0</span> &lt;&lt; n） <span class="comment">/* 实现最低n位为1，其余位为0的位串信息 */</span>   </div><div class="line"></div><div class="line">(x &gt;&gt; (<span class="number">1</span>+p-n)) &amp; ~(~<span class="number">0</span> &lt;&lt; n) <span class="comment">/* 截取变量x自p位开始的右边n位的信息 */</span>   </div><div class="line"></div><div class="line"><span class="keyword">new</span> |= ((old &gt;&gt; row) &amp; <span class="number">1</span>) &lt;&lt; (<span class="number">15</span> – k) <span class="comment">/* 截取old变量第row位，并将该位信息装配到变量new的第15-k位 */</span>   </div><div class="line"></div><div class="line">s &amp;= ~(<span class="number">1</span> &lt;&lt; j) <span class="comment">/* 将变量s的第j位置成0，其余位不变 */</span>   </div><div class="line"></div><div class="line"><span class="keyword">for</span>(j = <span class="number">0</span>; ((<span class="number">1</span> &lt;&lt; j) &amp; s) == <span class="number">0</span>; j++) ; <span class="comment">/* 设s不等于全0，代码寻找最右边为1的位的序号j */</span></div></pre></td></tr></table></figure>
+<p>！为逻辑取反，表示非的意思  </p>
+<p>经过它处理后的结果为布尔型，要么为0，要么为1，!x，只要x不为0，1,2，3，都可以，那么!x的结果就是0，只有当x为0时，结果为1。如果<em>为真，则！</em>为假，反之如果<em>为假，则！</em>为真  </p>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><h2 id="lowbit函数"><a href="#lowbit函数" class="headerlink" title="lowbit函数"></a>lowbit函数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> x&amp;(-x);    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于程序数据用补码保存，负数是其绝对值取反+1<br><code>1（0001）</code><br><code>-1（1111）</code><br><code>1&amp;（-1）=0001</code>  </p>
+<p>其意义是将只保留最低位的1<br>换成10进制后就是2i（i是最低位的1的位数）</p>
+<h2 id="判断最后一位"><a href="#判断最后一位" class="headerlink" title="判断最后一位"></a>判断最后一位</h2><p><code>x&amp;1;</code> 可以取得x最后一位是1还是0</p>
+<h2 id="1"><a href="#1" class="headerlink" title="+1"></a>+1</h2><p>将一个数+1，可以将其最后一个0变成1，比其低的位变成0</p>
+<h2 id="1-1"><a href="#1-1" class="headerlink" title="-1"></a>-1</h2><p>将一个数-1，可以将其最后一个1变成0，比其低的位变成1</p>
+<h2 id="计算二进制中1的个数"><a href="#计算二进制中1的个数" class="headerlink" title="计算二进制中1的个数"></a>计算二进制中1的个数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bitCount</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">    i = i - ((i &gt;&gt;&gt; <span class="number">1</span>) &amp; <span class="number">0x55555555</span>);</div><div class="line">    i = (i &amp; <span class="number">0x33333333</span>) + ((i &gt;&gt;&gt; <span class="number">2</span>) &amp; <span class="number">0x33333333</span>);</div><div class="line">    i = (i + (i &gt;&gt;&gt; <span class="number">4</span>)) &amp; <span class="number">0x0f0f0f0f</span>;</div><div class="line">    i = i + (i &gt;&gt;&gt; <span class="number">8</span>);</div><div class="line">    i = i + (i &gt;&gt;&gt; <span class="number">16</span>);</div><div class="line">    <span class="keyword">return</span> i &amp; <span class="number">0x3f</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="返回右起第一个1的位置"><a href="#返回右起第一个1的位置" class="headerlink" title="返回右起第一个1的位置"></a>返回右起第一个1的位置</h2><p>Returns one plus the index of the least significant 1-bit of x, or if x is zero, returns zero.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_ffs (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_ffsl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_ffsll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回左起第一个1之前0的个数"><a href="#返回左起第一个1之前0的个数" class="headerlink" title="返回左起第一个1之前0的个数"></a>返回左起第一个1之前0的个数</h2><p>Returns the number of leading 0-bits in x, starting at the most significant bit position. If x is 0, the result is undefined.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_clz (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_clzl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_clzll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回右起第一个1之后的0的个数"><a href="#返回右起第一个1之后的0的个数" class="headerlink" title="返回右起第一个1之后的0的个数"></a>返回右起第一个1之后的0的个数</h2><p>Returns the number of trailing 0-bits in x, starting at the least significant bit position. If x is 0, the result is undefined.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_ctz (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_ctzl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_ctzll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回1的个数"><a href="#返回1的个数" class="headerlink" title="返回1的个数"></a>返回1的个数</h2><p>Returns the number of 1-bits in x.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_popcount (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_popcountl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_popcountll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+<h2 id="返回1的个数的奇偶性"><a href="#返回1的个数的奇偶性" class="headerlink" title="返回1的个数的奇偶性"></a>返回1的个数的奇偶性</h2><p>Returns the parity of x, i.e. the number of 1-bits in x modulo 2.<br><figure class="highlight cpp"><table><tr><td class="code"><pre><div class="line"><span class="keyword">int</span> __builtin_parity (<span class="keyword">unsigned</span> <span class="keyword">int</span> x)</div><div class="line"><span class="keyword">int</span> __builtin_parityl (<span class="keyword">unsigned</span> <span class="keyword">long</span>)</div><div class="line"><span class="keyword">int</span> __builtin_parityll (<span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span>)</div></pre></td></tr></table></figure></p>
+
+    
+
+        <a href="/post/Note/bit.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bit/">位运算</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/716"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-25 16:45:00 16:45:00" datetime="2016-03-25T08:45:00.000Z"  itemprop="datePublished">2016-03-25 16:45:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/716.html">AOJ 716.谢尔宾斯基三角形</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>3000 ms</code><br>Case Time Limit: <code>3000 ms</code><br>Memory Limit: <code>128 MB</code><br>Total Submission: <code>116</code><br>Submission Accepted: <code>35</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>谢尔宾斯基三角形（Sierpinski triangle）是一种分形，由波兰数学家谢尔宾斯基在1915年提出。下面的图片就是谢尔宾斯基三角形的一个简单例子。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://icpc.ahu.edu.cn/OJ/images/sxbj.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>现在，Roll想在自己的电脑中画出这个图形，他要求不高，只要实现一个控制台版本就好，也不需要行首的空格缩进，下面是一个25行的控制台版本的谢尔宾斯基三角形例子。（具体的字符可以参考样例输出)<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://icpc.ahu.edu.cn/OJ/images/sxbj1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  </p>
+<p>你能帮他实现么<br>
+    
+
+        <a href="/post/AOJ/716.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Recurrence/">递推</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/803"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-23 23:51:00 23:51:00" datetime="2016-03-23T15:51:00.000Z"  itemprop="datePublished">2016-03-23 23:51:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/803.html">AOJ 803.魔方</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>5000 ms</code><br>Case Time Limit: <code>5000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>181</code><br>Submission Accepted: <code>71</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>西瓜很喜欢玩魔方，现在西瓜想知道，一个N阶魔方在表面一共有多少个立方体能被看见？<br>
+    
+
+        <a href="/post/AOJ/803.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/796"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-23 23:49:00 23:49:00" datetime="2016-03-23T15:49:00.000Z"  itemprop="datePublished">2016-03-23 23:49:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/796.html">AOJ 796.数三角形</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>5000 ms</code><br>Case Time Limit: <code>5000 ms</code><br>Memory Limit: <code>128 MB</code><br>Total Submission: <code>112</code><br>Submission Accepted: <code>40</code>  </p>
+<p>Description  </p>
+<blockquote>
+<p>ACMer最讨厌大段大段的题目描述了，尤其当题目描述是英文的时候。还好，1243France为大家准备了一道简洁且简单的问题。<br>给出平面上n个点的坐标，求这n个点总共可以围成多少个面积大于0的三角形。<br>保证每个点的横纵坐标均为整数且绝对值小于等于100。<br>保证给出点当中没有重点<br>
+    
+
+        <a href="/post/AOJ/796.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/800"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-23 23:45:00 23:45:00" datetime="2016-03-23T15:45:00.000Z"  itemprop="datePublished">2016-03-23 23:45:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/800.html">AOJ 800.热身之开关灯</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>224</code><br>Submission Accepted: <code>86</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>吃完草莓以后，机房的小伙伴们要开始做些运动。在ACM实验室里有N盏灯编号为1到N，起初都是开着的，从第一盏灯开始，凡是编号是一的倍数的灯的开关都要被按一遍（亮的变成暗的，暗的变成亮的），<br>然后到第二盏灯，凡是编号是二的倍数的灯的开关都要被按一遍，一直到第N盏灯，凡是编号是N的倍数的灯都要被按一遍。那么问题来了，在灯质量比较好的情况下，最后还有多少盏灯是亮着的。<br>
+    
+
+        <a href="/post/AOJ/800.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">打表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AOJ/801"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-03-23 23:44:00 23:44:00" datetime="2016-03-23T15:44:00.000Z"  itemprop="datePublished">2016-03-23 23:44:00</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/AOJ/801.html">AOJ 801.热身之蘸酱吃</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>108</code><br>Submission Accepted: <code>50</code>  </p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>在ACM实验室里有n个草莓，编号依次为1到n，重量依次为w[1]，w[2],…,w[n]。<br>由于某人比较喜欢蘸西瓜酱吃，在接下来的时间内，我会选择m个区间[l,r]并且随机选择一个数字k，使得标号在[l,r]区间内的每个草莓（包括端点）上面都加蘸了k重量的酱。<br>这时候会突然出现T个区间[L,R]，对于每个区间，我们需要计算标号属于这个区间的草莓的重量和（包括上面的西瓜酱的重量，区间也包括端点）并输出。<br>
+    
+
+        <a href="/post/AOJ/801.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-AOJ/799"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -316,416 +860,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-AOJ/708"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 20:04:00 20:04:00" datetime="2016-03-12T12:04:00.000Z"  itemprop="datePublished">2016-03-12 20:04:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/708.html">AOJ 708.序列匹配</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: 5000 ms<br>Memory Limit: 128 MB<br>Total Submission: 146<br>Submission Accepted: 34  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>给定两个长度均为3的数字序列，每位上为一个范围是1-N的正整数，求有多少个仍然由3个1-N的整数构成的数字序列能与给定的两个序列中的任意一个匹配。<br>如果两个序列匹配，当且仅当两个序列中的每个对应数字的最近距离不超过2。<br>比如当N为9时，每一位数字可能是1,2,3,4,5,6,7,8,9，并且数字是循环的。也就是说9和1是相邻的。<br>数字之间的距离就是两个数字的位置之差。<br>也就是说在上面的例子中，9和1的最近距离是1,9和2的最近距离是2,2和5的最近距离是3。<br>比如现在给定两个序列组合为(1,2,3)和(4,5,6), (2,4,8)或者(1, N, 5) 是能和两个序列匹配中的至少一个匹配的，但是(1, 5, 6)是不能和给定的两个序列中的任何一个匹配的。<br>
-    
-
-        <a href="/post/AOJ/708.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/589"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 20:02:00 20:02:00" datetime="2016-03-12T12:02:00.000Z"  itemprop="datePublished">2016-03-12 20:02:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/589.html">AOJ 589.多米诺</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>34</code><br>Submission Accepted: <code>12</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>有一个n*m的网格，用一些2*1的多米诺去填充。<br>有以下规则：<br>1、每一个多米诺必须完整覆盖两个格子<br>2、多米诺之间不能重叠<br>3、多米诺不能超过网格边界<br>4、摆放多米诺时可以旋转，但是不能斜着摆放<br>问最多可以用多少个多米诺去覆盖网格。<br>
-    
-
-        <a href="/post/AOJ/589.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/335"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:59:00 19:59:00" datetime="2016-03-12T11:59:00.000Z"  itemprop="datePublished">2016-03-12 19:59:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/335.html">AOJ 335.三角形</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: 1000 ms   Case Time Limit: 1000 ms   Memory Limit: 64 MB<br>Total Submission: 41   Submission Accepted: 26  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>一个名为PC的安大学生希望写一个程序来计算三角形的三条边长，你可以帮帮她吗？  </p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>第一行是一个整数m(0&lt;m&lt;200)，代表有m组数据。<br>之后m行，每行有三个整数(x&lt;10000),三角形的三条边<br>
-    
-
-        <a href="/post/AOJ/335.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/162"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:57:00 19:57:00" datetime="2016-03-12T11:57:00.000Z"  itemprop="datePublished">2016-03-12 19:57:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/162.html">AOJ 162.杨辉三角</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>47</code><br>Submission Accepted: <code>26</code>    </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>1<br>1 1<br>1 2 1<br>1 3 3 1<br>1 4 6 4 1<br>1 5 10 10 5 1<br>上面的图形熟悉吗？它就是我们中学时候学过的杨辉三角。<br>现在请你输出一个m层的杨辉三角<br>
-    
-
-        <a href="/post/AOJ/162.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dp/">动态规划</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/List/">打表</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/609"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:55:00 19:55:00" datetime="2016-03-12T11:55:00.000Z"  itemprop="datePublished">2016-03-12 19:55:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/609.html">AOJ 609.LOL系列之回到现实</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>72</code><br>Submission Accepted: <code>28</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>天天LOL，没怎么上过自习，这就是小小明生活的真实写照，殊不知，期末考试悄悄降临，首先考的是大物，纳尼？！！！这学期物理卷子改版？只有一道计算题？！<br>题目描述如下：你在一数轴原点上，需要朝正方向一颗炮弹，你可以给炮弹提供的最大初速度为V，你应该调整炮弹的发射角度为多少才可以使得炮弹水平飞行距离最大呢？<br>请输出炮弹最远飞行的水平距离，由于期末考试只有一题，所以要么AC，要么挂大物，你们自己看着办吧（这就是天天撸的后果，学霸们早已在你们看完这题的时候AC了）（g = 9.8）<br>注：不考虑空气阻力  </p>
-</blockquote>
-    
-
-        <a href="/post/AOJ/609.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/579"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:53:00 19:53:00" datetime="2016-03-12T11:53:00.000Z"  itemprop="datePublished">2016-03-12 19:53:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/579.html">AOJ 579.期末考试之传纸条</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>32 MB</code><br>Total Submission: <code>12</code><br>Submission Accepted: <code>8</code>  </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>平时不努力，考试得着急呐。传说中的BT监考老师竟然搬来了信号屏蔽工具，手机不管用啦有木有。<br>不过这难不到大家，cxlove见证了同学们使用传统的作弊方式—-传纸条，纸条得从A同学传到B同学处，在一个N*M的教室里，零散着坐着一些同学，监考老师游荡在教室某些位置，能否成功将纸条传到B同学处，且不被老师发现。<br>每一次传纸条不能斜传，只能传给前后左右四个同学，监考老师的监视范围为相邻的八个位置，当纸条传到老师监视范围内就会被逮住了，纸条传到空位置处时传送失败。<br>帮cxlove计算下最少需要多少时间才能完成传纸条。<br>
-    
-
-        <a href="/post/AOJ/579.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/491"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:52:00 19:52:00" datetime="2016-03-12T11:52:00.000Z"  itemprop="datePublished">2016-03-12 19:52:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/491.html">AOJ 491.扑克牌</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>64 MB</code><br>Total Submission: <code>54</code><br>Submission Accepted: <code>24</code>    </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>扑克牌大家非常熟悉，扑克牌从小到大的顺序为：<br>3,4,5,6,7,8,9,10,J,Q,K,A,2<br>我们就做个简单的事，单张扑克牌比大小，并且还没有花色区别，也没有大小王。<br>
-    
-
-        <a href="/post/AOJ/491.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AOJ/718"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-03-12 19:47:00 19:47:00" datetime="2016-03-12T11:47:00.000Z"  itemprop="datePublished">2016-03-12 19:47:00</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/AOJ/718.html">AOJ 718.计算GPA</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<p>Time Limit: <code>1000 ms</code><br>Case Time Limit: <code>1000 ms</code><br>Memory Limit: <code>128 MB</code><br>Total Submission: <code>72</code><br>Submission Accepted: <code>32</code></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>上学期面对繁重的课程和考试，TYF终于考完了。成绩出来之后，TYF想看一下GPA(Grade Point Average,平均成绩点数)是多少，之后他熟练的打开了教务处，看到绩点显示0.00，他丝毫没有感到吃惊，他知道教务处又出现问题了。之后TYF决定自己写一个程序来计算自己的GPA。想必大家都知道GPA如何计算的，就是加权平均数。计算方式如下：<br>例如某学生的五门课程的学分和他所获得的绩点为：<br>A课程四个学分，绩点4；<br>B课程三个学分，绩点3；<br>C课程两个学分，绩点4；<br>D课程六个学分，绩点2；<br>E课程三个学分，绩点3。<br>以上五项成绩GPA为：<br>GPA=（4<em>4+3</em>3+2<em>4+6</em>2+3*3）/（4+3+2+6+3）=3.00<br>现在让你帮助TYF完成这项任务。<br>
-    
-
-        <a href="/post/AOJ/718.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AOJ/">AOJ</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/42/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/44/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/42/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/41/">41</a><a class="page-number" href="/page/42/">42</a><span class="page-number current">43</span><a class="page-number" href="/page/44/">44</a><a class="page-number" href="/page/45/">45</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/44/">下一页</a>
     </div>
 </nav>
 

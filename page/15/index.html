@@ -217,6 +217,456 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-HDU/1269"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-06 02:56:42 02:56:42" datetime="2016-11-05T18:56:42.000Z"  itemprop="datePublished">2016-11-06 02:56:42</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/1269.html">HDU 1269.迷宫城堡</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>为了训练小希的方向感，Gardon建立了一座大城堡，里面有N个房间(N&lt;=10000)和M条通道(M&lt;=100000)，每个通道都是单向的，就是说若称某通道连通了A房间和B房间，只说明可以通过这个通道由A房间到达B房间，但并不说明通过它可以由B房间到达A房间。Gardon需要请你写个程序确认一下是否任意两个房间都是相互连通的，即：对于任意的i和j，至少存在一条路径可以从房间i到房间j，也存在一条路径可以从房间j到房间i。  </p>
+    
+
+        <a href="/post/HDU/1269.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gabow/">gabow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kosaraju/">kosaraju</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Algorithm/Strongly_connected_components"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-06 01:01:07 01:01:07" datetime="2016-11-05T17:01:07.000Z"  itemprop="datePublished">2016-11-06 01:01:07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Algorithm/">算法</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Algorithm/Strongly_connected_components.html">强连通分量缩点 — Kosaraju | Tarjan | Gabow</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="强连通分量"><a href="#强连通分量" class="headerlink" title="强连通分量"></a>强连通分量</h1><p>如果两个点能够互相到达,那么说明两个点在一个 <strong>强连通分量</strong> (成 <strong>环</strong> )里<br>其概念与 <a href="/post/Algorithm/Union_Find.html"><strong>并查集</strong></a> 相似  </p>
+<p>不同点在于并查集为无向图,直接遍历,只要能访问到就在一个并查集里<br>而强连通分量操作的是无向图,需要考虑边的方向  </p>
+<p>如图,最左侧的分支不是一个强连通分量,而右两个是  </p>
+<p><img src="/post/img/strongly_connected_components_1.png" alt="Strongly_connected_components"></p>
+<p>在许多图的题目里,需要对节点进行 <strong>强连通分量缩点</strong> 从而简化后续操作的复杂度<br>缩点后,新的图是一个 <strong>有向无环图(DAG)</strong> ,因此可以使用其他算法进行其他的操作  </p>
+<p>强连通分量的算法有 kosaraju tarjan gabow  </p>
+<p>找了模板题 <a href="/post/HDU/1269.html"><strong>HDU 1269.迷宫城堡</strong></a> 测试写的模板有没有问题</p>
+    
+
+        <a href="/post/Algorithm/Strongly_connected_components.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gabow/">gabow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kosaraju/">kosaraju</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5934"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-05 22:53:05 22:53:05" datetime="2016-11-05T14:53:05.000Z"  itemprop="datePublished">2016-11-05 22:53:05</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5934.html">HDU 5934.Bomb(2016 CCPC 杭州 B)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>There are N bombs needing exploding.  </p>
+<p>Each bomb has three attributes: exploding radius ri, position (xi,yi) and lighting-cost ci which means you need to pay ci cost making it explode.  </p>
+<p>If a un-lighting bomb is in or on the border the exploding area of another exploding one, the un-lighting bomb also will explode.  </p>
+<p>Now you know the attributes of all bombs, please use the minimum cost to explode all bombs.  </p>
+    
+
+        <a href="/post/HDU/5934.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tarjan/">tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Strongly-connected-components/">强连通分量</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5938"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-01 00:38:44 00:38:44" datetime="2016-10-31T16:38:44.000Z"  itemprop="datePublished">2016-11-01 00:38:44</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5938.html">HDU 5938.Four Operations(2016 CCPC 杭州 F)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Little Ruins is a studious boy, recently he learned the four operations!  </p>
+<p>Now he want to use four operations to generate a number, he takes a string which only contains digits ‘1’ - ‘9’, and split it into 5 intervals and add the four operations ‘+’, ‘-‘, ‘*’ and ‘/‘ in order, then calculate the result(/ used as integer division).  </p>
+<p>Now please help him to get the largest result.  </p>
+    
+
+        <a href="/post/HDU/5938.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5935"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-01 00:28:32 00:28:32" datetime="2016-10-31T16:28:32.000Z"  itemprop="datePublished">2016-11-01 00:28:32</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5935.html">HDU 5935.Car(2016 CCPC 杭州 C)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>Ruins is driving a car to participating in a programming contest. As on a very tight schedule, he will drive the car without any slow down, so the speed of the car is non-decrease real number.  </p>
+<p>Of course, his speeding caught the attention of the traffic police. Police record N positions of Ruins without time mark, the only thing they know is every position is recorded at an integer time point and Ruins started at 0.  </p>
+<p>Now they want to know the minimum time that Ruins used to pass the last position.  </p>
+    
+
+        <a href="/post/HDU/5935.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-HDU/5933"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-11-01 00:05:38 00:05:38" datetime="2016-10-31T16:05:38.000Z"  itemprop="datePublished">2016-11-01 00:05:38</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/HDU/5933.html">HDU 5933.ArcSoft&#39;s Office Rearrangement(2016 CCPC 杭州 A)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
+<p>ArcSoft, Inc. is a leading global professional computer photography and computer vision technology company.  </p>
+<p>There are N working blocks in ArcSoft company, which form a straight line. The CEO of ArcSoft thinks that every block should have equal number of employees, so he wants to re-arrange the current blocks into K new blocks by the following two operations:  </p>
+<ul>
+<li>merge two neighbor blocks into a new block, and the new block’s size is the sum of two old blocks’.  </li>
+<li>split one block into two new blocks, and you can assign the size of each block, but the sum should be equal to the old block.  </li>
+</ul>
+<p>Now the CEO wants to know the minimum operations to re-arrange current blocks into K block with equal size, please help him.  </p>
+    
+
+        <a href="/post/HDU/5933.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CCPC/">CCPC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Simulation/">模拟</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Note/First_qt"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-10-31 18:25:35 18:25:35" datetime="2016-10-31T10:25:35.000Z"  itemprop="datePublished">2016-10-31 18:25:35</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">笔记</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Note/First_qt.html">第一个 Qt 程序</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>帮忙写数据结构的课程设计,要用到界面,就顺便入门了下 Qt (算不上入门,只是能跑起来而已)<br>
+    
+
+        <a href="/post/Note/First_qt.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Qt/">Qt</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-Project/ACM2016-10-22"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-10-23 23:24:02 23:24:02" datetime="2016-10-23T15:24:02.000Z"  itemprop="datePublished">2016-10-23 23:24:02</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Topic/">专题</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/post/Project/ACM2016-10-22.html">ACM 2016级新生赛题解(2)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <table>
+<thead>
+<tr>
+<th style="text-align:center">题号</th>
+<th style="text-align:center">题目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Problem A</td>
+<td style="text-align:center">A + B Problem</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem B</td>
+<td style="text-align:center">求绝对值</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem C</td>
+<td style="text-align:center">成绩转换</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem D</td>
+<td style="text-align:center">水仙花数</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem E</td>
+<td style="text-align:center">数据的交换输出</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem F</td>
+<td style="text-align:center">字符串统计</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem G</td>
+<td style="text-align:center">多项式求和</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem H</td>
+<td style="text-align:center">求数列的和</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem I</td>
+<td style="text-align:center">折线分割平面</td>
+</tr>
+<tr>
+<td style="text-align:center">Problem J</td>
+<td style="text-align:center">Choosing Teams</td>
+</tr>
+</tbody>
+</table>
+<p>本题解采用 C++ ,大概思路与 C 一样<br>cin 对应 scanf<br>cout 对应 printf</p>
+<p>如果还有问题群里问即可,有余力的同学可以看群公告里上一次比赛<br>那一套题更难,群文件有上次的题解</p>
+    
+
+        <a href="/post/Project/ACM2016-10-22.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-hihocoder/1385"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -361,406 +811,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-HDU/1273"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-19 00:25:53 00:25:53" datetime="2016-09-18T16:25:53.000Z"  itemprop="datePublished">2016-09-19 00:25:53</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1273.html">HDU 1532.Drainage Ditches</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>原题,详细看 <a href="/post/POJ/1273.html"><strong>POJ 1273.Drainage Ditches</strong></a></p>
-
-    
-
-        <a href="/post/HDU/1273.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-POJ/1273"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-19 00:25:53 00:25:53" datetime="2016-09-18T16:25:53.000Z"  itemprop="datePublished">2016-09-19 00:25:53</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/POJ/1273.html">POJ 1273.Drainage Ditches</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>Every time it rains on Farmer John’s fields, a pond forms over Bessie’s favorite clover patch. This means that the clover is covered by water for awhile and takes quite a long time to regrow. Thus, Farmer John has built a set of drainage ditches so that Bessie’s clover patch is never covered in water. Instead, the water is drained to a nearby stream. Being an ace engineer, Farmer John has also installed regulators at the beginning of each ditch, so he can control at what rate water flows into that ditch.<br>Farmer John knows not only how many gallons of water each ditch can transport per minute but also the exact layout of the ditches, which feed out of the pond and into each other and stream in a potentially complex network.<br>Given all this information, determine the maximum rate at which water can be transported out of the pond and into the stream. For any given ditch, water flows in only one direction, but there might be a way that water can flow in a circle.<br>
-    
-
-        <a href="/post/POJ/1273.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/POJ/">POJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5889"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-17 21:37:02 21:37:02" datetime="2016-09-17T13:37:02.000Z"  itemprop="datePublished">2016-09-17 21:37:02</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5889.html">HDU 5889.Barricade(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>The empire is under attack again. The general of empire is planning to defend his castle. The land can be seen as N towns and M roads, and each road has the same length and connects two towns. The town numbered 1 is where general’s castle is located, and the town numbered N is where the enemies are staying. The general supposes that the enemies would choose a shortest path. He knows his army is not ready to fight and he needs more time. Consequently he decides to put some barricades on some roads to slow down his enemies. Now, he asks you to find a way to set these barricades to make sure the enemies would meet at least one of them. Moreover, the barricade on the i-th road requires wi units of wood. Because of lacking resources, you need to use as less wood as possible.  </p>
-    
-
-        <a href="/post/HDU/5889.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dinic/">Dinic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maxflow-Minimalcut/">最大流最小割</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shortest-Path/">最短路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network-Flow/">网络流</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5882"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-17 21:25:03 21:25:03" datetime="2016-09-17T13:25:03.000Z"  itemprop="datePublished">2016-09-17 21:25:03</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5882.html">HDU 5882.Balanced Game(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Rock-paper-scissors is a zero-sum hand game usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are “rock”, “paper”, and “scissors”. The game has only three possible outcomes other than a tie: a player who decides to play rock will beat another player who has chosen scissors (“rock crushes scissors”) but will lose to one who has played paper (“paper covers rock”); a play of paper will lose to a play of scissors (“scissors cut paper”). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie.  </p>
-<p>Recently, there is a upgraded edition of this game: rock-paper-scissors-Spock-lizard, in which there are totally five shapes. The rule is simple: scissors cuts paper; paper covers rock; rock crushes lizard; lizard poisons Spock; Spock smashes scissors; scissors decapitates lizard; lizard eats paper; paper disproves Spock; Spock vaporizes rock; and as it always has, rock crushes scissors.  </p>
-<p>Both rock-paper-scissors and rock-paper-scissors-Spock-lizard are balanced games. Because there does not exist a strategy which is better than another. In other words, if one chooses shapes randomly, the possibility he or she wins is exactly 50% no matter how the other one plays (if there is a tie, repeat this game until someone wins). Given an integer N, representing the count of shapes in a game. You need to find out if there exist a rule to make this game balanced.  </p>
-    
-
-        <a href="/post/HDU/5882.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greed/">贪心算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/5879"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-17 21:05:09 21:05:09" datetime="2016-09-17T13:05:09.000Z"  itemprop="datePublished">2016-09-17 21:05:09</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/5879.html">HDU 5879.Cure(2016 ACM/ICPC Asia Regional Qingdao Online)</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Given an integer n, we only want to know the sum of 1/k<sup>2</sup> where k from 1 to n.  </p>
-    
-
-        <a href="/post/HDU/5879.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">数学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/High-precision/">高精度算法</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/1754"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-14 20:42:58 20:42:58" datetime="2016-09-14T12:42:58.000Z"  itemprop="datePublished">2016-09-14 20:42:58</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1754.html">HDU 1754.I Hate It</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>很多学校流行一种比较的习惯。老师们很喜欢询问，从某某到某某当中，分数最高的是多少。<br>这让很多学生很反感。   </p>
-<p>不管你喜不喜欢，现在需要你做的是，就是按照老师的要求，写一个程序，模拟老师的询问。当然，老师有时候需要更新某位同学的成绩。<br>
-    
-
-        <a href="/post/HDU/1754.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-HDU/1166"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-13 21:03:30 21:03:30" datetime="2016-09-13T13:03:30.000Z"  itemprop="datePublished">2016-09-13 21:03:30</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/HDU/1166.html">HDU 1166.敌兵布阵</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><blockquote>
-<p>C国的死对头A国这段时间正在进行军事演习，所以C国间谍头子Derek和他手下Tidy又开始忙乎了。A国在海岸线沿直线布置了N个工兵营地,Derek和Tidy的任务就是要监视这些工兵营地的活动情况。由于采取了某种先进的监测手段，所以每个工兵营地的人数C国都掌握的一清二楚,每个工兵营地的人数都有可能发生变动，可能增加或减少若干人手,但这些都逃不过C国的监视。<br>中央情报局要研究敌人究竟演习什么战术,所以Tidy要随时向Derek汇报某一段连续的工兵营地一共有多少人,例如Derek问:“Tidy,马上汇报第3个营地到第10个营地共有多少人!”Tidy就要马上开始计算这一段的总人数并汇报。但敌兵营地的人数经常变动，而Derek每次询问的段都不一样，所以Tidy不得不每次都一个一个营地的去数，很快就精疲力尽了，Derek对Tidy的计算速度越来越不满:”你个死肥仔，算得这么慢，我炒你鱿鱼!”Tidy想：“你自己来算算看，这可真是一项累人的工作!我恨不得你炒我鱿鱼呢!”无奈之下，Tidy只好打电话向计算机专家Windbreaker求救,Windbreaker说：“死肥仔，叫你平时做多点acm题和看多点算法书，现在尝到苦果了吧!”Tidy说：”我知错了。。。”但Windbreaker已经挂掉电话了。Tidy很苦恼，这么算他真的会崩溃的，聪明的读者，你能写个程序帮他完成这项工作吗？不过如果你的程序效率不够高的话，Tidy还是会受到Derek的责骂的.  </p>
-    
-
-        <a href="/post/HDU/1166.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDU/">HDU</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-tree/">线段树</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Uva/11624"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2016-09-09 22:09:14 22:09:14" datetime="2016-09-09T14:09:14.000Z"  itemprop="datePublished">2016-09-09 22:09:14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Answer/">题解</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/post/Uva/11624.html">Uva 11624.Fire!</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><blockquote>
-<blockquote>
-<p>Joe works in a maze.<br>Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.<br>Help Joe escape the maze.<br>Given Joe’s location in the maze and which squares of the maze are on fire, you must determine whether Joe can exit the maze before the fire reaches him, and how fast he can do it.<br>Joe and the fire each move one square per minute, vertically or horizontally (not diagonally).<br>The fire spreads all four directions from each square that is on fire.<br>Joe may exit the maze from any square that borders the edge of the maze.<br>Neither Joe nor the fire may enter a square that is occupied by a wall.  </p>
-    
-
-        <a href="/post/Uva/11624.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BFS/">BFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Uva/">Uva</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/14/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/47/">47</a><a class="extend next" rel="next" href="/page/16/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/14/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/48/">48</a><a class="extend next" rel="next" href="/page/16/">下一页</a>
     </div>
 </nav>
 
